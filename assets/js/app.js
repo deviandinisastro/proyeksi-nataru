@@ -120,24 +120,53 @@ function updateThemeIcons() {
 }
 
 /**
- * Inisialisasi Tombol Buka/Tutup Sidebar Navigasi
+ * Inisialisasi Tombol Buka/Tutup Sidebar Navigasi & Hover Interaktif
  */
 function initSidebarToggle() {
   const toggleBtn = document.getElementById('btn-toggle-sidebar');
   const sidebar = document.getElementById('main-sidebar');
-  if (!toggleBtn || !sidebar) return;
+  if (!sidebar) return;
 
-  toggleBtn.addEventListener('click', () => {
-    if (window.innerWidth >= 768) {
-      sidebar.classList.toggle('collapsed-desktop');
-    } else {
-      sidebar.classList.toggle('hidden');
+  // Baca preferensi ciutkan sidebar dari localStorage
+  const savedCollapsed = localStorage.getItem('dss_sidebar_collapsed');
+  if (savedCollapsed === 'true' && window.innerWidth >= 768) {
+    sidebar.classList.add('collapsed-sidebar');
+  }
+
+  // Event Klik pada Tombol Ciutkan Menu
+  if (toggleBtn) {
+    toggleBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isNowCollapsed = sidebar.classList.toggle('collapsed-sidebar');
+      localStorage.setItem('dss_sidebar_collapsed', isNowCollapsed ? 'true' : 'false');
+
+      // Refresh ikon Lucide jika diperlukan
+      if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+      }
+
+      // Trigger resize Plotly setelah lebar kontainer bergeser
+      setTimeout(() => {
+        window.dispatchEvent(new Event('resize'));
+      }, 320);
+    });
+  }
+
+  // Fitur: Klik di bagian manapun dari sidebar yang sedang tertutup untuk membuka permanen
+  sidebar.addEventListener('click', (e) => {
+    if (sidebar.classList.contains('collapsed-sidebar')) {
+      const clickedNav = e.target.closest('.nav-item');
+      const clickedToggle = e.target.closest('#btn-toggle-sidebar');
+      
+      // Jika yang diklik adalah area kosong atau baris sidebar (bukan tombol ciutkan)
+      if (!clickedToggle) {
+        sidebar.classList.remove('collapsed-sidebar');
+        localStorage.setItem('dss_sidebar_collapsed', 'false');
+        setTimeout(() => {
+          window.dispatchEvent(new Event('resize'));
+        }, 320);
+      }
     }
-
-    // Trigger resize Plotly setelah lebar kontainer bergeser
-    setTimeout(() => {
-      window.dispatchEvent(new Event('resize'));
-    }, 300);
   });
 }
 
@@ -204,7 +233,7 @@ async function loadApplicationData() {
 }
 
 /**
- * Event Listener Navigasi Menu Sidebar
+ * Event Listener Navigasi Menu Sidebar & Brand Link
  */
 function setupSidebarNavigation() {
   const navBtns = document.querySelectorAll('.nav-item');
@@ -217,6 +246,15 @@ function setupSidebarNavigation() {
       }
     });
   });
+
+  // Klik pada Logo/Teks Pusdatin mengarahkan ke halaman default (Ikhtisar Posko)
+  const brandLink = document.getElementById('brand-link');
+  if (brandLink) {
+    brandLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      switchTab('executive');
+    });
+  }
 }
 
 /**

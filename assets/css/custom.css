@@ -104,21 +104,71 @@ html.dark .nav-item:not(.active):hover {
   color: #60A5FA;
 }
 
-/* Sidebar Responsive Collapse */
+/* Sidebar Responsive Collapse & Hover-Expand Animation */
 aside#main-sidebar {
-  transition: transform 0.25s ease, width 0.25s ease;
+  transition: width 0.28s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.28s ease;
+  overflow-x: hidden;
+  white-space: nowrap;
 }
-aside#main-sidebar.collapsed-desktop {
-  width: 72px;
+
+/* Kondisi saat Sidebar diciutkan permanen (Collapsed) */
+aside#main-sidebar.collapsed-sidebar {
+  width: 72px !important;
 }
-aside#main-sidebar.collapsed-desktop .sidebar-text,
-aside#main-sidebar.collapsed-desktop .sidebar-footer-info {
+
+/* Sembunyikan teks & kotak verifikasi saat collapsed */
+aside#main-sidebar.collapsed-sidebar .sidebar-text,
+aside#main-sidebar.collapsed-sidebar .sidebar-verify-box {
+  opacity: 0;
+  pointer-events: none;
   display: none;
 }
-aside#main-sidebar.collapsed-desktop .nav-item {
+aside#main-sidebar.collapsed-sidebar .nav-item {
   justify-content: center;
   padding-left: 0;
   padding-right: 0;
+}
+aside#main-sidebar.collapsed-sidebar #sidebar-icon-collapse {
+  display: none !important;
+}
+aside#main-sidebar.collapsed-sidebar #sidebar-icon-expand {
+  display: inline-block !important;
+}
+
+/* ==============================================================================
+   ANIMASI HOVER SEMENTARA (KURSOR DIARAHKAN KE SIDEBAR YANG SEDANG TUTUP)
+   Saat kursor mouse mendekat ke sidebar yang sedang diciutkan, sidebar
+   otomatis melebar sementara ke 260px dengan bayangan elegan.
+   ============================================================================== */
+@media (min-width: 768px) {
+  aside#main-sidebar.collapsed-sidebar:hover {
+    width: 260px !important;
+    box-shadow: 4px 0 24px rgba(15, 23, 42, 0.15);
+    z-index: 50;
+  }
+  aside#main-sidebar.collapsed-sidebar:hover .sidebar-text {
+    opacity: 1;
+    pointer-events: auto;
+    display: inline-block;
+    transition: opacity 0.2s ease 0.08s;
+  }
+  aside#main-sidebar.collapsed-sidebar:hover .sidebar-verify-box {
+    opacity: 1;
+    pointer-events: auto;
+    display: block;
+    transition: opacity 0.2s ease 0.08s;
+  }
+  aside#main-sidebar.collapsed-sidebar:hover .nav-item {
+    justify-content: flex-start;
+    padding-left: 0.875rem;
+    padding-right: 0.875rem;
+  }
+  aside#main-sidebar.collapsed-sidebar:hover #sidebar-icon-collapse {
+    display: inline-block !important;
+  }
+  aside#main-sidebar.collapsed-sidebar:hover #sidebar-icon-expand {
+    display: none !important;
+  }
 }
 
 /* Leaflet Map Customization */

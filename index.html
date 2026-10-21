@@ -67,21 +67,16 @@
   <!-- SIDEBAR NAVIGASI (INA DIGITAL ENTERPRISE)                                  -->
   <!-- ========================================================================= -->
   <aside id="main-sidebar" class="w-full md:w-64 bg-white border-r border-gov-border flex flex-col shrink-0 md:h-screen md:sticky md:top-0 z-40 transition-all duration-300">
-    <!-- Brand / Header Sidebar -->
-    <div class="p-5 border-b border-gov-border">
-      <div class="flex items-center gap-3">
-        <div class="w-10 h-10 rounded-lg bg-gov-navy flex items-center justify-center text-white font-extrabold shadow-sm shrink-0">
-          <i data-lucide="shield-check" class="w-5 h-5 text-white"></i>
-        </div>
-        <div class="sidebar-text">
-          <div class="flex items-center gap-1.5">
-            <span class="text-xs font-bold text-gov-navy tracking-wider uppercase">Pusdatin Kemenhub</span>
-            <span class="px-1.5 py-0.5 text-[9px] font-bold bg-gov-azure_light text-gov-azure rounded">DSS</span>
-          </div>
-          <h1 class="text-sm font-extrabold text-gov-text tracking-tight leading-tight">Proyeksi Nataru 2026</h1>
-        </div>
+    <!-- Brand / Header Sidebar (Klik Logo/Teks untuk Kembali ke Ikhtisar Posko) -->
+    <a href="#executive" id="brand-link" data-tab="executive" class="p-5 border-b border-gov-border flex items-center gap-3 cursor-pointer group hover:bg-slate-50/80 transition-colors" title="Kembali ke Ikhtisar Posko">
+      <div class="w-10 h-10 rounded-lg bg-gov-navy flex items-center justify-center text-white font-extrabold shadow-sm shrink-0 group-hover:scale-105 transition-transform">
+        <i data-lucide="shield-check" class="w-5 h-5 text-white"></i>
       </div>
-    </div>
+      <div class="sidebar-text min-w-0">
+        <div class="text-xs font-bold text-gov-navy tracking-wider uppercase truncate">Pusdatin Kemenhub</div>
+        <h1 class="text-sm font-extrabold text-gov-text tracking-tight leading-tight truncate">Proyeksi Nataru 2026</h1>
+      </div>
+    </a>
 
     <!-- Menu Navigasi 6 Modul Datar (Tanpa Dropdown Bercabang) -->
     <div class="p-4 flex-1 overflow-y-auto space-y-1.5">
@@ -118,9 +113,17 @@
       </a>
     </div>
 
-    <!-- Data Terverifikasi & Metrik Resmi (Bagian Bawah Sidebar) -->
-    <div class="p-4 border-t border-gov-border bg-gov-slate/50 sidebar-footer-info">
-      <div class="p-3 bg-white rounded-lg border border-gov-border shadow-xs space-y-2">
+    <!-- Area Bawah Sidebar: Tombol Ciutkan Menu & Data Terverifikasi -->
+    <div class="p-4 border-t border-gov-border bg-gov-slate/50 sidebar-footer-area">
+      <!-- Tombol Tutup / Buka Sidebar (Diposisikan di Atas Data Terverifikasi) -->
+      <button id="btn-toggle-sidebar" class="w-full mb-3 px-3 py-2 rounded-lg border border-gov-border bg-white hover:bg-slate-50 text-slate-700 text-xs font-semibold shadow-2xs flex items-center justify-center gap-2 transition-all group" title="Buka / Tutup Sidebar Navigasi">
+        <i data-lucide="panel-left-close" id="sidebar-icon-collapse" class="w-4 h-4 text-gov-azure group-hover:scale-110 transition-transform"></i>
+        <i data-lucide="panel-left-open" id="sidebar-icon-expand" class="w-4 h-4 text-gov-azure hidden group-hover:scale-110 transition-transform"></i>
+        <span class="sidebar-text">Ciutkan Menu</span>
+      </button>
+
+      <!-- Data Terverifikasi & Metrik Resmi -->
+      <div class="p-3 bg-white rounded-lg border border-gov-border shadow-xs space-y-2 sidebar-verify-box">
         <div class="flex items-center justify-between">
           <div class="flex items-center gap-1.5">
             <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
@@ -143,7 +146,7 @@
           </div>
         </div>
       </div>
-      <div class="mt-2 text-[10px] text-center text-gov-muted/60">
+      <div class="mt-2 text-[10px] text-center text-gov-muted/60 sidebar-text">
         Pusdatin Kemenhub RI &bull; Nataru 2026/2027
       </div>
     </div>
@@ -153,21 +156,32 @@
   <!-- AREA KONTEN UTAMA                                                         -->
   <!-- ========================================================================= -->
   <main class="flex-1 flex flex-col min-w-0">
-    <!-- Topbar Header -->
-    <header class="bg-white border-b border-gov-border px-6 py-3.5 flex flex-wrap items-center justify-between gap-4 sticky top-0 z-30 shadow-2xs">
-      <!-- Sidebar Toggle & Breadcrumb -->
-      <div class="flex items-center gap-3">
-        <button id="btn-toggle-sidebar" class="p-2 rounded-lg border border-gov-border text-gov-muted hover:text-gov-text hover:bg-slate-100 transition-colors" title="Buka/Tutup Sidebar Navigasi">
-          <i data-lucide="menu" class="w-4 h-4"></i>
-        </button>
-        <div class="flex items-center gap-2 text-xs text-gov-muted">
-          <span class="font-medium">Posko Terpadu</span>
-          <i data-lucide="chevron-right" class="w-3.5 h-3.5 text-slate-400"></i>
-          <span class="font-medium text-gov-text" id="current-breadcrumb">Ikhtisar Posko</span>
-        </div>
+    <!-- Topbar Header (Bersih Tanpa Breadcrumb Useless) -->
+    <header class="bg-white border-b border-gov-border px-6 py-3.5 flex items-center justify-between gap-4 sticky top-0 z-30 shadow-2xs">
+      <!-- Info Posko Siaga Nasional (Kiri) -->
+      <div class="flex items-center gap-2.5">
+        <div class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></div>
+        <span class="text-xs font-bold text-gov-navy uppercase tracking-wider">Posko Tingkat Nasional Terpadu Nataru 2026/2027</span>
       </div>
 
-      <!-- Theme Switcher, Live Clock & Status Badge -->
+      <!-- Theme Switcher, Live Clock & Status Badge (Kanan) -->
+      <div class="flex items-center gap-3">
+        <!-- Tombol Mode Gelap / Terang -->
+        <button id="btn-theme-toggle" class="p-2 rounded-lg border border-gov-border text-gov-muted hover:text-gov-text hover:bg-slate-100 transition-colors" title="Ganti Mode Terang / Gelap">
+          <i data-lucide="moon" id="theme-icon-moon" class="w-4 h-4"></i>
+          <i data-lucide="sun" id="theme-icon-sun" class="w-4 h-4 hidden text-amber-400"></i>
+        </button>
+
+        <div class="hidden sm:flex items-center gap-2 px-3 py-1 bg-gov-slate border border-gov-border rounded-md text-xs font-medium text-gov-muted">
+          <i data-lucide="clock" class="w-3.5 h-3.5 text-gov-azure"></i>
+          <span id="live-clock" class="num-tabular font-semibold">Memuat waktu...</span>
+        </div>
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 bg-emerald-50 text-emerald-800 border border-emerald-200 rounded-md text-xs font-semibold">
+          <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+          <span>Posko Siaga Aktif</span>
+        </div>
+      </div>
+    </header>
       <div class="flex items-center gap-3">
         <!-- Tombol Mode Gelap / Terang -->
         <button id="btn-theme-toggle" class="p-2 rounded-lg border border-gov-border text-gov-muted hover:text-gov-text hover:bg-slate-100 transition-colors" title="Ganti Mode Terang / Gelap">
