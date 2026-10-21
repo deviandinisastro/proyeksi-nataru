@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-10-21 11:34:03",
+    "generated_at": "2026-10-21 14:05:22",
     "title": "Sistem Penunjang Keputusan (DSS) Proyeksi Nataru 2026/2027",
     "instansi": "Subbidang Pengelolaan Data, Pusdatin Kemenhub RI",
     "penulis": "Devi Andini Sastro (Universitas Gunadarma)",
@@ -10120,15 +10120,15 @@
         "Moda": "Jalan Arteri",
         "Metode Juara (Sarana)": "4. Holt-Winters Additive",
         "MAPE Sarana (%)": 12.73,
-        "Metode Juara (Penumpang)": NaN,
-        "MAPE Penumpang (%)": NaN
+        "Metode Juara (Penumpang)": null,
+        "MAPE Penumpang (%)": null
       },
       {
         "Moda": "Jalan Tol",
         "Metode Juara (Sarana)": "6. ARIMA (1,1,1)",
         "MAPE Sarana (%)": 5.75,
-        "Metode Juara (Penumpang)": NaN,
-        "MAPE Penumpang (%)": NaN
+        "Metode Juara (Penumpang)": null,
+        "MAPE Penumpang (%)": null
       }
     ]
   }

@@ -84,8 +84,28 @@ def clean_val(v):
     if isinstance(v, (np.integer, int)):
         return int(v)
     if isinstance(v, (np.floating, float)):
+        if np.isnan(v) or np.isinf(v):
+            return None
         return round(float(v), 2)
     return str(v).strip()
+
+def sanitize_json(obj):
+    """Membersihkan seluruh struktur data secara rekursif agar 100% patuh standar JSON (tanpa NaN/inf)"""
+    if isinstance(obj, dict):
+        return {str(k): sanitize_json(v) for k, v in obj.items()}
+    elif isinstance(obj, (list, tuple)):
+        return [sanitize_json(v) for v in obj]
+    elif isinstance(obj, (float, np.floating)):
+        if np.isnan(obj) or np.isinf(obj):
+            return None
+        return float(obj)
+    elif pd.isna(obj):
+        return None
+    elif isinstance(obj, (int, np.integer)):
+        return int(obj)
+    elif isinstance(obj, np.ndarray):
+        return [sanitize_json(v) for v in obj.tolist()]
+    return obj
 
 def build_data_pipeline():
     print("=" * 70)
@@ -377,11 +397,15 @@ def build_data_pipeline():
         'turnamen_mape': turnamen_data
     }
 
+    # Sanitasi menyeluruh untuk memastikan 0% NaN dan valid JSON untuk peramban web
+    clean_master_bundle = sanitize_json(nataru_master_bundle)
+    clean_spatial_list = sanitize_json(spatial_nodes_list)
+
     with open(OUTPUT_NATARU_JSON, 'w', encoding='utf-8') as f:
-        json.dump(nataru_master_bundle, f, ensure_ascii=False, indent=2, cls=NpEncoder)
+        json.dump(clean_master_bundle, f, ensure_ascii=False, indent=2, cls=NpEncoder, allow_nan=False)
 
     with open(OUTPUT_SPATIAL_JSON, 'w', encoding='utf-8') as f:
-        json.dump(spatial_nodes_list, f, ensure_ascii=False, indent=2, cls=NpEncoder)
+        json.dump(clean_spatial_list, f, ensure_ascii=False, indent=2, cls=NpEncoder, allow_nan=False)
 
     size_nataru = os.path.getsize(OUTPUT_NATARU_JSON) / 1024
     size_spatial = os.path.getsize(OUTPUT_SPATIAL_JSON) / 1024
