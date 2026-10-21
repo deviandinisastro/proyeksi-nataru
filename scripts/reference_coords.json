@@ -1,0 +1,6414 @@
+{
+  "SOEKARNO HATTA": {
+    "id": "CGK",
+    "lat": -6.123611,
+    "lon": 106.661111,
+    "provinsi": "Banten",
+    "moda": "UDARA"
+  },
+  "I GUSTI NGURAH RAI": {
+    "id": "DPS",
+    "lat": -8.7475,
+    "lon": 115.169167,
+    "provinsi": "Bali",
+    "moda": "UDARA"
+  },
+  "JUANDA": {
+    "id": "SUB",
+    "lat": -7.380833,
+    "lon": 112.786389,
+    "provinsi": "Jawa Timur",
+    "moda": "UDARA"
+  },
+  "MERAK": {
+    "id": "MRK",
+    "lat": -5.93218,
+    "lon": 105.998157,
+    "provinsi": "Banten",
+    "moda": "BUS"
+  },
+  "BAKAUHENI": {
+    "id": "627",
+    "lat": -5.870077,
+    "lon": 105.75435,
+    "provinsi": "Lampung",
+    "moda": "LAUT"
+  },
+  "BATAM": {
+    "id": "9",
+    "lat": 1.127252,
+    "lon": 103.923568,
+    "provinsi": "Kepulauan Riau",
+    "moda": "LAUT"
+  },
+  "PURABAYA": {
+    "id": "PRB",
+    "lat": -7.351197,
+    "lon": 112.724481,
+    "provinsi": "Jawa Timur",
+    "moda": "BUS"
+  },
+  "SULTAN HASANUDDIN": {
+    "id": "UPG",
+    "lat": -5.060833,
+    "lon": 119.554444,
+    "provinsi": "Sulawesi Selatan",
+    "moda": "UDARA"
+  },
+  "KETAPANG": {
+    "id": "KTP",
+    "lat": -4.71749,
+    "lon": 104.79851,
+    "provinsi": "Lampung",
+    "moda": "KA"
+  },
+  "GILIMANUK": {
+    "id": "779",
+    "lat": -8.168884,
+    "lon": 114.432263,
+    "provinsi": "Bali",
+    "moda": "LAUT"
+  },
+  "YOGYAKARTA": {
+    "id": "YK",
+    "lat": -7.789211,
+    "lon": 110.363438,
+    "provinsi": "D.I. Yogyakarta",
+    "moda": "KA"
+  },
+  "PASARSENEN": {
+    "id": "PSE",
+    "lat": -6.174364,
+    "lon": 106.844481,
+    "provinsi": "DKI Jakarta",
+    "moda": "KA"
+  },
+  "KERTONEGORO": {
+    "id": "KNG",
+    "lat": -7.4275,
+    "lon": 111.439167,
+    "provinsi": "Jawa Timur",
+    "moda": "BUS"
+  },
+  "PURBOYO": {
+    "id": "PBY",
+    "lat": -7.604946,
+    "lon": 111.534711,
+    "provinsi": "Jawa Timur",
+    "moda": "BUS"
+  },
+  "GAMBIR": {
+    "id": "GMR",
+    "lat": -6.176714,
+    "lon": 106.83052,
+    "provinsi": "DKI Jakarta",
+    "moda": "KA"
+  },
+  "NUSA PENIDA": {
+    "id": "1107",
+    "lat": -8.676697,
+    "lon": 115.487793,
+    "provinsi": "Bali",
+    "moda": "LAUT"
+  },
+  "KUALANAMU": {
+    "id": "KNO",
+    "lat": 3.636107,
+    "lon": 98.885132,
+    "provinsi": "Sumatera Utara",
+    "moda": "UDARA"
+  },
+  "KCJB - HALIM": {
+    "id": "KCJB-HLM",
+    "lat": -6.246471,
+    "lon": 106.885241,
+    "provinsi": "DKI Jakarta",
+    "moda": "KA"
+  },
+  "GIWANGAN": {
+    "id": "GWN",
+    "lat": -7.83568,
+    "lon": 110.393058,
+    "provinsi": "D.I. Yogyakarta",
+    "moda": "BUS"
+  },
+  "BENOA": {
+    "id": "23",
+    "lat": -8.744167,
+    "lon": 115.210833,
+    "provinsi": "Bali",
+    "moda": "LAUT"
+  },
+  "SULTAN AJI MUHAMMAD SULAIMAN SEPINGGAN": {
+    "id": "BPN",
+    "lat": -1.267222,
+    "lon": 116.893889,
+    "provinsi": "Kalimantan Timur",
+    "moda": "UDARA"
+  },
+  "KCJB - PADALARANG": {
+    "id": "KCJB-PDG",
+    "lat": -6.842045,
+    "lon": 107.49633,
+    "provinsi": "Jawa Barat",
+    "moda": "KA"
+  },
+  "TIRTONADI": {
+    "id": "TTN",
+    "lat": -7.552028,
+    "lon": 110.820046,
+    "provinsi": "Jawa Tengah",
+    "moda": "BUS"
+  },
+  "HANG NADIM": {
+    "id": "BTH",
+    "lat": 1.118889,
+    "lon": 104.114167,
+    "provinsi": "Kepulauan Riau",
+    "moda": "UDARA"
+  },
+  "SEMARANG TAWANG": {
+    "id": "SMT",
+    "lat": -6.964252,
+    "lon": 110.427696,
+    "provinsi": "Jawa Tengah",
+    "moda": "KA"
+  },
+  "KULON PROGO": {
+    "id": "YIA",
+    "lat": -7.896433,
+    "lon": 110.060109,
+    "provinsi": "D.I. Yogyakarta",
+    "moda": "UDARA"
+  },
+  "PURWOKERTO": {
+    "id": "PWT",
+    "lat": -7.419803,
+    "lon": 109.221955,
+    "provinsi": "Jawa Tengah",
+    "moda": "KA"
+  },
+  "BANDUNG": {
+    "id": "BD",
+    "lat": -6.914295,
+    "lon": 107.602335,
+    "provinsi": "Jawa Barat",
+    "moda": "KA"
+  },
+  "SURABAYA GUBENG": {
+    "id": "SGU",
+    "lat": -7.26574,
+    "lon": 112.753158,
+    "provinsi": "Jawa Timur",
+    "moda": "KA"
+  },
+  "SURABAYA PASAR TURI": {
+    "id": "SBI",
+    "lat": -7.248693,
+    "lon": 112.73119,
+    "provinsi": "Jawa Timur",
+    "moda": "KA"
+  },
+  "TANJUNG BALAI KARIMUN": {
+    "id": "3203",
+    "lat": 0.9921,
+    "lon": 103.3898,
+    "provinsi": "Kepulauan Riau",
+    "moda": "ASDP"
+  },
+  "IR. SOEKARNO": {
+    "id": "SKN",
+    "lat": -7.713394,
+    "lon": 110.603725,
+    "provinsi": "Jawa Tengah",
+    "moda": "BUS"
+  },
+  "PAKUPATAN": {
+    "id": "PKT",
+    "lat": -6.121389,
+    "lon": 106.196389,
+    "provinsi": "Banten",
+    "moda": "BUS"
+  },
+  "TINGKIR": {
+    "id": "TGK",
+    "lat": -7.36214,
+    "lon": 110.514067,
+    "provinsi": "Jawa Tengah",
+    "moda": "BUS"
+  },
+  "TAMANAN": {
+    "id": "TMN",
+    "lat": -7.830556,
+    "lon": 111.982778,
+    "provinsi": "Jawa Timur",
+    "moda": "BUS"
+  },
+  "BAWEN": {
+    "id": "BWN",
+    "lat": -7.245209,
+    "lon": 110.433491,
+    "provinsi": "Jawa Tengah",
+    "moda": "BUS"
+  },
+  "LEMPUYANGAN": {
+    "id": "LPN",
+    "lat": -7.79014,
+    "lon": 110.375382,
+    "provinsi": "D.I. Yogyakarta",
+    "moda": "KA"
+  },
+  "SEMARANG PONCOL": {
+    "id": "SMC",
+    "lat": -6.972891,
+    "lon": 110.414566,
+    "provinsi": "Jawa Tengah",
+    "moda": "KA"
+  },
+  "GIRI ADIPURA": {
+    "id": "GRA",
+    "lat": -7.876985,
+    "lon": 111.102962,
+    "provinsi": "Jawa Tengah",
+    "moda": "BUS"
+  },
+  "SYAMSUDIN NOOR": {
+    "id": "BDJ",
+    "lat": -3.439722,
+    "lon": 114.752778,
+    "provinsi": "Kalimantan Selatan",
+    "moda": "UDARA"
+  },
+  "ZAINUDDIN ABDUL MADJID": {
+    "id": "LOP",
+    "lat": -8.764142,
+    "lon": 116.266276,
+    "provinsi": "NTB",
+    "moda": "UDARA"
+  },
+  "BEKASI": {
+    "id": "BKS",
+    "lat": -6.236201,
+    "lon": 106.999079,
+    "provinsi": "Jawa Barat",
+    "moda": "KA"
+  },
+  "SULTAN SYARIF KASIM II": {
+    "id": "PKU",
+    "lat": 0.463333,
+    "lon": 101.446667,
+    "provinsi": "Riau",
+    "moda": "UDARA"
+  },
+  "S. M. BADARUDDIN II": {
+    "id": "PLM",
+    "lat": -2.900278,
+    "lon": 104.7,
+    "provinsi": "Sumatera Selatan",
+    "moda": "UDARA"
+  },
+  "GAMBUT BARAKAT": {
+    "id": "GBR",
+    "lat": -3.430577,
+    "lon": 114.680609,
+    "provinsi": "Kalimantan Selatan",
+    "moda": "BUS"
+  },
+  "SUPADIO": {
+    "id": "PNK",
+    "lat": -0.148056,
+    "lon": 109.404167,
+    "provinsi": "Kalimantan Barat",
+    "moda": "UDARA"
+  },
+  "SOLO BALAPAN": {
+    "id": "SLO",
+    "lat": -7.556501,
+    "lon": 110.821344,
+    "provinsi": "Jawa Tengah",
+    "moda": "KA"
+  },
+  "JENDERAL AHMAD YANI": {
+    "id": "SRG",
+    "lat": -6.976414,
+    "lon": 110.377156,
+    "provinsi": "Jawa Tengah",
+    "moda": "UDARA"
+  },
+  "TANJUNG PERAK": {
+    "id": "21",
+    "lat": -7.19661,
+    "lon": 112.732346,
+    "provinsi": "Jawa Timur",
+    "moda": "LAUT"
+  },
+  "MINANGKABAU": {
+    "id": "PDG",
+    "lat": -0.788333,
+    "lon": 100.286389,
+    "provinsi": "Sumatera Barat",
+    "moda": "UDARA"
+  },
+  "MALANG": {
+    "id": "ML",
+    "lat": -7.977795,
+    "lon": 112.637216,
+    "provinsi": "Jawa Timur",
+    "moda": "KA"
+  },
+  "TANJUNG PINANG": {
+    "id": "12",
+    "lat": 0.932221,
+    "lon": 104.438904,
+    "provinsi": "Kepulauan Riau",
+    "moda": "LAUT"
+  },
+  "SAM RATULANGI": {
+    "id": "MDC",
+    "lat": 1.545556,
+    "lon": 124.925,
+    "provinsi": "Sulawesi Utara",
+    "moda": "UDARA"
+  },
+  "KIARACONDONG": {
+    "id": "KAC",
+    "lat": -6.92511,
+    "lon": 107.6464,
+    "provinsi": "Jawa Barat",
+    "moda": "KA"
+  },
+  "JATINEGARA": {
+    "id": "JNG",
+    "lat": -6.215034,
+    "lon": 106.870182,
+    "provinsi": "DKI Jakarta",
+    "moda": "KA"
+  },
+  "TEGAL": {
+    "id": "1462",
+    "lat": -6.853648,
+    "lon": 109.135363,
+    "provinsi": "Jawa Tengah",
+    "moda": "LAUT"
+  },
+  "KAYANGAN": {
+    "id": "449",
+    "lat": -8.486927,
+    "lon": 116.672345,
+    "provinsi": "NTB",
+    "moda": "ASDP"
+  },
+  "POTO TANO": {
+    "id": "1220",
+    "lat": -8.52211,
+    "lon": 116.82888,
+    "provinsi": "NTB",
+    "moda": "LAUT"
+  },
+  "CIREBON": {
+    "id": "296",
+    "lat": -6.709722,
+    "lon": 108.572778,
+    "provinsi": "Jawa Barat",
+    "moda": "LAUT"
+  },
+  "HALIM PERDANAKUSUMA": {
+    "id": "HLP",
+    "lat": -6.2675,
+    "lon": 106.886389,
+    "provinsi": "DKI Jakarta",
+    "moda": "UDARA"
+  },
+  "LEUWIPANJANG": {
+    "id": "LWP",
+    "lat": -6.945833,
+    "lon": 107.593056,
+    "provinsi": "Jawa Barat",
+    "moda": "BUS"
+  },
+  "PULO GEBANG": {
+    "id": "TTPG",
+    "lat": -6.212433,
+    "lon": 106.952162,
+    "provinsi": "DKI Jakarta",
+    "moda": "BUS"
+  },
+  "BANYUANGGA": {
+    "id": "BYA",
+    "lat": -7.754167,
+    "lon": 113.186111,
+    "provinsi": "Jawa Timur",
+    "moda": "BUS"
+  },
+  "MEDAN": {
+    "id": "MDN",
+    "lat": 3.592077,
+    "lon": 98.678854,
+    "provinsi": "Sumatera Utara",
+    "moda": "KA"
+  },
+  "PEMENANG/TANJUNG": {
+    "id": "1199",
+    "lat": -8.394218,
+    "lon": 116.099607,
+    "provinsi": "NTB",
+    "moda": "LAUT"
+  },
+  "SENTANI": {
+    "id": "DJJ",
+    "lat": -2.571944,
+    "lon": 140.511389,
+    "provinsi": "Papua",
+    "moda": "UDARA"
+  },
+  "KCJB - TEGALLUAR": {
+    "id": "KCJB-TGR",
+    "lat": -6.96404,
+    "lon": 107.715665,
+    "provinsi": "Jawa Barat",
+    "moda": "KA"
+  },
+  "INDUK LUMPUE": {
+    "id": "ILP",
+    "lat": -3.869722,
+    "lon": 119.619722,
+    "provinsi": "Sulawesi Selatan",
+    "moda": "BUS"
+  },
+  "LABUAN BAJO": {
+    "id": "3557",
+    "lat": -8.4963,
+    "lon": 119.8877,
+    "provinsi": "NTT",
+    "moda": "ASDP"
+  },
+  "PATRIA": {
+    "id": "PTR",
+    "lat": -8.123076,
+    "lon": 112.158281,
+    "provinsi": "Jawa Timur",
+    "moda": "BUS"
+  },
+  "TIDAR": {
+    "id": "TDR",
+    "lat": -7.491074,
+    "lon": 110.234846,
+    "provinsi": "Jawa Tengah",
+    "moda": "BUS"
+  },
+  "MADIUN": {
+    "id": "MN",
+    "lat": -7.618616,
+    "lon": 111.524946,
+    "provinsi": "Jawa Timur",
+    "moda": "KA"
+  },
+  "SELO AJI": {
+    "id": "SAJ",
+    "lat": -7.867778,
+    "lon": 111.465833,
+    "provinsi": "Jawa Timur",
+    "moda": "BUS"
+  },
+  "PEKALONGAN": {
+    "id": "PKL",
+    "lat": -6.903611,
+    "lon": 109.700556,
+    "provinsi": "Jawa Tengah",
+    "moda": "BUS"
+  },
+  "MUARA BUNGO": {
+    "id": "BUU",
+    "lat": -1.543369,
+    "lon": 102.178622,
+    "provinsi": "Jambi",
+    "moda": "UDARA"
+  },
+  "KUTOARJO": {
+    "id": "KTA",
+    "lat": -7.72603,
+    "lon": 109.907195,
+    "provinsi": "Jawa Tengah",
+    "moda": "KA"
+  },
+  "GUNTUR MELATI": {
+    "id": "GMT",
+    "lat": -7.200411,
+    "lon": 107.905821,
+    "provinsi": "Jawa Barat",
+    "moda": "BUS"
+  },
+  "JEMBER": {
+    "id": "B211",
+    "lat": -8.123611,
+    "lon": 113.223889,
+    "provinsi": "Jawa Timur",
+    "moda": "BUS"
+  },
+  "KOMODO": {
+    "id": "LBJ",
+    "lat": -8.488666,
+    "lon": 119.887188,
+    "provinsi": "NTT",
+    "moda": "UDARA"
+  },
+  "GAYATRI": {
+    "id": "GYT",
+    "lat": -8.078056,
+    "lon": 111.923056,
+    "provinsi": "Jawa Timur",
+    "moda": "BUS"
+  },
+  "MENGWI": {
+    "id": "MGW",
+    "lat": -8.559064,
+    "lon": 115.168234,
+    "provinsi": "Bali",
+    "moda": "BUS"
+  },
+  "RADIN INTEN II": {
+    "id": "TKG",
+    "lat": -5.241944,
+    "lon": 105.175556,
+    "provinsi": "Lampung",
+    "moda": "UDARA"
+  },
+  "TANJUNG UBAN": {
+    "id": "11",
+    "lat": 1.075556,
+    "lon": 104.213611,
+    "provinsi": "Kepulauan Riau",
+    "moda": "ASDP"
+  },
+  "KERTAPATI": {
+    "id": "KPT",
+    "lat": -3.017429,
+    "lon": 104.751399,
+    "provinsi": "Sumatera Selatan",
+    "moda": "KA"
+  },
+  "PADANG BAI": {
+    "id": "325",
+    "lat": -8.533303,
+    "lon": 115.507923,
+    "provinsi": "Bali",
+    "moda": "LAUT"
+  },
+  "BULUPITU PURWOKERTO": {
+    "id": "PWK",
+    "lat": -7.45,
+    "lon": 109.416667,
+    "provinsi": "Jawa Tengah",
+    "moda": "BUS"
+  },
+  "MAKASSAR": {
+    "id": "34",
+    "lat": -5.131667,
+    "lon": 119.403333,
+    "provinsi": "Sulawesi Selatan",
+    "moda": "LAUT"
+  },
+  "DEPATI AMIR": {
+    "id": "PGK",
+    "lat": -2.1625,
+    "lon": 106.138056,
+    "provinsi": "Bangka Belitung",
+    "moda": "UDARA"
+  },
+  "EL TARI": {
+    "id": "KOE",
+    "lat": -10.168791,
+    "lon": 123.66687,
+    "provinsi": "NTT",
+    "moda": "UDARA"
+  },
+  "TERNATE": {
+    "id": "43",
+    "lat": 0.780144,
+    "lon": 127.38826,
+    "provinsi": "Maluku Utara",
+    "moda": "LAUT"
+  },
+  "HALUOLEO": {
+    "id": "KDI",
+    "lat": -4.084167,
+    "lon": 122.4075,
+    "provinsi": "Sulawesi Tenggara",
+    "moda": "UDARA"
+  },
+  "KROYA": {
+    "id": "KYA",
+    "lat": -7.630168,
+    "lon": 109.251296,
+    "provinsi": "Jawa Tengah",
+    "moda": "KA"
+  },
+  "BANDAR RAYA PAYUNG SEKAKI": {
+    "id": "PYK",
+    "lat": 0.502358,
+    "lon": 101.38881,
+    "provinsi": "Riau",
+    "moda": "BUS"
+  },
+  "DOMINE EDUARD OSOK": {
+    "id": "SOQ",
+    "lat": -0.890538,
+    "lon": 131.290998,
+    "provinsi": "Papua Barat Daya",
+    "moda": "UDARA"
+  },
+  "BAUBAU": {
+    "id": "3209",
+    "lat": -5.4707,
+    "lon": 122.6307,
+    "provinsi": "Sulawesi Tenggara",
+    "moda": "ASDP"
+  },
+  "AMBON": {
+    "id": "45",
+    "lat": -3.694899,
+    "lon": 128.175456,
+    "provinsi": "Maluku",
+    "moda": "LAUT"
+  },
+  "PASURUAN": {
+    "id": "PS",
+    "lat": -7.637882,
+    "lon": 112.910153,
+    "provinsi": "Jawa Timur",
+    "moda": "KA"
+  },
+  "KAMBANG PUTIH": {
+    "id": "KPT",
+    "lat": -6.858933,
+    "lon": 112.028145,
+    "provinsi": "Jawa Timur",
+    "moda": "BUS"
+  },
+  "BALIKPAPAN": {
+    "id": "30",
+    "lat": -1.271944,
+    "lon": 116.806111,
+    "provinsi": "Kalimantan Timur",
+    "moda": "LAUT"
+  },
+  "SULTAN THAHA": {
+    "id": "DJB",
+    "lat": -1.635556,
+    "lon": 103.643056,
+    "provinsi": "Jambi",
+    "moda": "UDARA"
+  },
+  "INDIHIANG": {
+    "id": "IDH",
+    "lat": -7.291517,
+    "lon": 108.191979,
+    "provinsi": "Jawa Barat",
+    "moda": "BUS"
+  },
+  "LEMBAR": {
+    "id": "24",
+    "lat": -8.729135,
+    "lon": 116.074447,
+    "provinsi": "NTB",
+    "moda": "LAUT"
+  },
+  "TASIKMALAYA": {
+    "id": "TSM",
+    "lat": -7.32486,
+    "lon": 108.226319,
+    "provinsi": "Jawa Barat",
+    "moda": "KA"
+  },
+  "RAJEKWESI": {
+    "id": "RJW",
+    "lat": -7.166667,
+    "lon": 111.895278,
+    "provinsi": "Jawa Timur",
+    "moda": "BUS"
+  },
+  "PAREPARE": {
+    "id": "35",
+    "lat": -4.014167,
+    "lon": 119.62,
+    "provinsi": "Sulawesi Selatan",
+    "moda": "LAUT"
+  },
+  "ARJOSARI": {
+    "id": "AJS",
+    "lat": -7.933889,
+    "lon": 112.658056,
+    "provinsi": "Jawa Timur",
+    "moda": "BUS"
+  },
+  "PORIS PLAWAD": {
+    "id": "PRP",
+    "lat": -6.206667,
+    "lon": 106.604444,
+    "provinsi": "Banten",
+    "moda": "BUS"
+  },
+  "HUNIMUA": {
+    "id": "1612",
+    "lat": -3.632818,
+    "lon": 128.251164,
+    "provinsi": "Maluku",
+    "moda": "ASDP"
+  },
+  "TELAGA PUNGGUR": {
+    "id": "407",
+    "lat": 1.033305,
+    "lon": 104.132018,
+    "provinsi": "Kepulauan Riau",
+    "moda": "ASDP"
+  },
+  "KH. AHMAD SANUSI": {
+    "id": "KAS",
+    "lat": -6.920473,
+    "lon": 106.917919,
+    "provinsi": "Jawa Barat",
+    "moda": "BUS"
+  },
+  "ADI SOEMARMO": {
+    "id": "SMO",
+    "lat": -7.51348,
+    "lon": 110.74788,
+    "provinsi": "Jawa Tengah",
+    "moda": "KA"
+  },
+  "TAWANGALUN": {
+    "id": "TWA",
+    "lat": -8.172222,
+    "lon": 113.700278,
+    "provinsi": "Jawa Timur",
+    "moda": "BUS"
+  },
+  "SULTAN BABULLAH": {
+    "id": "TTE",
+    "lat": 0.830833,
+    "lon": 127.38,
+    "provinsi": "Maluku Utara",
+    "moda": "UDARA"
+  },
+  "CIKARANG": {
+    "id": "CKR",
+    "lat": -6.254697,
+    "lon": 107.144588,
+    "provinsi": "Jawa Barat",
+    "moda": "KA"
+  },
+  "YOGYAKARTA INTERNATIONAL AIRPORT": {
+    "id": "YIA",
+    "lat": -7.89746,
+    "lon": 110.06132,
+    "provinsi": "D.I. Yogyakarta",
+    "moda": "KA"
+  },
+  "WAIPIRIT": {
+    "id": "1734",
+    "lat": -3.346389,
+    "lon": 128.353889,
+    "provinsi": "Maluku",
+    "moda": "ASDP"
+  },
+  "BATULICIN": {
+    "id": "3083",
+    "lat": -3.455,
+    "lon": 116.0007,
+    "provinsi": "Kalimantan Selatan",
+    "moda": "ASDP"
+  },
+  "PATTIMURA": {
+    "id": "AMQ",
+    "lat": -3.706944,
+    "lon": 128.089722,
+    "provinsi": "Maluku",
+    "moda": "UDARA"
+  },
+  "KARIANGAU BALIKPAPAN": {
+    "id": "1691",
+    "lat": -1.201389,
+    "lon": 116.820317,
+    "provinsi": "Kalimantan Timur",
+    "moda": "ASDP"
+  },
+  "TANJUNG KARANG": {
+    "id": "TNK",
+    "lat": -5.4126,
+    "lon": 105.2611,
+    "provinsi": "Lampung",
+    "moda": "KA"
+  },
+  "KEPULAUAN SERIBU": {
+    "id": "882",
+    "lat": -5.839404,
+    "lon": 106.569008,
+    "provinsi": "DKI Jakarta",
+    "moda": "LAUT"
+  },
+  "MUTIARA SIS AL JUFRI": {
+    "id": "PLW",
+    "lat": -0.916667,
+    "lon": 119.910278,
+    "provinsi": "Sulawesi Tengah",
+    "moda": "UDARA"
+  },
+  "SORONG": {
+    "id": "48",
+    "lat": -0.877126,
+    "lon": 131.244006,
+    "provinsi": "Papua Barat Daya",
+    "moda": "LAUT"
+  },
+  "KEBUMEN": {
+    "id": "KBM",
+    "lat": -7.668889,
+    "lon": 109.654722,
+    "provinsi": "Jawa Tengah",
+    "moda": "BUS"
+  },
+  "TANJUNG SERDANG": {
+    "id": "1832",
+    "lat": -3.3407,
+    "lon": 106.2854,
+    "provinsi": "Kalimantan Selatan",
+    "moda": "ASDP"
+  },
+  "BANJAR": {
+    "id": "BJR",
+    "lat": -7.376288,
+    "lon": 108.542339,
+    "provinsi": "Jawa Barat",
+    "moda": "KA"
+  },
+  "PENAJAM": {
+    "id": "1690",
+    "lat": -1.272787,
+    "lon": 116.803361,
+    "provinsi": "Kalimantan Timur",
+    "moda": "LAUT"
+  },
+  "AJI PANGERAN TUMENGGUNG PRANOTO": {
+    "id": "AAP",
+    "lat": -0.370836,
+    "lon": 117.257154,
+    "provinsi": "Kalimantan Timur",
+    "moda": "UDARA"
+  },
+  "SULTAN ISKANDAR MUDA": {
+    "id": "BTJ",
+    "lat": 5.516944,
+    "lon": 95.42,
+    "provinsi": "D.I Aceh",
+    "moda": "UDARA"
+  },
+  "TJILIK RIWUT": {
+    "id": "PKY",
+    "lat": -2.226667,
+    "lon": 113.944167,
+    "provinsi": "Kalimantan Tengah",
+    "moda": "UDARA"
+  },
+  "SELAT PANJANG": {
+    "id": "7",
+    "lat": 1.016272,
+    "lon": 102.714598,
+    "provinsi": "Riau",
+    "moda": "LAUT"
+  },
+  "PEMALANG": {
+    "id": "PML",
+    "lat": -6.887271,
+    "lon": 109.387151,
+    "provinsi": "Jawa Tengah",
+    "moda": "KA"
+  },
+  "MOZES KILANGIN": {
+    "id": "TIM",
+    "lat": -4.527,
+    "lon": 136.883965,
+    "provinsi": "Papua Tengah",
+    "moda": "UDARA"
+  },
+  "BASTIONG - TERNATE": {
+    "id": "1700",
+    "lat": 0.763952,
+    "lon": 127.375727,
+    "provinsi": "Maluku Utara",
+    "moda": "ASDP"
+  },
+  "MANADO": {
+    "id": "42",
+    "lat": 1.495833,
+    "lon": 124.840278,
+    "provinsi": "Sulawesi Utara",
+    "moda": "LAUT"
+  },
+  "KENDARI": {
+    "id": "3212",
+    "lat": -3.9728,
+    "lon": 122.5151,
+    "provinsi": "Sulawesi Tenggara",
+    "moda": "ASDP"
+  },
+  "KUPANG": {
+    "id": "25",
+    "lat": -10.195553,
+    "lon": 123.524792,
+    "provinsi": "NTT",
+    "moda": "LAUT"
+  },
+  "KLATEN": {
+    "id": "KT",
+    "lat": -7.712349,
+    "lon": 110.60292,
+    "provinsi": "Jawa Tengah",
+    "moda": "KA"
+  },
+  "CIREBON PRUJAKAN": {
+    "id": "CNP",
+    "lat": -6.719349,
+    "lon": 108.558684,
+    "provinsi": "Jawa Barat",
+    "moda": "KA"
+  },
+  "KEDIRI": {
+    "id": "KD",
+    "lat": -7.817156,
+    "lon": 112.01545,
+    "provinsi": "Jawa Timur",
+    "moda": "KA"
+  },
+  "LATENRI SESSU PEKKAE": {
+    "id": "LSP",
+    "lat": -4.486088,
+    "lon": 119.608568,
+    "provinsi": "Sulawesi Selatan",
+    "moda": "BUS"
+  },
+  "SIMPANG AUR": {
+    "id": "SPA",
+    "lat": -0.313625,
+    "lon": 100.3864,
+    "provinsi": "Sumatera Barat",
+    "moda": "BUS"
+  },
+  "AJIBATA": {
+    "id": "1751",
+    "lat": 2.654236,
+    "lon": 98.933838,
+    "provinsi": "Sumatera Utara",
+    "moda": "ASDP"
+  },
+  "BANYUWANGI KOTA": {
+    "id": "BWI",
+    "lat": -8.21429,
+    "lon": 114.378,
+    "provinsi": "Jawa Timur",
+    "moda": "KA"
+  },
+  "BOJONEGORO": {
+    "id": "BJ",
+    "lat": -7.164373,
+    "lon": 111.886696,
+    "provinsi": "Jawa Timur",
+    "moda": "KA"
+  },
+  "LUWUK": {
+    "id": "3227",
+    "lat": -0.9432,
+    "lon": 122.7961,
+    "provinsi": "Sulawesi Tengah",
+    "moda": "ASDP"
+  },
+  "JUWATA": {
+    "id": "TRK",
+    "lat": 3.326667,
+    "lon": 117.569444,
+    "provinsi": "Kalimantan Utara",
+    "moda": "UDARA"
+  },
+  "KISARAN": {
+    "id": "KIS",
+    "lat": 2.98752,
+    "lon": 99.63418,
+    "provinsi": "Sumatera Utara",
+    "moda": "KA"
+  },
+  "CEPU": {
+    "id": "CPU",
+    "lat": -7.151389,
+    "lon": 111.591389,
+    "provinsi": "Jawa Tengah",
+    "moda": "BUS"
+  },
+  "SOFIFI": {
+    "id": "125",
+    "lat": -0.767395,
+    "lon": 127.596436,
+    "provinsi": "Maluku Utara",
+    "moda": "LAUT"
+  },
+  "TANJUNG PRIOK": {
+    "id": "19",
+    "lat": -6.09194,
+    "lon": 106.88167,
+    "provinsi": "DKI Jakarta",
+    "moda": "LAUT"
+  },
+  "AMBARITA": {
+    "id": "1752",
+    "lat": 2.682297,
+    "lon": 98.832486,
+    "provinsi": "Sumatera Utara",
+    "moda": "ASDP"
+  },
+  "SURODAKAN": {
+    "id": "SDK",
+    "lat": -8.048333,
+    "lon": 111.717222,
+    "provinsi": "Jawa Timur",
+    "moda": "BUS"
+  },
+  "JATIBARANG": {
+    "id": "JTB",
+    "lat": -6.473036,
+    "lon": 108.306845,
+    "provinsi": "Jawa Barat",
+    "moda": "KA"
+  },
+  "JATIJAJAR": {
+    "id": "JJR",
+    "lat": -6.391111,
+    "lon": 106.823611,
+    "provinsi": "Jawa Barat",
+    "moda": "BUS"
+  },
+  "CIAKAR": {
+    "id": "CKR",
+    "lat": -6.841667,
+    "lon": 107.921667,
+    "provinsi": "Jawa Barat",
+    "moda": "BUS"
+  },
+  "MUNTOK (TANJUNG KALIAN)": {
+    "id": "308",
+    "lat": -2.075833,
+    "lon": 105.179167,
+    "provinsi": "Bangka Belitung",
+    "moda": "LAUT"
+  },
+  "JATI": {
+    "id": "JTI",
+    "lat": -6.8225,
+    "lon": 110.837778,
+    "provinsi": "Jawa Tengah",
+    "moda": "BUS"
+  },
+  "PURWOREJO": {
+    "id": "PWJ",
+    "lat": -7.726944,
+    "lon": 109.905833,
+    "provinsi": "Jawa Tengah",
+    "moda": "BUS"
+  },
+  "INDUK PEMALANG": {
+    "id": "IPM",
+    "lat": -6.881944,
+    "lon": 109.393889,
+    "provinsi": "Jawa Tengah",
+    "moda": "BUS"
+  },
+  "GOMBONG": {
+    "id": "GB",
+    "lat": -7.61045,
+    "lon": 109.509849,
+    "provinsi": "Jawa Tengah",
+    "moda": "KA"
+  },
+  "BARANANGSIANG": {
+    "id": "BSG",
+    "lat": -6.604167,
+    "lon": 106.805833,
+    "provinsi": "Jawa Barat",
+    "moda": "BUS"
+  },
+  "RANTAUPRAPAT": {
+    "id": "RAP",
+    "lat": 2.106137,
+    "lon": 99.82137,
+    "provinsi": "Sumatera Utara",
+    "moda": "KA"
+  },
+  "LUBUK LINGGAU": {
+    "id": "LLG",
+    "lat": -3.29327,
+    "lon": 102.8642,
+    "provinsi": "Sumatera Selatan",
+    "moda": "KA"
+  },
+  "LABUAN": {
+    "id": "LBN",
+    "lat": -6.372778,
+    "lon": 105.828611,
+    "provinsi": "Banten",
+    "moda": "BUS"
+  },
+  "FATMAWATI SOEKARNO": {
+    "id": "BKS",
+    "lat": -3.861111,
+    "lon": 102.339444,
+    "provinsi": "Bengkulu",
+    "moda": "UDARA"
+  },
+  "PURWOSARI": {
+    "id": "PWS",
+    "lat": -7.561401,
+    "lon": 110.797204,
+    "provinsi": "Jawa Tengah",
+    "moda": "KA"
+  },
+  "DUMAI": {
+    "id": "3200",
+    "lat": 1.6805,
+    "lon": 101.4478,
+    "provinsi": "Riau",
+    "moda": "ASDP"
+  },
+  "TANJUNGBALAI": {
+    "id": "TNB",
+    "lat": 2.96589,
+    "lon": 99.80711,
+    "provinsi": "Sumatera Utara",
+    "moda": "KA"
+  },
+  "ISKANDAR": {
+    "id": "PKN",
+    "lat": -2.704156,
+    "lon": 111.668756,
+    "provinsi": "Kalimantan Tengah",
+    "moda": "UDARA"
+  },
+  "KOTABUMI": {
+    "id": "KB",
+    "lat": -4.833673,
+    "lon": 104.89824,
+    "provinsi": "Lampung",
+    "moda": "KA"
+  },
+  "H. A. S. HANANDJOEDDIN": {
+    "id": "TJQ",
+    "lat": -2.753849,
+    "lon": 107.753105,
+    "provinsi": "Bangka Belitung",
+    "moda": "UDARA"
+  },
+  "ARYA WIRARAJA": {
+    "id": "AWJ",
+    "lat": -7.029402,
+    "lon": 113.859618,
+    "provinsi": "Jawa Timur",
+    "moda": "BUS"
+  },
+  "RAJA SISINGAMANGARAJA XII": {
+    "id": "DTB",
+    "lat": 2.262741,
+    "lon": 98.987625,
+    "provinsi": "Sumatera Utara",
+    "moda": "UDARA"
+  },
+  "CILACAP": {
+    "id": "CP",
+    "lat": -7.73608,
+    "lon": 109.007,
+    "provinsi": "Jawa Tengah",
+    "moda": "KA"
+  },
+  "WELERI": {
+    "id": "WLR",
+    "lat": -6.97091,
+    "lon": 110.070308,
+    "provinsi": "Jawa Tengah",
+    "moda": "KA"
+  },
+  "BABANG": {
+    "id": "3218",
+    "lat": -0.6292,
+    "lon": 127.5433,
+    "provinsi": "Maluku Utara",
+    "moda": "ASDP"
+  },
+  "MUARA ANGKE": {
+    "id": "1070",
+    "lat": -6.104492,
+    "lon": 106.776001,
+    "provinsi": "DKI Jakarta",
+    "moda": "LAUT"
+  },
+  "JOMBANG": {
+    "id": "JG",
+    "lat": -7.558091,
+    "lon": 112.233493,
+    "provinsi": "Jawa Timur",
+    "moda": "KA"
+  },
+  "TANJUNG EMAS": {
+    "id": "20",
+    "lat": -6.955379,
+    "lon": 110.421927,
+    "provinsi": "Jawa Tengah",
+    "moda": "LAUT"
+  },
+  "GARUT": {
+    "id": "GRT",
+    "lat": -7.20538,
+    "lon": 107.8848,
+    "provinsi": "Jawa Barat",
+    "moda": "KA"
+  },
+  "NUNUKAN": {
+    "id": "NNX",
+    "lat": 4.133333,
+    "lon": 117.666667,
+    "provinsi": "Kalimantan Utara",
+    "moda": "UDARA"
+  },
+  "KALIMARAU": {
+    "id": "BEJ",
+    "lat": 2.14804,
+    "lon": 117.433942,
+    "provinsi": "Kalimantan Timur",
+    "moda": "UDARA"
+  },
+  "BLITAR": {
+    "id": "BL",
+    "lat": -8.101291,
+    "lon": 112.162762,
+    "provinsi": "Jawa Timur",
+    "moda": "KA"
+  },
+  "TIPALAYO": {
+    "id": "TPL",
+    "lat": -3.447297,
+    "lon": 119.376238,
+    "provinsi": "Sulawesi Barat",
+    "moda": "BUS"
+  },
+  "KUMAI": {
+    "id": "27",
+    "lat": -2.74,
+    "lon": 111.727778,
+    "provinsi": "Kalimantan Tengah",
+    "moda": "LAUT"
+  },
+  "TARAKAN": {
+    "id": "32",
+    "lat": 4.144099,
+    "lon": 117.644724,
+    "provinsi": "Kalimantan Utara",
+    "moda": "LAUT"
+  },
+  "PURWAKARTA": {
+    "id": "PWK",
+    "lat": -6.552796,
+    "lon": 107.446414,
+    "provinsi": "Jawa Barat",
+    "moda": "KA"
+  },
+  "TANGKOKO": {
+    "id": "TKK",
+    "lat": 1.430227,
+    "lon": 125.112261,
+    "provinsi": "Sulawesi Utara",
+    "moda": "BUS"
+  },
+  "SIDOARJO": {
+    "id": "SDA",
+    "lat": -7.456899,
+    "lon": 112.71274,
+    "provinsi": "Jawa Timur",
+    "moda": "KA"
+  },
+  "DHAKSINARGA": {
+    "id": "DSG",
+    "lat": -7.970833,
+    "lon": 110.604722,
+    "provinsi": "D.I. Yogyakarta",
+    "moda": "BUS"
+  },
+  "TULUNGAGUNG": {
+    "id": "TA",
+    "lat": -8.062864,
+    "lon": 111.904569,
+    "provinsi": "Jawa Timur",
+    "moda": "KA"
+  },
+  "KALISETAIL": {
+    "id": "KSL",
+    "lat": -8.302768,
+    "lon": 114.139811,
+    "provinsi": "Jawa Timur",
+    "moda": "KA"
+  },
+  "DEMAK": {
+    "id": "DMK",
+    "lat": -6.89873,
+    "lon": 110.635709,
+    "provinsi": "Jawa Tengah",
+    "moda": "BUS"
+  },
+  "TANJUNG API-API": {
+    "id": "1437",
+    "lat": -2.372717,
+    "lon": 104.803624,
+    "provinsi": "Sumatera Selatan",
+    "moda": "ASDP"
+  },
+  "KARAWANG": {
+    "id": "KW",
+    "lat": -6.304449,
+    "lon": 107.299774,
+    "provinsi": "Jawa Barat",
+    "moda": "KA"
+  },
+  "LANGSA": {
+    "id": "LGS",
+    "lat": 4.479444,
+    "lon": 97.966944,
+    "provinsi": "D.I Aceh",
+    "moda": "BUS"
+  },
+  "CIMAHI": {
+    "id": "CMI",
+    "lat": -6.885788,
+    "lon": 107.536097,
+    "provinsi": "Jawa Barat",
+    "moda": "KA"
+  },
+  "MOJOKERTO": {
+    "id": "MR",
+    "lat": -7.472294,
+    "lon": 112.433743,
+    "provinsi": "Jawa Timur",
+    "moda": "KA"
+  },
+  "BATURAJA": {
+    "id": "BTA",
+    "lat": -4.13828,
+    "lon": 104.16188,
+    "provinsi": "Sumatera Selatan",
+    "moda": "KA"
+  },
+  "BREBES": {
+    "id": "BB",
+    "lat": -6.874216,
+    "lon": 109.043032,
+    "provinsi": "Jawa Tengah",
+    "moda": "KA"
+  },
+  "MENDOLO": {
+    "id": "MDL",
+    "lat": -7.36734,
+    "lon": 109.924725,
+    "provinsi": "Jawa Tengah",
+    "moda": "BUS"
+  },
+  "BALOHAN": {
+    "id": "3464",
+    "lat": 5.8716,
+    "lon": 95.3173,
+    "provinsi": "D.I Aceh",
+    "moda": "ASDP"
+  },
+  "ABDUL RACHMAN SALEH": {
+    "id": "MLG",
+    "lat": -7.936968,
+    "lon": 112.711571,
+    "provinsi": "Jawa Timur",
+    "moda": "UDARA"
+  },
+  "ALAM BARAJO": {
+    "id": "AJO",
+    "lat": -1.629062,
+    "lon": 103.551724,
+    "provinsi": "Jambi",
+    "moda": "BUS"
+  },
+  "CIKAMPEK": {
+    "id": "CKP",
+    "lat": -6.406384,
+    "lon": 107.458915,
+    "provinsi": "Jawa Barat",
+    "moda": "KA"
+  },
+  "MANDALIKA": {
+    "id": "MDK",
+    "lat": -8.595,
+    "lon": 116.156111,
+    "provinsi": "NTB",
+    "moda": "BUS"
+  },
+  "RAHA": {
+    "id": "3230",
+    "lat": -4.848,
+    "lon": 122.6188,
+    "provinsi": "Sulawesi Tenggara",
+    "moda": "ASDP"
+  },
+  "MANGKANG": {
+    "id": "MKG",
+    "lat": -6.968914,
+    "lon": 110.289379,
+    "provinsi": "Jawa Tengah",
+    "moda": "BUS"
+  },
+  "KERTAWANGUNAN": {
+    "id": "KTW",
+    "lat": -6.948747,
+    "lon": 108.466182,
+    "provinsi": "Jawa Barat",
+    "moda": "BUS"
+  },
+  "PROBOLINGGO": {
+    "id": "PB",
+    "lat": -7.742722,
+    "lon": 113.215987,
+    "provinsi": "Jawa Timur",
+    "moda": "KA"
+  },
+  "AMPLAS": {
+    "id": "APS",
+    "lat": 3.539176,
+    "lon": 98.7181,
+    "provinsi": "Sumatera Utara",
+    "moda": "BUS"
+  },
+  "LARANTUKA": {
+    "id": "79",
+    "lat": -8.342163,
+    "lon": 122.990418,
+    "provinsi": "NTT",
+    "moda": "ASDP"
+  },
+  "TANJUNG WANGI": {
+    "id": "386",
+    "lat": -8.128113,
+    "lon": 114.399841,
+    "provinsi": "Jawa Timur",
+    "moda": "LAUT"
+  },
+  "RENDANI": {
+    "id": "MKW",
+    "lat": -0.893462,
+    "lon": 134.05061,
+    "provinsi": "Papua Barat",
+    "moda": "UDARA"
+  },
+  "BAREH SOLOK": {
+    "id": "BSL",
+    "lat": -0.797388,
+    "lon": 100.666973,
+    "provinsi": "Sumatera Barat",
+    "moda": "BUS"
+  },
+  "BANJARMASIN": {
+    "id": "29",
+    "lat": -3.328056,
+    "lon": 114.557778,
+    "provinsi": "Kalimantan Selatan",
+    "moda": "LAUT"
+  },
+  "SIDAREJA": {
+    "id": "SDR",
+    "lat": -7.48651,
+    "lon": 108.8076,
+    "provinsi": "Jawa Tengah",
+    "moda": "KA"
+  },
+  "BATU AMPAR": {
+    "id": "BAP",
+    "lat": -1.219744,
+    "lon": 116.856878,
+    "provinsi": "Kalimantan Timur",
+    "moda": "BUS"
+  },
+  "TANJUNG SELOR": {
+    "id": "274",
+    "lat": 2.840351,
+    "lon": 117.361781,
+    "provinsi": "Kalimantan Utara",
+    "moda": "LAUT"
+  },
+  "KCJB - KARAWANG": {
+    "id": "KCJB-KRW",
+    "lat": -6.36509,
+    "lon": 107.21941,
+    "provinsi": "Jawa Barat",
+    "moda": "KA"
+  },
+  "BOLOK KUPANG": {
+    "id": "1712",
+    "lat": -10.21993,
+    "lon": 123.519498,
+    "provinsi": "NTT",
+    "moda": "ASDP"
+  },
+  "NAMLEA": {
+    "id": "47",
+    "lat": -3.268403,
+    "lon": 127.086944,
+    "provinsi": "Maluku",
+    "moda": "ASDP"
+  },
+  "MOPAH": {
+    "id": "MKQ",
+    "lat": -8.518429,
+    "lon": 140.414928,
+    "provinsi": "Papua Selatan",
+    "moda": "UDARA"
+  },
+  "WATES": {
+    "id": "B206",
+    "lat": -7.859444,
+    "lon": 110.158056,
+    "provinsi": "D.I. Yogyakarta",
+    "moda": "BUS"
+  },
+  "ROGOJAMPI": {
+    "id": "RGP",
+    "lat": -8.304341,
+    "lon": 114.292729,
+    "provinsi": "Jawa Timur",
+    "moda": "KA"
+  },
+  "RAJABASA": {
+    "id": "RJB",
+    "lat": -5.366383,
+    "lon": 105.237901,
+    "provinsi": "Lampung",
+    "moda": "BUS"
+  },
+  "KARIMUN JAWA": {
+    "id": "3353",
+    "lat": -5.8783,
+    "lon": 110.4297,
+    "provinsi": "Jawa Tengah",
+    "moda": "ASDP"
+  },
+  "JEPARA": {
+    "id": "3347",
+    "lat": -6.5867,
+    "lon": 110.6783,
+    "provinsi": "Jawa Tengah",
+    "moda": "ASDP"
+  },
+  "TAHUNA": {
+    "id": "96",
+    "lat": 3.601196,
+    "lon": 125.501587,
+    "provinsi": "Sulawesi Utara",
+    "moda": "LAUT"
+  },
+  "BOBOT SARI": {
+    "id": "BBS",
+    "lat": -7.306225,
+    "lon": 109.366902,
+    "provinsi": "Jawa Tengah",
+    "moda": "BUS"
+  },
+  "BUMIAYU": {
+    "id": "B204",
+    "lat": -7.271944,
+    "lon": 109.016944,
+    "provinsi": "Jawa Tengah",
+    "moda": "BUS"
+  },
+  "TUAL": {
+    "id": "3716",
+    "lat": -5.6211,
+    "lon": 132.7484,
+    "provinsi": "Maluku",
+    "moda": "ASDP"
+  },
+  "TULEHU": {
+    "id": "339",
+    "lat": -3.58527,
+    "lon": 128.328596,
+    "provinsi": "Maluku",
+    "moda": "LAUT"
+  },
+  "BATOH": {
+    "id": "BTH",
+    "lat": 5.529789,
+    "lon": 95.329159,
+    "provinsi": "D.I Aceh",
+    "moda": "BUS"
+  },
+  "DJALALUDDIN": {
+    "id": "GTO",
+    "lat": 0.638333,
+    "lon": 122.852222,
+    "provinsi": "Gorontalo",
+    "moda": "UDARA"
+  },
+  "MANOKWARI": {
+    "id": "49",
+    "lat": -0.8675,
+    "lon": 134.074722,
+    "provinsi": "Papua Barat",
+    "moda": "LAUT"
+  },
+  "SUMER PAYUNG": {
+    "id": "SPY",
+    "lat": -8.473611,
+    "lon": 117.395833,
+    "provinsi": "NTB",
+    "moda": "BUS"
+  },
+  "BANGKO": {
+    "id": "BKO",
+    "lat": -2.074167,
+    "lon": 102.224722,
+    "provinsi": "Jambi",
+    "moda": "BUS"
+  },
+  "NABIRE": {
+    "id": "88",
+    "lat": -3.230447,
+    "lon": 135.582485,
+    "provinsi": "Papua Tengah",
+    "moda": "LAUT"
+  },
+  "RAJA AMPAT": {
+    "id": "295",
+    "lat": -0.433594,
+    "lon": 130.804016,
+    "provinsi": "Papua Barat",
+    "moda": "LAUT"
+  },
+  "WAMENA": {
+    "id": "WMX",
+    "lat": -4.0975,
+    "lon": 138.951389,
+    "provinsi": "Papua Pegunungan",
+    "moda": "UDARA"
+  },
+  "HAURGEULIS": {
+    "id": "HGL",
+    "lat": -6.458423,
+    "lon": 107.940916,
+    "provinsi": "Jawa Barat",
+    "moda": "KA"
+  },
+  "SLAWI": {
+    "id": "SLW",
+    "lat": -6.981809,
+    "lon": 109.136599,
+    "provinsi": "Jawa Tengah",
+    "moda": "KA"
+  },
+  "LEWOLEBA": {
+    "id": "351",
+    "lat": -8.3703,
+    "lon": 123.404602,
+    "provinsi": "NTT",
+    "moda": "LAUT"
+  },
+  "JAYAPURA": {
+    "id": "51",
+    "lat": -2.545556,
+    "lon": 140.713333,
+    "provinsi": "Papua",
+    "moda": "LAUT"
+  },
+  "SIMBUANG": {
+    "id": "SIM",
+    "lat": -2.689834,
+    "lon": 118.865806,
+    "provinsi": "Sulawesi Barat",
+    "moda": "BUS"
+  },
+  "KAMPUNG RAMBUTAN": {
+    "id": "KPR",
+    "lat": -6.309167,
+    "lon": 106.881944,
+    "provinsi": "DKI Jakarta",
+    "moda": "BUS"
+  },
+  "LAIWUI": {
+    "id": "282",
+    "lat": -1.334575,
+    "lon": 127.636243,
+    "provinsi": "Maluku Utara",
+    "moda": "LAUT"
+  },
+  "LAMONGAN": {
+    "id": "LMG",
+    "lat": -7.112512,
+    "lon": 112.4202,
+    "provinsi": "Jawa Timur",
+    "moda": "KA"
+  },
+  "BENGKALIS": {
+    "id": "109",
+    "lat": 1.561035,
+    "lon": 102.263428,
+    "provinsi": "Riau",
+    "moda": "LAUT"
+  },
+  "KERTOSONO": {
+    "id": "KTS",
+    "lat": -7.5918,
+    "lon": 112.1008,
+    "provinsi": "Jawa Timur",
+    "moda": "KA"
+  },
+  "BABAT": {
+    "id": "BBT",
+    "lat": -7.106159,
+    "lon": 112.168907,
+    "provinsi": "Jawa Timur",
+    "moda": "KA"
+  },
+  "NGROMBO": {
+    "id": "NBO",
+    "lat": -7.145355,
+    "lon": 110.899636,
+    "provinsi": "Jawa Tengah",
+    "moda": "KA"
+  },
+  "SUNDA KELAPA": {
+    "id": "383",
+    "lat": -6.120116,
+    "lon": 106.809769,
+    "provinsi": "DKI Jakarta",
+    "moda": "LAUT"
+  },
+  "WONOKROMO": {
+    "id": "WO",
+    "lat": -7.302003,
+    "lon": 112.739173,
+    "provinsi": "Jawa Timur",
+    "moda": "KA"
+  },
+  "BOLAANG MONGONDOW": {
+    "id": "LKM",
+    "lat": 0.888798,
+    "lon": 124.032996,
+    "provinsi": "Sulawesi Utara",
+    "moda": "UDARA"
+  },
+  "SINGAPARNA": {
+    "id": "B41",
+    "lat": -7.350833,
+    "lon": 108.112778,
+    "provinsi": "Jawa Barat",
+    "moda": "BUS"
+  },
+  "DARA": {
+    "id": "DRA",
+    "lat": -8.458611,
+    "lon": 118.723889,
+    "provinsi": "NTB",
+    "moda": "BUS"
+  },
+  "KALIANGET": {
+    "id": "841",
+    "lat": -7.056702,
+    "lon": 113.944031,
+    "provinsi": "Jawa Timur",
+    "moda": "LAUT"
+  },
+  "TANJUNG BUTON": {
+    "id": "396",
+    "lat": 1.343889,
+    "lon": 102.157222,
+    "provinsi": "Riau",
+    "moda": "LAUT"
+  },
+  "NGANJUK": {
+    "id": "NJ",
+    "lat": -7.600246,
+    "lon": 111.902655,
+    "provinsi": "Jawa Timur",
+    "moda": "KA"
+  },
+  "TAREMPA": {
+    "id": "97",
+    "lat": 3.217947,
+    "lon": 106.216839,
+    "provinsi": "Kepulauan Riau",
+    "moda": "LAUT"
+  },
+  "WANCI": {
+    "id": "104",
+    "lat": -5.338379,
+    "lon": 123.53479,
+    "provinsi": "Sulawesi Tenggara",
+    "moda": "LAUT"
+  },
+  "KALIDERES": {
+    "id": "KLD",
+    "lat": -6.154167,
+    "lon": 106.705556,
+    "provinsi": "DKI Jakarta",
+    "moda": "BUS"
+  },
+  "MOROWALI": {
+    "id": "MOH",
+    "lat": -2.202222,
+    "lon": 121.661389,
+    "provinsi": "Sulawesi Tengah",
+    "moda": "UDARA"
+  },
+  "LABUHAN LOMBOK": {
+    "id": "947",
+    "lat": -8.499817,
+    "lon": 116.672424,
+    "provinsi": "NTB",
+    "moda": "LAUT"
+  },
+  "PONTIANAK": {
+    "id": "26",
+    "lat": -0.018056,
+    "lon": 109.335,
+    "provinsi": "Kalimantan Barat",
+    "moda": "LAUT"
+  },
+  "CIAMIS": {
+    "id": "B169",
+    "lat": -7.326389,
+    "lon": 108.352778,
+    "provinsi": "Jawa Barat",
+    "moda": "BUS"
+  },
+  "ISIMU": {
+    "id": "ISM",
+    "lat": 0.545905,
+    "lon": 123.05866,
+    "provinsi": "Gorontalo",
+    "moda": "BUS"
+  },
+  "BELAWAN": {
+    "id": "1",
+    "lat": 3.787786,
+    "lon": 98.704083,
+    "provinsi": "Sumatera Utara",
+    "moda": "LAUT"
+  },
+  "BANGGA BANGUN DESA": {
+    "id": "BMD",
+    "lat": -7.046667,
+    "lon": 109.024722,
+    "provinsi": "Jawa Tengah",
+    "moda": "BUS"
+  },
+  "LHOKSEUMAWE": {
+    "id": "979",
+    "lat": 5.21903,
+    "lon": 97.114551,
+    "provinsi": "D.I Aceh",
+    "moda": "LAUT"
+  },
+  "SAPUDI": {
+    "id": "3635",
+    "lat": -7.1098,
+    "lon": 114.1871,
+    "provinsi": "Jawa Timur",
+    "moda": "ASDP"
+  },
+  "LAHAT": {
+    "id": "LT",
+    "lat": -3.79212,
+    "lon": 103.52173,
+    "provinsi": "Sumatera Selatan",
+    "moda": "KA"
+  },
+  "SAMARINDA": {
+    "id": "31",
+    "lat": -0.508611,
+    "lon": 117.155833,
+    "provinsi": "Kalimantan Timur",
+    "moda": "LAUT"
+  },
+  "TEBING TINGGI": {
+    "id": "TI",
+    "lat": -3.58459,
+    "lon": 103.0818,
+    "provinsi": "Sumatera Selatan",
+    "moda": "KA"
+  },
+  "MAUMERE": {
+    "id": "85",
+    "lat": -8.615728,
+    "lon": 122.218616,
+    "provinsi": "NTT",
+    "moda": "LAUT"
+  },
+  "LEDE KALUMBANG": {
+    "id": "TMC",
+    "lat": -9.412222,
+    "lon": 119.246944,
+    "provinsi": "NTT",
+    "moda": "UDARA"
+  },
+  "TANGGUL": {
+    "id": "TGL",
+    "lat": -8.162904,
+    "lon": 113.448436,
+    "provinsi": "Jawa Timur",
+    "moda": "KA"
+  },
+  "PACITAN": {
+    "id": "PCT",
+    "lat": -8.200833,
+    "lon": 111.101667,
+    "provinsi": "Jawa Timur",
+    "moda": "BUS"
+  },
+  "BANGIL": {
+    "id": "BG",
+    "lat": -7.602938,
+    "lon": 112.787871,
+    "provinsi": "Jawa Timur",
+    "moda": "KA"
+  },
+  "HARJAMUKTI": {
+    "id": "HJM",
+    "lat": -6.739672,
+    "lon": 108.552924,
+    "provinsi": "Jawa Barat",
+    "moda": "BUS"
+  },
+  "TANJUNG PINGGIR": {
+    "id": "TPG",
+    "lat": 3.001183,
+    "lon": 99.078122,
+    "provinsi": "Sumatera Utara",
+    "moda": "BUS"
+  },
+  "MANDALA LEBAK": {
+    "id": "MLK",
+    "lat": -6.347162,
+    "lon": 106.230813,
+    "provinsi": "Banten",
+    "moda": "BUS"
+  },
+  "SRI BULAN": {
+    "id": "SBL",
+    "lat": -2.305829,
+    "lon": 102.679286,
+    "provinsi": "Jambi",
+    "moda": "BUS"
+  },
+  "ULU SIAU": {
+    "id": "102",
+    "lat": 2.732788,
+    "lon": 125.415832,
+    "provinsi": "Sulawesi Utara",
+    "moda": "LAUT"
+  },
+  "WAINGAPU": {
+    "id": "3410",
+    "lat": -9.6546,
+    "lon": 120.2648,
+    "provinsi": "NTT",
+    "moda": "ASDP"
+  },
+  "BITUNG": {
+    "id": "41",
+    "lat": 1.438889,
+    "lon": 125.194722,
+    "provinsi": "Sulawesi Utara",
+    "moda": "ASDP"
+  },
+  "ENDE": {
+    "id": "66",
+    "lat": -8.845398,
+    "lon": 121.642029,
+    "provinsi": "NTT",
+    "moda": "LAUT"
+  },
+  "SRAGEN": {
+    "id": "SR",
+    "lat": -7.429402,
+    "lon": 111.017495,
+    "provinsi": "Jawa Tengah",
+    "moda": "KA"
+  },
+  "MAOS": {
+    "id": "MA",
+    "lat": -7.619035,
+    "lon": 109.139389,
+    "provinsi": "Jawa Tengah",
+    "moda": "KA"
+  },
+  "BIRA": {
+    "id": "1755",
+    "lat": -5.3882,
+    "lon": 120.399,
+    "provinsi": "Sulawesi Selatan",
+    "moda": "ASDP"
+  },
+  "SYUKURAN AMINUDDIN AMIR": {
+    "id": "LUW",
+    "lat": -1.040689,
+    "lon": 122.772383,
+    "provinsi": "Sulawesi Tengah",
+    "moda": "UDARA"
+  },
+  "PANARUKAN": {
+    "id": "1138",
+    "lat": -7.698247,
+    "lon": 113.934583,
+    "provinsi": "Jawa Timur",
+    "moda": "LAUT"
+  },
+  "AMAHAI": {
+    "id": "AHI",
+    "lat": -3.346111,
+    "lon": 128.927222,
+    "provinsi": "Maluku",
+    "moda": "UDARA"
+  },
+  "PRABUMULIH": {
+    "id": "PBM",
+    "lat": -3.44019,
+    "lon": 104.23962,
+    "provinsi": "Sumatera Selatan",
+    "moda": "KA"
+  },
+  "MARTAPURA": {
+    "id": "MP",
+    "lat": -4.28355,
+    "lon": 104.31866,
+    "provinsi": "Sumatera Selatan",
+    "moda": "KA"
+  },
+  "SAPEKEN": {
+    "id": "1319",
+    "lat": -7.1026,
+    "lon": 115.906006,
+    "provinsi": "Jawa Timur",
+    "moda": "LAUT"
+  },
+  "TELUK PALU": {
+    "id": "39",
+    "lat": -0.71,
+    "lon": 119.857222,
+    "provinsi": "Sulawesi Tengah",
+    "moda": "LAUT"
+  },
+  "BLAMBANGAN UMPU": {
+    "id": "BBU",
+    "lat": -4.49581,
+    "lon": 104.51498,
+    "provinsi": "Lampung",
+    "moda": "KA"
+  },
+  "MUARA ENIM": {
+    "id": "ME",
+    "lat": -3.65475,
+    "lon": 103.77937,
+    "provinsi": "Sumatera Selatan",
+    "moda": "KA"
+  },
+  "KOLAKA": {
+    "id": "326",
+    "lat": -4.050278,
+    "lon": 121.578056,
+    "provinsi": "Sulawesi Tenggara",
+    "moda": "LAUT"
+  },
+  "RAJA HAJI FISABILILLAH": {
+    "id": "TNJ",
+    "lat": 0.918611,
+    "lon": 104.527222,
+    "provinsi": "Kepulauan Riau",
+    "moda": "UDARA"
+  },
+  "BAJOE": {
+    "id": "625",
+    "lat": -4.548853,
+    "lon": 120.384064,
+    "provinsi": "Sulawesi Selatan",
+    "moda": "LAUT"
+  },
+  "W.A. GARA": {
+    "id": "WAG",
+    "lat": -2.27189,
+    "lon": 113.906289,
+    "provinsi": "Kalimantan Tengah",
+    "moda": "BUS"
+  },
+  "STAGEN": {
+    "id": "3971",
+    "lat": -3.3121,
+    "lon": 116.3469,
+    "provinsi": "Kalimantan Selatan",
+    "moda": "ASDP"
+  },
+  "MANDAI": {
+    "id": "MDI",
+    "lat": -5.05081,
+    "lon": 119.528163,
+    "provinsi": "Sulawesi Selatan",
+    "moda": "KA"
+  },
+  "TARJUN": {
+    "id": "3986",
+    "lat": -3.272979,
+    "lon": 116.122512,
+    "provinsi": "Kalimantan Selatan",
+    "moda": "ASDP"
+  },
+  "RAMBIPUJI": {
+    "id": "RBP",
+    "lat": -8.203341,
+    "lon": 113.614608,
+    "provinsi": "Jawa Timur",
+    "moda": "KA"
+  },
+  "MELONGUANE": {
+    "id": "MNA",
+    "lat": 4.006111,
+    "lon": 126.674722,
+    "provinsi": "Sulawesi Utara",
+    "moda": "UDARA"
+  },
+  "ALANG-ALANG LEBAR": {
+    "id": "AAL",
+    "lat": -2.917163,
+    "lon": 104.681548,
+    "provinsi": "Sumatera Selatan",
+    "moda": "BUS"
+  },
+  "BANTEN": {
+    "id": "642",
+    "lat": -6.017273,
+    "lon": 105.95459,
+    "provinsi": "Banten",
+    "moda": "LAUT"
+  },
+  "KAMAL": {
+    "id": "3524",
+    "lat": -7.1897,
+    "lon": 112.727,
+    "provinsi": "Jawa Timur",
+    "moda": "ASDP"
+  },
+  "PAMATATA": {
+    "id": "1756",
+    "lat": -5.6682,
+    "lon": 120.4608,
+    "provinsi": "Sulawesi Selatan",
+    "moda": "ASDP"
+  },
+  "SINGKAWANG": {
+    "id": "SKJ",
+    "lat": 0.791937,
+    "lon": 108.961579,
+    "provinsi": "Kalimantan Barat",
+    "moda": "UDARA"
+  },
+  "KILIRAN JAO": {
+    "id": "KJO",
+    "lat": -0.683056,
+    "lon": 100.778889,
+    "provinsi": "Sumatera Barat",
+    "moda": "BUS"
+  },
+  "TELUK BAYUR": {
+    "id": "16",
+    "lat": -0.997222,
+    "lon": 100.371944,
+    "provinsi": "Sulawesi Barat",
+    "moda": "LAUT"
+  },
+  "UJUNG": {
+    "id": "1723",
+    "lat": -7.197604,
+    "lon": 112.734836,
+    "provinsi": "Jawa Timur",
+    "moda": "ASDP"
+  },
+  "SIMPANG NANGKA": {
+    "id": "SPN",
+    "lat": -3.455144,
+    "lon": 102.581251,
+    "provinsi": "Bengkulu",
+    "moda": "BUS"
+  },
+  "ADI SUTJIPTO": {
+    "id": "JOG",
+    "lat": -7.786667,
+    "lon": 110.431944,
+    "provinsi": "D.I. Yogyakarta",
+    "moda": "UDARA"
+  },
+  "BOROKO": {
+    "id": "BRK",
+    "lat": 0.911639,
+    "lon": 123.282306,
+    "provinsi": "Sulawesi Utara",
+    "moda": "BUS"
+  },
+  "FRANS KAISIEPO": {
+    "id": "BIK",
+    "lat": -1.191944,
+    "lon": 136.11,
+    "provinsi": "Papua",
+    "moda": "UDARA"
+  },
+  "SUNGAI GUNTUNG": {
+    "id": "163",
+    "lat": 0.205017,
+    "lon": 103.510193,
+    "provinsi": "Riau",
+    "moda": "LAUT"
+  },
+  "SOLOJEBRES": {
+    "id": "SK",
+    "lat": -7.562015,
+    "lon": 110.839419,
+    "provinsi": "Jawa Tengah",
+    "moda": "KA"
+  },
+  "LELES": {
+    "id": "LL",
+    "lat": -7.084729,
+    "lon": 107.8998,
+    "provinsi": "Jawa Barat",
+    "moda": "KA"
+  },
+  "PANGKAL BALAM": {
+    "id": "18",
+    "lat": -2.098333,
+    "lon": 106.130556,
+    "provinsi": "Bangka Belitung",
+    "moda": "LAUT"
+  },
+  "GUMILIR": {
+    "id": "GM",
+    "lat": -7.685,
+    "lon": 109.0426,
+    "provinsi": "Jawa Tengah",
+    "moda": "KA"
+  },
+  "NGAWI": {
+    "id": "NGW",
+    "lat": -7.44226,
+    "lon": 111.38695,
+    "provinsi": "Jawa Timur",
+    "moda": "KA"
+  },
+  "LABUAN RATU": {
+    "id": "LAR",
+    "lat": -5.3725,
+    "lon": 105.2524,
+    "provinsi": "Lampung",
+    "moda": "KA"
+  },
+  "SIBOLGA": {
+    "id": "SBG",
+    "lat": 1.738889,
+    "lon": 98.783889,
+    "provinsi": "Sumatera Utara",
+    "moda": "BUS"
+  },
+  "KOTABARU BATULICIN": {
+    "id": "390",
+    "lat": -3.237,
+    "lon": 116.225586,
+    "provinsi": "Kalimantan Selatan",
+    "moda": "LAUT"
+  },
+  "BIMA": {
+    "id": "60",
+    "lat": -8.445226,
+    "lon": 118.715905,
+    "provinsi": "NTB",
+    "moda": "LAUT"
+  },
+  "KLAKAH": {
+    "id": "KK",
+    "lat": -7.994103,
+    "lon": 113.249369,
+    "provinsi": "Jawa Timur",
+    "moda": "KA"
+  },
+  "H. ASAN": {
+    "id": "SMQ",
+    "lat": -2.501389,
+    "lon": 112.975556,
+    "provinsi": "Kalimantan Tengah",
+    "moda": "UDARA"
+  },
+  "BIAK": {
+    "id": "50",
+    "lat": -1.185,
+    "lon": 136.075278,
+    "provinsi": "Papua",
+    "moda": "LAUT"
+  },
+  "BANDARHALIPAH": {
+    "id": "BAP",
+    "lat": 3.594271,
+    "lon": 98.757074,
+    "provinsi": "Sumatera Utara",
+    "moda": "KA"
+  },
+  "DABO SINGKEP": {
+    "id": "556",
+    "lat": -0.340716,
+    "lon": 104.466284,
+    "provinsi": "Kepulauan Riau",
+    "moda": "LAUT"
+  },
+  "JAILOLO": {
+    "id": "116",
+    "lat": 1.05719,
+    "lon": 127.469421,
+    "provinsi": "Maluku Utara",
+    "moda": "LAUT"
+  },
+  "BONTANG": {
+    "id": "548",
+    "lat": 0.149456,
+    "lon": 117.5247,
+    "provinsi": "Kalimantan Timur",
+    "moda": "LAUT"
+  },
+  "SULTAN M. SALAHUDDIN": {
+    "id": "BMU",
+    "lat": -8.541646,
+    "lon": 118.692221,
+    "provinsi": "NTB",
+    "moda": "UDARA"
+  },
+  "BENETE": {
+    "id": "BNT",
+    "lat": -8.41667,
+    "lon": 117.16667,
+    "provinsi": "NTB",
+    "moda": "UDARA"
+  },
+  "AMPANA": {
+    "id": "604",
+    "lat": -0.866699,
+    "lon": 121.583801,
+    "provinsi": "Sulawesi Tengah",
+    "moda": "LAUT"
+  },
+  "BINAKA": {
+    "id": "GNS",
+    "lat": 1.165556,
+    "lon": 97.706111,
+    "provinsi": "Sumatera Utara",
+    "moda": "UDARA"
+  },
+  "GARONGKONG": {
+    "id": "3779",
+    "lat": -5.1461,
+    "lon": 119.4086,
+    "provinsi": "Sulawesi Selatan",
+    "moda": "ASDP"
+  },
+  "KALABAHI": {
+    "id": "3407",
+    "lat": -8.2163,
+    "lon": 124.5193,
+    "provinsi": "NTT",
+    "moda": "ASDP"
+  },
+  "ROTE": {
+    "id": "292",
+    "lat": -10.723877,
+    "lon": 123.044006,
+    "provinsi": "NTT",
+    "moda": "ASDP"
+  },
+  "NIAS": {
+    "id": "1713",
+    "lat": 1.184261,
+    "lon": 97.68666,
+    "provinsi": "Sumatera Utara",
+    "moda": "ASDP"
+  },
+  "PAYA ILANG": {
+    "id": "PYI",
+    "lat": 4.625457,
+    "lon": 96.835349,
+    "provinsi": "D.I Aceh",
+    "moda": "BUS"
+  },
+  "BATANG": {
+    "id": "151",
+    "lat": -6.880025,
+    "lon": 109.749202,
+    "provinsi": "Jawa Tengah",
+    "moda": "LAUT"
+  },
+  "MALANG KOTA LAMA": {
+    "id": "MLK",
+    "lat": -7.994813,
+    "lon": 112.632401,
+    "provinsi": "Jawa Timur",
+    "moda": "KA"
+  },
+  "RAHADI OESMAN": {
+    "id": "KTG",
+    "lat": -1.816111,
+    "lon": 109.961944,
+    "provinsi": "Kalimantan Barat",
+    "moda": "UDARA"
+  },
+  "BANDANAIRA": {
+    "id": "636",
+    "lat": -4.52492,
+    "lon": 129.896954,
+    "provinsi": "Maluku",
+    "moda": "LAUT"
+  },
+  "TANJUNG BALAI ASAHAN": {
+    "id": "2",
+    "lat": 2.9675,
+    "lon": 99.808333,
+    "provinsi": "Sumatera Utara",
+    "moda": "LAUT"
+  },
+  "SIUBAN": {
+    "id": "290",
+    "lat": -2.183297,
+    "lon": 99.73179,
+    "provinsi": "Sumatera Barat",
+    "moda": "LAUT"
+  },
+  "KEPANJEN": {
+    "id": "KPN",
+    "lat": -8.131986,
+    "lon": 112.573105,
+    "provinsi": "Jawa Timur",
+    "moda": "KA"
+  },
+  "GANDRUNGMANGUN": {
+    "id": "GDM",
+    "lat": -7.52808,
+    "lon": 108.8592,
+    "provinsi": "Jawa Tengah",
+    "moda": "KA"
+  },
+  "BAWEAN": {
+    "id": "135",
+    "lat": -5.8526,
+    "lon": 112.642395,
+    "provinsi": "Jawa Timur",
+    "moda": "LAUT"
+  },
+  "SUBANG": {
+    "id": "SUB",
+    "lat": -6.568333,
+    "lon": 107.759167,
+    "provinsi": "Jawa Barat",
+    "moda": "BUS"
+  },
+  "SERUI": {
+    "id": "95",
+    "lat": -1.887573,
+    "lon": 136.245606,
+    "provinsi": "Papua",
+    "moda": "LAUT"
+  },
+  "BAA": {
+    "id": "618",
+    "lat": -10.723877,
+    "lon": 123.044006,
+    "provinsi": "NTT",
+    "moda": "LAUT"
+  },
+  "BIMOKU": {
+    "id": "BMK",
+    "lat": -10.139694,
+    "lon": 123.67668,
+    "provinsi": "NTT",
+    "moda": "BUS"
+  },
+  "BETUNG": {
+    "id": "BTG",
+    "lat": -2.851578,
+    "lon": 104.245144,
+    "provinsi": "Sumatera Selatan",
+    "moda": "BUS"
+  },
+  "SANGIA NIBANDERA": {
+    "id": "KXB",
+    "lat": -4.345,
+    "lon": 121.522222,
+    "provinsi": "Sulawesi Tenggara",
+    "moda": "UDARA"
+  },
+  "TANJUNG PANDAN": {
+    "id": "17",
+    "lat": -2.744722,
+    "lon": 107.635,
+    "provinsi": "Bangka Belitung",
+    "moda": "LAUT"
+  },
+  "JANGKAR": {
+    "id": "3515",
+    "lat": -7.7436,
+    "lon": 113.9233,
+    "provinsi": "Jawa Timur",
+    "moda": "ASDP"
+  },
+  "PEGADENBARU": {
+    "id": "PGB",
+    "lat": -6.45363,
+    "lon": 107.817002,
+    "provinsi": "Jawa Barat",
+    "moda": "KA"
+  },
+  "SEI KOLAK KIJANG": {
+    "id": "13",
+    "lat": 0.860456,
+    "lon": 104.611441,
+    "provinsi": "Kepulauan Riau",
+    "moda": "LAUT"
+  },
+  "WAARA": {
+    "id": "3254",
+    "lat": -5.42701,
+    "lon": 122.60023,
+    "provinsi": "Sulawesi Tenggara",
+    "moda": "ASDP"
+  },
+  "CIBATU": {
+    "id": "CB",
+    "lat": -7.099907,
+    "lon": 107.979506,
+    "provinsi": "Jawa Barat",
+    "moda": "KA"
+  },
+  "TEMBILAHAN": {
+    "id": "228",
+    "lat": -0.301392,
+    "lon": 103.198242,
+    "provinsi": "Riau",
+    "moda": "LAUT"
+  },
+  "SAMPIT": {
+    "id": "28",
+    "lat": -2.541389,
+    "lon": 112.964167,
+    "provinsi": "Kalimantan Tengah",
+    "moda": "LAUT"
+  },
+  "SINABANG": {
+    "id": "3668",
+    "lat": 2.4666,
+    "lon": 96.3798,
+    "provinsi": "D.I Aceh",
+    "moda": "ASDP"
+  },
+  "RANDUBLATUNG": {
+    "id": "RBG",
+    "lat": -7.192687,
+    "lon": 111.391368,
+    "provinsi": "Jawa Tengah",
+    "moda": "KA"
+  },
+  "DOBO": {
+    "id": "3500",
+    "lat": -5.7492,
+    "lon": 134.2152,
+    "provinsi": "Maluku",
+    "moda": "ASDP"
+  },
+  "MAKALE": {
+    "id": "B281",
+    "lat": -3.560833,
+    "lon": 119.769167,
+    "provinsi": "Sulawesi Selatan",
+    "moda": "BUS"
+  },
+  "LUBUKPAKAM": {
+    "id": "LBP",
+    "lat": 3.5636,
+    "lon": 98.8786,
+    "provinsi": "Sumatera Utara",
+    "moda": "KA"
+  },
+  "WEDA BAY": {
+    "id": "WDB",
+    "lat": 0.468056,
+    "lon": 127.946111,
+    "provinsi": "Maluku Utara",
+    "moda": "UDARA"
+  },
+  "BANGGAI": {
+    "id": "3221",
+    "lat": -1.5479,
+    "lon": 123.5048,
+    "provinsi": "Sulawesi Tengah",
+    "moda": "ASDP"
+  },
+  "INDONESIA MOROWALI INDUSTRIAL PARK": {
+    "id": "MWS",
+    "lat": -2.799614,
+    "lon": 122.142219,
+    "provinsi": "Sulawesi Tengah",
+    "moda": "UDARA"
+  },
+  "FAK-FAK": {
+    "id": "67",
+    "lat": -2.932678,
+    "lon": 132.309631,
+    "provinsi": "Papua Barat",
+    "moda": "LAUT"
+  },
+  "MAMBANGMUDA": {
+    "id": "MBM",
+    "lat": 2.56519,
+    "lon": 99.65118,
+    "provinsi": "Sumatera Utara",
+    "moda": "KA"
+  },
+  "HUSEIN SASTRANEGARA": {
+    "id": "BDO",
+    "lat": -6.901944,
+    "lon": 107.576111,
+    "provinsi": "Jawa Barat",
+    "moda": "UDARA"
+  },
+  "PERLANAAN": {
+    "id": "PRA",
+    "lat": 3.1756,
+    "lon": 99.36499,
+    "provinsi": "Sumatera Utara",
+    "moda": "KA"
+  },
+  "BANYUWANGI": {
+    "id": "BWX",
+    "lat": -8.31,
+    "lon": 114.340278,
+    "provinsi": "Jawa Timur",
+    "moda": "UDARA"
+  },
+  "KALIBARU": {
+    "id": "KBR",
+    "lat": -8.28824,
+    "lon": 113.984965,
+    "provinsi": "Jawa Timur",
+    "moda": "KA"
+  },
+  "GORONTALO": {
+    "id": "1711",
+    "lat": 0.508889,
+    "lon": 123.063056,
+    "provinsi": "Gorontalo",
+    "moda": "ASDP"
+  },
+  "GRESIK": {
+    "id": "4193",
+    "lat": -7.155824,
+    "lon": 112.662315,
+    "provinsi": "Jawa Timur",
+    "moda": "ASDP"
+  },
+  "BETOAMBARI": {
+    "id": "BUW",
+    "lat": -5.486944,
+    "lon": 122.569444,
+    "provinsi": "Sulawesi Tenggara",
+    "moda": "UDARA"
+  },
+  "SANANA": {
+    "id": "3215",
+    "lat": -2.1915,
+    "lon": 126.6107,
+    "provinsi": "Maluku Utara",
+    "moda": "ASDP"
+  },
+  "PETTA PONGAWAI": {
+    "id": "PPW",
+    "lat": -4.540113,
+    "lon": 120.295005,
+    "provinsi": "Sulawesi Selatan",
+    "moda": "BUS"
+  },
+  "SILAMPARI": {
+    "id": "LLJ",
+    "lat": -3.284167,
+    "lon": 102.914167,
+    "provinsi": "Sumatera Selatan",
+    "moda": "UDARA"
+  },
+  "SIWA": {
+    "id": "37",
+    "lat": -3.3,
+    "lon": 120.404444,
+    "provinsi": "Sulawesi Selatan",
+    "moda": "LAUT"
+  },
+  "BABAKAN": {
+    "id": "BBK",
+    "lat": -6.860728,
+    "lon": 108.719875,
+    "provinsi": "Jawa Barat",
+    "moda": "KA"
+  },
+  "KARANGANYAR": {
+    "id": "KA",
+    "lat": -7.633215,
+    "lon": 109.573538,
+    "provinsi": "Jawa Tengah",
+    "moda": "KA"
+  },
+  "MAGETAN": {
+    "id": "B220",
+    "lat": -7.650833,
+    "lon": 111.329722,
+    "provinsi": "Jawa Timur",
+    "moda": "BUS"
+  },
+  "MALALAYANG": {
+    "id": "LWS",
+    "lat": 1.458056,
+    "lon": 124.793611,
+    "provinsi": "Sulawesi Utara",
+    "moda": "BUS"
+  },
+  "H. HASAN AROEBOESMAN": {
+    "id": "ENE",
+    "lat": -8.61667,
+    "lon": 122.21667,
+    "provinsi": "NTT",
+    "moda": "UDARA"
+  },
+  "SULTAN MUH. KAHARUDDIN": {
+    "id": "SWQ",
+    "lat": -8.5,
+    "lon": 117.41667,
+    "provinsi": "NTB",
+    "moda": "UDARA"
+  },
+  "SIMPANG PRIUK": {
+    "id": "SPP",
+    "lat": -3.268915,
+    "lon": 102.939177,
+    "provinsi": "Sumatera Selatan",
+    "moda": "BUS"
+  },
+  "CARUBAN": {
+    "id": "CRB",
+    "lat": -7.550766,
+    "lon": 111.654566,
+    "provinsi": "Jawa Timur",
+    "moda": "KA"
+  },
+  "PRUPUK": {
+    "id": "PPK",
+    "lat": -7.122799,
+    "lon": 108.982726,
+    "provinsi": "Jawa Tengah",
+    "moda": "KA"
+  },
+  "TOBELO": {
+    "id": "100",
+    "lat": 1.718961,
+    "lon": 128.01494,
+    "provinsi": "Maluku Utara",
+    "moda": "LAUT"
+  },
+  "MADYA TARUTUNG": {
+    "id": "MTR",
+    "lat": 2.025469,
+    "lon": 98.974046,
+    "provinsi": "Sumatera Utara",
+    "moda": "BUS"
+  },
+  "MAMBORO": {
+    "id": "MBR",
+    "lat": -0.806373,
+    "lon": 119.883578,
+    "provinsi": "Sulawesi Tengah",
+    "moda": "BUS"
+  },
+  "TELUK DALAM": {
+    "id": "3308",
+    "lat": -0.5598,
+    "lon": 97.817,
+    "provinsi": "Sumatera Utara",
+    "moda": "ASDP"
+  },
+  "SENAYANG": {
+    "id": "248",
+    "lat": 0.054963,
+    "lon": 104.643728,
+    "provinsi": "Kepulauan Riau",
+    "moda": "LAUT"
+  },
+  "PONDOK CABE": {
+    "id": "PCB",
+    "lat": -6.358888,
+    "lon": 106.75331,
+    "provinsi": "Banten",
+    "moda": "BUS"
+  },
+  "FRANSISKUS XAVERIUS SEDA": {
+    "id": "MOF",
+    "lat": -8.6375,
+    "lon": 122.236944,
+    "provinsi": "NTT",
+    "moda": "UDARA"
+  },
+  "KARYA JAYA": {
+    "id": "KJY",
+    "lat": -3.268915,
+    "lon": 102.939177,
+    "provinsi": "Sumatera Selatan",
+    "moda": "BUS"
+  },
+  "WAYTUBA": {
+    "id": "WAY",
+    "lat": -4.37952,
+    "lon": 104.4118,
+    "provinsi": "Lampung",
+    "moda": "KA"
+  },
+  "GUNUNG SITOLI": {
+    "id": "507",
+    "lat": 1.305603,
+    "lon": 97.609802,
+    "provinsi": "Sumatera Utara",
+    "moda": "LAUT"
+  },
+  "PULAU BUNYU": {
+    "id": "276",
+    "lat": 3.461254,
+    "lon": 117.838463,
+    "provinsi": "Kalimantan Utara",
+    "moda": "LAUT"
+  },
+  "SAUMLAKI": {
+    "id": "92",
+    "lat": -7.980896,
+    "lon": 131.291626,
+    "provinsi": "Maluku",
+    "moda": "LAUT"
+  },
+  "KRADENAN": {
+    "id": "KNN",
+    "lat": -7.14981,
+    "lon": 111.144977,
+    "provinsi": "Jawa Tengah",
+    "moda": "KA"
+  },
+  "KAREL SADSUITUBUN": {
+    "id": "LUV",
+    "lat": -5.757222,
+    "lon": 132.761111,
+    "provinsi": "Maluku",
+    "moda": "UDARA"
+  },
+  "SIDANGOLI": {
+    "id": "3248",
+    "lat": 0.8432,
+    "lon": 127.4548,
+    "provinsi": "Maluku Utara",
+    "moda": "ASDP"
+  },
+  "KALISAT": {
+    "id": "KLT",
+    "lat": -8.128456,
+    "lon": 113.813914,
+    "provinsi": "Jawa Timur",
+    "moda": "KA"
+  },
+  "BABO": {
+    "id": "BXB",
+    "lat": -2.55,
+    "lon": 133.41667,
+    "provinsi": "Papua Barat",
+    "moda": "UDARA"
+  },
+  "KAIMANA": {
+    "id": "4190",
+    "lat": -3.664673,
+    "lon": 133.759033,
+    "provinsi": "Papua Barat",
+    "moda": "ASDP"
+  },
+  "WALIKUKUN": {
+    "id": "WK",
+    "lat": -7.398254,
+    "lon": 111.22391,
+    "provinsi": "Jawa Timur",
+    "moda": "KA"
+  },
+  "KOLONEDALE": {
+    "id": "532",
+    "lat": -1.988886,
+    "lon": 121.340684,
+    "provinsi": "Sulawesi Tengah",
+    "moda": "LAUT"
+  },
+  "SELAYAR": {
+    "id": "472",
+    "lat": -6.119385,
+    "lon": 120.454407,
+    "provinsi": "Sulawesi Selatan",
+    "moda": "LAUT"
+  },
+  "SAMARINDA SEBERANG": {
+    "id": "SSB",
+    "lat": -0.507922,
+    "lon": 117.141321,
+    "provinsi": "Kalimantan Timur",
+    "moda": "BUS"
+  },
+  "AMOLENGO": {
+    "id": "3161",
+    "lat": -4.2335,
+    "lon": 122.8041,
+    "provinsi": "Sulawesi Tenggara",
+    "moda": "ASDP"
+  },
+  "MINAK KONCAR": {
+    "id": "B803",
+    "lat": -8.074788,
+    "lon": 113.236147,
+    "provinsi": "Jawa Timur",
+    "moda": "BUS"
+  },
+  "TEMUGURUH": {
+    "id": "TGR",
+    "lat": -8.30929,
+    "lon": 114.204733,
+    "provinsi": "Jawa Timur",
+    "moda": "KA"
+  },
+  "UMBU MEHANG KUNDA": {
+    "id": "WGP",
+    "lat": -9.668056,
+    "lon": 120.298889,
+    "provinsi": "NTT",
+    "moda": "UDARA"
+  },
+  "REGIONAL LAHAT (BATAY)": {
+    "id": "LHT",
+    "lat": -3.786389,
+    "lon": 103.542778,
+    "provinsi": "Sumatera Selatan",
+    "moda": "BUS"
+  },
+  "TELUK BATANG": {
+    "id": "1727",
+    "lat": -1.106065,
+    "lon": 109.956464,
+    "provinsi": "Kalimantan Barat",
+    "moda": "ASDP"
+  },
+  "WLINGI": {
+    "id": "WG",
+    "lat": -8.088312,
+    "lon": 112.319979,
+    "provinsi": "Jawa Timur",
+    "moda": "KA"
+  },
+  "MUARA SIBERUT": {
+    "id": "1082",
+    "lat": -1.598083,
+    "lon": 99.215027,
+    "provinsi": "Sumatera Barat",
+    "moda": "LAUT"
+  },
+  "WARU": {
+    "id": "WR",
+    "lat": -7.352638,
+    "lon": 112.729353,
+    "provinsi": "Jawa Timur",
+    "moda": "KA"
+  },
+  "NOP GOLIAT DEKAI": {
+    "id": "DEX",
+    "lat": -4.853611,
+    "lon": 139.486667,
+    "provinsi": "Papua Pegunungan",
+    "moda": "UDARA"
+  },
+  "POMAKO": {
+    "id": "3386",
+    "lat": -4.5241,
+    "lon": 136.8816,
+    "provinsi": "Papua",
+    "moda": "ASDP"
+  },
+  "BATU KUNING": {
+    "id": "BKN",
+    "lat": -4.099927,
+    "lon": 104.156571,
+    "provinsi": "Sumatera Selatan",
+    "moda": "BUS"
+  },
+  "SEBA": {
+    "id": "3419",
+    "lat": -10.3858,
+    "lon": 121.8401,
+    "provinsi": "NTT",
+    "moda": "ASDP"
+  },
+  "SEI AMBAWANG": {
+    "id": "SAB",
+    "lat": -0.041187,
+    "lon": 109.403815,
+    "provinsi": "Kalimantan Barat",
+    "moda": "BUS"
+  },
+  "JERUKLEGI": {
+    "id": "JRL",
+    "lat": -7.622974,
+    "lon": 109.01798,
+    "provinsi": "Jawa Tengah",
+    "moda": "KA"
+  },
+  "SEI BEJANGKAR": {
+    "id": "SBJ",
+    "lat": 3.10663,
+    "lon": 99.5564,
+    "provinsi": "Sumatera Utara",
+    "moda": "KA"
+  },
+  "KERTAJATI": {
+    "id": "KJT",
+    "lat": -6.651712,
+    "lon": 108.157686,
+    "provinsi": "Jawa Barat",
+    "moda": "UDARA"
+  },
+  "WASIOR": {
+    "id": "4022",
+    "lat": -2.7212,
+    "lon": 134.5241,
+    "provinsi": "Papua Barat",
+    "moda": "ASDP"
+  },
+  "PAPAR": {
+    "id": "PPR",
+    "lat": -7.697606,
+    "lon": 112.079479,
+    "provinsi": "Jawa Timur",
+    "moda": "KA"
+  },
+  "TANJUNG PAKIS": {
+    "id": "576",
+    "lat": -5.970214,
+    "lon": 107.127813,
+    "provinsi": "Jawa Timur",
+    "moda": "LAUT"
+  },
+  "TANJUNG": {
+    "id": "B203",
+    "lat": -6.873056,
+    "lon": 108.875278,
+    "provinsi": "Jawa Tengah",
+    "moda": "BUS"
+  },
+  "KETANGGUNGAN": {
+    "id": "KGG",
+    "lat": -6.93829,
+    "lon": 108.8844,
+    "provinsi": "Jawa Tengah",
+    "moda": "KA"
+  },
+  "RUM": {
+    "id": "3296",
+    "lat": 0.737228,
+    "lon": 127.385904,
+    "provinsi": "Maluku Utara",
+    "moda": "ASDP"
+  },
+  "CILEDUG": {
+    "id": "CLD",
+    "lat": -6.90263,
+    "lon": 108.744032,
+    "provinsi": "Jawa Barat",
+    "moda": "KA"
+  },
+  "AIR SEBAKUL": {
+    "id": "ASB",
+    "lat": -3.839507,
+    "lon": 102.349554,
+    "provinsi": "Bengkulu",
+    "moda": "BUS"
+  },
+  "DARUBA": {
+    "id": "3494",
+    "lat": 2.2667,
+    "lon": 128.1906,
+    "provinsi": "Maluku Utara",
+    "moda": "ASDP"
+  },
+  "PALEMBANG": {
+    "id": "15",
+    "lat": -2.980278,
+    "lon": 104.778889,
+    "provinsi": "Sumatera Selatan",
+    "moda": "LAUT"
+  },
+  "NAMROLE": {
+    "id": "NRE",
+    "lat": -3.852778,
+    "lon": 126.7025,
+    "provinsi": "Maluku",
+    "moda": "UDARA"
+  },
+  "WONRELI": {
+    "id": "1554",
+    "lat": -8.080078,
+    "lon": 127.146423,
+    "provinsi": "Maluku",
+    "moda": "LAUT"
+  },
+  "SUMPIUH": {
+    "id": "SPH",
+    "lat": -7.61517,
+    "lon": 109.3614,
+    "provinsi": "Jawa Tengah",
+    "moda": "KA"
+  },
+  "CIPEUNDEUY": {
+    "id": "CPD",
+    "lat": -7.09357,
+    "lon": 108.1006,
+    "provinsi": "Jawa Barat",
+    "moda": "KA"
+  },
+  "LIMAPULUH": {
+    "id": "LMP",
+    "lat": 3.17322,
+    "lon": 99.41302,
+    "provinsi": "Sumatera Utara",
+    "moda": "KA"
+  },
+  "KAYUAGUNG": {
+    "id": "KAG",
+    "lat": -3.388333,
+    "lon": 104.827778,
+    "provinsi": "Sumatera Selatan",
+    "moda": "BUS"
+  },
+  "GESER": {
+    "id": "70",
+    "lat": -3.87902,
+    "lon": 130.9021,
+    "provinsi": "Maluku",
+    "moda": "LAUT"
+  },
+  "BANGKINANG": {
+    "id": "BGK",
+    "lat": 0.338333,
+    "lon": 101.025278,
+    "provinsi": "Riau",
+    "moda": "BUS"
+  },
+  "KUTOWINANGUN": {
+    "id": "KWN",
+    "lat": -7.7168,
+    "lon": 109.7342,
+    "provinsi": "Jawa Tengah",
+    "moda": "KA"
+  },
+  "ARJAWINANGUN": {
+    "id": "AWN",
+    "lat": -6.64459,
+    "lon": 108.4146,
+    "provinsi": "Jawa Barat",
+    "moda": "KA"
+  },
+  "WAIKELO": {
+    "id": "1523",
+    "lat": -9.389771,
+    "lon": 119.218994,
+    "provinsi": "NTT",
+    "moda": "LAUT"
+  },
+  "PANIPAHAN": {
+    "id": "174",
+    "lat": 2.469604,
+    "lon": 100.346008,
+    "provinsi": "Riau",
+    "moda": "LAUT"
+  },
+  "SABANG": {
+    "id": "252",
+    "lat": 5.889587,
+    "lon": 95.317993,
+    "provinsi": "D.I Aceh",
+    "moda": "LAUT"
+  },
+  "WEDA": {
+    "id": "3119",
+    "lat": -0.3905,
+    "lon": 127.8668,
+    "provinsi": "Maluku Utara",
+    "moda": "ASDP"
+  },
+  "TULUNG BUYUT": {
+    "id": "TLY",
+    "lat": -4.62579,
+    "lon": 104.6646,
+    "provinsi": "Lampung",
+    "moda": "KA"
+  },
+  "LAPUKO": {
+    "id": "959",
+    "lat": -4.157715,
+    "lon": 122.701416,
+    "provinsi": "Sulawesi Tenggara",
+    "moda": "LAUT"
+  },
+  "OESMAN SADIK": {
+    "id": "LAH",
+    "lat": -0.637222,
+    "lon": 127.501944,
+    "provinsi": "Maluku Utara",
+    "moda": "UDARA"
+  },
+  "PUUWATU": {
+    "id": "PUW",
+    "lat": -3.966674,
+    "lon": 122.457938,
+    "provinsi": "Sulawesi Tenggara",
+    "moda": "BUS"
+  },
+  "LAWANG": {
+    "id": "LW",
+    "lat": -7.836638,
+    "lon": 112.697654,
+    "provinsi": "Jawa Timur",
+    "moda": "KA"
+  },
+  "LAGALIGO": {
+    "id": "LLO",
+    "lat": -3.08464,
+    "lon": 120.244,
+    "provinsi": "Sulawesi Selatan",
+    "moda": "UDARA"
+  },
+  "SAPE": {
+    "id": "1317",
+    "lat": -8.568241,
+    "lon": 119.018432,
+    "provinsi": "NTB",
+    "moda": "LAUT"
+  },
+  "MERAUKE": {
+    "id": "52",
+    "lat": -8.478889,
+    "lon": 140.390556,
+    "provinsi": "Papua",
+    "moda": "LAUT"
+  },
+  "JAMPEA": {
+    "id": "4121",
+    "lat": -7.2491,
+    "lon": 120.617,
+    "provinsi": "Sulawesi Selatan",
+    "moda": "ASDP"
+  },
+  "CALANG": {
+    "id": "4223",
+    "lat": 4.631431,
+    "lon": 95.571987,
+    "provinsi": "D.I Aceh",
+    "moda": "ASDP"
+  },
+  "ANAK AIR": {
+    "id": "AAI",
+    "lat": -0.825611,
+    "lon": 100.330397,
+    "provinsi": "Sumatera Barat",
+    "moda": "BUS"
+  },
+  "BINTUNI": {
+    "id": "NTI",
+    "lat": -2.100833,
+    "lon": 133.513611,
+    "provinsi": "Papua Barat",
+    "moda": "UDARA"
+  },
+  "TAMPA PADANG": {
+    "id": "MJU",
+    "lat": -2.588611,
+    "lon": 119.029444,
+    "provinsi": "Sulawesi Barat",
+    "moda": "UDARA"
+  },
+  "PADALARANG": {
+    "id": "PDL",
+    "lat": -6.842953,
+    "lon": 107.497322,
+    "provinsi": "Jawa Barat",
+    "moda": "KA"
+  },
+  "BEKRI": {
+    "id": "BKI",
+    "lat": -5.07281,
+    "lon": 105.136,
+    "provinsi": "Lampung",
+    "moda": "KA"
+  },
+  "BAGAN SIAPI-API": {
+    "id": "621",
+    "lat": 2.180603,
+    "lon": 100.650818,
+    "provinsi": "Riau",
+    "moda": "LAUT"
+  },
+  "WAREN": {
+    "id": "1540",
+    "lat": -2.200684,
+    "lon": 136.42279,
+    "provinsi": "Papua",
+    "moda": "LAUT"
+  },
+  "BARRU": {
+    "id": "BAR",
+    "lat": -4.414788,
+    "lon": 119.62699,
+    "provinsi": "Sulawesi Selatan",
+    "moda": "KA"
+  },
+  "NEGERIAGUNG": {
+    "id": "NGN",
+    "lat": -4.57251,
+    "lon": 104.6058,
+    "provinsi": "Lampung",
+    "moda": "KA"
+  },
+  "TEGINENENG": {
+    "id": "TGI",
+    "lat": -5.20008,
+    "lon": 105.17416,
+    "provinsi": "Lampung",
+    "moda": "KA"
+  },
+  "GUNDIH": {
+    "id": "GD",
+    "lat": -7.218554,
+    "lon": 110.900156,
+    "provinsi": "Jawa Tengah",
+    "moda": "KA"
+  },
+  "PENINJAWAN": {
+    "id": "PNW",
+    "lat": -3.87952,
+    "lon": 104.3766,
+    "provinsi": "Sumatera Selatan",
+    "moda": "KA"
+  },
+  "SIBORU": {
+    "id": "FKQ",
+    "lat": -2.53333,
+    "lon": 140.71667,
+    "provinsi": "Papua Barat",
+    "moda": "UDARA"
+  },
+  "BULA": {
+    "id": "62",
+    "lat": -3.062844,
+    "lon": 130.451527,
+    "provinsi": "Maluku",
+    "moda": "LAUT"
+  },
+  "MARBAU": {
+    "id": "MBU",
+    "lat": 2.2608,
+    "lon": 99.82239,
+    "provinsi": "Sumatera Utara",
+    "moda": "KA"
+  },
+  "SINGKIL": {
+    "id": "1371",
+    "lat": 2.270466,
+    "lon": 97.813702,
+    "provinsi": "D.I Aceh",
+    "moda": "LAUT"
+  },
+  "PAGIMANA": {
+    "id": "251",
+    "lat": -0.793656,
+    "lon": 122.654166,
+    "provinsi": "Sulawesi Tengah",
+    "moda": "LAUT"
+  },
+  "BATANGKUIS": {
+    "id": "BTK",
+    "lat": 3.59424,
+    "lon": 98.75623,
+    "provinsi": "Sumatera Utara",
+    "moda": "KA"
+  },
+  "TANJUNG MEDANG": {
+    "id": "238",
+    "lat": 2.111633,
+    "lon": 101.63623,
+    "provinsi": "Riau",
+    "moda": "LAUT"
+  },
+  "MASALEMBO": {
+    "id": "167",
+    "lat": -5.578368,
+    "lon": 114.414745,
+    "provinsi": "Jawa Timur",
+    "moda": "LAUT"
+  },
+  "BANDARTINGGI": {
+    "id": "BDT",
+    "lat": 3.28442,
+    "lon": 99.30481,
+    "provinsi": "Sumatera Utara",
+    "moda": "KA"
+  },
+  "GALALA": {
+    "id": "1740",
+    "lat": -3.661944,
+    "lon": 128.205,
+    "provinsi": "Maluku",
+    "moda": "ASDP"
+  },
+  "PERBAUNGAN": {
+    "id": "PBA",
+    "lat": 3.56738,
+    "lon": 98.95203,
+    "provinsi": "Sumatera Utara",
+    "moda": "KA"
+  },
+  "KORIDO": {
+    "id": "284",
+    "lat": -0.838684,
+    "lon": 135.58844,
+    "provinsi": "Papua",
+    "moda": "LAUT"
+  },
+  "DHOHO": {
+    "id": "DHX",
+    "lat": -7.76101,
+    "lon": 111.950417,
+    "provinsi": "Jawa Timur",
+    "moda": "UDARA"
+  },
+  "SUNGAI NYAMUK": {
+    "id": "277",
+    "lat": 4.158203,
+    "lon": 117.903626,
+    "provinsi": "Kalimantan Utara",
+    "moda": "LAUT"
+  },
+  "MALI": {
+    "id": "ARD",
+    "lat": -8.135278,
+    "lon": 124.594444,
+    "provinsi": "NTT",
+    "moda": "UDARA"
+  },
+  "KASINTUWU": {
+    "id": "KSW",
+    "lat": -1.391389,
+    "lon": 120.754722,
+    "provinsi": "Sulawesi Tengah",
+    "moda": "BUS"
+  },
+  "REJOSARI": {
+    "id": "RJS",
+    "lat": -5.29407,
+    "lon": 105.188,
+    "provinsi": "Lampung",
+    "moda": "KA"
+  },
+  "COMAL": {
+    "id": "CO",
+    "lat": -6.909309,
+    "lon": 109.536814,
+    "provinsi": "Jawa Tengah",
+    "moda": "KA"
+  },
+  "SIKAKAP": {
+    "id": "287",
+    "lat": -2.776316,
+    "lon": 100.207833,
+    "provinsi": "Sumatera Barat",
+    "moda": "LAUT"
+  },
+  "HAJI MUHAMMAD SIDIK": {
+    "id": "HMS",
+    "lat": -1.020057,
+    "lon": 114.927767,
+    "provinsi": "Kalimantan Tengah",
+    "moda": "UDARA"
+  },
+  "PEKANBARU": {
+    "id": "4",
+    "lat": 0.539444,
+    "lon": 101.443611,
+    "provinsi": "Riau",
+    "moda": "LAUT"
+  },
+  "KEFAMENANU": {
+    "id": "KEF",
+    "lat": -9.467681,
+    "lon": 124.482074,
+    "provinsi": "NTT",
+    "moda": "BUS"
+  },
+  "MALAHAYATI": {
+    "id": "1005",
+    "lat": 5.595781,
+    "lon": 95.525898,
+    "provinsi": "D.I Aceh",
+    "moda": "LAUT"
+  },
+  "MELAK": {
+    "id": "GHS",
+    "lat": -0.20377,
+    "lon": 115.7605,
+    "provinsi": "Kalimantan Timur",
+    "moda": "UDARA"
+  },
+  "TANETE RILAU": {
+    "id": "TAN",
+    "lat": -4.485947,
+    "lon": 119.612387,
+    "provinsi": "Sulawesi Selatan",
+    "moda": "KA"
+  },
+  "BILORAI": {
+    "id": "UGU",
+    "lat": -3.739778,
+    "lon": 137.030925,
+    "provinsi": "Papua Tengah",
+    "moda": "UDARA"
+  },
+  "RAMPAH": {
+    "id": "RPH",
+    "lat": 3.56299,
+    "lon": 99.0144,
+    "provinsi": "Sumatera Utara",
+    "moda": "KA"
+  },
+  "TELUK BUNGUS": {
+    "id": "3185",
+    "lat": -1.0494,
+    "lon": 100.3956,
+    "provinsi": "Sumatera Barat",
+    "moda": "ASDP"
+  },
+  "MATHILDA BATLAYERI": {
+    "id": "SXK",
+    "lat": -7.856389,
+    "lon": 131.339722,
+    "provinsi": "Maluku",
+    "moda": "UDARA"
+  },
+  "BERSUJUD": {
+    "id": "BTW",
+    "lat": -3.413333,
+    "lon": 116.000833,
+    "provinsi": "Kalimantan Selatan",
+    "moda": "UDARA"
+  },
+  "DUNGINGI": {
+    "id": "DII",
+    "lat": 0.564475,
+    "lon": 123.032515,
+    "provinsi": "Gorontalo",
+    "moda": "BUS"
+  },
+  "SOASIO": {
+    "id": "111",
+    "lat": 0.67999,
+    "lon": 127.45603,
+    "provinsi": "Maluku Utara",
+    "moda": "LAUT"
+  },
+  "TANAH MERAH": {
+    "id": "TMH",
+    "lat": -6.096111,
+    "lon": 140.3,
+    "provinsi": "Papua Selatan",
+    "moda": "UDARA"
+  },
+  "GEWAYANTANA": {
+    "id": "LKA",
+    "lat": -8.275,
+    "lon": 123.0,
+    "provinsi": "NTT",
+    "moda": "UDARA"
+  },
+  "TOLI-TOLI": {
+    "id": "3236",
+    "lat": 1.0434,
+    "lon": 120.8079,
+    "provinsi": "Sulawesi Tengah",
+    "moda": "ASDP"
+  },
+  "KEPI": {
+    "id": "KEI",
+    "lat": -6.538889,
+    "lon": 139.330278,
+    "provinsi": "Papua Selatan",
+    "moda": "UDARA"
+  },
+  "UTAROM": {
+    "id": "KNG",
+    "lat": -3.644722,
+    "lon": 133.695556,
+    "provinsi": "Papua Barat",
+    "moda": "UDARA"
+  },
+  "SULUSUBAN": {
+    "id": "SLS",
+    "lat": -4.94641,
+    "lon": 105.0832,
+    "provinsi": "Lampung",
+    "moda": "KA"
+  },
+  "MULIA": {
+    "id": "LII",
+    "lat": -3.700994,
+    "lon": 137.960347,
+    "provinsi": "Papua Tengah",
+    "moda": "UDARA"
+  },
+  "EWER": {
+    "id": "EWE",
+    "lat": -5.496111,
+    "lon": 138.080278,
+    "provinsi": "Papua Selatan",
+    "moda": "UDARA"
+  },
+  "RANAI": {
+    "id": "NTX",
+    "lat": 3.906275,
+    "lon": 108.388286,
+    "provinsi": "Kepulauan Riau",
+    "moda": "UDARA"
+  },
+  "PULURAJA": {
+    "id": "PUR",
+    "lat": 2.69721,
+    "lon": 99.617,
+    "provinsi": "Sumatera Utara",
+    "moda": "KA"
+  },
+  "PENARIK": {
+    "id": "3098",
+    "lat": -0.27435,
+    "lon": 104.520503,
+    "provinsi": "Kepulauan Riau",
+    "moda": "ASDP"
+  },
+  "ILAGA": {
+    "id": "ILA",
+    "lat": -3.977125,
+    "lon": 137.620164,
+    "provinsi": "Papua Tengah",
+    "moda": "UDARA"
+  },
+  "PAYAKABUNG": {
+    "id": "PYK",
+    "lat": -3.1991,
+    "lon": 104.6044,
+    "provinsi": "Sumatera Selatan",
+    "moda": "KA"
+  },
+  "KUALA TUNGKAL": {
+    "id": "3554",
+    "lat": -0.8215,
+    "lon": 103.4596,
+    "provinsi": "Jambi",
+    "moda": "ASDP"
+  },
+  "JATI PARIAMAN": {
+    "id": "JTP",
+    "lat": -0.618277,
+    "lon": 100.14194,
+    "provinsi": "Sumatera Barat",
+    "moda": "BUS"
+  },
+  "KOL. ROBERT ATTY BESSING": {
+    "id": "LNU",
+    "lat": 3.576621,
+    "lon": 116.618401,
+    "provinsi": "Kalimantan Utara",
+    "moda": "UDARA"
+  },
+  "POMALAA": {
+    "id": "1215",
+    "lat": -4.176216,
+    "lon": 121.604588,
+    "provinsi": "Sulawesi Tenggara",
+    "moda": "LAUT"
+  },
+  "SOA": {
+    "id": "BJW",
+    "lat": -8.708611,
+    "lon": 121.057222,
+    "provinsi": "NTT",
+    "moda": "UDARA"
+  },
+  "AIMERE": {
+    "id": "3446",
+    "lat": -8.9245,
+    "lon": 120.8724,
+    "provinsi": "NTT",
+    "moda": "ASDP"
+  },
+  "DR. FERDINAND L. TOBING": {
+    "id": "FLZ",
+    "lat": 1.55594,
+    "lon": 98.8889,
+    "provinsi": "Sumatera Utara",
+    "moda": "UDARA"
+  },
+  "BRANTA": {
+    "id": "695",
+    "lat": -7.22937,
+    "lon": 113.449219,
+    "provinsi": "Jawa Timur",
+    "moda": "LAUT"
+  },
+  "ARASKABU": {
+    "id": "ARB",
+    "lat": 3.61279,
+    "lon": 98.84784,
+    "provinsi": "Sumatera Utara",
+    "moda": "KA"
+  },
+  "SARMI": {
+    "id": "107",
+    "lat": -1.857338,
+    "lon": 138.751621,
+    "provinsi": "Papua",
+    "moda": "LAUT"
+  },
+  "OKSIBIL": {
+    "id": "OKL",
+    "lat": -4.907222,
+    "lon": 140.630278,
+    "provinsi": "Papua Pegunungan",
+    "moda": "UDARA"
+  },
+  "PANGKAJENE": {
+    "id": "PKJ",
+    "lat": -7.49799,
+    "lon": 109.2134,
+    "provinsi": "Sulawesi Selatan",
+    "moda": "KA"
+  },
+  "MACCINI BAJI": {
+    "id": "4256",
+    "lat": -4.931702,
+    "lon": 119.515625,
+    "provinsi": "Sulawesi Selatan",
+    "moda": "ASDP"
+  },
+  "CELUKAN BAWANG": {
+    "id": "728",
+    "lat": -8.187971,
+    "lon": 114.832096,
+    "provinsi": "Bali",
+    "moda": "LAUT"
+  },
+  "NEGARA RATU": {
+    "id": "NRR",
+    "lat": -4.65662,
+    "lon": 104.7378,
+    "provinsi": "Lampung",
+    "moda": "KA"
+  },
+  "KLADEMAK": {
+    "id": "3137",
+    "lat": -0.8797,
+    "lon": 131.2531,
+    "provinsi": "Papua Barat Daya",
+    "moda": "ASDP"
+  },
+  "TELAWA": {
+    "id": "TW",
+    "lat": -7.185768,
+    "lon": 110.751878,
+    "provinsi": "Jawa Tengah",
+    "moda": "KA"
+  },
+  "PROBOLINGGO/TANJUNG TEMBAGA": {
+    "id": "1224",
+    "lat": -7.735792,
+    "lon": 113.214477,
+    "provinsi": "Jawa Timur",
+    "moda": "LAUT"
+  },
+  "BULUKUMBA": {
+    "id": "401",
+    "lat": -5.545722,
+    "lon": 120.213637,
+    "provinsi": "Sulawesi Selatan",
+    "moda": "LAUT"
+  },
+  "NGUNUT": {
+    "id": "NT",
+    "lat": -8.102855,
+    "lon": 112.012029,
+    "provinsi": "Jawa Timur",
+    "moda": "KA"
+  },
+  "ADIWERNA": {
+    "id": "B1776",
+    "lat": -6.978889,
+    "lon": 109.14,
+    "provinsi": "Jawa Tengah",
+    "moda": "BUS"
+  },
+  "MAMUJU": {
+    "id": "155",
+    "lat": -2.668345,
+    "lon": 118.893781,
+    "provinsi": "Sulawesi Barat",
+    "moda": "LAUT"
+  },
+  "SALEM": {
+    "id": "SLM",
+    "lat": -7.395552,
+    "lon": 110.827564,
+    "provinsi": "Jawa Tengah",
+    "moda": "KA"
+  },
+  "ENAROTALI": {
+    "id": "EWI",
+    "lat": -3.925833,
+    "lon": 136.378056,
+    "provinsi": "Papua Tengah",
+    "moda": "UDARA"
+  },
+  "ARUNG PALAKKA": {
+    "id": "APD",
+    "lat": -4.459008,
+    "lon": 120.306939,
+    "provinsi": "Sulawesi Selatan",
+    "moda": "UDARA"
+  },
+  "YOMANI": {
+    "id": "B1779",
+    "lat": -6.978889,
+    "lon": 109.14,
+    "provinsi": "Jawa Tengah",
+    "moda": "BUS"
+  },
+  "PULAU LAUT": {
+    "id": "4184",
+    "lat": -3.6444,
+    "lon": 116.3158,
+    "provinsi": "Kepulauan Riau",
+    "moda": "ASDP"
+  },
+  "AGATS": {
+    "id": "3395",
+    "lat": -5.5513,
+    "lon": 138.1284,
+    "provinsi": "Papua",
+    "moda": "ASDP"
+  },
+  "BBJ MUARA PILU": {
+    "id": "4259",
+    "lat": -5.870077,
+    "lon": 105.75435,
+    "provinsi": "Lampung",
+    "moda": "ASDP"
+  },
+  "TANJUNG BARA": {
+    "id": "TJC",
+    "lat": 0.561389,
+    "lon": 117.645,
+    "provinsi": "Kalimantan Timur",
+    "moda": "UDARA"
+  },
+  "PADANGHALABAN": {
+    "id": "PHA",
+    "lat": 2.315,
+    "lon": 99.82019,
+    "provinsi": "Sumatera Utara",
+    "moda": "KA"
+  },
+  "PULAU TELLO": {
+    "id": "527",
+    "lat": -0.050572,
+    "lon": 98.284294,
+    "provinsi": "Sumatera Utara",
+    "moda": "LAUT"
+  },
+  "LEDENG": {
+    "id": "B347",
+    "lat": -6.858889,
+    "lon": 107.594722,
+    "provinsi": "Jawa Barat",
+    "moda": "BUS"
+  },
+  "SURABAYA KOTA": {
+    "id": "SB",
+    "lat": -7.24298,
+    "lon": 112.742,
+    "provinsi": "Jawa Timur",
+    "moda": "KA"
+  },
+  "STEVANUS RUMBEWAS": {
+    "id": "ZRI",
+    "lat": -1.83,
+    "lon": 136.069444,
+    "provinsi": "Papua",
+    "moda": "UDARA"
+  },
+  "TELAGA BIRU": {
+    "id": "1465",
+    "lat": -6.885071,
+    "lon": 113.085632,
+    "provinsi": "Jawa Timur",
+    "moda": "LAUT"
+  },
+  "DAVID CONSTANTIJN SAUDALE": {
+    "id": "RTI",
+    "lat": -10.766944,
+    "lon": 123.074167,
+    "provinsi": "NTT",
+    "moda": "UDARA"
+  },
+  "TOROBULU": {
+    "id": "3377",
+    "lat": -4.1984,
+    "lon": 122.3392,
+    "provinsi": "Sulawesi Tenggara",
+    "moda": "ASDP"
+  },
+  "MALAKONI-ENGGANO": {
+    "id": "1006",
+    "lat": -5.346939,
+    "lon": 102.27558,
+    "provinsi": "Bengkulu",
+    "moda": "LAUT"
+  },
+  "ENTROP": {
+    "id": "ETR",
+    "lat": -2.567429,
+    "lon": 140.695318,
+    "provinsi": "Papua",
+    "moda": "BUS"
+  },
+  "KUALA TANJUNG": {
+    "id": "923",
+    "lat": 3.372447,
+    "lon": 99.469008,
+    "provinsi": "Sumatera Utara",
+    "moda": "LAUT"
+  },
+  "NAMNIWEL": {
+    "id": "NAM",
+    "lat": -3.145833,
+    "lon": 126.977778,
+    "provinsi": "Maluku",
+    "moda": "UDARA"
+  },
+  "TERISI": {
+    "id": "TIS",
+    "lat": -6.46996,
+    "lon": 108.161064,
+    "provinsi": "Jawa Barat",
+    "moda": "KA"
+  },
+  "KEDUNGJATI": {
+    "id": "KEJ",
+    "lat": -7.16351,
+    "lon": 110.6356,
+    "provinsi": "Jawa Tengah",
+    "moda": "KA"
+  },
+  "MANGILU": {
+    "id": "MGU",
+    "lat": -4.773407,
+    "lon": 119.629032,
+    "provinsi": "Sulawesi Selatan",
+    "moda": "KA"
+  },
+  "MALIKUSSALEH": {
+    "id": "LSW",
+    "lat": 5.228889,
+    "lon": 96.951389,
+    "provinsi": "D.I Aceh",
+    "moda": "UDARA"
+  },
+  "PULANG PISAU": {
+    "id": "563",
+    "lat": -2.747498,
+    "lon": 114.258423,
+    "provinsi": "Kalimantan Tengah",
+    "moda": "LAUT"
+  },
+  "KOKAS": {
+    "id": "443",
+    "lat": -2.698792,
+    "lon": 132.441589,
+    "provinsi": "Papua Barat",
+    "moda": "LAUT"
+  },
+  "BARANUSA": {
+    "id": "3437",
+    "lat": -8.362172,
+    "lon": 124.096341,
+    "provinsi": "NTT",
+    "moda": "ASDP"
+  },
+  "SAKETA": {
+    "id": "113",
+    "lat": -0.339294,
+    "lon": 127.818787,
+    "provinsi": "Maluku Utara",
+    "moda": "LAUT"
+  },
+  "YUVAI SEMARING": {
+    "id": "LBW",
+    "lat": 3.883333,
+    "lon": 115.7,
+    "provinsi": "Kalimantan Utara",
+    "moda": "UDARA"
+  },
+  "LASIKIN": {
+    "id": "LKI",
+    "lat": 2.408889,
+    "lon": 96.326111,
+    "provinsi": "D.I Aceh",
+    "moda": "UDARA"
+  },
+  "LETUNG": {
+    "id": "LMU",
+    "lat": 2.962778,
+    "lon": 105.749722,
+    "provinsi": "Kepulauan Riau",
+    "moda": "UDARA"
+  },
+  "SOROAKO": {
+    "id": "SQR",
+    "lat": -2.533333,
+    "lon": 121.35,
+    "provinsi": "Sulawesi Selatan",
+    "moda": "UDARA"
+  },
+  "BUNTA": {
+    "id": "711",
+    "lat": -0.836975,
+    "lon": 122.162232,
+    "provinsi": "Sulawesi Tengah",
+    "moda": "LAUT"
+  },
+  "A.A. BERE TALLO": {
+    "id": "ABU",
+    "lat": -9.075556,
+    "lon": 124.903056,
+    "provinsi": "NTT",
+    "moda": "UDARA"
+  },
+  "BENGKULU": {
+    "id": "387",
+    "lat": -3.845926,
+    "lon": 102.304308,
+    "provinsi": "Bengkulu",
+    "moda": "LAUT"
+  },
+  "REO": {
+    "id": "549",
+    "lat": -8.286073,
+    "lon": 120.453305,
+    "provinsi": "NTT",
+    "moda": "LAUT"
+  },
+  "PULAU TAYANDO": {
+    "id": "3914",
+    "lat": -5.7833,
+    "lon": 132.4333,
+    "provinsi": "Maluku",
+    "moda": "ASDP"
+  },
+  "FRANS SALES LEGA": {
+    "id": "RTG",
+    "lat": -8.598611,
+    "lon": 120.479722,
+    "provinsi": "NTT",
+    "moda": "UDARA"
+  },
+  "KALEDUPA": {
+    "id": "3269",
+    "lat": -5.8895,
+    "lon": 123.6821,
+    "provinsi": "Sulawesi Tenggara",
+    "moda": "ASDP"
+  },
+  "JOS ORNO IMSULA": {
+    "id": "JIO",
+    "lat": -8.139167,
+    "lon": 127.903333,
+    "provinsi": "Maluku",
+    "moda": "UDARA"
+  },
+  "ATAPUPU": {
+    "id": "547",
+    "lat": -8.996765,
+    "lon": 124.861633,
+    "provinsi": "NTT",
+    "moda": "LAUT"
+  },
+  "MAROS": {
+    "id": "MRS",
+    "lat": -5.019381,
+    "lon": 119.547721,
+    "provinsi": "Sulawesi Selatan",
+    "moda": "KA"
+  },
+  "ALAI INSIT": {
+    "id": "3143",
+    "lat": 0.996899,
+    "lon": 102.667356,
+    "provinsi": "Riau",
+    "moda": "ASDP"
+  },
+  "EMALAMO": {
+    "id": "SQN",
+    "lat": -2.097778,
+    "lon": 125.963889,
+    "provinsi": "Maluku Utara",
+    "moda": "UDARA"
+  },
+  "ANDI JEMMA": {
+    "id": "MXB",
+    "lat": -2.554167,
+    "lon": 120.324444,
+    "provinsi": "Sulawesi Selatan",
+    "moda": "UDARA"
+  },
+  "TEMINABUAN": {
+    "id": "TXM",
+    "lat": -1.445442,
+    "lon": 132.020511,
+    "provinsi": "Papua Barat Daya",
+    "moda": "UDARA"
+  },
+  "AIR PUTIH 2": {
+    "id": "1883",
+    "lat": 1.452601,
+    "lon": 102.138649,
+    "provinsi": "Kalimantan Barat",
+    "moda": "ASDP"
+  },
+  "MARAMPA": {
+    "id": "3125",
+    "lat": -0.904571,
+    "lon": 134.039825,
+    "provinsi": "Papua Barat",
+    "moda": "ASDP"
+  },
+  "TEBELIAN": {
+    "id": "SQG",
+    "lat": -0.041667,
+    "lon": 111.456389,
+    "provinsi": "Kalimantan Barat",
+    "moda": "UDARA"
+  },
+  "BUDIARTO": {
+    "id": "RTO",
+    "lat": -6.293333,
+    "lon": 106.568333,
+    "provinsi": "Banten",
+    "moda": "UDARA"
+  },
+  "TANJUNG REDEP": {
+    "id": "1451",
+    "lat": 2.156799,
+    "lon": 117.494385,
+    "provinsi": "Kalimantan Timur",
+    "moda": "LAUT"
+  },
+  "LONG APUNG": {
+    "id": "LPU",
+    "lat": 1.704444,
+    "lon": 114.970278,
+    "provinsi": "Kalimantan Utara",
+    "moda": "UDARA"
+  },
+  "CALABAI": {
+    "id": "719",
+    "lat": -8.2146,
+    "lon": 117.710022,
+    "provinsi": "NTB",
+    "moda": "LAUT"
+  },
+  "TARDAMU": {
+    "id": "SAU",
+    "lat": -10.493889,
+    "lon": 121.846111,
+    "provinsi": "NTT",
+    "moda": "UDARA"
+  },
+  "MAJENE": {
+    "id": "1000",
+    "lat": -3.545808,
+    "lon": 118.966007,
+    "provinsi": "Sulawesi Barat",
+    "moda": "LAUT"
+  },
+  "PURBALINGGA": {
+    "id": "B188",
+    "lat": -7.3925,
+    "lon": 109.355278,
+    "provinsi": "Jawa Tengah",
+    "moda": "BUS"
+  },
+  "RANCAEKEK": {
+    "id": "RCK",
+    "lat": -6.964724,
+    "lon": 107.755701,
+    "provinsi": "Jawa Barat",
+    "moda": "KA"
+  },
+  "TAPAKTUAN": {
+    "id": "1460",
+    "lat": 3.253525,
+    "lon": 97.179614,
+    "provinsi": "D.I Aceh",
+    "moda": "LAUT"
+  },
+  "PINANG BARIS": {
+    "id": "PNB",
+    "lat": 3.589043,
+    "lon": 98.610211,
+    "provinsi": "Sumatera Utara",
+    "moda": "BUS"
+  },
+  "H. AROEPALA": {
+    "id": "KSR",
+    "lat": -6.17885,
+    "lon": 120.43746,
+    "provinsi": "Sulawesi Selatan",
+    "moda": "UDARA"
+  },
+  "INDRAMAYU": {
+    "id": "801",
+    "lat": -6.314319,
+    "lon": 108.326463,
+    "provinsi": "Jawa Barat",
+    "moda": "LAUT"
+  },
+  "ARAR": {
+    "id": "3131",
+    "lat": -0.7662,
+    "lon": 131.1181,
+    "provinsi": "Papua Barat Daya",
+    "moda": "ASDP"
+  },
+  "HAJI PEMANGGILAN": {
+    "id": "HJP",
+    "lat": -5.00201,
+    "lon": 105.1068,
+    "provinsi": "Lampung",
+    "moda": "KA"
+  },
+  "DABO": {
+    "id": "3317",
+    "lat": -0.5298,
+    "lon": 104.4704,
+    "provinsi": "Kepulauan Riau",
+    "moda": "ASDP"
+  },
+  "KEBASEN": {
+    "id": "KBS",
+    "lat": -7.530191,
+    "lon": 109.203127,
+    "provinsi": "Jawa Tengah",
+    "moda": "KA"
+  },
+  "BINJAI": {
+    "id": "BIJ",
+    "lat": 3.66544,
+    "lon": 98.45808,
+    "provinsi": "Sumatera Utara",
+    "moda": "KA"
+  },
+  "WONOPITO": {
+    "id": "LWE",
+    "lat": -8.11667,
+    "lon": 113.81667,
+    "provinsi": "NTT",
+    "moda": "UDARA"
+  },
+  "TANJUNG SILOPO": {
+    "id": "1765",
+    "lat": -3.47583,
+    "lon": 119.447408,
+    "provinsi": "Sulawesi Barat",
+    "moda": "LAUT"
+  },
+  "LABAKKANG": {
+    "id": "LKK",
+    "lat": -4.749236,
+    "lon": 119.561801,
+    "provinsi": "Sulawesi Selatan",
+    "moda": "KA"
+  },
+  "LANDUNGSARI": {
+    "id": "B1313",
+    "lat": -7.926944,
+    "lon": 112.597778,
+    "provinsi": "Jawa Timur",
+    "moda": "BUS"
+  },
+  "BADAS": {
+    "id": "619",
+    "lat": -8.462793,
+    "lon": 117.371679,
+    "provinsi": "NTB",
+    "moda": "LAUT"
+  },
+  "KUFAR": {
+    "id": "KFR",
+    "lat": -3.462147,
+    "lon": 130.790142,
+    "provinsi": "Maluku",
+    "moda": "UDARA"
+  },
+  "LASONDRE": {
+    "id": "LXD",
+    "lat": -0.019722,
+    "lon": 98.300833,
+    "provinsi": "Sumatera Utara",
+    "moda": "UDARA"
+  },
+  "AIR PUTIH": {
+    "id": "4235",
+    "lat": 1.452601,
+    "lon": 102.138649,
+    "provinsi": "Riau",
+    "moda": "ASDP"
+  },
+  "WAGHETE": {
+    "id": "WET",
+    "lat": -3.61667,
+    "lon": 135.8,
+    "provinsi": "Papua Tengah",
+    "moda": "UDARA"
+  },
+  "TELUK MENGKUDU": {
+    "id": "TKE",
+    "lat": 3.530603,
+    "lon": 99.090633,
+    "provinsi": "Sumatera Utara",
+    "moda": "KA"
+  },
+  "PADANGAN": {
+    "id": "B222",
+    "lat": -7.166389,
+    "lon": 111.895278,
+    "provinsi": "Jawa Timur",
+    "moda": "BUS"
+  },
+  "SAMBAS": {
+    "id": "B376",
+    "lat": 1.356667,
+    "lon": 109.305278,
+    "provinsi": "Kalimantan Barat",
+    "moda": "BUS"
+  },
+  "PAMINGKE": {
+    "id": "PME",
+    "lat": 2.37701,
+    "lon": 99.76099,
+    "provinsi": "Sumatera Utara",
+    "moda": "KA"
+  },
+  "BADE": {
+    "id": "310",
+    "lat": -7.167381,
+    "lon": 139.593575,
+    "provinsi": "Papua Selatan",
+    "moda": "LAUT"
+  },
+  "NOTOHADINEGORO": {
+    "id": "JBB",
+    "lat": -8.16667,
+    "lon": 113.7,
+    "provinsi": "Jawa Timur",
+    "moda": "UDARA"
+  },
+  "SINAK": {
+    "id": "NKD",
+    "lat": -3.821875,
+    "lon": 137.838136,
+    "provinsi": "Papua Tengah",
+    "moda": "UDARA"
+  },
+  "ELELIM": {
+    "id": "ELR",
+    "lat": -3.785428,
+    "lon": 139.384289,
+    "provinsi": "Papua Pegunungan",
+    "moda": "UDARA"
+  },
+  "SEKO": {
+    "id": "WKO",
+    "lat": -2.271944,
+    "lon": 119.895,
+    "provinsi": "Sulawesi Selatan",
+    "moda": "UDARA"
+  },
+  "SEBATIK": {
+    "id": "3941",
+    "lat": 4.1013,
+    "lon": 117.7546,
+    "provinsi": "Kalimantan Utara",
+    "moda": "ASDP"
+  },
+  "MARANGGO": {
+    "id": "TQQ",
+    "lat": -5.766189,
+    "lon": 123.919433,
+    "provinsi": "Sulawesi Tenggara",
+    "moda": "UDARA"
+  },
+  "GUSTI SJAMSIR ALAM": {
+    "id": "KBU",
+    "lat": -3.295,
+    "lon": 116.165833,
+    "provinsi": "Kalimantan Selatan",
+    "moda": "UDARA"
+  },
+  "TORAJA": {
+    "id": "TRT",
+    "lat": -3.185871,
+    "lon": 119.916821,
+    "provinsi": "Sulawesi Selatan",
+    "moda": "UDARA"
+  },
+  "KARUBAGA": {
+    "id": "KBF",
+    "lat": -3.686569,
+    "lon": 138.479364,
+    "provinsi": "Papua Pegunungan",
+    "moda": "UDARA"
+  },
+  "MATAHORA": {
+    "id": "WNI",
+    "lat": -5.290556,
+    "lon": 123.636111,
+    "provinsi": "Sulawesi Tenggara",
+    "moda": "UDARA"
+  },
+  "BOGOR": {
+    "id": "BOO",
+    "lat": -6.594293,
+    "lon": 106.790794,
+    "provinsi": "Jawa Barat",
+    "moda": "KA"
+  },
+  "NUSAWIRU": {
+    "id": "CJN",
+    "lat": -7.720389,
+    "lon": 108.489939,
+    "provinsi": "Jawa Barat",
+    "moda": "UDARA"
+  },
+  "KUALA ENOK": {
+    "id": "478",
+    "lat": -0.515137,
+    "lon": 103.388695,
+    "provinsi": "Riau",
+    "moda": "LAUT"
+  },
+  "SENGGO": {
+    "id": "ZEG",
+    "lat": -5.683333,
+    "lon": 139.383333,
+    "provinsi": "Papua Selatan",
+    "moda": "UDARA"
+  },
+  "DEWADARU": {
+    "id": "KWB",
+    "lat": -5.801111,
+    "lon": 110.477778,
+    "provinsi": "Jawa Tengah",
+    "moda": "UDARA"
+  },
+  "PANGSUMA": {
+    "id": "PSU",
+    "lat": 0.838333,
+    "lon": 112.935556,
+    "provinsi": "Kalimantan Barat",
+    "moda": "UDARA"
+  },
+  "JENEPONTO": {
+    "id": "811",
+    "lat": -5.6263,
+    "lon": 119.843911,
+    "provinsi": "Sulawesi Selatan",
+    "moda": "LAUT"
+  },
+  "SADAI": {
+    "id": "266",
+    "lat": -3.005701,
+    "lon": 106.738633,
+    "provinsi": "Bangka Belitung",
+    "moda": "LAUT"
+  },
+  "LIDAHTANAH": {
+    "id": "LDT",
+    "lat": 3.56299,
+    "lon": 99.0145,
+    "provinsi": "Sumatera Utara",
+    "moda": "KA"
+  },
+  "RAMPI": {
+    "id": "RPI",
+    "lat": -2.127222,
+    "lon": 120.299167,
+    "provinsi": "Sulawesi Selatan",
+    "moda": "UDARA"
+  },
+  "MATAK": {
+    "id": "3293",
+    "lat": 3.3381,
+    "lon": 106.2548,
+    "provinsi": "Kepulauan Riau",
+    "moda": "ASDP"
+  },
+  "SUGIMANURU": {
+    "id": "RAQ",
+    "lat": -4.761944,
+    "lon": 122.57,
+    "provinsi": "Sulawesi Tenggara",
+    "moda": "UDARA"
+  },
+  "LOSARI": {
+    "id": "LOS",
+    "lat": -6.845907,
+    "lon": 108.803788,
+    "provinsi": "Jawa Barat",
+    "moda": "KA"
+  },
+  "DOMPAK": {
+    "id": "3344",
+    "lat": 1.0018,
+    "lon": 104.394,
+    "provinsi": "Kepulauan Riau",
+    "moda": "ASDP"
+  },
+  "SUMBERPUCUNG": {
+    "id": "SBP",
+    "lat": -8.158354,
+    "lon": 112.482056,
+    "provinsi": "Jawa Timur",
+    "moda": "KA"
+  },
+  "BOMBANA": {
+    "id": "3167",
+    "lat": -4.5774,
+    "lon": 121.9843,
+    "provinsi": "Sulawesi Tenggara",
+    "moda": "ASDP"
+  },
+  "HARUN THOHIR": {
+    "id": "BXW",
+    "lat": -5.723611,
+    "lon": 112.675,
+    "provinsi": "Jawa Timur",
+    "moda": "UDARA"
+  },
+  "KESAMBEN": {
+    "id": "KSB",
+    "lat": -8.149194,
+    "lon": 112.363442,
+    "provinsi": "Jawa Timur",
+    "moda": "KA"
+  },
+  "ATUNG BUNGSU": {
+    "id": "PXA",
+    "lat": -4.024722,
+    "lon": 103.378611,
+    "provinsi": "Sumatera Selatan",
+    "moda": "UDARA"
+  },
+  "GAMBRINGAN": {
+    "id": "GBN",
+    "lat": -7.144222,
+    "lon": 110.922623,
+    "provinsi": "Jawa Tengah",
+    "moda": "KA"
+  },
+  "MA RANG": {
+    "id": "MRG",
+    "lat": -4.664304,
+    "lon": 119.585912,
+    "provinsi": "Sulawesi Selatan",
+    "moda": "KA"
+  },
+  "GEBE": {
+    "id": "3224",
+    "lat": -0.1328,
+    "lon": 129.4878,
+    "provinsi": "Maluku Utara",
+    "moda": "ASDP"
+  },
+  "MARATUA": {
+    "id": "RTU",
+    "lat": 2.203333,
+    "lon": 118.5925,
+    "provinsi": "Kalimantan Timur",
+    "moda": "UDARA"
+  },
+  "KWANDANG": {
+    "id": "935",
+    "lat": 0.851196,
+    "lon": 122.902588,
+    "provinsi": "Gorontalo",
+    "moda": "LAUT"
+  },
+  "KAMUR": {
+    "id": "KCD",
+    "lat": -6.1851,
+    "lon": 138.6372,
+    "provinsi": "Papua Selatan",
+    "moda": "UDARA"
+  },
+  "RAMMANG RAMMANG": {
+    "id": "RMG",
+    "lat": -4.926351,
+    "lon": 119.594572,
+    "provinsi": "Sulawesi Selatan",
+    "moda": "KA"
+  },
+  "DATAH DAWAI": {
+    "id": "DTD",
+    "lat": 0.805036,
+    "lon": 114.530942,
+    "provinsi": "Kalimantan Timur",
+    "moda": "UDARA"
+  },
+  "ADONARA": {
+    "id": "3734",
+    "lat": -8.329171,
+    "lon": 123.303993,
+    "provinsi": "NTT",
+    "moda": "ASDP"
+  },
+  "MARAPOKOT": {
+    "id": "461",
+    "lat": -8.515381,
+    "lon": 121.32782,
+    "provinsi": "NTT",
+    "moda": "LAUT"
+  },
+  "JOHN BECKER": {
+    "id": "KXS",
+    "lat": -8.018056,
+    "lon": 127.199722,
+    "provinsi": "Maluku",
+    "moda": "UDARA"
+  },
+  "LEOK": {
+    "id": "975",
+    "lat": 1.191406,
+    "lon": 121.422424,
+    "provinsi": "Sulawesi Tengah",
+    "moda": "LAUT"
+  },
+  "BRUMBUNG": {
+    "id": "BBG",
+    "lat": -7.025575,
+    "lon": 110.521967,
+    "provinsi": "Jawa Tengah",
+    "moda": "KA"
+  },
+  "TILAMUTA": {
+    "id": "389",
+    "lat": 0.507812,
+    "lon": 122.354797,
+    "provinsi": "Gorontalo",
+    "moda": "LAUT"
+  },
+  "KOTA PADANG": {
+    "id": "KOP",
+    "lat": -3.42609,
+    "lon": 102.967,
+    "provinsi": "Bengkulu",
+    "moda": "KA"
+  },
+  "OGOAMAS": {
+    "id": "1110",
+    "lat": 0.741394,
+    "lon": 120.105041,
+    "provinsi": "Sulawesi Tengah",
+    "moda": "LAUT"
+  },
+  "OKABA": {
+    "id": "OKQ",
+    "lat": -8.094919,
+    "lon": 139.722403,
+    "provinsi": "Papua Selatan",
+    "moda": "UDARA"
+  },
+  "PULAU RAAS": {
+    "id": "3620",
+    "lat": -7.168,
+    "lon": 114.5345,
+    "provinsi": "Jawa Timur",
+    "moda": "ASDP"
+  },
+  "REMBELE": {
+    "id": "TXE",
+    "lat": 4.722778,
+    "lon": 96.853056,
+    "provinsi": "D.I Aceh",
+    "moda": "UDARA"
+  },
+  "ILLU": {
+    "id": "IUL",
+    "lat": -3.58333,
+    "lon": 138.41667,
+    "provinsi": "Papua Tengah",
+    "moda": "UDARA"
+  },
+  "TRUNOJOYO": {
+    "id": "SUP",
+    "lat": -7.023611,
+    "lon": 113.890833,
+    "provinsi": "Jawa Timur",
+    "moda": "UDARA"
+  },
+  "MANDALLE": {
+    "id": "MDL",
+    "lat": -4.605181,
+    "lon": 119.604835,
+    "provinsi": "Sulawesi Selatan",
+    "moda": "KA"
+  },
+  "MOANAMANI": {
+    "id": "ONI",
+    "lat": -4.008889,
+    "lon": 136.036944,
+    "provinsi": "Papua Tengah",
+    "moda": "UDARA"
+  },
+  "ENGGANO": {
+    "id": "ENG",
+    "lat": -5.301944,
+    "lon": 102.183056,
+    "provinsi": "Bengkulu",
+    "moda": "UDARA"
+  },
+  "KIMAM": {
+    "id": "KMM",
+    "lat": -7.979286,
+    "lon": 138.852589,
+    "provinsi": "Papua Selatan",
+    "moda": "UDARA"
+  },
+  "BLANGKEJEREN": {
+    "id": "GYO",
+    "lat": 3.949722,
+    "lon": 97.356111,
+    "provinsi": "D.I Aceh",
+    "moda": "UDARA"
+  },
+  "BOMAKIA": {
+    "id": "BXQ",
+    "lat": -5.983333,
+    "lon": 139.866667,
+    "provinsi": "Papua Selatan",
+    "moda": "UDARA"
+  },
+  "SINTETE": {
+    "id": "388",
+    "lat": 1.197064,
+    "lon": 109.055711,
+    "provinsi": "Kalimantan Barat",
+    "moda": "LAUT"
+  },
+  "WINI": {
+    "id": "1551",
+    "lat": -9.17749,
+    "lon": 124.492432,
+    "provinsi": "NTT",
+    "moda": "LAUT"
+  },
+  "PALANRO": {
+    "id": "PAL",
+    "lat": -4.197886,
+    "lon": 119.648427,
+    "provinsi": "Sulawesi Selatan",
+    "moda": "KA"
+  },
+  "KAMBUAYA": {
+    "id": "KBX",
+    "lat": -1.317318,
+    "lon": 132.289132,
+    "provinsi": "Papua Barat Daya",
+    "moda": "UDARA"
+  },
+  "RAJA HAJI ABDULLAH": {
+    "id": "TJB",
+    "lat": 1.05,
+    "lon": 103.383333,
+    "provinsi": "Kepulauan Riau",
+    "moda": "UDARA"
+  },
+  "POSO": {
+    "id": "330",
+    "lat": -1.381331,
+    "lon": 120.755,
+    "provinsi": "Sulawesi Tengah",
+    "moda": "LAUT"
+  },
+  "INANWATAN": {
+    "id": "INX",
+    "lat": -2.126747,
+    "lon": 132.163131,
+    "provinsi": "Papua Barat Daya",
+    "moda": "UDARA"
+  },
+  "SULTAN BANTILAN": {
+    "id": "TLI",
+    "lat": 1.123056,
+    "lon": 120.793056,
+    "provinsi": "Sulawesi Tengah",
+    "moda": "UDARA"
+  },
+  "MUKO-MUKO": {
+    "id": "MPC",
+    "lat": -2.53333,
+    "lon": 101.1,
+    "provinsi": "Bengkulu",
+    "moda": "UDARA"
+  },
+  "PLABUAN": {
+    "id": "PLB",
+    "lat": -6.92042,
+    "lon": 109.955118,
+    "provinsi": "Jawa Tengah",
+    "moda": "KA"
+  },
+  "LIKUPANG": {
+    "id": "271",
+    "lat": 1.674438,
+    "lon": 125.061218,
+    "provinsi": "Sulawesi Utara",
+    "moda": "LAUT"
+  },
+  "LARAT": {
+    "id": "LRC",
+    "lat": -7.1275,
+    "lon": 131.7675,
+    "provinsi": "Maluku",
+    "moda": "UDARA"
+  },
+  "TANJUNG HARAPAN": {
+    "id": "TJS",
+    "lat": 2.841111,
+    "lon": 117.378889,
+    "provinsi": "Kalimantan Utara",
+    "moda": "UDARA"
+  },
+  "JAPURA": {
+    "id": "RGT",
+    "lat": -0.350278,
+    "lon": 102.334444,
+    "provinsi": "Riau",
+    "moda": "UDARA"
+  },
+  "KASIGUNCU": {
+    "id": "PSJ",
+    "lat": -1.418611,
+    "lon": 120.6575,
+    "provinsi": "Sulawesi Tengah",
+    "moda": "UDARA"
+  },
+  "ORANSBARI": {
+    "id": "1114",
+    "lat": -1.350483,
+    "lon": 134.272481,
+    "provinsi": "Papua Barat",
+    "moda": "LAUT"
+  },
+  "NUMFOR": {
+    "id": "FOO",
+    "lat": -0.9715,
+    "lon": 134.809,
+    "provinsi": "Papua",
+    "moda": "UDARA"
+  },
+  "BANDANEIRA": {
+    "id": "NDA",
+    "lat": -4.516667,
+    "lon": 129.916667,
+    "provinsi": "Maluku",
+    "moda": "UDARA"
+  },
+  "DABRA": {
+    "id": "DRH",
+    "lat": -3.270375,
+    "lon": 138.612192,
+    "provinsi": "Papua",
+    "moda": "UDARA"
+  },
+  "MAULANA PRINS MANDAPAR": {
+    "id": "BQR",
+    "lat": -1.55304,
+    "lon": 123.54416,
+    "provinsi": "Sulawesi Tengah",
+    "moda": "UDARA"
+  },
+  "MUHAMMAD TAUFIQ KIEMAS": {
+    "id": "TFY",
+    "lat": -3.86667,
+    "lon": 102.31667,
+    "provinsi": "Lampung",
+    "moda": "UDARA"
+  },
+  "KINTAP": {
+    "id": "891",
+    "lat": -3.902442,
+    "lon": 115.258705,
+    "provinsi": "Kalimantan Selatan",
+    "moda": "LAUT"
+  },
+  "KAHYAPU": {
+    "id": "3803",
+    "lat": -6.5119,
+    "lon": 105.6731,
+    "provinsi": "Bengkulu",
+    "moda": "ASDP"
+  },
+  "KIWIROK": {
+    "id": "KWR",
+    "lat": -4.713333,
+    "lon": 140.739444,
+    "provinsi": "Papua Pegunungan",
+    "moda": "UDARA"
+  },
+  "BULI": {
+    "id": "63",
+    "lat": 0.884261,
+    "lon": 128.297187,
+    "provinsi": "Maluku Utara",
+    "moda": "LAUT"
+  },
+  "SIAU": {
+    "id": "BRG",
+    "lat": 2.75,
+    "lon": 125.38333,
+    "provinsi": "Sulawesi Utara",
+    "moda": "UDARA"
+  },
+  "TANJUNG NYATO": {
+    "id": "2903",
+    "lat": -2.888893,
+    "lon": 107.475912,
+    "provinsi": "Bangka Belitung",
+    "moda": "ASDP"
+  },
+  "PITU": {
+    "id": "OTI",
+    "lat": 2.05,
+    "lon": 128.316667,
+    "provinsi": "Maluku Utara",
+    "moda": "UDARA"
+  },
+  "SIKELI": {
+    "id": "3266",
+    "lat": -3.3483,
+    "lon": 120.3203,
+    "provinsi": "Sulawesi Tenggara",
+    "moda": "ASDP"
+  },
+  "KEBAR": {
+    "id": "KEQ",
+    "lat": -0.809722,
+    "lon": 133.055278,
+    "provinsi": "Papua Barat Daya",
+    "moda": "UDARA"
+  },
+  "SERWATU": {
+    "id": "4226",
+    "lat": -6.46191,
+    "lon": 134.129504,
+    "provinsi": "Maluku",
+    "moda": "ASDP"
+  },
+  "RAJAPOLAH": {
+    "id": "RJP",
+    "lat": -7.219584,
+    "lon": 108.191175,
+    "provinsi": "Jawa Barat",
+    "moda": "KA"
+  },
+  "KABARE": {
+    "id": "A07",
+    "lat": -0.050051,
+    "lon": 131.001191,
+    "provinsi": "Papua Barat Daya",
+    "moda": "UDARA"
+  },
+  "MARUNDA": {
+    "id": "1035",
+    "lat": -6.095703,
+    "lon": 106.956238,
+    "provinsi": "DKI Jakarta",
+    "moda": "LAUT"
+  },
+  "TUANKU TAMBUSAI": {
+    "id": "PPR",
+    "lat": 1.11667,
+    "lon": 100.5,
+    "provinsi": "Riau",
+    "moda": "UDARA"
+  },
+  "RAWASARI": {
+    "id": "B138",
+    "lat": -1.595406,
+    "lon": 103.617528,
+    "provinsi": "Jambi",
+    "moda": "BUS"
+  },
+  "BUNGKU": {
+    "id": "214",
+    "lat": -2.54261,
+    "lon": 121.972,
+    "provinsi": "Sulawesi Tengah",
+    "moda": "LAUT"
+  },
+  "TIOM": {
+    "id": "TMY",
+    "lat": -3.924889,
+    "lon": 138.454083,
+    "provinsi": "Papua Pegunungan",
+    "moda": "UDARA"
+  },
+  "KOROWAY BATU": {
+    "id": "A13",
+    "lat": -5.213889,
+    "lon": 140.023333,
+    "provinsi": "Papua Selatan",
+    "moda": "UDARA"
+  },
+  "SIBISA": {
+    "id": "SIW",
+    "lat": 2.601444,
+    "lon": 98.962917,
+    "provinsi": "Sumatera Utara",
+    "moda": "UDARA"
+  },
+  "DOFA BENJINA FALABISAHAYA": {
+    "id": "MAL",
+    "lat": -3.5,
+    "lon": 127.5,
+    "provinsi": "Maluku Utara",
+    "moda": "UDARA"
+  },
+  "ROKOT": {
+    "id": "RKI",
+    "lat": -2.097222,
+    "lon": 99.703889,
+    "provinsi": "Sumatera Barat",
+    "moda": "UDARA"
+  },
+  "NAHA": {
+    "id": "NAH",
+    "lat": 3.685575,
+    "lon": 125.529106,
+    "provinsi": "Sulawesi Utara",
+    "moda": "UDARA"
+  },
+  "KOBAKMA": {
+    "id": "A11",
+    "lat": -3.66633,
+    "lon": 139.059,
+    "provinsi": "Papua Pegunungan",
+    "moda": "UDARA"
+  },
+  "MUARA WAHAU": {
+    "id": "A27",
+    "lat": 1.192917,
+    "lon": 116.955694,
+    "provinsi": "Kalimantan Timur",
+    "moda": "UDARA"
+  },
+  "KUALA PEMBUANG": {
+    "id": "KLP",
+    "lat": -3.378142,
+    "lon": 112.541614,
+    "provinsi": "Kalimantan Tengah",
+    "moda": "UDARA"
+  },
+  "LAHEWA": {
+    "id": "952",
+    "lat": 1.395972,
+    "lon": 97.171058,
+    "provinsi": "Sumatera Utara",
+    "moda": "LAUT"
+  },
+  "MIANGAS": {
+    "id": "IAX",
+    "lat": 5.556111,
+    "lon": 126.576667,
+    "provinsi": "Sulawesi Utara",
+    "moda": "UDARA"
+  },
+  "KUALA GAUNG": {
+    "id": "912",
+    "lat": -0.16587,
+    "lon": 103.457319,
+    "provinsi": "Riau",
+    "moda": "LAUT"
+  },
+  "MEULABOH": {
+    "id": "1056",
+    "lat": 4.133928,
+    "lon": 96.130012,
+    "provinsi": "D.I Aceh",
+    "moda": "LAUT"
+  },
+  "SULTAN SYARIF HAROEN SETIA NEGARA": {
+    "id": "RPL",
+    "lat": 0.496195,
+    "lon": 101.922547,
+    "provinsi": "Riau",
+    "moda": "UDARA"
+  },
+  "DEPATI PARBO": {
+    "id": "KRC",
+    "lat": -2.096111,
+    "lon": 101.471111,
+    "provinsi": "Jambi",
+    "moda": "UDARA"
+  },
+  "TANJUNG API": {
+    "id": "OJU",
+    "lat": -0.863889,
+    "lon": 121.625,
+    "provinsi": "Sulawesi Tengah",
+    "moda": "UDARA"
+  },
+  "SUNGAI LUMPUR": {
+    "id": "1404",
+    "lat": -3.413692,
+    "lon": 105.889453,
+    "provinsi": "Sumatera Selatan",
+    "moda": "LAUT"
+  },
+  "MARIMOI": {
+    "id": "A38",
+    "lat": 0.830833,
+    "lon": 127.38,
+    "provinsi": "Maluku Utara",
+    "moda": "UDARA"
+  },
+  "MARINDA": {
+    "id": "RJM",
+    "lat": -0.431944,
+    "lon": 130.771944,
+    "provinsi": "Papua Barat Daya",
+    "moda": "UDARA"
+  },
+  "TIMBAU": {
+    "id": "B383",
+    "lat": -0.238056,
+    "lon": 115.707222,
+    "provinsi": "Kalimantan Timur",
+    "moda": "BUS"
+  },
+  "AKIMUGA": {
+    "id": "IMU",
+    "lat": -4.602983,
+    "lon": 137.6591,
+    "provinsi": "Papua Tengah",
+    "moda": "UDARA"
+  },
+  "WAAI": {
+    "id": "4276",
+    "lat": 1.438826,
+    "lon": 100.0,
+    "provinsi": "Maluku",
+    "moda": "ASDP"
+  },
+  "ALAS LAUSER": {
+    "id": "LSR",
+    "lat": 3.387222,
+    "lon": 97.869444,
+    "provinsi": "D.I Aceh",
+    "moda": "UDARA"
+  },
+  "TAMBELAN": {
+    "id": "3281",
+    "lat": 0.8645,
+    "lon": 107.5336,
+    "provinsi": "Kepulauan Riau",
+    "moda": "ASDP"
+  },
+  "SUSOH": {
+    "id": "1413",
+    "lat": 3.720539,
+    "lon": 96.811544,
+    "provinsi": "D.I Aceh",
+    "moda": "LAUT"
+  },
+  "MANGKOSO": {
+    "id": "MAN",
+    "lat": -4.268072,
+    "lon": 119.637297,
+    "provinsi": "Sulawesi Selatan",
+    "moda": "KA"
+  },
+  "SOBAHAM": {
+    "id": "A37",
+    "lat": -4.06667,
+    "lon": 139.5,
+    "provinsi": "Papua Pegunungan",
+    "moda": "UDARA"
+  },
+  "MANGGAR": {
+    "id": "1020",
+    "lat": -2.859694,
+    "lon": 108.281593,
+    "provinsi": "Bangka Belitung",
+    "moda": "LAUT"
+  },
+  "TOLANDONA": {
+    "id": "1754",
+    "lat": -5.366218,
+    "lon": 122.616023,
+    "provinsi": "Sulawesi Tenggara",
+    "moda": "ASDP"
+  },
+  "DATA DIAN": {
+    "id": "A36",
+    "lat": 2.0062,
+    "lon": 115.152,
+    "provinsi": "Kalimantan Utara",
+    "moda": "UDARA"
+  },
+  "PANJANG": {
+    "id": "1151",
+    "lat": -5.464864,
+    "lon": 105.319841,
+    "provinsi": "Lampung",
+    "moda": "LAUT"
+  },
+  "PARIGI": {
+    "id": "1162",
+    "lat": -0.811768,
+    "lon": 120.179199,
+    "provinsi": "Sulawesi Tengah",
+    "moda": "LAUT"
+  },
+  "AYAWASI": {
+    "id": "AYW",
+    "lat": -1.159683,
+    "lon": 132.465344,
+    "provinsi": "Papua Barat Daya",
+    "moda": "UDARA"
+  },
+  "LONG LAYU": {
+    "id": "A02",
+    "lat": 3.883333,
+    "lon": 116.466667,
+    "provinsi": "Kalimantan Utara",
+    "moda": "UDARA"
+  },
+  "WAHAI": {
+    "id": "WBA",
+    "lat": -2.811111,
+    "lon": 129.485,
+    "provinsi": "Maluku",
+    "moda": "UDARA"
+  },
+  "LABUHAN MARINGGAI": {
+    "id": "948",
+    "lat": -5.35801,
+    "lon": 105.819829,
+    "provinsi": "Lampung",
+    "moda": "LAUT"
+  },
+  "JENDERAL BESAR HARIS NASUTION": {
+    "id": "JHN",
+    "lat": 0.950128,
+    "lon": 99.53273,
+    "provinsi": "Sumatera Utara",
+    "moda": "UDARA"
+  },
+  "REMBANG": {
+    "id": "1280",
+    "lat": -6.635107,
+    "lon": 111.542962,
+    "provinsi": "Jawa Tengah",
+    "moda": "LAUT"
+  },
+  "BOKONDINI": {
+    "id": "BUI",
+    "lat": -3.684796,
+    "lon": 138.676174,
+    "provinsi": "Papua Pegunungan",
+    "moda": "UDARA"
+  },
+  "BATOM": {
+    "id": "BXM",
+    "lat": -4.444061,
+    "lon": 140.881631,
+    "provinsi": "Papua Pegunungan",
+    "moda": "UDARA"
+  },
+  "MANGGELUM": {
+    "id": "A31",
+    "lat": -5.383333,
+    "lon": 140.466667,
+    "provinsi": "Papua Selatan",
+    "moda": "UDARA"
+  },
+  "MERDEY": {
+    "id": "RDE",
+    "lat": -1.591428,
+    "lon": 133.295742,
+    "provinsi": "Papua Barat",
+    "moda": "UDARA"
+  },
+  "TANJUNG PHISING": {
+    "id": "3182",
+    "lat": -5.088139,
+    "lon": 121.90024,
+    "provinsi": "Sulawesi Tenggara",
+    "moda": "ASDP"
+  },
+  "KABIR": {
+    "id": "AXO",
+    "lat": -8.2462,
+    "lon": 124.219697,
+    "provinsi": "NTT",
+    "moda": "UDARA"
+  },
+  "TSINGA": {
+    "id": "A19",
+    "lat": -4.195263,
+    "lon": 137.233317,
+    "provinsi": "Papua Tengah",
+    "moda": "UDARA"
+  },
+  "PATIMBAN": {
+    "id": "1179",
+    "lat": -6.243896,
+    "lon": 107.904602,
+    "provinsi": "Jawa Barat",
+    "moda": "LAUT"
+  },
+  "TANJUNG RU": {
+    "id": "3089",
+    "lat": -2.936758,
+    "lon": 107.529952,
+    "provinsi": "Bangka Belitung",
+    "moda": "ASDP"
+  },
+  "TAKKALASI": {
+    "id": "TAK",
+    "lat": -4.326945,
+    "lon": 119.653194,
+    "provinsi": "Sulawesi Selatan",
+    "moda": "KA"
+  },
+  "LABUHAN": {
+    "id": "939",
+    "lat": -6.36029,
+    "lon": 105.821411,
+    "provinsi": "Banten",
+    "moda": "LAUT"
+  },
+  "BUNGAMAS": {
+    "id": "BGM",
+    "lat": -3.70389,
+    "lon": 103.36806,
+    "provinsi": "Sumatera Selatan",
+    "moda": "KA"
+  },
+  "KAUKES": {
+    "id": "3152",
+    "lat": -1.904075,
+    "lon": 123.778655,
+    "provinsi": "Sulawesi Tengah",
+    "moda": "ASDP"
+  },
+  "SYEKH HAMZAH FANSHURI": {
+    "id": "FSH",
+    "lat": 2.2725,
+    "lon": 97.960833,
+    "provinsi": "D.I Aceh",
+    "moda": "UDARA"
+  },
+  "ANGGI": {
+    "id": "AGD",
+    "lat": -3.383333,
+    "lon": 133.866667,
+    "provinsi": "Papua Barat",
+    "moda": "UDARA"
+  },
+  "BRAWIJAYA": {
+    "id": "B213",
+    "lat": -8.201667,
+    "lon": 114.374722,
+    "provinsi": "Jawa Timur",
+    "moda": "BUS"
+  },
+  "SENGGEH": {
+    "id": "SEH",
+    "lat": -3.44285,
+    "lon": 140.778214,
+    "provinsi": "Papua",
+    "moda": "UDARA"
+  },
+  "GIHAM": {
+    "id": "GHM",
+    "lat": -4.42047,
+    "lon": 104.494,
+    "provinsi": "Lampung",
+    "moda": "KA"
+  },
+  "KUABANG": {
+    "id": "KAZ",
+    "lat": 1.186944,
+    "lon": 127.895,
+    "provinsi": "Maluku Utara",
+    "moda": "UDARA"
+  },
+  "TANJUNG SANTAN": {
+    "id": "1452",
+    "lat": -0.103976,
+    "lon": 117.466251,
+    "provinsi": "Kalimantan Timur",
+    "moda": "LAUT"
+  },
+  "PENAGIH": {
+    "id": "3095",
+    "lat": 3.892369,
+    "lon": 108.391872,
+    "provinsi": "Kepulauan Riau",
+    "moda": "ASDP"
+  },
+  "TERAPLU": {
+    "id": "A24",
+    "lat": -3.08333,
+    "lon": 139.8,
+    "provinsi": "Papua Pegunungan",
+    "moda": "UDARA"
+  },
+  "GAMAR MALAMO": {
+    "id": "GLX",
+    "lat": 1.836667,
+    "lon": 127.786944,
+    "provinsi": "Maluku Utara",
+    "moda": "UDARA"
+  },
+  "WOJO": {
+    "id": "WJ",
+    "lat": -7.861931,
+    "lon": 110.040541,
+    "provinsi": "Jawa Tengah",
+    "moda": "KA"
+  },
+  "KUALA KURUN": {
+    "id": "GXM",
+    "lat": -1.126389,
+    "lon": 113.874722,
+    "provinsi": "Kalimantan Tengah",
+    "moda": "UDARA"
+  },
+  "MARARENA": {
+    "id": "ZRM",
+    "lat": -1.874778,
+    "lon": 138.754511,
+    "provinsi": "Papua",
+    "moda": "UDARA"
+  },
+  "PADANG TIKAR": {
+    "id": "1123",
+    "lat": -0.675529,
+    "lon": 109.276103,
+    "provinsi": "Kalimantan Barat",
+    "moda": "LAUT"
+  },
+  "FAOWI": {
+    "id": "A16",
+    "lat": -3.231,
+    "lon": 137.726,
+    "provinsi": "Papua Tengah",
+    "moda": "UDARA"
+  },
+  "SELAT BELIA": {
+    "id": "3101",
+    "lat": 0.898313,
+    "lon": 103.376683,
+    "provinsi": "Kepulauan Riau",
+    "moda": "ASDP"
+  },
+  "KOKONAU": {
+    "id": "KOX",
+    "lat": -4.716667,
+    "lon": 136.433334,
+    "provinsi": "Papua Tengah",
+    "moda": "UDARA"
+  },
+  "BINUANG": {
+    "id": "A03",
+    "lat": 3.7147,
+    "lon": 115.8517,
+    "provinsi": "Kalimantan Utara",
+    "moda": "UDARA"
+  },
+  "ELAT": {
+    "id": "4202",
+    "lat": -5.861,
+    "lon": 132.7445,
+    "provinsi": "Maluku",
+    "moda": "ASDP"
+  },
+  "TUNGGUL WULUNG": {
+    "id": "CXP",
+    "lat": -7.644167,
+    "lon": 109.034444,
+    "provinsi": "Jawa Tengah",
+    "moda": "UDARA"
+  },
+  "BANJARNEGARA": {
+    "id": "B53",
+    "lat": -7.397222,
+    "lon": 109.695556,
+    "provinsi": "Jawa Tengah",
+    "moda": "BUS"
+  },
+  "BANDA ELI": {
+    "id": "4205",
+    "lat": -5.6404,
+    "lon": 132.5823,
+    "provinsi": "Maluku",
+    "moda": "ASDP"
+  },
+  "SIROMBU": {
+    "id": "1376",
+    "lat": 0.942247,
+    "lon": 97.41241,
+    "provinsi": "Sumatera Utara",
+    "moda": "LAUT"
+  },
+  "SINTANG": {
+    "id": "B254",
+    "lat": 0.078056,
+    "lon": 111.49,
+    "provinsi": "Kalimantan Barat",
+    "moda": "BUS"
+  },
+  "SANGGU": {
+    "id": "NGG",
+    "lat": -1.669622,
+    "lon": 114.899328,
+    "provinsi": "Kalimantan Tengah",
+    "moda": "UDARA"
+  },
+  "TUMBANG SAMBA": {
+    "id": "TBM",
+    "lat": -1.46896,
+    "lon": 113.083226,
+    "provinsi": "Kalimantan Tengah",
+    "moda": "UDARA"
+  },
+  "MINDIPTANA": {
+    "id": "MDP",
+    "lat": -5.876929,
+    "lon": 140.70946,
+    "provinsi": "Papua Selatan",
+    "moda": "UDARA"
+  },
+  "MIDAI": {
+    "id": "4061",
+    "lat": 3.1173,
+    "lon": 106.1954,
+    "provinsi": "Kepulauan Riau",
+    "moda": "ASDP"
+  },
+  "MAIMUN SALEH": {
+    "id": "SBG",
+    "lat": 5.876389,
+    "lon": 95.3375,
+    "provinsi": "D.I Aceh",
+    "moda": "UDARA"
+  },
+  "TAIPA": {
+    "id": "1736",
+    "lat": -0.779444,
+    "lon": 119.858056,
+    "provinsi": "Sulawesi Tengah",
+    "moda": "ASDP"
+  },
+  "JENDERAL BESAR SOEDIRMAN": {
+    "id": "PWL",
+    "lat": -7.458015,
+    "lon": 109.412407,
+    "provinsi": "Jawa Tengah",
+    "moda": "UDARA"
+  },
+  "MOKMER": {
+    "id": "3389",
+    "lat": -1.1942,
+    "lon": 136.1006,
+    "provinsi": "Papua",
+    "moda": "ASDP"
+  },
+  "BAKALANG": {
+    "id": "1703",
+    "lat": -8.267778,
+    "lon": 124.298611,
+    "provinsi": "NTT",
+    "moda": "ASDP"
+  },
+  "RASAU JAYA": {
+    "id": "3623",
+    "lat": -0.1933,
+    "lon": 109.2522,
+    "provinsi": "Kalimantan Barat",
+    "moda": "ASDP"
+  },
+  "PAM": {
+    "id": "4313",
+    "lat": -0.669115,
+    "lon": 130.297108,
+    "provinsi": "Papua Barat",
+    "moda": "ASDP"
+  },
+  "TEUKU CUT ALI": {
+    "id": "TPK",
+    "lat": 3.170833,
+    "lon": 97.288611,
+    "provinsi": "D.I Aceh",
+    "moda": "UDARA"
+  },
+  "POGOGUL": {
+    "id": "UOL",
+    "lat": 1.105278,
+    "lon": 121.415556,
+    "provinsi": "Sulawesi Tengah",
+    "moda": "UDARA"
+  },
+  "RANGGA ILUNG": {
+    "id": "1763",
+    "lat": -2.330777,
+    "lon": 114.877937,
+    "provinsi": "Kalimantan Tengah",
+    "moda": "LAUT"
+  },
+  "PALOPO": {
+    "id": "347",
+    "lat": -2.986238,
+    "lon": 120.203666,
+    "provinsi": "Sulawesi Selatan",
+    "moda": "LAUT"
+  },
+  "SANGKULIRANG": {
+    "id": "1311",
+    "lat": 1.00361,
+    "lon": 117.981051,
+    "provinsi": "Kalimantan Timur",
+    "moda": "LAUT"
+  },
+  "POTOWAI": {
+    "id": "A18",
+    "lat": -3.03333,
+    "lon": 136.71667,
+    "provinsi": "Papua Tengah",
+    "moda": "UDARA"
+  },
+  "CHAKRABHUWANA": {
+    "id": "CBN",
+    "lat": -6.71667,
+    "lon": 108.55,
+    "provinsi": "Jawa Barat",
+    "moda": "UDARA"
+  },
+  "CUT NYAK DHIEN": {
+    "id": "MEQ",
+    "lat": 4.25,
+    "lon": 96.95,
+    "provinsi": "D.I Aceh",
+    "moda": "UDARA"
+  },
+  "TAM": {
+    "id": "4208",
+    "lat": -5.512621,
+    "lon": 132.328108,
+    "provinsi": "Maluku",
+    "moda": "ASDP"
+  },
+  "NGLORAM": {
+    "id": "CPF",
+    "lat": -7.194167,
+    "lon": 111.547222,
+    "provinsi": "Jawa Tengah",
+    "moda": "UDARA"
+  },
+  "AMURANG": {
+    "id": "606",
+    "lat": 1.198773,
+    "lon": 124.551834,
+    "provinsi": "Sulawesi Utara",
+    "moda": "LAUT"
+  },
+  "MALILI": {
+    "id": "1011",
+    "lat": -2.636494,
+    "lon": 121.090037,
+    "provinsi": "Sulawesi Selatan",
+    "moda": "LAUT"
+  },
+  "PALUR": {
+    "id": "PL",
+    "lat": -7.567988,
+    "lon": 110.875282,
+    "provinsi": "Jawa Tengah",
+    "moda": "KA"
+  },
+  "PANUA POHUWATO": {
+    "id": "PWX",
+    "lat": 0.465669,
+    "lon": 121.8175,
+    "provinsi": "Gorontalo",
+    "moda": "UDARA"
+  },
+  "LEBAK BULUS": {
+    "id": "B29",
+    "lat": -6.289722,
+    "lon": 106.773889,
+    "provinsi": "DKI Jakarta",
+    "moda": "BUS"
+  },
+  "PT BADAK BONTANG": {
+    "id": "BXT",
+    "lat": 0.11667,
+    "lon": 117.5,
+    "provinsi": "Kalimantan Timur",
+    "moda": "UDARA"
+  },
+  "PURWODADI": {
+    "id": "B811",
+    "lat": -7.081572,
+    "lon": 110.890293,
+    "provinsi": "Jawa Tengah",
+    "moda": "BUS"
+  },
+  "PINANG KAMPAI": {
+    "id": "DUM",
+    "lat": 1.608889,
+    "lon": 101.433333,
+    "provinsi": "Riau",
+    "moda": "UDARA"
+  },
+  "TELUK LEIDONG": {
+    "id": "172",
+    "lat": 2.75246,
+    "lon": 99.979653,
+    "provinsi": "Sumatera Utara",
+    "moda": "LAUT"
+  },
+  "KOTABUNAN": {
+    "id": "903",
+    "lat": 0.809438,
+    "lon": 124.658835,
+    "provinsi": "Sulawesi Utara",
+    "moda": "LAUT"
+  },
+  "KADIPIRO": {
+    "id": "KDO",
+    "lat": -7.53103,
+    "lon": 110.81796,
+    "provinsi": "Jawa Tengah",
+    "moda": "KA"
+  },
+  "HOLAT": {
+    "id": "4199",
+    "lat": -4.285715,
+    "lon": 131.614724,
+    "provinsi": "Maluku Utara",
+    "moda": "ASDP"
+  },
+  "SENEN": {
+    "id": "B156",
+    "lat": -6.173611,
+    "lon": 106.841944,
+    "provinsi": "DKI Jakarta",
+    "moda": "BUS"
+  },
+  "MOLAWE": {
+    "id": "1060",
+    "lat": -3.611572,
+    "lon": 122.201782,
+    "provinsi": "Sulawesi Tenggara",
+    "moda": "LAUT"
+  },
+  "LINTAS SUMATERA": {
+    "id": "B10",
+    "lat": -0.818333,
+    "lon": 100.640278,
+    "provinsi": "Sumatera Barat",
+    "moda": "BUS"
+  },
+  "WULUR": {
+    "id": "1560",
+    "lat": -7.148691,
+    "lon": 128.659648,
+    "provinsi": "Maluku",
+    "moda": "LAUT"
+  },
+  "GROGOL": {
+    "id": "B473",
+    "lat": -6.166413,
+    "lon": 106.7902,
+    "provinsi": "DKI Jakarta",
+    "moda": "BUS"
+  },
+  "MANGGALA/MENGGALA": {
+    "id": "1019",
+    "lat": -5.934939,
+    "lon": 106.140052,
+    "provinsi": "Lampung",
+    "moda": "LAUT"
+  },
+  "KARANGANTU": {
+    "id": "859",
+    "lat": -6.030884,
+    "lon": 106.164429,
+    "provinsi": "Banten",
+    "moda": "LAUT"
+  },
+  "KENDAWANGAN": {
+    "id": "881",
+    "lat": -2.5307,
+    "lon": 110.216346,
+    "provinsi": "Kalimantan Barat",
+    "moda": "LAUT"
+  },
+  "WONOSOBO": {
+    "id": "B348",
+    "lat": -7.360556,
+    "lon": 109.899722,
+    "provinsi": "Jawa Tengah",
+    "moda": "BUS"
+  },
+  "TANA PASER": {
+    "id": "1764",
+    "lat": -1.80699,
+    "lon": 116.2502,
+    "provinsi": "Kalimantan Timur",
+    "moda": "LAUT"
+  },
+  "RAWABANGO": {
+    "id": "B164",
+    "lat": -6.8025,
+    "lon": 107.175278,
+    "provinsi": "Jawa Barat",
+    "moda": "BUS"
+  },
+  "TELUK SIGINTUNG": {
+    "id": "1479",
+    "lat": -3.334751,
+    "lon": 112.378654,
+    "provinsi": "Kalimantan Tengah",
+    "moda": "LAUT"
+  },
+  "POKA": {
+    "id": "1694",
+    "lat": -3.656389,
+    "lon": 128.199444,
+    "provinsi": "Maluku",
+    "moda": "ASDP"
+  },
+  "HARUKU": {
+    "id": "1697",
+    "lat": -3.604444,
+    "lon": 128.417778,
+    "provinsi": "Maluku",
+    "moda": "ASDP"
+  },
+  "MANGOLE": {
+    "id": "1698",
+    "lat": -1.925833,
+    "lon": 125.893611,
+    "provinsi": "Maluku Utara",
+    "moda": "ASDP"
+  },
+  "BROMSI": {
+    "id": "2000",
+    "lat": -1.226174,
+    "lon": 136.598907,
+    "provinsi": "Papua",
+    "moda": "ASDP"
+  },
+  "BASTINONG": {
+    "id": "3104",
+    "lat": 0.763952,
+    "lon": 127.375727,
+    "provinsi": "Maluku Utara",
+    "moda": "ASDP"
+  },
+  "DOWORA": {
+    "id": "3110",
+    "lat": 0.944965,
+    "lon": 127.630082,
+    "provinsi": "Maluku Utara",
+    "moda": "ASDP"
+  },
+  "MAKEAN": {
+    "id": "3116",
+    "lat": -0.3994,
+    "lon": 127.3948,
+    "provinsi": "Maluku Utara",
+    "moda": "ASDP"
+  },
+  "KEWAPANTE": {
+    "id": "3122",
+    "lat": -8.6639,
+    "lon": 122.2106,
+    "provinsi": "NTT",
+    "moda": "ASDP"
+  },
+  "KAYOA": {
+    "id": "3245",
+    "lat": -0.1298,
+    "lon": 127.5653,
+    "provinsi": "Maluku Utara",
+    "moda": "ASDP"
+  },
+  "MOTI": {
+    "id": "3263",
+    "lat": 0.3935,
+    "lon": 127.6725,
+    "provinsi": "Maluku Utara",
+    "moda": "ASDP"
+  },
+  "BOBONG": {
+    "id": "3314",
+    "lat": 1.5472,
+    "lon": 125.0024,
+    "provinsi": "Maluku Utara",
+    "moda": "ASDP"
+  },
+  "OBI": {
+    "id": "3323",
+    "lat": -1.4725,
+    "lon": 127.6363,
+    "provinsi": "Maluku Utara",
+    "moda": "ASDP"
+  },
+  "MOROTAI": {
+    "id": "3329",
+    "lat": 2.2073,
+    "lon": 128.4011,
+    "provinsi": "Maluku Utara",
+    "moda": "ASDP"
+  },
+  "SUBAIM": {
+    "id": "3368",
+    "lat": -0.61,
+    "lon": 128.2814,
+    "provinsi": "Maluku Utara",
+    "moda": "ASDP"
+  },
+  "AIRNANANG": {
+    "id": "3737",
+    "lat": -3.824981,
+    "lon": 130.822349,
+    "provinsi": "Maluku",
+    "moda": "ASDP"
+  },
+  "BATANG DUA": {
+    "id": "3752",
+    "lat": 1.1584,
+    "lon": 127.9884,
+    "provinsi": "Maluku Utara",
+    "moda": "ASDP"
+  },
+  "MAKIAN": {
+    "id": "3848",
+    "lat": -0.3548,
+    "lon": 127.4045,
+    "provinsi": "Maluku Utara",
+    "moda": "ASDP"
+  },
+  "PATANI": {
+    "id": "3893",
+    "lat": -0.2744,
+    "lon": 128.2719,
+    "provinsi": "Maluku Utara",
+    "moda": "ASDP"
+  },
+  "PULAU SOLOR": {
+    "id": "3911",
+    "lat": -8.3041,
+    "lon": 123.5117,
+    "provinsi": "NTT",
+    "moda": "ASDP"
+  },
+  "ATSY": {
+    "id": "4031",
+    "lat": -5.5346,
+    "lon": 137.9611,
+    "provinsi": "Papua",
+    "moda": "ASDP"
+  },
+  "DODOLA": {
+    "id": "4142",
+    "lat": 2.1706,
+    "lon": 128.4487,
+    "provinsi": "Maluku Utara",
+    "moda": "ASDP"
+  },
+  "ZUM ZUM": {
+    "id": "4145",
+    "lat": 1.683,
+    "lon": 127.6856,
+    "provinsi": "Maluku Utara",
+    "moda": "ASDP"
+  },
+  "KOLORAI": {
+    "id": "4148",
+    "lat": 1.6288,
+    "lon": 128.1943,
+    "provinsi": "Maluku Utara",
+    "moda": "ASDP"
+  },
+  "JOJAME": {
+    "id": "4232",
+    "lat": -1.209504,
+    "lon": 127.598293,
+    "provinsi": "Maluku Utara",
+    "moda": "ASDP"
+  },
+  "WIKA BETON": {
+    "id": "4265",
+    "lat": -5.870077,
+    "lon": 105.75435,
+    "provinsi": "Lampung",
+    "moda": "ASDP"
+  },
+  "PINRANG": {
+    "id": "B280",
+    "lat": -3.790833,
+    "lon": 119.646667,
+    "provinsi": "Sulawesi Selatan",
+    "moda": "BUS"
+  },
+  "MESUJI": {
+    "id": "1055",
+    "lat": -4.083965,
+    "lon": 105.653965,
+    "provinsi": "Lampung",
+    "moda": "LAUT"
+  },
+  "MUARA SABAK": {
+    "id": "1081",
+    "lat": -1.121794,
+    "lon": 103.838168,
+    "provinsi": "Jambi",
+    "moda": "LAUT"
+  },
+  "NIPAH PANJANG": {
+    "id": "1101",
+    "lat": -1.087291,
+    "lon": 104.191482,
+    "provinsi": "Jambi",
+    "moda": "LAUT"
+  },
+  "PANGANDARAN": {
+    "id": "1141",
+    "lat": -7.715024,
+    "lon": 108.502051,
+    "provinsi": "Jawa Barat",
+    "moda": "LAUT"
+  },
+  "PANGKALAN BUN": {
+    "id": "1145",
+    "lat": -2.669189,
+    "lon": 111.636841,
+    "provinsi": "Kalimantan Tengah",
+    "moda": "LAUT"
+  },
+  "PANGKALAN SUSU": {
+    "id": "1147",
+    "lat": 4.122602,
+    "lon": 98.21363,
+    "provinsi": "Sumatera Utara",
+    "moda": "LAUT"
+  },
+  "PELABUHAN RATU": {
+    "id": "1279",
+    "lat": -6.990173,
+    "lon": 106.541992,
+    "provinsi": "Jawa Barat",
+    "moda": "LAUT"
+  },
+  "SANGATTA": {
+    "id": "1310",
+    "lat": 0.483043,
+    "lon": 117.531279,
+    "provinsi": "Kalimantan Timur",
+    "moda": "LAUT"
+  },
+  "SINJAI": {
+    "id": "1374",
+    "lat": -5.116145,
+    "lon": 120.289182,
+    "provinsi": "Sulawesi Selatan",
+    "moda": "LAUT"
+  },
+  "SUKAMARA": {
+    "id": "1388",
+    "lat": -2.928101,
+    "lon": 111.678223,
+    "provinsi": "Kalimantan Tengah",
+    "moda": "LAUT"
+  },
+  "TALANG DUKU": {
+    "id": "1421",
+    "lat": -1.53393,
+    "lon": 103.660094,
+    "provinsi": "Jambi",
+    "moda": "LAUT"
+  },
+  "TANJUNG BERINGIN": {
+    "id": "1443",
+    "lat": 3.50178,
+    "lon": 99.200664,
+    "provinsi": "Sumatera Utara",
+    "moda": "LAUT"
+  },
+  "TANJUNG INTAN/ CILACAP": {
+    "id": "1444",
+    "lat": -7.735543,
+    "lon": 108.997129,
+    "provinsi": "Jawa Tengah",
+    "moda": "LAUT"
+  },
+  "TANJUNG SARANG ELANG": {
+    "id": "1453",
+    "lat": 2.497305,
+    "lon": 100.159351,
+    "provinsi": "Sumatera Utara",
+    "moda": "LAUT"
+  },
+  "KUALA CINAKU": {
+    "id": "1761",
+    "lat": -0.378772,
+    "lon": 102.551545,
+    "provinsi": "Riau",
+    "moda": "LAUT"
+  },
+  "ANGGREK": {
+    "id": "608",
+    "lat": 0.858445,
+    "lon": 122.7942,
+    "provinsi": "Gorontalo",
+    "moda": "LAUT"
+  },
+  "BATAHAN": {
+    "id": "650",
+    "lat": 0.401663,
+    "lon": 99.138789,
+    "provinsi": "Sumatera Utara",
+    "moda": "LAUT"
+  },
+  "BELANG-BELANG": {
+    "id": "663",
+    "lat": -2.475464,
+    "lon": 119.127441,
+    "provinsi": "Sulawesi Barat",
+    "moda": "LAUT"
+  },
+  "BINTUHAN": {
+    "id": "681",
+    "lat": -4.83907,
+    "lon": 103.41495,
+    "provinsi": "Bengkulu",
+    "moda": "LAUT"
+  },
+  "SATUI": {
+    "id": "740",
+    "lat": -3.779674,
+    "lon": 115.407376,
+    "provinsi": "Kalimantan Selatan",
+    "moda": "LAUT"
+  },
+  "JUWANA": {
+    "id": "823",
+    "lat": -6.702393,
+    "lon": 111.154785,
+    "provinsi": "Jawa Tengah",
+    "moda": "LAUT"
+  },
+  "HATU PIRU": {
+    "id": "830",
+    "lat": -3.335473,
+    "lon": 128.342045,
+    "provinsi": "Maluku",
+    "moda": "LAUT"
+  },
+  "KOTA AGUNG": {
+    "id": "902",
+    "lat": -5.499366,
+    "lon": 104.620562,
+    "provinsi": "Lampung",
+    "moda": "LAUT"
+  },
+  "KUALA LANGSA": {
+    "id": "916",
+    "lat": 4.523542,
+    "lon": 98.020737,
+    "provinsi": "D.I Aceh",
+    "moda": "LAUT"
+  },
+  "KUALA MENDAHARA": {
+    "id": "918",
+    "lat": -0.95202,
+    "lon": 103.67621,
+    "provinsi": "Jambi",
+    "moda": "LAUT"
+  },
+  "KUALA SAMBOJA": {
+    "id": "922",
+    "lat": -1.016106,
+    "lon": 117.115266,
+    "provinsi": "Kalimantan Timur",
+    "moda": "LAUT"
+  },
+  "LABUHAN UKI": {
+    "id": "950",
+    "lat": 0.855223,
+    "lon": 123.935985,
+    "provinsi": "Sulawesi Utara",
+    "moda": "LAUT"
+  },
+  "TOWE HITAM": {
+    "id": "A04",
+    "lat": -3.934722,
+    "lon": 140.775,
+    "provinsi": "Papua",
+    "moda": "UDARA"
+  },
+  "TAIVE II": {
+    "id": "A05",
+    "lat": -3.548659,
+    "lon": 138.549046,
+    "provinsi": "Papua Pegunungan",
+    "moda": "UDARA"
+  },
+  "KENYAM": {
+    "id": "A08",
+    "lat": -4.604061,
+    "lon": 138.383896,
+    "provinsi": "Papua Pegunungan",
+    "moda": "UDARA"
+  },
+  "MAPNDUMA": {
+    "id": "A09",
+    "lat": -4.08333,
+    "lon": 139.5,
+    "provinsi": "Papua Pegunungan",
+    "moda": "UDARA"
+  },
+  "BORME": {
+    "id": "A12",
+    "lat": -4.395361,
+    "lon": 140.434306,
+    "provinsi": "Papua Pegunungan",
+    "moda": "UDARA"
+  },
+  "YANIRUMA": {
+    "id": "A14",
+    "lat": -5.4206,
+    "lon": 139.82,
+    "provinsi": "Papua Selatan",
+    "moda": "UDARA"
+  },
+  "BEOGA": {
+    "id": "A32",
+    "lat": -3.8165,
+    "lon": 137.4252,
+    "provinsi": "Papua Tengah",
+    "moda": "UDARA"
+  },
+  "WANGBE": {
+    "id": "A35",
+    "lat": -3.868,
+    "lon": 137.470056,
+    "provinsi": "Papua Tengah",
+    "moda": "UDARA"
+  },
+  "APALAPSILI": {
+    "id": "AAS",
+    "lat": -3.9,
+    "lon": 139.283333,
+    "provinsi": "Papua Pegunungan",
+    "moda": "UDARA"
+  },
+  "AEK GODANG": {
+    "id": "AEG",
+    "lat": 1.398889,
+    "lon": 99.430556,
+    "provinsi": "Sumatera Utara",
+    "moda": "UDARA"
+  },
+  "SUMARORONG": {
+    "id": "MSA",
+    "lat": -3.147778,
+    "lon": 119.303333,
+    "provinsi": "Sulawesi Barat",
+    "moda": "UDARA"
+  },
+  "PUSAKO ANAK NAGARI": {
+    "id": "PNN",
+    "lat": 0.076556,
+    "lon": 99.784722,
+    "provinsi": "Sumatera Barat",
+    "moda": "UDARA"
+  },
+  "ABRESSO": {
+    "id": "RSK",
+    "lat": -1.5,
+    "lon": 134.183333,
+    "provinsi": "Papua Barat",
+    "moda": "UDARA"
+  },
+  "YURUF": {
+    "id": "RUF",
+    "lat": -3.933333,
+    "lon": 140.933333,
+    "provinsi": "Papua",
+    "moda": "UDARA"
+  },
+  "WERUR": {
+    "id": "WRR",
+    "lat": -0.420093,
+    "lon": 132.186822,
+    "provinsi": "Papua Barat Daya",
+    "moda": "UDARA"
+  },
+  "GATOT SUBROTO": {
+    "id": "WTX",
+    "lat": -4.39167,
+    "lon": 104.40139,
+    "provinsi": "Lampung",
+    "moda": "UDARA"
+  }
+}

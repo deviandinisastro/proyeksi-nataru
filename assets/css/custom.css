@@ -1,0 +1,104 @@
+/* ==============================================================================
+   CUSTOM STYLING: INA DIGITAL & ENTERPRISE GOVERNMENT UX
+   Sistem Penunjang Keputusan (DSS) Nataru 2026/2027 - Pusdatin Kemenhub
+   ============================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root {
+  --color-gov-navy: #003882;
+  --color-gov-azure: #388AEB;
+  --color-canvas-bg: #F8FAFC;
+  --color-card-border: #E2E8F0;
+  --color-text-main: #0F172A;
+  --color-text-muted: #475569;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  background-color: var(--color-canvas-bg);
+  color: var(--color-text-main);
+  -webkit-font-smoothing: antialiased;
+}
+
+.num-mono {
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: -0.02em;
+}
+
+/* Custom Scrollbar Ramping & Elegan */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #F1F5F9;
+}
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}
+
+/* Sidebar Navigasi Item Active State */
+.nav-item {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.nav-item.active {
+  background-color: #003882;
+  color: #FFFFFF !important;
+  font-weight: 600;
+  box-shadow: 0 2px 6px rgba(0, 56, 130, 0.25);
+}
+.nav-item.active svg {
+  color: #FFFFFF !important;
+}
+.nav-item:not(.active):hover {
+  background-color: #F1F5F9;
+  color: #003882;
+}
+
+/* Leaflet Map Customization */
+.leaflet-container {
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+  border-radius: 8px;
+}
+.leaflet-popup-content-wrapper {
+  border-radius: 8px !important;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.12) !important;
+  border: 1px solid #E2E8F0 !important;
+  padding: 0 !important;
+}
+.leaflet-popup-content {
+  margin: 12px !important;
+  font-size: 12px !important;
+  color: #0F172A !important;
+}
+
+/* Card Badge Indicator */
+.badge-normal {
+  background-color: #ECFDF5;
+  color: #065F46;
+  border: 1px solid #A7F3D0;
+}
+.badge-waspada {
+  background-color: #FFFBEB;
+  color: #92400E;
+  border: 1px solid #FDE68A;
+}
+.badge-siaga {
+  background-color: #FEF2F2;
+  color: #991B1B;
+  border: 1px solid #FECACA;
+}
+
+/* Smooth view transition */
+.view-section {
+  animation: fadeIn 0.25s ease-out;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
