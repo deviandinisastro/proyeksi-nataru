@@ -171,10 +171,11 @@ function initSidebarToggle() {
 }
 
 /**
- * Jam & Tanggal Operasional Posko di Header
+ * Jam & Tanggal Operasional Posko di Header (Opsional)
  */
 function initClock() {
   const clockEl = document.getElementById('live-clock');
+  if (!clockEl) return;
   function update() {
     const now = new Date();
     const opts = { weekday: 'short', day: 'numeric', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' };

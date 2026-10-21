@@ -26,15 +26,15 @@
 
 /* Dark Mode Theme Variables */
 html.dark {
-  --color-gov-navy: #388AEB;
-  --color-gov-navy-dark: #1D4ED8;
+  --color-gov-navy: #60A5FA;
+  --color-gov-navy-dark: #3B82F6;
   --color-gov-azure: #60A5FA;
   --color-gov-azure-light: #1E293B;
   --color-canvas-bg: #0B1120;       /* Slate 950 Dark Canvas */
   --color-card-bg: #131D31;         /* Deep Slate 900 Surface */
   --color-card-border: #1E293B;     /* Slate 800 */
   --color-text-main: #F8FAFC;       /* Slate 50 */
-  --color-text-muted: #94A3B8;      /* Slate 400 */
+  --color-text-muted: #CBD5E1;      /* Slate 300 - High Contrast */
 }
 
 body {
@@ -47,8 +47,6 @@ body {
 
 /* ==============================================================================
    PENGATURAN FONT ANGKA: MODERN TABULAR NUMBERS (BUKAN COURIER / TYPEWRITER)
-   Angka menggunakan Plus Jakarta Sans dengan tabular-nums agar sejajar rapi
-   seperti Excel enterprise tanpa efek monospace kuno.
    ============================================================================== */
 .num-mono, .num-tabular {
   font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif !important;
@@ -59,7 +57,7 @@ body {
   letter-spacing: -0.01em;
 }
 
-/* Custom Scrollbar Ramping */
+/* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
@@ -90,6 +88,7 @@ html.dark ::-webkit-scrollbar-thumb {
 }
 html.dark .nav-item.active {
   background-color: #2563EB;
+  color: #FFFFFF !important;
   box-shadow: 0 2px 8px rgba(37, 99, 235, 0.35);
 }
 .nav-item.active svg {
@@ -104,24 +103,25 @@ html.dark .nav-item:not(.active):hover {
   color: #60A5FA;
 }
 
-/* Sidebar Responsive Collapse & Hover-Expand Animation */
+/* ==============================================================================
+   SIDEBAR TOGGLE: RESPONSIVE & PREDICTABLE (TANPA HOVER EXPAND YANG MENGGANGGU)
+   ============================================================================== */
 aside#main-sidebar {
-  transition: width 0.28s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.28s ease;
+  transition: width 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   overflow-x: hidden;
   white-space: nowrap;
 }
 
-/* Kondisi saat Sidebar diciutkan permanen (Collapsed) */
+/* Kondisi saat Sidebar diciutkan (Collapsed) */
 aside#main-sidebar.collapsed-sidebar {
   width: 72px !important;
 }
 
-/* Sembunyikan teks & kotak verifikasi saat collapsed */
 aside#main-sidebar.collapsed-sidebar .sidebar-text,
 aside#main-sidebar.collapsed-sidebar .sidebar-verify-box {
   opacity: 0;
   pointer-events: none;
-  display: none;
+  display: none !important;
 }
 aside#main-sidebar.collapsed-sidebar .nav-item {
   justify-content: center;
@@ -135,40 +135,22 @@ aside#main-sidebar.collapsed-sidebar #sidebar-icon-expand {
   display: inline-block !important;
 }
 
-/* ==============================================================================
-   ANIMASI HOVER SEMENTARA (KURSOR DIARAHKAN KE SIDEBAR YANG SEDANG TUTUP)
-   Saat kursor mouse mendekat ke sidebar yang sedang diciutkan, sidebar
-   otomatis melebar sementara ke 260px dengan bayangan elegan.
-   ============================================================================== */
-@media (min-width: 768px) {
-  aside#main-sidebar.collapsed-sidebar:hover {
-    width: 260px !important;
-    box-shadow: 4px 0 24px rgba(15, 23, 42, 0.15);
-    z-index: 50;
-  }
-  aside#main-sidebar.collapsed-sidebar:hover .sidebar-text {
-    opacity: 1;
-    pointer-events: auto;
-    display: inline-block;
-    transition: opacity 0.2s ease 0.08s;
-  }
-  aside#main-sidebar.collapsed-sidebar:hover .sidebar-verify-box {
-    opacity: 1;
-    pointer-events: auto;
-    display: block;
-    transition: opacity 0.2s ease 0.08s;
-  }
-  aside#main-sidebar.collapsed-sidebar:hover .nav-item {
-    justify-content: flex-start;
-    padding-left: 0.875rem;
-    padding-right: 0.875rem;
-  }
-  aside#main-sidebar.collapsed-sidebar:hover #sidebar-icon-collapse {
-    display: inline-block !important;
-  }
-  aside#main-sidebar.collapsed-sidebar:hover #sidebar-icon-expand {
-    display: none !important;
-  }
+/* Area Bawah Sidebar (Selalu Seragam, Tidak Belang) */
+.sidebar-footer-area {
+  background-color: transparent !important;
+}
+html.dark .sidebar-footer-area {
+  background-color: transparent !important;
+  border-color: #1E293B !important;
+}
+html.dark .sidebar-verify-box {
+  background-color: #0E1626 !important;
+  border-color: #1E293B !important;
+}
+html.dark #btn-toggle-sidebar {
+  background-color: #0E1626 !important;
+  border-color: #1E293B !important;
+  color: #E2E8F0 !important;
 }
 
 /* Leaflet Map Customization */
@@ -195,9 +177,9 @@ aside#main-sidebar.collapsed-sidebar #sidebar-icon-expand {
   border: 1px solid #A7F3D0;
 }
 html.dark .badge-normal {
-  background-color: rgba(6, 95, 70, 0.25);
-  color: #6EE7B7;
-  border-color: rgba(16, 185, 129, 0.3);
+  background-color: rgba(6, 95, 70, 0.35);
+  color: #A7F3D0;
+  border-color: rgba(16, 185, 129, 0.4);
 }
 
 .badge-waspada {
@@ -206,9 +188,9 @@ html.dark .badge-normal {
   border: 1px solid #FDE68A;
 }
 html.dark .badge-waspada {
-  background-color: rgba(146, 64, 14, 0.25);
-  color: #FCD34D;
-  border-color: rgba(245, 158, 11, 0.3);
+  background-color: rgba(146, 64, 14, 0.35);
+  color: #FDE68A;
+  border-color: rgba(245, 158, 11, 0.4);
 }
 
 .badge-siaga {
@@ -217,12 +199,14 @@ html.dark .badge-waspada {
   border: 1px solid #FECACA;
 }
 html.dark .badge-siaga {
-  background-color: rgba(153, 27, 27, 0.25);
-  color: #FCA5A5;
-  border-color: rgba(239, 68, 68, 0.3);
+  background-color: rgba(153, 27, 27, 0.35);
+  color: #FECACA;
+  border-color: rgba(239, 68, 68, 0.4);
 }
 
-/* Dark Mode Overrides for Cards, Headers, and Tables */
+/* ==============================================================================
+   DARK MODE OVERRIDES DENGAN KONTRAS TINGGI (ANTI TULISAN ABU-ABU GELAP)
+   ============================================================================== */
 html.dark aside,
 html.dark header,
 html.dark footer,
@@ -235,7 +219,7 @@ html.dark .bg-gov-slate,
 html.dark .bg-slate-50,
 html.dark thead.bg-slate-50 {
   background-color: #1A263D !important;
-  color: #CBD5E1 !important;
+  color: #E2E8F0 !important;
 }
 html.dark .bg-slate-100 {
   background-color: #24334E !important;
@@ -251,16 +235,21 @@ html.dark .text-slate-900,
 html.dark .text-gov-text {
   color: #F8FAFC !important;
 }
+/* Memperbaiki tulisan abu-abu di mode gelap agar kontras & terbaca jelas */
+html.dark .text-slate-400,
 html.dark .text-slate-500,
 html.dark .text-slate-600,
 html.dark .text-gov-muted {
-  color: #94A3B8 !important;
+  color: #CBD5E1 !important; /* Slate 300 - Sangat Jelas di Layar Gelap */
 }
 html.dark .text-gov-navy {
   color: #60A5FA !important;
 }
 html.dark tr:hover {
   background-color: rgba(30, 41, 59, 0.5) !important;
+}
+html.dark thead th {
+  color: #F1F5F9 !important;
 }
 
 /* Smooth view transition */
