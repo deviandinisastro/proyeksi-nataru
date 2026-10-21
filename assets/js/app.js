@@ -15,9 +15,9 @@ window.DSS_STATE = {
 // Pemetaan Nama Tab ke Judul Breadcrumb & Pertanyaan Keputusan
 const TAB_METADATA = {
   executive: {
-    title: 'Ringkasan Eksekutif & Early Warning',
-    breadcrumb: 'Dashboard Eksekutif',
-    question: 'Bagaimana kondisi makro transportasi nasional dan kapan status siaga tertinggi diberlakukan?'
+    title: 'Ikhtisar Posko & Pemantauan Puncak Nataru',
+    breadcrumb: 'Ikhtisar Posko',
+    question: 'Rangkuman indikator operasional multimoda nasional serta jadwal perkiraan hari puncak arus mudik dan balik.'
   },
   harian: {
     title: 'Tren Harian Multimoda (18 Hari Posko)',
@@ -67,10 +67,79 @@ function formatPercent(num) {
  * Inisialisasi Aplikasi Saat Halaman Selesai Dimuat
  */
 document.addEventListener('DOMContentLoaded', async () => {
+  initTheme();
+  initSidebarToggle();
   initClock();
   setupSidebarNavigation();
   await loadApplicationData();
 });
+
+/**
+ * Inisialisasi & Pengaturan Mode Gelap / Terang (Dark Mode)
+ */
+function initTheme() {
+  const savedTheme = localStorage.getItem('dss_theme') || 'light';
+  if (savedTheme === 'dark') {
+    document.documentElement.classList.add('dark');
+  } else {
+    document.documentElement.classList.remove('dark');
+  }
+  updateThemeIcons();
+
+  const toggleBtn = document.getElementById('btn-theme-toggle');
+  if (toggleBtn) {
+    toggleBtn.addEventListener('click', toggleTheme);
+  }
+}
+
+function toggleTheme() {
+  const isDark = document.documentElement.classList.toggle('dark');
+  localStorage.setItem('dss_theme', isDark ? 'dark' : 'light');
+  updateThemeIcons();
+
+  // Re-render tab aktif agar visualisasi Plotly menyesuaikan warna latar
+  if (window.DSS_STATE.data) {
+    switchTab(window.DSS_STATE.currentTab);
+  }
+}
+
+function updateThemeIcons() {
+  const isDark = document.documentElement.classList.contains('dark');
+  const moonIcon = document.getElementById('theme-icon-moon');
+  const sunIcon = document.getElementById('theme-icon-sun');
+
+  if (moonIcon && sunIcon) {
+    if (isDark) {
+      moonIcon.classList.add('hidden');
+      sunIcon.classList.remove('hidden');
+    } else {
+      moonIcon.classList.remove('hidden');
+      sunIcon.classList.add('hidden');
+    }
+  }
+}
+
+/**
+ * Inisialisasi Tombol Buka/Tutup Sidebar Navigasi
+ */
+function initSidebarToggle() {
+  const toggleBtn = document.getElementById('btn-toggle-sidebar');
+  const sidebar = document.getElementById('main-sidebar');
+  if (!toggleBtn || !sidebar) return;
+
+  toggleBtn.addEventListener('click', () => {
+    if (window.innerWidth >= 768) {
+      sidebar.classList.toggle('collapsed-desktop');
+    } else {
+      sidebar.classList.toggle('hidden');
+    }
+
+    // Trigger resize Plotly setelah lebar kontainer bergeser
+    setTimeout(() => {
+      window.dispatchEvent(new Event('resize'));
+    }, 300);
+  });
+}
 
 /**
  * Jam & Tanggal Operasional Posko di Header
