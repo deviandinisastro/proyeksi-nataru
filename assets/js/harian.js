@@ -154,39 +154,39 @@ function renderHarianPlotlyChart(records) {
 
   const unitLabel = harianState.metric === 'penumpang' ? 'orang' : 'unit kendaraan';
 
-  // Trace 1: Realisasi 2024 (Abu-abu Dotted)
+  // Trace 1: Realisasi 2024 (Slate Netral Solid - Historical Benchmark)
   const trace2024 = {
     x: days,
     y: v2024,
     name: 'Realisasi 2024',
     type: 'scatter',
     mode: 'lines+markers',
-    line: { color: isDark ? '#94A3B8' : '#94A3B8', width: 2, dash: 'dot' },
+    line: { color: isDark ? '#94A3B8' : '#94A3B8', width: 2.5 },
     marker: { size: 5, color: '#94A3B8' },
     hovertemplate: '%{y:,.0f} ' + unitLabel + '<extra>2024</extra>'
   };
 
-  // Trace 2: Realisasi 2025 (Navy Baseline Solid di Terang, Azure Terang di Gelap)
+  // Trace 2: Realisasi 2025 (Navy Baseline Kemenhub Solid)
   const trace2025 = {
     x: days,
     y: v2025,
     name: 'Realisasi 2025 (Baseline)',
     type: 'scatter',
     mode: 'lines+markers',
-    line: { color: isDark ? '#60A5FA' : '#003882', width: 3 },
-    marker: { size: 6, color: isDark ? '#60A5FA' : '#003882' },
+    line: { color: isDark ? '#60A5FA' : '#003882', width: 2.5 },
+    marker: { size: 5, color: isDark ? '#60A5FA' : '#003882' },
     hovertemplate: '%{y:,.0f} ' + unitLabel + '<extra>2025</extra>'
   };
 
-  // Trace 3: Proyeksi 2026 (Azure Blue Primary Solid/Dashed)
+  // Trace 3: Proyeksi 2026 (Azure Modern Solid - Estimasi Damped HW)
   const trace2026 = {
     x: days,
     y: v2026,
     name: 'Proyeksi 2026 (Damped HW)',
     type: 'scatter',
     mode: 'lines+markers',
-    line: { color: isDark ? '#38BDF8' : '#0284C7', width: 3.5 },
-    marker: { size: 7, symbol: 'diamond', color: isDark ? '#38BDF8' : '#0284C7' },
+    line: { color: isDark ? '#38BDF8' : '#0284C7', width: 2.5 },
+    marker: { size: 5, color: isDark ? '#38BDF8' : '#0284C7' },
     hovertemplate: '%{y:,.0f} ' + unitLabel + '<extra>Proyeksi 2026</extra>'
   };
 
@@ -277,9 +277,7 @@ function renderHarianPlotlyChart(records) {
 
   const config = {
     responsive: true,
-    displayModeBar: true,
-    modeBarButtonsToRemove: ['lasso2d', 'select2d', 'zoomIn2d', 'zoomOut2d', 'autoScale2d'],
-    displaylogo: false
+    displayModeBar: false
   };
 
   Plotly.newPlot(chartEl, [trace2024, trace2025, trace2026], layout, config);
