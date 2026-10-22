@@ -145,6 +145,7 @@ function renderHarianPlotlyChart(records) {
   const chartEl = document.getElementById('harian-timeseries-chart');
   if (!chartEl || !records || records.length === 0) return;
 
+  const isDark = document.documentElement.classList.contains('dark');
   const days = records.map(r => r.hari_posko);
   const hoverDays = records.map(r => `${r.hari_posko} (${r.hari_pekan})`);
   const v2024 = records.map(r => r.vol_2024);
@@ -160,20 +161,20 @@ function renderHarianPlotlyChart(records) {
     name: 'Realisasi 2024',
     type: 'scatter',
     mode: 'lines+markers',
-    line: { color: '#94A3B8', width: 2, dash: 'dot' },
+    line: { color: isDark ? '#94A3B8' : '#94A3B8', width: 2, dash: 'dot' },
     marker: { size: 5, color: '#94A3B8' },
     hovertemplate: '%{y:,.0f} ' + unitLabel + '<extra>2024</extra>'
   };
 
-  // Trace 2: Realisasi 2025 (Navy Baseline Solid)
+  // Trace 2: Realisasi 2025 (Navy Baseline Solid di Terang, Azure Terang di Gelap)
   const trace2025 = {
     x: days,
     y: v2025,
     name: 'Realisasi 2025 (Baseline)',
     type: 'scatter',
     mode: 'lines+markers',
-    line: { color: '#003882', width: 3 },
-    marker: { size: 6, color: '#003882' },
+    line: { color: isDark ? '#60A5FA' : '#003882', width: 3 },
+    marker: { size: 6, color: isDark ? '#60A5FA' : '#003882' },
     hovertemplate: '%{y:,.0f} ' + unitLabel + '<extra>2025</extra>'
   };
 
@@ -184,8 +185,8 @@ function renderHarianPlotlyChart(records) {
     name: 'Proyeksi 2026 (Damped HW)',
     type: 'scatter',
     mode: 'lines+markers',
-    line: { color: '#388AEB', width: 3.5 },
-    marker: { size: 7, symbol: 'diamond', color: '#388AEB' },
+    line: { color: isDark ? '#38BDF8' : '#0284C7', width: 3.5 },
+    marker: { size: 7, symbol: 'diamond', color: isDark ? '#38BDF8' : '#0284C7' },
     hovertemplate: '%{y:,.0f} ' + unitLabel + '<extra>Proyeksi 2026</extra>'
   };
 
@@ -235,33 +236,35 @@ function renderHarianPlotlyChart(records) {
   const layout = {
     hovermode: 'x unified',
     hoverlabel: {
-      bgcolor: '#FFFFFF',
-      bordercolor: '#E2E8F0',
-      font: { family: 'Plus Jakarta Sans', size: 11, color: '#0F172A' }
+      bgcolor: isDark ? '#1E293B' : '#FFFFFF',
+      bordercolor: isDark ? '#334155' : '#E2E8F0',
+      font: { family: 'Plus Jakarta Sans', size: 11, color: isDark ? '#F8FAFC' : '#0F172A' }
     },
     legend: {
       orientation: 'h',
       x: 0.5,
       xanchor: 'center',
       y: 1.15,
-      font: { family: 'Plus Jakarta Sans', size: 11 }
+      font: { family: 'Plus Jakarta Sans', size: 11, color: isDark ? '#F8FAFC' : '#0F172A' }
     },
     xaxis: {
       tickmode: 'array',
       tickvals: days,
       ticktext: days,
       showgrid: true,
-      gridcolor: '#F1F5F9',
-      linecolor: '#CBD5E1'
+      gridcolor: isDark ? 'rgba(255, 255, 255, 0.08)' : '#F1F5F9',
+      linecolor: isDark ? '#334155' : '#CBD5E1',
+      tickfont: { family: 'Plus Jakarta Sans', size: 10, color: isDark ? '#CBD5E1' : '#64748B' }
     },
     yaxis: {
       showgrid: true,
-      gridcolor: '#F1F5F9',
-      linecolor: '#CBD5E1',
+      gridcolor: isDark ? 'rgba(255, 255, 255, 0.08)' : '#F1F5F9',
+      linecolor: isDark ? '#334155' : '#CBD5E1',
       tickformat: ',.0f',
+      tickfont: { family: 'Plus Jakarta Sans', size: 10, color: isDark ? '#CBD5E1' : '#64748B' },
       title: {
         text: `Volume (${unitLabel}/hari)`,
-        font: { size: 11, family: 'Plus Jakarta Sans', color: '#64748B' }
+        font: { size: 11, family: 'Plus Jakarta Sans', color: isDark ? '#CBD5E1' : '#64748B' }
       }
     },
     shapes: shapes,

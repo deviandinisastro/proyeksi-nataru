@@ -263,13 +263,15 @@ function renderSimulationChart(simulatedDays) {
   const baseCurve = simulatedDays.map(d => d.vol_base);
   const simCurve = simulatedDays.map(d => d.vol_simulasi);
 
+  const isDark = document.documentElement.classList.contains('dark');
+
   const traceBase = {
     x: days,
     y: baseCurve,
     name: 'Skenario Dasar (Baseline)',
     type: 'scatter',
     mode: 'lines+markers',
-    line: { color: '#94A3B8', width: 2, dash: 'dot' },
+    line: { color: isDark ? '#94A3B8' : '#94A3B8', width: 2, dash: 'dot' },
     marker: { size: 5, color: '#94A3B8' },
     hovertemplate: '%{y:,.0f} orang<extra>Baseline</extra>'
   };
@@ -280,8 +282,8 @@ function renderSimulationChart(simulatedDays) {
     name: 'Skenario Kebijakan (Simulasi)',
     type: 'scatter',
     mode: 'lines+markers',
-    line: { color: '#003882', width: 3.5 },
-    marker: { size: 7, color: '#388AEB', symbol: 'diamond' },
+    line: { color: isDark ? '#38BDF8' : '#003882', width: 3.5 },
+    marker: { size: 7, color: isDark ? '#38BDF8' : '#388AEB', symbol: 'diamond' },
     hovertemplate: '%{y:,.0f} orang<extra>Simulasi What-If</extra>'
   };
 
@@ -306,9 +308,32 @@ function renderSimulationChart(simulatedDays) {
 
   const layout = {
     hovermode: 'x unified',
-    legend: { orientation: 'h', x: 0.5, xanchor: 'center', y: 1.15, font: { family: 'Plus Jakarta Sans', size: 11 } },
-    xaxis: { tickmode: 'array', tickvals: days, gridcolor: '#F1F5F9', linecolor: '#CBD5E1' },
-    yaxis: { tickformat: ',.0f', gridcolor: '#F1F5F9', linecolor: '#CBD5E1', title: { text: 'Volume Penumpang / Hari', font: { size: 11 } } },
+    hoverlabel: {
+      bgcolor: isDark ? '#1E293B' : '#FFFFFF',
+      bordercolor: isDark ? '#334155' : '#E2E8F0',
+      font: { family: 'Plus Jakarta Sans', size: 11, color: isDark ? '#F8FAFC' : '#0F172A' }
+    },
+    legend: {
+      orientation: 'h',
+      x: 0.5,
+      xanchor: 'center',
+      y: 1.15,
+      font: { family: 'Plus Jakarta Sans', size: 11, color: isDark ? '#F8FAFC' : '#0F172A' }
+    },
+    xaxis: {
+      tickmode: 'array',
+      tickvals: days,
+      gridcolor: isDark ? 'rgba(255, 255, 255, 0.08)' : '#F1F5F9',
+      linecolor: isDark ? '#334155' : '#CBD5E1',
+      tickfont: { family: 'Plus Jakarta Sans', size: 10, color: isDark ? '#CBD5E1' : '#64748B' }
+    },
+    yaxis: {
+      tickformat: ',.0f',
+      gridcolor: isDark ? 'rgba(255, 255, 255, 0.08)' : '#F1F5F9',
+      linecolor: isDark ? '#334155' : '#CBD5E1',
+      tickfont: { family: 'Plus Jakarta Sans', size: 10, color: isDark ? '#CBD5E1' : '#64748B' },
+      title: { text: 'Volume Penumpang / Hari', font: { size: 11, family: 'Plus Jakarta Sans', color: isDark ? '#CBD5E1' : '#64748B' } }
+    },
     shapes: [capacityShape],
     annotations: [capacityAnnotation],
     margin: { t: 40, b: 40, l: 70, r: 25 },

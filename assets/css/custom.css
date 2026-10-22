@@ -169,6 +169,18 @@ html.dark #btn-toggle-sidebar {
   font-size: 12px !important;
   color: #0F172A !important;
 }
+html.dark .leaflet-popup-content-wrapper {
+  background-color: #131D31 !important;
+  border-color: #1E293B !important;
+  color: #F8FAFC !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5) !important;
+}
+html.dark .leaflet-popup-content {
+  color: #F8FAFC !important;
+}
+html.dark .leaflet-popup-tip {
+  background-color: #131D31 !important;
+}
 
 /* Card Badge Indicator */
 .badge-normal {
@@ -215,41 +227,160 @@ html.dark .bg-white {
   border-color: #1E293B !important;
   color: #F8FAFC !important;
 }
+
 html.dark .bg-gov-slate,
 html.dark .bg-slate-50,
-html.dark thead.bg-slate-50 {
+html.dark thead.bg-slate-50,
+html.dark thead {
   background-color: #1A263D !important;
-  color: #E2E8F0 !important;
+  color: #F8FAFC !important;
 }
+
 html.dark .bg-slate-100 {
   background-color: #24334E !important;
-  color: #F1F5F9 !important;
+  color: #F8FAFC !important;
 }
+
 html.dark .border-slate-100,
 html.dark .border-slate-200,
+html.dark .border-slate-300,
 html.dark .border-gov-border {
   border-color: #1E293B !important;
 }
+
+/* Tabel Elemen & Header di Mode Gelap */
+html.dark table thead tr {
+  background-color: #1A263D !important;
+  border-bottom-color: #1E293B !important;
+}
+
+html.dark th,
+html.dark thead th,
+html.dark table thead th {
+  color: #F8FAFC !important;
+  background-color: #1A263D !important;
+  border-color: #1E293B !important;
+  font-weight: 700 !important;
+}
+
+html.dark td {
+  border-color: #1E293B !important;
+}
+
+html.dark tr:hover {
+  background-color: rgba(30, 41, 59, 0.6) !important;
+}
+
+/* Highlight Baris Puncak (H-1 & H+9) di Mode Gelap */
+html.dark tr.bg-amber-50\/40,
+html.dark tr.bg-amber-50\/30,
+html.dark tr.bg-amber-50 {
+  background-color: rgba(245, 158, 11, 0.16) !important;
+}
+html.dark tr.bg-blue-50\/20 {
+  background-color: rgba(37, 99, 235, 0.15) !important;
+}
+
+/* ==============================================================================
+   SEMUA TEKS ABU-ABU DIJADIKAN KONTRAS TINGGI & JELAS TERBACA DI MODE GELAP
+   ============================================================================== */
+
+/* Teks Utama & Nilai Angka Kunci: Putih Bersih (Slate-50) */
 html.dark .text-slate-800,
 html.dark .text-slate-900,
+html.dark .text-gray-800,
+html.dark .text-gray-900,
+html.dark .text-zinc-800,
+html.dark .text-zinc-900,
 html.dark .text-gov-text {
   color: #F8FAFC !important;
 }
-/* Memperbaiki tulisan abu-abu di mode gelap agar kontras & terbaca jelas */
-html.dark .text-slate-400,
-html.dark .text-slate-500,
+
+/* Teks Sekunder (Nama Hari Harian/Pekan, Nilai Realisasi 2024/2025, Data Baris): Perak Terang (Slate-200) */
+html.dark .text-slate-700,
+html.dark .text-gray-700,
+html.dark .text-zinc-700,
 html.dark .text-slate-600,
-html.dark .text-gov-muted {
-  color: #CBD5E1 !important; /* Slate 300 - Sangat Jelas di Layar Gelap */
+html.dark .text-gray-600,
+html.dark .text-zinc-600 {
+  color: #E2E8F0 !important; /* Terbaca sangat tajam di atas latar gelap */
 }
+
+/* Teks Muted (Label Kategori, Keterangan Satuan, Subjudul Kartu, Placeholder): Slate-300 */
+html.dark .text-slate-500,
+html.dark .text-gray-500,
+html.dark .text-zinc-500,
+html.dark .text-slate-400,
+html.dark .text-gray-400,
+html.dark .text-zinc-400,
+html.dark .text-gov-muted {
+  color: #CBD5E1 !important; /* Slate-300: High-contrast silver, tidak buram atau gelap */
+}
+
+/* Nilai Utama Navy di Mode Gelap menjadi Biru Terang (Azure) */
 html.dark .text-gov-navy {
   color: #60A5FA !important;
 }
-html.dark tr:hover {
-  background-color: rgba(30, 41, 59, 0.5) !important;
+
+/* Status & Peringkat Colors di Mode Gelap */
+html.dark .text-amber-700,
+html.dark .text-amber-800,
+html.dark .text-amber-900 {
+  color: #FCD34D !important; /* Amber-300 Gold Terang */
 }
-html.dark thead th {
-  color: #F1F5F9 !important;
+html.dark .text-emerald-600,
+html.dark .text-emerald-700,
+html.dark .text-emerald-800 {
+  color: #6EE7B7 !important; /* Emerald-300 Hijau Terang */
+}
+html.dark .text-rose-600,
+html.dark .text-rose-700,
+html.dark .text-rose-800 {
+  color: #FDA4AF !important; /* Rose-300 Merah/Pink Terang */
+}
+html.dark .text-purple-600,
+html.dark .text-purple-700,
+html.dark .text-purple-800 {
+  color: #D8B4FE !important; /* Purple-300 Lilac Terang */
+}
+
+/* Background Pill & Badge di Mode Gelap */
+html.dark .bg-emerald-50,
+html.dark .bg-emerald-100 {
+  background-color: rgba(6, 95, 70, 0.3) !important;
+  border-color: rgba(16, 185, 129, 0.35) !important;
+  color: #A7F3D0 !important;
+}
+html.dark .bg-amber-50,
+html.dark .bg-amber-100,
+html.dark .bg-amber-200 {
+  background-color: rgba(146, 64, 14, 0.3) !important;
+  border-color: rgba(245, 158, 11, 0.35) !important;
+  color: #FDE68A !important;
+}
+html.dark .bg-rose-50,
+html.dark .bg-rose-100 {
+  background-color: rgba(153, 27, 27, 0.3) !important;
+  border-color: rgba(239, 68, 68, 0.35) !important;
+  color: #FECACA !important;
+}
+html.dark .bg-purple-50,
+html.dark .bg-purple-100 {
+  background-color: rgba(147, 51, 234, 0.25) !important;
+  border-color: rgba(168, 85, 247, 0.35) !important;
+  color: #D8B4FE !important;
+}
+html.dark .bg-blue-50,
+html.dark .bg-blue-100,
+html.dark .bg-gov-azure_light {
+  background-color: rgba(30, 58, 138, 0.35) !important;
+  border-color: rgba(59, 130, 246, 0.4) !important;
+  color: #93C5FD !important;
+}
+html.dark .bg-slate-200 {
+  background-color: #1E293B !important;
+  border-color: #334155 !important;
+  color: #E2E8F0 !important;
 }
 
 /* Smooth view transition */

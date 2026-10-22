@@ -167,7 +167,12 @@ function renderModaShareSection(makroList) {
     margin: { t: 10, b: 10, l: 10, r: 10 },
     height: 260,
     paper_bgcolor: 'transparent',
-    plot_bgcolor: 'transparent'
+    plot_bgcolor: 'transparent',
+    hoverlabel: {
+      bgcolor: isDark ? '#1E293B' : '#FFFFFF',
+      bordercolor: isDark ? '#334155' : '#E2E8F0',
+      font: { family: 'Plus Jakarta Sans', size: 11, color: isDark ? '#F8FAFC' : '#0F172A' }
+    }
   };
 
   const config = {

@@ -177,6 +177,8 @@ function renderSimpulChart() {
       'Pangsa Moda: %{customdata.share}%<extra></extra>'
   };
 
+  const isDark = document.documentElement.classList.contains('dark');
+
   const layout = {
     bargap: 0.40, // Batang ramping elegan sesuai standar INA Digital
     margin: { t: 20, b: 40, l: 240, r: 40 },
@@ -185,12 +187,18 @@ function renderSimpulChart() {
     plot_bgcolor: 'transparent',
     xaxis: {
       tickformat: ',.0f',
-      gridcolor: '#F1F5F9',
-      linecolor: '#CBD5E1',
-      title: { text: 'Volume Penumpang (orang)', font: { size: 11, family: 'Plus Jakarta Sans', color: '#64748B' } }
+      gridcolor: isDark ? 'rgba(255, 255, 255, 0.08)' : '#F1F5F9',
+      linecolor: isDark ? '#334155' : '#CBD5E1',
+      tickfont: { family: 'Plus Jakarta Sans', size: 10, color: isDark ? '#CBD5E1' : '#64748B' },
+      title: { text: 'Volume Penumpang (orang)', font: { size: 11, family: 'Plus Jakarta Sans', color: isDark ? '#CBD5E1' : '#64748B' } }
     },
     yaxis: {
-      tickfont: { family: 'Plus Jakarta Sans', size: 11, color: '#0F172A', weight: 600 }
+      tickfont: { family: 'Plus Jakarta Sans', size: 11, color: isDark ? '#F8FAFC' : '#0F172A', weight: 600 }
+    },
+    hoverlabel: {
+      bgcolor: isDark ? '#1E293B' : '#FFFFFF',
+      bordercolor: isDark ? '#334155' : '#E2E8F0',
+      font: { family: 'Plus Jakarta Sans', size: 11, color: isDark ? '#F8FAFC' : '#0F172A' }
     }
   };
 
