@@ -13,6 +13,7 @@
 
 let mapInstance = null;
 let markerLayerGroup = null;
+let baseTileLayer = null;
 let currentMapModa = 'ALL';
 let mapInitialized = false;
 
@@ -33,6 +34,8 @@ function renderMapModule() {
     initLeafletMap();
     setupMapControls();
     mapInitialized = true;
+  } else {
+    updateBasemap();
   }
 
   // Paksa Leaflet menghitung ulang ukuran kontainer setelah tab unhide
@@ -46,7 +49,7 @@ function renderMapModule() {
 }
 
 /**
- * Inisialisasi Peta Leaflet dengan Basemap CartoDB Positron
+ * Inisialisasi Peta Leaflet dengan Basemap OpenStreetMap (Sama dengan Ka Wildan, 100% Free No API Key)
  */
 function initLeafletMap() {
   const mapContainer = document.getElementById('gis-map-canvas');
@@ -57,21 +60,47 @@ function initLeafletMap() {
     center: [-2.5, 118.0],
     zoom: 5,
     minZoom: 4,
-    maxZoom: 14,
+    maxZoom: 18,
     zoomControl: false // Kita posisikan ulang di kanan atas
   });
 
   // Tambahkan Zoom Control di Kanan Atas
   L.control.zoom({ position: 'topright' }).addTo(mapInstance);
 
-  // Basemap Elegan & Ramping: CartoDB Positron
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-    attribution: '&copy; <a href="https://carto.com/">CARTO</a> &copy; <a href="https://www.openstreetmap.org/copyright">OSM</a> &bull; Pusdatin Kemenhub',
-    maxZoom: 19,
-    subdomains: 'abcd'
-  }).addTo(mapInstance);
-
   markerLayerGroup = L.layerGroup().addTo(mapInstance);
+
+  // Pasang Basemap Resmi OpenStreetMap (100% Bebas Watermark API KEY)
+  updateBasemap();
+}
+
+/**
+ * Memperbarui Basemap Sesuai Tema (Terang: OpenStreetMap, Gelap: Esri Dark Canvas)
+ */
+function updateBasemap() {
+  if (!mapInstance) return;
+  const isDark = document.documentElement.classList.contains('dark');
+
+  if (baseTileLayer) {
+    mapInstance.removeLayer(baseTileLayer);
+  }
+
+  if (isDark) {
+    // Mode Gelap: Esri World Dark Gray Canvas (Elegan, Bersih, Bebas API Key)
+    baseTileLayer = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
+      attribution: '&copy; <a href="https://www.esri.com" target="_blank">Esri</a> &bull; Pusdatin Kemenhub',
+      maxZoom: 16
+    }).addTo(mapInstance);
+  } else {
+    // Mode Terang: OpenStreetMap Standard (Sama Persis dengan Pilihan Ka Wildan, 100% Free Open-Source)
+    baseTileLayer = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> contributors &bull; Pusdatin Kemenhub',
+      maxZoom: 19
+    }).addTo(mapInstance);
+  }
+
+  if (markerLayerGroup) {
+    markerLayerGroup.bringToFront();
+  }
 }
 
 /**
@@ -201,5 +230,5 @@ function updateMapMarkers() {
     markerLayerGroup.addLayer(marker);
   });
 
-  if (volEl) volEl.innerText = `${formatNumber(totalVol)} Pax Terpantau`;
+  if (volEl) volEl.innerText = `${formatNumber(totalVol)} Orang Terpantau (Proyeksi 2026)`;
 }

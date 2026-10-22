@@ -162,7 +162,7 @@ function renderSimpulChart() {
       line: { color: modaInfo.color, width: 1 }
     },
     hoverinfo: 'text',
-    text: xValues.map(v => formatNumber(v) + ' pax'),
+    text: xValues.map(v => formatNumber(v) + ' orang'),
     textposition: 'auto',
     textfont: { family: 'Plus Jakarta Sans', size: 10, color: '#FFFFFF' },
     customdata: reversedList.map(item => ({

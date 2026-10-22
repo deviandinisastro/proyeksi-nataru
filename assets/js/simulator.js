@@ -201,7 +201,7 @@ function renderSimulationCards(metrics) {
       <span class="text-[10px] font-bold text-gov-muted uppercase tracking-wider block mb-1">Total Proyeksi Simulasi</span>
       <div class="text-xl font-extrabold text-gov-navy num-mono">
         ${formatNumber(metrics.simTotal)}
-        <span class="text-xs font-normal text-gov-muted">pax</span>
+        <span class="text-xs font-normal text-gov-muted">orang</span>
       </div>
       <div class="mt-2 pt-2 border-t border-slate-100 flex items-center justify-between text-[11px]">
         <span class="text-slate-500">Deviasi vs Base:</span>
@@ -216,11 +216,11 @@ function renderSimulationCards(metrics) {
       <span class="text-[10px] font-bold text-gov-muted uppercase tracking-wider block mb-1">Beban Puncak Mudik (H-1)</span>
       <div class="text-xl font-extrabold text-slate-900 num-mono">
         ${formatNumber(metrics.simPeakMudik)}
-        <span class="text-xs font-normal text-gov-muted">pax/hari</span>
+        <span class="text-xs font-normal text-gov-muted">orang/hari</span>
       </div>
       <div class="mt-2 pt-2 border-t border-slate-100 flex items-center justify-between text-[11px]">
         <span class="text-slate-500">Kapasitas Maksimal:</span>
-        <span class="font-bold text-slate-700 num-mono">1.200.000 pax</span>
+        <span class="font-bold text-slate-700 num-mono">1.200.000 orang</span>
       </div>
     </div>
 
@@ -229,11 +229,11 @@ function renderSimulationCards(metrics) {
       <span class="text-[10px] font-bold text-gov-muted uppercase tracking-wider block mb-1">Beban Puncak Balik (H+9)</span>
       <div class="text-xl font-extrabold text-slate-900 num-mono">
         ${formatNumber(metrics.simPeakBalik)}
-        <span class="text-xs font-normal text-gov-muted">pax/hari</span>
+        <span class="text-xs font-normal text-gov-muted">orang/hari</span>
       </div>
       <div class="mt-2 pt-2 border-t border-slate-100 flex items-center justify-between text-[11px]">
         <span class="text-slate-500">Kapasitas Maksimal:</span>
-        <span class="font-bold text-slate-700 num-mono">1.200.000 pax</span>
+        <span class="font-bold text-slate-700 num-mono">1.200.000 orang</span>
       </div>
     </div>
 
@@ -300,7 +300,7 @@ function renderSimulationChart(simulatedDays) {
   const capacityAnnotation = {
     x: 'H-3',
     y: 1100000,
-    text: 'Ambang Batas Siaga Merah (1,10 Juta Pax/Hari)',
+    text: 'Ambang Batas Siaga Merah (1,10 Juta Orang/Hari)',
     showarrow: false,
     font: { size: 10, color: '#EF4444', family: 'Plus Jakarta Sans', weight: 'bold' },
     yshift: 12
