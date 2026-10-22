@@ -12,37 +12,37 @@ window.DSS_STATE = {
   isLoading: true
 };
 
-// Pemetaan Nama Tab ke Judul Breadcrumb & Pertanyaan Keputusan
+// Pemetaan Nama Tab ke Judul Breadcrumb & Pertanyaan Keputusan (Fokus: Proyeksi Resmi Nataru 2026/2027)
 const TAB_METADATA = {
   executive: {
-    title: 'Ikhtisar Posko & Pemantauan Puncak Nataru',
-    breadcrumb: 'Ikhtisar Posko',
-    question: 'Rangkuman indikator operasional multimoda nasional serta jadwal perkiraan hari puncak arus mudik dan balik.'
+    title: 'Ikhtisar Proyeksi Operasional & Hari Puncak Nataru 2026/2027',
+    breadcrumb: 'Ikhtisar Proyeksi',
+    question: 'Rangkuman angka proyeksi operasional multimoda nasional 18 hari (H-7 s/d H+10) berbasis Damped Holt-Winters dibandingkan realisasi baseline 2025.'
   },
   harian: {
-    title: 'Tren Harian Multimoda (18 Hari Posko)',
-    breadcrumb: 'Tren Harian Multimoda',
-    question: 'Kapan gelombang arus pergerakan terjadi pada moda tertentu dan bagaimana polanya dibanding 2 tahun lalu?'
+    title: 'Tren Harian Proyeksi Multimoda (18 Hari Posko)',
+    breadcrumb: 'Tren Harian Proyeksi',
+    question: 'Kapan gelombang arus pergerakan diproyeksikan terjadi pada moda tertentu dan bagaimana polanya dibanding 2 tahun lalu?'
   },
   simpul: {
-    title: 'Direktori & Peringkat Simpul Pantau',
-    breadcrumb: 'Direktori Simpul',
-    question: 'Simpul mana saja yang paling padat pada moda tertentu dan berapa beban kapasitasnya?'
+    title: 'Direktori & Peringkat Proyeksi 909 Simpul Pantau',
+    breadcrumb: 'Direktori Proyeksi Simpul',
+    question: 'Simpul mana saja yang diproyeksikan paling padat pada moda tertentu dan berapa estimasi volume penumpangnya?'
   },
   map: {
-    title: 'Peta Spasial Simpul Multimoda (GIS)',
-    breadcrumb: 'Peta Spasial GIS',
-    question: 'Bagaimana sebaran geografis simpul terpadat di seluruh wilayah kepulauan Indonesia?'
+    title: 'Peta Spasial Proyeksi Simpul Multimoda (GIS)',
+    breadcrumb: 'Peta Spasial Proyeksi',
+    question: 'Bagaimana sebaran geografis simpul dengan proyeksi volume terpadat di seluruh wilayah kepulauan Indonesia?'
   },
   simulator: {
-    title: 'Simulator Kebijakan & What-If Engine',
-    breadcrumb: 'Simulator What-If (DSS)',
-    question: 'Bagaimana jika realisasi pergerakan menyimpang dari prediksi dasar? Apa tindakan mitigasinya?'
+    title: 'Simulator Kebijakan & Skenario Proyeksi (What-If DSS)',
+    breadcrumb: 'Simulator Proyeksi What-If',
+    question: 'Bagaimana jika realisasi pergerakan menyimpang dari prediksi dasar? Apa tindakan mitigasi yang harus disiapkan?'
   },
   metodologi: {
-    title: 'Transparansi Metodologi & Evaluasi Model',
-    breadcrumb: 'Metodologi & Turnamen MAPE',
-    question: 'Seberapa valid dan dapat dipertanggungjawabkan angka proyeksi yang disajikan?'
+    title: 'Transparansi Metodologi & Validasi Model Proyeksi',
+    breadcrumb: 'Metodologi & Validasi Proyeksi',
+    question: 'Seberapa valid dan dapat dipertanggungjawabkan angka proyeksi yang disajikan? Evaluasi nilai MAPE 7 model time-series.'
   }
 };
 

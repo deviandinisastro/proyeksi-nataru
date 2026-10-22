@@ -63,11 +63,11 @@ function renderKPISection(kpi) {
         </div>
         <div class="text-2xl font-extrabold text-gov-navy num-tabular mb-1">
           ${formatNumber(kpi.total_penumpang_2026)}
-          <span class="text-xs font-normal text-gov-muted">orang</span>
+          <span class="text-xs font-normal text-gov-muted">orang (Proyeksi 2026)</span>
         </div>
       </div>
       <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] text-gov-muted">
-        <span>Realisasi 2025:</span>
+        <span>Realisasi Baseline 2025:</span>
         <span class="font-semibold text-slate-700 num-tabular">${formatNumber(kpi.total_penumpang_2025)} orang</span>
       </div>
     </div>
@@ -76,7 +76,7 @@ function renderKPISection(kpi) {
     <div class="bg-white p-5 rounded-xl border border-gov-border shadow-xs hover:border-gov-azure/40 transition-all flex flex-col justify-between">
       <div>
         <div class="flex items-center justify-between mb-2">
-          <span class="text-xs font-semibold text-gov-muted uppercase tracking-wider">Puncak Arus Mudik</span>
+          <span class="text-xs font-semibold text-gov-muted uppercase tracking-wider">Proyeksi Puncak Mudik</span>
           <span class="px-2 py-0.5 rounded text-[11px] font-bold bg-amber-50 text-amber-700 border border-amber-200">
             Siaga Puncak 1
           </span>
@@ -86,7 +86,7 @@ function renderKPISection(kpi) {
         </div>
       </div>
       <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] text-gov-muted">
-        <span>Beban Puncak:</span>
+        <span>Beban Puncak Proyeksi:</span>
         <span class="font-bold text-gov-navy num-tabular">${formatNumber(kpi.puncak_mudik_vol)} orang/hari</span>
       </div>
     </div>
@@ -95,7 +95,7 @@ function renderKPISection(kpi) {
     <div class="bg-white p-5 rounded-xl border border-gov-border shadow-xs hover:border-gov-azure/40 transition-all flex flex-col justify-between">
       <div>
         <div class="flex items-center justify-between mb-2">
-          <span class="text-xs font-semibold text-gov-muted uppercase tracking-wider">Puncak Arus Balik</span>
+          <span class="text-xs font-semibold text-gov-muted uppercase tracking-wider">Proyeksi Puncak Balik</span>
           <span class="px-2 py-0.5 rounded text-[11px] font-bold bg-rose-50 text-rose-700 border border-rose-200">
             Siaga Puncak 2
           </span>
@@ -105,7 +105,7 @@ function renderKPISection(kpi) {
         </div>
       </div>
       <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] text-gov-muted">
-        <span>Beban Puncak:</span>
+        <span>Beban Puncak Proyeksi:</span>
         <span class="font-bold text-gov-navy num-tabular">${formatNumber(kpi.puncak_balik_vol)} orang/hari</span>
       </div>
     </div>
@@ -114,9 +114,9 @@ function renderKPISection(kpi) {
     <div class="bg-white p-5 rounded-xl border border-gov-border shadow-xs hover:border-gov-azure/40 transition-all flex flex-col justify-between">
       <div>
         <div class="flex items-center justify-between mb-2">
-          <span class="text-xs font-semibold text-gov-muted uppercase tracking-wider">Pertumbuhan Tertinggi</span>
+          <span class="text-xs font-semibold text-gov-muted uppercase tracking-wider">Proyeksi Laju Tertinggi</span>
           <span class="px-2 py-0.5 rounded text-[11px] font-bold bg-gov-azure_light text-gov-azure border border-blue-200">
-            ${formatPercent(kpi.moda_tertinggi_pct)}
+            ${formatPercent(kpi.moda_tertinggi_pct)} YoY
           </span>
         </div>
         <div class="text-xl font-extrabold text-slate-900 truncate mb-1">
@@ -124,7 +124,7 @@ function renderKPISection(kpi) {
         </div>
       </div>
       <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] text-gov-muted">
-        <span>Total Sarana (7 Moda):</span>
+        <span>Total Proyeksi Sarana (7 Moda):</span>
         <span class="font-bold text-slate-800 num-tabular">${formatNumber(kpi.total_sarana_2026)} unit</span>
       </div>
     </div>
@@ -317,9 +317,9 @@ function renderCriticalInfrastructureSection(tolList, asdpList) {
         <div class="p-4 bg-white rounded-xl border border-gov-border shadow-xs hover:border-gov-azure/50 transition-all flex flex-col justify-between">
           <div class="mb-3">
             <div class="flex items-center justify-between gap-2 mb-1.5">
-              <span class="text-[10px] font-bold text-gov-azure uppercase tracking-wider">Barrier Utama</span>
+              <span class="text-[10px] font-bold text-gov-azure uppercase tracking-wider">Proyeksi Barrier Tol</span>
               <span class="px-2 py-0.5 rounded text-[10px] font-extrabold bg-blue-50 text-blue-700 border border-blue-200 leading-none">
-                ${formatPercent(g.growth)}
+                Proyeksi ${formatPercent(g.growth)}
               </span>
             </div>
             <h4 class="text-xs font-bold text-gov-text leading-snug min-h-[32px] flex items-center">${g.name}</h4>
@@ -329,21 +329,21 @@ function renderCriticalInfrastructureSection(tolList, asdpList) {
             <div class="p-2 bg-slate-50 rounded-lg flex items-center justify-between text-xs">
               <span class="text-slate-600 flex items-center gap-1.5">
                 <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 text-rose-500"></i>
-                Keluar (Mudik)
+                Proyeksi Keluar (Mudik)
               </span>
               <span class="font-bold text-gov-text num-tabular">${formatNumber(g.keluar)}</span>
             </div>
             <div class="p-2 bg-slate-50 rounded-lg flex items-center justify-between text-xs">
               <span class="text-slate-600 flex items-center gap-1.5">
                 <i data-lucide="arrow-down-left" class="w-3.5 h-3.5 text-emerald-600"></i>
-                Masuk (Balik)
+                Proyeksi Masuk (Balik)
               </span>
               <span class="font-bold text-gov-text num-tabular">${formatNumber(g.masuk)}</span>
             </div>
           </div>
 
           <div class="pt-2 border-t border-slate-100 flex items-center justify-between text-[11px] text-gov-muted">
-            <span>Total Lalu Lintas:</span>
+            <span>Total Proyeksi:</span>
             <span class="font-extrabold text-gov-navy num-tabular">${formatNumber(totalVol)} kend</span>
           </div>
         </div>
@@ -371,26 +371,26 @@ function renderCriticalInfrastructureSection(tolList, asdpList) {
             <div class="flex items-start justify-between gap-2 mb-2">
               <h4 class="text-xs font-bold text-gov-navy leading-snug">${a.lintas}</h4>
               <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-purple-50 text-purple-700 border border-purple-200 shrink-0">
-                Lintas Strategis
+                Proyeksi ASDP
               </span>
             </div>
             <div class="text-xl font-extrabold text-gov-text num-tabular mb-3">
               ${formatNumber(a.proyeksi_total_2026)}
-              <span class="text-xs font-normal text-gov-muted">kendaraan</span>
+              <span class="text-xs font-normal text-gov-muted">kendaraan (Total Proyeksi)</span>
             </div>
 
             <!-- Rincian Moda Kendaraan -->
             <div class="grid grid-cols-3 gap-1.5 mb-3 text-center">
               <div class="p-2 bg-slate-50 rounded-lg">
-                <span class="text-[10px] text-slate-500 block">Roda 2</span>
+                <span class="text-[10px] text-slate-500 block">Proyeksi R2</span>
                 <span class="text-xs font-bold text-slate-800 num-tabular">${formatNumber(a.proyeksi_motor_r2)}</span>
               </div>
               <div class="p-2 bg-slate-50 rounded-lg">
-                <span class="text-[10px] text-slate-500 block">Roda 4</span>
+                <span class="text-[10px] text-slate-500 block">Proyeksi R4</span>
                 <span class="text-xs font-bold text-slate-800 num-tabular">${formatNumber(a.proyeksi_mobil_r4)}</span>
               </div>
               <div class="p-2 bg-slate-50 rounded-lg">
-                <span class="text-[10px] text-slate-500 block">Truk Sumbu 3+</span>
+                <span class="text-[10px] text-slate-500 block">Proyeksi Truk 3+</span>
                 <span class="text-xs font-bold text-slate-800 num-tabular">${formatNumber(a.proyeksi_truk_sumbu3)}</span>
               </div>
             </div>
