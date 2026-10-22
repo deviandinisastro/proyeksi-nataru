@@ -153,10 +153,20 @@ html.dark #btn-toggle-sidebar {
   color: #E2E8F0 !important;
 }
 
-/* Leaflet Map Customization */
-.leaflet-container {
+/* Leaflet Map Customization & Stacking Context Isolation */
+.leaflet-container,
+#gis-map-canvas {
   font-family: 'Plus Jakarta Sans', sans-serif !important;
   border-radius: 8px;
+  isolation: isolate;
+  z-index: 1 !important;
+}
+.leaflet-pane {
+  z-index: 10 !important;
+}
+.leaflet-top,
+.leaflet-bottom {
+  z-index: 20 !important;
 }
 .leaflet-popup-content-wrapper {
   border-radius: 8px !important;
