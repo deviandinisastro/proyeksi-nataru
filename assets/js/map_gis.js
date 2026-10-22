@@ -38,12 +38,13 @@ function renderMapModule() {
     updateBasemap();
   }
 
-  // Paksa Leaflet menghitung ulang ukuran kontainer setelah tab unhide
+  // Paksa Leaflet menghitung ulang ukuran kontainer setelah tab unhide & pusatkan ke Indonesia
   setTimeout(() => {
     if (mapInstance) {
       mapInstance.invalidateSize();
+      mapInstance.setView([-2.5, 118.0], 5);
     }
-  }, 100);
+  }, 150);
 
   updateMapMarkers();
 }
@@ -97,10 +98,6 @@ function updateBasemap() {
       maxZoom: 19
     }).addTo(mapInstance);
   }
-
-  if (markerLayerGroup) {
-    markerLayerGroup.bringToFront();
-  }
 }
 
 /**
@@ -144,9 +141,11 @@ function setupMapControls() {
   }
 
   if (btnResetMap) {
-    btnResetMap.addEventListener('click', () => {
+    btnResetMap.addEventListener('click', (e) => {
+      e.preventDefault();
       if (mapInstance) {
-        mapInstance.setView([-2.5, 118.0], 5);
+        mapInstance.invalidateSize();
+        mapInstance.setView([-2.5, 118.0], 5, { animate: true });
       }
     });
   }
