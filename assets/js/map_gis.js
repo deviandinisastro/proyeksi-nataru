@@ -1,29 +1,113 @@
 /**
  * ==============================================================================
- * MAP_GIS.JS: MODUL 4 - PETA SPASIAL SIMPUL MULTIMODA NASIONAL (LEAFLET GIS)
- * Sistem Penunjang Keputusan (DSS) Nataru 2026/2027 - Pusdatin Kemenhub
+ * MAP_GIS.JS: MODUL 4 - PETA SPASIAL DISTRIBUSI SIMPUL MULTIMODA (LEAFLET GIS)
+ * Pusat Data dan Informasi (Pusdatin) - Kementerian Perhubungan RI
+ * Nataru 2026/2027
  * ==============================================================================
- * Fitur:
- * 1. 855 Simpul Pantau Nasional Berkoordinat Geografis Valid (Lat/Lon).
- * 2. Basemap CartoDB Positron / OpenStreetMap (100% Free Open-Source, No API Key).
- * 3. Titik CircleMarker Proporsional Berdasarkan Volume Penumpang.
- * 4. Filter Kategori Moda Interaktif & Kontrol Reset Peta Indonesia.
+ * Standar Kartografi & Statistik Kemenhub:
+ * 1. Ukuran titik simpul dibuat SAMA RATA (Uniform Radius: 4.2px) agar tidak bertumpuk
+ *    atau menutupi simpul lain di wilayah padat (sesuai masukan rapat pegawai statistisi).
+ * 2. Perbedaan intensitas volume mobilitas diwakili oleh LAPISAN HEATMAP KEPADATAN
+ *    dan LEGENDA GRADASI HEATMAP di pojok kanan bawah peta.
+ * 3. Dilengkapi pemantauan Titik Kritis Khusus Posko Nataru (Gerbang Tol Barrier & ASDP).
  * ==============================================================================
  */
 
 let mapInstance = null;
 let markerLayerGroup = null;
+let heatmapLayerGroup = null;
+let criticalLayerGroup = null;
 let baseTileLayer = null;
 let currentMapModa = 'ALL';
+let showHeatmap = true;
+let showMarkers = true;
+let showCritical = true;
 let mapInitialized = false;
 
+const UNIFORM_RADIUS = 4.2; // Ukuran titik sama rata sesuai arahan statistisi rapat
+
 const MAP_MODA_CONFIG = [
-  { key: 'ALL', label: 'Semua Moda', color: '#003882', icon: 'layers' },
-  { key: 'Angkutan Udara', label: '✈️ Bandara', color: '#0284C7', icon: 'plane' },
-  { key: 'Angkutan Jalan', label: '🚌 Terminal Bus', color: '#16A34A', icon: 'bus' },
-  { key: 'Angkutan Laut', label: '🚢 Pelabuhan Laut', color: '#1E40AF', icon: 'ship' },
-  { key: 'Kereta Api', label: '🚆 Stasiun KA', color: '#EA580C', icon: 'train' },
-  { key: 'Angkutan SDP', label: '⛴️ ASDP Penyeberangan', color: '#9333EA', icon: 'anchor' }
+  { key: 'ALL', label: 'Semua Moda (855)', color: '#003882' },
+  { key: 'Angkutan Udara', label: '✈️ Bandara (230)', color: '#0284C7' },
+  { key: 'Kereta Api', label: '🚆 Stasiun KA (186)', color: '#EA580C' },
+  { key: 'Angkutan Jalan', label: '🚌 Terminal Bus (189)', color: '#16A34A' },
+  { key: 'Angkutan SDP', label: '⛴️ Penyeberangan (196)', color: '#9333EA' },
+  { key: 'Angkutan Laut', label: '🚢 Pelabuhan Laut (209)', color: '#0D9488' }
+];
+
+const TITIK_KRITIS_DATA = [
+  {
+    nama: 'GT Cikatama (Cikampek Utama)',
+    kategori: 'tol',
+    lat: -6.4025,
+    lon: 107.4586,
+    tipe: 'Gerbang Tol Barrier Trans Jawa',
+    vol_teks: '813.413 kendaraan (+16,76% YoY)',
+    info: 'Titik awal arus mudik keluar Jabodetabek menuju Jawa Tengah/Jatim'
+  },
+  {
+    nama: 'GT Kalikangkung (Semarang)',
+    kategori: 'tol',
+    lat: -6.9856,
+    lon: 110.3012,
+    tipe: 'Gerbang Tol Barrier Utama',
+    vol_teks: '482.350 kendaraan',
+    info: 'Titik temu arus mudik Jawa Tengah dan pelintasan ke Jawa Timur'
+  },
+  {
+    nama: 'GT Warugunung (Surabaya)',
+    kategori: 'tol',
+    lat: -7.3325,
+    lon: 112.6789,
+    tipe: 'Gerbang Tol Barrier Akhir Trans Jawa',
+    vol_teks: '392.120 kendaraan',
+    info: 'Pintu masuk utama aglomerasi Surabaya dan destinasi Jawa Timur'
+  },
+  {
+    nama: 'GT Ciawi (Jagorawi)',
+    kategori: 'tol',
+    lat: -6.6583,
+    lon: 106.8522,
+    tipe: 'Gerbang Tol Wisata Puncak',
+    vol_teks: '412.500 kendaraan',
+    info: 'Jalur wisata libur Natal & Tahun Baru kawasan Puncak/Bogor'
+  },
+  {
+    nama: 'Pelabuhan Merak (Banten)',
+    kategori: 'asdp',
+    lat: -5.9328,
+    lon: 105.9986,
+    tipe: 'Pelabuhan Penyeberangan Utama',
+    vol_teks: '612.235 kendaraan / 2.84 juta orang',
+    info: 'Lintas Selat Sunda Jawa menuju Sumatera (Pola TBB saat puncak)'
+  },
+  {
+    nama: 'Pelabuhan Bakauheni (Lampung)',
+    kategori: 'asdp',
+    lat: -5.8692,
+    lon: 105.7533,
+    tipe: 'Pelabuhan Penyeberangan Utama',
+    vol_teks: 'Puncak Arus Balik H+8 s/d H+9',
+    info: 'Pintu gerbang arus balik dari Tol Trans Sumatera menuju Pulau Jawa'
+  },
+  {
+    nama: 'Pelabuhan Ketapang (Banyuwangi)',
+    kategori: 'asdp',
+    lat: -8.1481,
+    lon: 114.3986,
+    tipe: 'Pelabuhan Penyeberangan Selat Bali',
+    vol_teks: '326.400 kendaraan / 1.18 juta orang',
+    info: 'Lintas utama penyeberangan wisatawan libur akhir tahun ke Bali'
+  },
+  {
+    nama: 'Pelabuhan Gilimanuk (Bali)',
+    kategori: 'asdp',
+    lat: -8.1611,
+    lon: 114.4394,
+    tipe: 'Pelabuhan Penyeberangan Selat Bali',
+    vol_teks: 'Arus Wisatawan Masuk & Balik',
+    info: 'Pintu masuk darat wisatawan domestik Pulau Bali'
+  }
 ];
 
 function renderMapModule() {
@@ -38,7 +122,6 @@ function renderMapModule() {
     updateBasemap();
   }
 
-  // Paksa Leaflet menghitung ulang ukuran kontainer setelah tab unhide & pusatkan ke Indonesia
   setTimeout(() => {
     if (mapInstance) {
       mapInstance.invalidateSize();
@@ -46,31 +129,36 @@ function renderMapModule() {
     }
   }, 150);
 
-  updateMapMarkers();
+  refreshMapLayers();
 }
 
 /**
- * Inisialisasi Peta Leaflet dengan Basemap OpenStreetMap (Sama dengan Ka Wildan, 100% Free No API Key)
+ * Inisialisasi Peta Leaflet dengan Basemap OpenStreetMap
  */
 function initLeafletMap() {
   const mapContainer = document.getElementById('gis-map-canvas');
   if (!mapContainer || mapInstance) return;
 
-  // Titik tengah kepulauan Indonesia: Lat -2.5, Lon 118.0, Zoom Level 5
   mapInstance = L.map('gis-map-canvas', {
     center: [-2.5, 118.0],
     zoom: 5,
     minZoom: 4,
     maxZoom: 18,
-    zoomControl: false // Kita posisikan ulang di kanan atas
+    zoomControl: false
   });
 
-  // Tambahkan Zoom Control di Kanan Atas
+  // Zoom Control di Kanan Atas
   L.control.zoom({ position: 'topright' }).addTo(mapInstance);
 
+  // Layer Group Urutan: Heatmap (bawah) -> Simpul Markers (tengah) -> Titik Kritis (atas)
+  heatmapLayerGroup = L.layerGroup().addTo(mapInstance);
   markerLayerGroup = L.layerGroup().addTo(mapInstance);
+  criticalLayerGroup = L.layerGroup().addTo(mapInstance);
 
-  // Pasang Basemap Resmi OpenStreetMap (100% Bebas Watermark API KEY)
+  // Pasang Legenda di Pojok Kanan Bawah
+  setupMapLegend();
+
+  // Pasang Basemap Resmi OpenStreetMap
   updateBasemap();
 }
 
@@ -86,13 +174,11 @@ function updateBasemap() {
   }
 
   if (isDark) {
-    // Mode Gelap: Esri World Dark Gray Canvas (Elegan, Bersih, Bebas API Key)
     baseTileLayer = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
       attribution: '&copy; <a href="https://www.esri.com" target="_blank">Esri</a> &bull; Pusdatin Kemenhub',
       maxZoom: 16
     }).addTo(mapInstance);
   } else {
-    // Mode Terang: OpenStreetMap Standard (Sama Persis dengan Pilihan Ka Wildan, 100% Free Open-Source)
     baseTileLayer = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> contributors &bull; Pusdatin Kemenhub',
       maxZoom: 19
@@ -101,11 +187,74 @@ function updateBasemap() {
 }
 
 /**
- * Setup Tombol Filter Moda & Reset Peta
+ * Setup Kotak Legenda di Pojok Kanan Bawah Peta
+ */
+function setupMapLegend() {
+  const legend = L.control({ position: 'bottomright' });
+
+  legend.onAdd = function() {
+    const div = L.DomUtil.create('div', 'leaflet-bar');
+    div.innerHTML = `
+      <div class="p-3 rounded-xl bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border border-slate-200 dark:border-slate-800 text-[11px] shadow-lg space-y-2.5 max-w-[230px] font-sans">
+        <!-- Bagian 1: Heatmap Intensitas Kepadatan -->
+        <div>
+          <div class="font-bold text-slate-800 dark:text-slate-100 flex items-center justify-between mb-1">
+            <span class="flex items-center gap-1.5">
+              <span class="w-2.5 h-2.5 rounded-full bg-gradient-to-r from-sky-400 via-amber-400 to-rose-500"></span>
+              <span>Heatmap Kepadatan:</span>
+            </span>
+            <span class="text-[9px] font-semibold text-gov-navy px-1.5 py-0.2 bg-blue-50 dark:bg-blue-950/40 rounded">Posko Nataru</span>
+          </div>
+          <div class="h-2 rounded-full bg-gradient-to-r from-sky-400 via-emerald-400 via-amber-400 to-rose-600 mb-1"></div>
+          <div class="flex justify-between text-[9px] text-slate-500 dark:text-slate-400 font-semibold">
+            <span>Rendah (&lt;10%)</span>
+            <span>Sedang</span>
+            <span>Tinggi</span>
+            <span>Puncak (&gt;60%)</span>
+          </div>
+        </div>
+
+        <!-- Bagian 2: Titik Simpul per Moda (Ukuran Sama Rata) -->
+        <div class="border-t border-slate-100 dark:border-slate-800 pt-2 space-y-1">
+          <div class="font-bold text-slate-800 dark:text-slate-100 text-[10px] uppercase tracking-wider mb-1 flex items-center justify-between">
+            <span>Simpul (Titik Sama Rata)</span>
+            <span class="text-[9px] text-slate-400 font-normal">r = 4.2px</span>
+          </div>
+          <div class="grid grid-cols-2 gap-x-2 gap-y-1 text-[10px] text-slate-700 dark:text-slate-300">
+            <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-[#0284C7] shrink-0 border border-white"></span> Udara (230)</span>
+            <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-[#EA580C] shrink-0 border border-white"></span> Kereta Api (186)</span>
+            <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-[#16A34A] shrink-0 border border-white"></span> Terminal (189)</span>
+            <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-[#9333EA] shrink-0 border border-white"></span> ASDP (196)</span>
+            <span class="flex items-center gap-1.5 col-span-2"><span class="w-2 h-2 rounded-full bg-[#0D9488] shrink-0 border border-white"></span> Pelabuhan Laut (209)</span>
+          </div>
+        </div>
+
+        <!-- Bagian 3: Titik Kritis Khusus Nataru -->
+        <div class="border-t border-slate-100 dark:border-slate-800 pt-1.5 text-[10px] flex items-center justify-between">
+          <span class="flex items-center gap-1 font-semibold text-rose-600 dark:text-rose-400">
+            <span class="w-2 h-2 rounded-xs bg-rose-500"></span> Gerbang Tol Barrier
+          </span>
+          <span class="flex items-center gap-1 font-semibold text-purple-600 dark:text-purple-400">
+            <span class="w-2 h-2 rounded-xs bg-purple-500"></span> Lintas Feri ASDP
+          </span>
+        </div>
+      </div>
+    `;
+    return div;
+  };
+
+  legend.addTo(mapInstance);
+}
+
+/**
+ * Setup Tombol Filter Moda, Toggle Heatmap, dan Reset Peta
  */
 function setupMapControls() {
   const filterContainer = document.getElementById('gis-moda-pills');
   const btnResetMap = document.getElementById('btn-reset-map');
+  const btnToggleHeatmap = document.getElementById('btn-toggle-heatmap');
+  const btnToggleMarkers = document.getElementById('btn-toggle-markers');
+  const btnToggleCritical = document.getElementById('btn-toggle-critical');
 
   if (filterContainer) {
     filterContainer.innerHTML = MAP_MODA_CONFIG.map(m => `
@@ -122,11 +271,10 @@ function setupMapControls() {
     `).join('');
 
     filterContainer.querySelectorAll('.map-pill').forEach(btn => {
-      btn.addEventListener('click', (e) => {
+      btn.addEventListener('click', () => {
         const target = btn.getAttribute('data-map-moda');
         if (target) {
           currentMapModa = target;
-          // Update active class
           filterContainer.querySelectorAll('.map-pill').forEach(b => {
             if (b.getAttribute('data-map-moda') === target) {
               b.className = 'map-pill px-3 py-1.5 rounded-lg text-xs font-bold border transition-all flex items-center gap-1.5 bg-gov-navy text-white border-gov-navy shadow-xs';
@@ -134,12 +282,40 @@ function setupMapControls() {
               b.className = 'map-pill px-3 py-1.5 rounded-lg text-xs font-semibold border transition-all flex items-center gap-1.5 bg-white text-slate-700 border-gov-border hover:bg-slate-50';
             }
           });
-          updateMapMarkers();
+          refreshMapLayers();
         }
       });
     });
   }
 
+  // Toggle Heatmap Layer
+  if (btnToggleHeatmap) {
+    btnToggleHeatmap.onclick = () => {
+      showHeatmap = !showHeatmap;
+      updateToggleBtnState(btnToggleHeatmap, showHeatmap, 'Heatmap Kepadatan');
+      refreshMapLayers();
+    };
+  }
+
+  // Toggle Markers Layer
+  if (btnToggleMarkers) {
+    btnToggleMarkers.onclick = () => {
+      showMarkers = !showMarkers;
+      updateToggleBtnState(btnToggleMarkers, showMarkers, 'Titik Simpul');
+      refreshMapLayers();
+    };
+  }
+
+  // Toggle Critical Points Layer
+  if (btnToggleCritical) {
+    btnToggleCritical.onclick = () => {
+      showCritical = !showCritical;
+      updateToggleBtnState(btnToggleCritical, showCritical, 'Titik Kritis Posko');
+      refreshMapLayers();
+    };
+  }
+
+  // Reset Peta ke Seluruh Indonesia
   if (btnResetMap) {
     btnResetMap.addEventListener('click', (e) => {
       e.preventDefault();
@@ -151,83 +327,201 @@ function setupMapControls() {
   }
 }
 
+function updateToggleBtnState(btn, isActive, label) {
+  if (isActive) {
+    btn.className = 'px-3 py-1.5 rounded-lg text-xs font-bold border transition-all flex items-center gap-1.5 bg-gov-navy text-white border-gov-navy shadow-xs';
+  } else {
+    btn.className = 'px-3 py-1.5 rounded-lg text-xs font-semibold border transition-all flex items-center gap-1.5 bg-white text-slate-500 border-gov-border hover:bg-slate-50 opacity-60';
+  }
+}
+
 /**
- * Memperbarui Titik Simpul pada Peta Sesuai Filter Moda
+ * Refresh Seluruh Layer Peta (Heatmap, Markers Sama Rata, Titik Kritis)
  */
-function updateMapMarkers() {
-  if (!markerLayerGroup || !window.DSS_STATE.spatialNodes) return;
+function refreshMapLayers() {
+  if (!mapInstance || !window.DSS_STATE.spatialNodes) return;
 
-  markerLayerGroup.clearLayers();
   const allNodes = window.DSS_STATE.spatialNodes;
-
   const filteredNodes = currentMapModa === 'ALL'
     ? allNodes
     : allNodes.filter(n => n.moda === currentMapModa);
 
-  // Update Status Banner Peta
+  // 1. Perbarui Info Teks di Atas Peta
   const countEl = document.getElementById('gis-nodes-count');
   const volEl = document.getElementById('gis-nodes-volume');
-  
-  if (countEl) countEl.innerText = `${filteredNodes.length} Simpul Aktif`;
-
   let totalVol = 0;
+  filteredNodes.forEach(n => totalVol += (n.proyeksi_2026 || 0));
 
-  filteredNodes.forEach(node => {
-    totalVol += (node.proyeksi_2026 || 0);
+  if (countEl) countEl.innerText = `${filteredNodes.length} Simpul Terpetakan (Titik Sama Rata)`;
+  if (volEl) volEl.innerText = `${formatNumber(totalVol)} Orang (Proyeksi 2026)`;
 
-    // Kalkulasi radius proporsional: min 4px, max 18px
+  // 2. Render Lapisan Heatmap (Kepadatan Spasial Halus)
+  renderHeatmapLayer(filteredNodes);
+
+  // 3. Render Titik Simpul Marker (SAMA RATA / UNIFORM RADIUS)
+  renderEqualMarkers(filteredNodes);
+
+  // 4. Render Titik Kritis Infrastruktur Posko Nataru
+  renderCriticalInfrastructure();
+}
+
+/**
+ * Render Lapisan Heatmap Kepadatan (Menjawab: "Yang membedakan volumenya itu dari heatmap")
+ */
+function renderHeatmapLayer(nodes) {
+  if (!heatmapLayerGroup) return;
+  heatmapLayerGroup.clearLayers();
+
+  if (!showHeatmap || typeof L.heatLayer !== 'function') return;
+
+  const maxVol = Math.max(...nodes.map(n => n.proyeksi_2026 || 0), 100000);
+
+  const heatPoints = nodes.map(n => {
+    const vol = n.proyeksi_2026 || 0;
+    // Skala intensitas normalisasi logaritmik agar wilayah luar Jawa tetap memancarkan panas secara seimbang
+    const intensity = Math.min(1.0, Math.max(0.18, Math.pow(vol / maxVol, 0.4)));
+    return [n.lat, n.lon, intensity];
+  });
+
+  const heatLayer = L.heatLayer(heatPoints, {
+    radius: 30,
+    blur: 20,
+    maxZoom: 11,
+    minOpacity: 0.38,
+    gradient: {
+      0.15: '#38BDF8', // Cyan Lembut
+      0.35: '#10B981', // Hijau Normal
+      0.60: '#FBBF24', // Amber Padat
+      0.82: '#F97316', // Oranye Tinggi
+      1.00: '#EF4444'  // Merah Puncak
+    }
+  });
+
+  heatmapLayerGroup.addLayer(heatLayer);
+}
+
+/**
+ * Render Titik Simpul Lingkaran (SAMA RATA / UNIFORM RADIUS)
+ */
+function renderEqualMarkers(nodes) {
+  if (!markerLayerGroup) return;
+  markerLayerGroup.clearLayers();
+
+  if (!showMarkers) return;
+
+  nodes.forEach(node => {
+    const isTop10 = (node.peringkat_nasional || 999) <= 10;
     const vol = node.proyeksi_2026 || 0;
-    const radius = Math.max(4, Math.min(18, Math.sqrt(vol / 2000)));
 
+    // Titik lingkaran dengan UKURAN SAMA RATA (UNIFORM RADIUS: 4.2px)
     const marker = L.circleMarker([node.lat, node.lon], {
-      radius: radius,
+      radius: UNIFORM_RADIUS,
       fillColor: node.color || '#003882',
-      color: '#FFFFFF',
-      weight: 1.5,
-      opacity: 1,
-      fillOpacity: 0.75
+      color: isTop10 ? '#F59E0B' : '#FFFFFF',
+      weight: isTop10 ? 1.6 : 0.8,
+      opacity: 1.0,
+      fillOpacity: 0.92
     });
 
-    // Tooltip Ramping saat Kursor Hover
-    marker.bindTooltip(`<b>${node.nama}</b><br>${formatNumber(vol)} orang`, {
+    // Efek Hover: Membesar Halus tanpa Merusak Peta
+    marker.on('mouseover', function() {
+      this.setStyle({ radius: 6.5, weight: 2.2, fillOpacity: 1.0 });
+    });
+    marker.on('mouseout', function() {
+      this.setStyle({ radius: UNIFORM_RADIUS, weight: isTop10 ? 1.6 : 0.8, fillOpacity: 0.92 });
+    });
+
+    // Tooltip Ramping
+    marker.bindTooltip(`<b>${node.nama}</b><br><span class="text-gov-navy">${formatNumber(vol)} orang</span>`, {
       direction: 'top',
-      offset: [0, -5],
-      className: 'bg-slate-900 text-white text-[11px] px-2 py-1 rounded shadow-md'
+      offset: [0, -4],
+      className: 'bg-slate-900 text-white text-[11px] px-2 py-1 rounded shadow-md border-0'
     });
 
-    // Popup Detail saat Titik Diklik
+    // Popup Detail saat Diklik
+    const rankBadge = isTop10
+      ? `<span class="px-1.5 py-0.2 rounded text-[10px] font-bold bg-amber-100 text-amber-900 border border-amber-300">Top 10 Nasional</span>`
+      : `<span class="px-1.5 py-0.2 rounded text-[10px] font-medium bg-slate-100 text-slate-700">Peringkat #${node.peringkat_nasional || '-'}</span>`;
+
     const popupHtml = `
-      <div class="p-1 space-y-2">
-        <div class="flex items-center justify-between gap-2 border-b border-slate-100 pb-1.5">
-          <span class="px-1.5 py-0.5 rounded text-[9px] font-bold uppercase tracking-wider text-white" style="background-color: ${node.color || '#003882'}">
+      <div class="p-2 space-y-2 max-w-[260px] text-xs font-sans">
+        <div class="flex items-center justify-between gap-2 border-b border-slate-200 pb-1.5">
+          <span class="font-bold text-slate-900 truncate">${node.nama}</span>
+          <span class="px-1.5 py-0.5 rounded text-[10px] font-bold text-white shrink-0" style="background-color: ${node.color || '#003882'}">
             ${node.moda_label || node.moda}
           </span>
-          <span class="text-[10px] font-bold text-gov-navy num-mono">Peringkat #${node.peringkat_nasional || '-'}</span>
         </div>
-        <div>
-          <h4 class="text-xs font-bold text-slate-900 leading-tight">${node.nama}</h4>
-          <p class="text-[10px] text-slate-500">Provinsi: ${node.provinsi || '-'}</p>
+        <div class="flex items-center justify-between text-[11px] text-slate-500">
+          <span>Provinsi: ${node.provinsi || '-'}</span>
+          ${rankBadge}
         </div>
         <div class="p-2 bg-slate-50 rounded border border-slate-100 space-y-1 text-[11px]">
-          <div class="flex items-center justify-between">
-            <span class="text-slate-600">Proyeksi 2026:</span>
-            <span class="font-bold text-gov-navy num-mono">${formatNumber(node.proyeksi_2026)} org</span>
+          <div class="flex items-center justify-between font-bold text-gov-navy">
+            <span>Proyeksi Nataru 2026:</span>
+            <span class="num-tabular">${formatNumber(vol)} org</span>
           </div>
-          <div class="flex items-center justify-between">
-            <span class="text-slate-600">Realisasi 2025:</span>
-            <span class="font-medium text-slate-700 num-mono">${formatNumber(node.realisasi_2025)} org</span>
+          <div class="flex items-center justify-between text-slate-600">
+            <span>Realisasi Baseline 2025:</span>
+            <span class="num-tabular font-semibold text-slate-800">${formatNumber(node.realisasi_2025)} org</span>
           </div>
-          <div class="flex items-center justify-between pt-1 border-t border-slate-200">
-            <span class="text-slate-600">Pangsa Moda:</span>
-            <span class="font-bold text-gov-azure num-mono">${(node.porsi_share_pct || 0).toLocaleString('id-ID')}%</span>
+          <div class="flex items-center justify-between pt-1 border-t border-slate-200 text-emerald-700 font-semibold">
+            <span>Pangsa terhadap Moda:</span>
+            <span class="num-tabular">${(node.porsi_share_pct || 0).toLocaleString('id-ID')}%</span>
           </div>
         </div>
       </div>
     `;
 
-    marker.bindPopup(popupHtml, { maxWidth: 260 });
+    marker.bindPopup(popupHtml, { maxWidth: 280 });
     markerLayerGroup.addLayer(marker);
   });
+}
 
-  if (volEl) volEl.innerText = `${formatNumber(totalVol)} Orang Terpantau (Proyeksi 2026)`;
+/**
+ * Render Titik Kritis Infrastruktur Posko Nataru (Gerbang Tol Barrier & ASDP Feri)
+ */
+function renderCriticalInfrastructure() {
+  if (!criticalLayerGroup) return;
+  criticalLayerGroup.clearLayers();
+
+  if (!showCritical) return;
+
+  TITIK_KRITIS_DATA.forEach(t => {
+    const isTol = t.kategori === 'tol';
+    const markerColor = isTol ? '#E11D48' : '#7C3AED';
+
+    // Marker Kotak Khusus / Pin Kritis
+    const marker = L.circleMarker([t.lat, t.lon], {
+      radius: 6.5,
+      fillColor: markerColor,
+      color: '#FFFFFF',
+      weight: 2,
+      opacity: 1.0,
+      fillOpacity: 0.95
+    });
+
+    marker.bindTooltip(`<b>🚩 ${t.nama}</b><br><span class="text-rose-600 font-bold">${t.tipe}</span>`, {
+      direction: 'top',
+      offset: [0, -6],
+      className: 'bg-slate-900 text-white text-[11px] px-2 py-1 rounded shadow-md'
+    });
+
+    const popupHtml = `
+      <div class="p-2 space-y-2 max-w-[260px] text-xs font-sans">
+        <div class="border-b border-slate-200 pb-1.5 flex items-center justify-between">
+          <span class="font-bold text-slate-900">${t.nama}</span>
+          <span class="px-1.5 py-0.5 rounded text-[9px] font-bold text-white uppercase" style="background-color: ${markerColor}">
+            ${isTol ? 'Gerbang Tol' : 'Pelabuhan ASDP'}
+          </span>
+        </div>
+        <p class="text-[11px] text-slate-600 leading-tight">${t.info}</p>
+        <div class="p-2 bg-rose-50 border border-rose-200 rounded text-[11px] font-bold text-rose-900">
+          Estimasi Beban: ${t.vol_teks}
+        </div>
+      </div>
+    `;
+
+    marker.bindPopup(popupHtml, { maxWidth: 280 });
+    criticalLayerGroup.addLayer(marker);
+  });
 }
