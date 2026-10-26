@@ -55,15 +55,15 @@ function renderKPISection(kpi) {
     <!-- KPI 1: Total Proyeksi Penumpang -->
     <div class="bg-white p-5 rounded-xl border border-gov-border shadow-xs hover:border-gov-azure/40 transition-all flex flex-col justify-between">
       <div>
-        <div class="flex items-center justify-between mb-2">
-          <span class="text-xs font-semibold text-gov-muted uppercase tracking-wider">Total Proyeksi Penumpang</span>
-          <span class="px-2 py-0.5 rounded text-[11px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">
+        <div class="flex items-start justify-between gap-2 mb-2">
+          <span class="text-xs font-semibold text-gov-muted uppercase tracking-wider leading-tight">Total Proyeksi<br>Penumpang</span>
+          <span class="whitespace-nowrap shrink-0 px-2 py-0.5 rounded text-[11px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">
             ${formatPercent(kpi.pertumbuhan_penumpang_pct)} YoY
           </span>
         </div>
         <div class="text-2xl font-extrabold text-gov-navy num-tabular mb-1">
           ${formatNumber(kpi.total_penumpang_2026)}
-          <span class="text-xs font-normal text-gov-muted">orang (Proyeksi 2026)</span>
+          <span class="text-xs font-normal text-gov-muted">orang</span>
         </div>
       </div>
       <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] text-gov-muted">
@@ -75,9 +75,9 @@ function renderKPISection(kpi) {
     <!-- KPI 2: Puncak Arus Mudik -->
     <div class="bg-white p-5 rounded-xl border border-gov-border shadow-xs hover:border-gov-azure/40 transition-all flex flex-col justify-between">
       <div>
-        <div class="flex items-center justify-between mb-2">
-          <span class="text-xs font-semibold text-gov-muted uppercase tracking-wider">Proyeksi Puncak Mudik</span>
-          <span class="px-2 py-0.5 rounded text-[11px] font-bold bg-amber-50 text-amber-700 border border-amber-200">
+        <div class="flex items-start justify-between gap-2 mb-2">
+          <span class="text-xs font-semibold text-gov-muted uppercase tracking-wider leading-tight">Proyeksi Puncak<br>Mudik</span>
+          <span class="whitespace-nowrap shrink-0 px-2 py-0.5 rounded text-[11px] font-bold bg-amber-50 text-amber-700 border border-amber-200">
             Siaga Puncak 1
           </span>
         </div>
@@ -94,9 +94,9 @@ function renderKPISection(kpi) {
     <!-- KPI 3: Puncak Arus Balik -->
     <div class="bg-white p-5 rounded-xl border border-gov-border shadow-xs hover:border-gov-azure/40 transition-all flex flex-col justify-between">
       <div>
-        <div class="flex items-center justify-between mb-2">
-          <span class="text-xs font-semibold text-gov-muted uppercase tracking-wider">Proyeksi Puncak Balik</span>
-          <span class="px-2 py-0.5 rounded text-[11px] font-bold bg-rose-50 text-rose-700 border border-rose-200">
+        <div class="flex items-start justify-between gap-2 mb-2">
+          <span class="text-xs font-semibold text-gov-muted uppercase tracking-wider leading-tight">Proyeksi Puncak<br>Balik</span>
+          <span class="whitespace-nowrap shrink-0 px-2 py-0.5 rounded text-[11px] font-bold bg-rose-50 text-rose-700 border border-rose-200">
             Siaga Puncak 2
           </span>
         </div>
@@ -113,9 +113,9 @@ function renderKPISection(kpi) {
     <!-- KPI 4: Moda Tertinggi & Total Sarana -->
     <div class="bg-white p-5 rounded-xl border border-gov-border shadow-xs hover:border-gov-azure/40 transition-all flex flex-col justify-between">
       <div>
-        <div class="flex items-center justify-between mb-2">
-          <span class="text-xs font-semibold text-gov-muted uppercase tracking-wider">Proyeksi Laju Tertinggi</span>
-          <span class="px-2 py-0.5 rounded text-[11px] font-bold bg-gov-azure_light text-gov-azure border border-blue-200">
+        <div class="flex items-start justify-between gap-2 mb-2">
+          <span class="text-xs font-semibold text-gov-muted uppercase tracking-wider leading-tight">Proyeksi Laju<br>Tertinggi</span>
+          <span class="whitespace-nowrap shrink-0 px-2 py-0.5 rounded text-[11px] font-bold bg-gov-azure_light text-gov-azure border border-blue-200">
             ${formatPercent(kpi.moda_tertinggi_pct)} YoY
           </span>
         </div>
