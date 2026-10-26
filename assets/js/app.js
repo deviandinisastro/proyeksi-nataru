@@ -1,7 +1,7 @@
 /**
  * ==============================================================================
  * APP.JS: MASTER ROUTER & STATE MANAGEMENT
- * Sistem Penunjang Keputusan (DSS) Nataru 2026/2027 - Pusdatin Kemenhub
+ * Sistem Analitik Data & Proyeksi Multimoda Nataru 2026/2027 - Pusdatin Kemenhub
  * ==============================================================================
  */
 
@@ -12,7 +12,7 @@ window.DSS_STATE = {
   isLoading: true
 };
 
-// Pemetaan Nama Tab ke Judul Breadcrumb & Pertanyaan Keputusan (Fokus: Proyeksi Resmi Nataru 2026/2027)
+// Pemetaan Nama Tab ke Judul Breadcrumb & Narasi Analitis (Fokus: Analitik & Proyeksi Nataru 2026/2027)
 const TAB_METADATA = {
   executive: {
     title: 'Ikhtisar Proyeksi Operasional & Hari Puncak Nataru 2026/2027',
@@ -34,15 +34,15 @@ const TAB_METADATA = {
     breadcrumb: 'Peta Spasial Proyeksi',
     question: 'Bagaimana sebaran geografis simpul dengan proyeksi volume terpadat di seluruh wilayah kepulauan Indonesia?'
   },
-  simulator: {
-    title: 'Simulator Kebijakan & Skenario Proyeksi (What-If DSS)',
-    breadcrumb: 'Simulator Proyeksi What-If',
-    question: 'Bagaimana jika realisasi pergerakan menyimpang dari prediksi dasar? Apa tindakan mitigasi yang harus disiapkan?'
+  koridor: {
+    title: 'Dinamika Aliran Koridor Mobilitas & Matriks Asal–Tujuan (Origin–Destination)',
+    breadcrumb: 'Aliran Koridor & Rute (OD)',
+    question: 'Bagaimana visualisasi aliran mobilitas penumpang dari wilayah asal menuju wilayah tujuan utama di seluruh koridor multimoda nasional?'
   },
   metodologi: {
-    title: 'Transparansi Metodologi & Validasi Model Proyeksi',
-    breadcrumb: 'Metodologi & Validasi Proyeksi',
-    question: 'Seberapa valid dan dapat dipertanggungjawabkan angka proyeksi yang disajikan? Evaluasi nilai MAPE 7 model time-series.'
+    title: 'Matriks Indikator Kuantitatif & Validasi Model Peramalan',
+    breadcrumb: 'Matriks Indikator & Metodologi',
+    question: 'Evaluasi akurasi 7 model time-series deret waktu serta matriks komparasi 12 indikator kinerja analitis multimoda nasional.'
   }
 };
 
@@ -303,8 +303,8 @@ function switchTab(tabId) {
       renderSimpulModule();
     } else if (tabId === 'map' && typeof renderMapModule === 'function') {
       renderMapModule();
-    } else if (tabId === 'simulator' && typeof renderSimulatorModule === 'function') {
-      renderSimulatorModule();
+    } else if (tabId === 'koridor' && typeof renderKoridorModule === 'function') {
+      renderKoridorModule();
     } else if (tabId === 'metodologi' && typeof renderMetodologiModule === 'function') {
       renderMetodologiModule();
     }
