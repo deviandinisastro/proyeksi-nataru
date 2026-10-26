@@ -187,7 +187,7 @@ function updateBasemap() {
 }
 
 /**
- * Setup Kotak Legenda di Pojok Kanan Bawah Peta
+ * Setup Kotak Legenda di Pojok Kanan Bawah Peta (dengan Fitur Ciutkan / Buka ▲/▼)
  */
 function setupMapLegend() {
   const legend = L.control({ position: 'bottomright' });
@@ -195,51 +195,90 @@ function setupMapLegend() {
   legend.onAdd = function() {
     const div = L.DomUtil.create('div', 'leaflet-bar');
     div.innerHTML = `
-      <div class="p-3 rounded-xl bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border border-slate-200 dark:border-slate-800 text-[11px] shadow-lg space-y-2.5 max-w-[230px] font-sans">
-        <!-- Bagian 1: Heatmap Intensitas Kepadatan -->
-        <div>
-          <div class="font-bold text-slate-800 dark:text-slate-100 flex items-center justify-between mb-1">
-            <span class="flex items-center gap-1.5">
-              <span class="w-2.5 h-2.5 rounded-full bg-gradient-to-r from-sky-400 via-amber-400 to-rose-500"></span>
-              <span>Heatmap Kepadatan:</span>
+      <div class="p-3 rounded-xl bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border border-slate-200 dark:border-slate-800 text-[11px] shadow-lg max-w-[240px] font-sans">
+        <!-- Header Baris Atas dengan Tombol Ciutkan / Buka -->
+        <div id="legend-header-toggle" class="flex items-center justify-between gap-2 pb-2 border-b border-slate-100 dark:border-slate-800 cursor-pointer select-none" title="Klik untuk Ciutkan / Buka Legenda">
+          <div class="font-bold text-slate-800 dark:text-slate-100 flex items-center gap-1.5 text-xs">
+            <span class="text-gov-azure font-extrabold">📊</span>
+            <span>Legenda & Heatmap</span>
+          </div>
+          <span id="legend-toggle-icon" class="text-[10px] text-slate-500 dark:text-slate-400 font-bold px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">▲</span>
+        </div>
+
+        <!-- Isi Konten Legenda yang Dapat Diciutkan -->
+        <div id="legend-body" class="space-y-2.5 pt-2">
+          <!-- Bagian 1: Heatmap Intensitas Kepadatan -->
+          <div>
+            <div class="font-bold text-slate-800 dark:text-slate-100 flex items-center justify-between mb-1">
+              <span class="flex items-center gap-1.5">
+                <span class="w-2.5 h-2.5 rounded-full bg-gradient-to-r from-sky-400 via-amber-400 to-rose-500"></span>
+                <span>Heatmap Kepadatan:</span>
+              </span>
+              <span class="text-[9px] font-semibold text-gov-navy dark:text-sky-300 px-1.5 py-0.2 bg-blue-50 dark:bg-blue-950/40 rounded">Posko Nataru</span>
+            </div>
+            <div class="h-2 rounded-full bg-gradient-to-r from-sky-400 via-emerald-400 via-amber-400 to-rose-600 mb-1"></div>
+            <div class="flex justify-between text-[9px] text-slate-500 dark:text-slate-400 font-semibold">
+              <span>Rendah (&lt;10%)</span>
+              <span>Sedang</span>
+              <span>Tinggi</span>
+              <span>Puncak (&gt;60%)</span>
+            </div>
+          </div>
+
+          <!-- Bagian 2: Titik Simpul per Moda (Ukuran Seragam) -->
+          <div class="border-t border-slate-100 dark:border-slate-800 pt-2 space-y-1">
+            <div class="font-bold text-slate-800 dark:text-slate-100 text-[10px] uppercase tracking-wider mb-1 flex items-center justify-between">
+              <span>Simpul Pantau (Ukuran Seragam)</span>
+              <span class="text-[9px] text-slate-400 font-normal">855 Titik</span>
+            </div>
+            <div class="grid grid-cols-2 gap-x-2 gap-y-1 text-[10px] text-slate-700 dark:text-slate-300">
+              <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-[#0284C7] shrink-0 border border-white"></span> Udara (230)</span>
+              <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-[#EA580C] shrink-0 border border-white"></span> Kereta Api (186)</span>
+              <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-[#16A34A] shrink-0 border border-white"></span> Terminal (189)</span>
+              <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-[#9333EA] shrink-0 border border-white"></span> ASDP (196)</span>
+              <span class="flex items-center gap-1.5 col-span-2"><span class="w-2 h-2 rounded-full bg-[#0D9488] shrink-0 border border-white"></span> Pelabuhan Laut (209)</span>
+            </div>
+          </div>
+
+          <!-- Bagian 3: Titik Kritis Khusus Nataru -->
+          <div class="border-t border-slate-100 dark:border-slate-800 pt-1.5 text-[10px] flex items-center justify-between">
+            <span class="flex items-center gap-1 font-semibold text-rose-600 dark:text-rose-400">
+              <span class="w-2 h-2 rounded-xs bg-rose-500"></span> Gerbang Tol Barrier
             </span>
-            <span class="text-[9px] font-semibold text-gov-navy px-1.5 py-0.2 bg-blue-50 dark:bg-blue-950/40 rounded">Posko Nataru</span>
+            <span class="flex items-center gap-1 font-semibold text-purple-600 dark:text-purple-400">
+              <span class="w-2 h-2 rounded-xs bg-purple-500"></span> Lintas Feri ASDP
+            </span>
           </div>
-          <div class="h-2 rounded-full bg-gradient-to-r from-sky-400 via-emerald-400 via-amber-400 to-rose-600 mb-1"></div>
-          <div class="flex justify-between text-[9px] text-slate-500 dark:text-slate-400 font-semibold">
-            <span>Rendah (&lt;10%)</span>
-            <span>Sedang</span>
-            <span>Tinggi</span>
-            <span>Puncak (&gt;60%)</span>
-          </div>
-        </div>
-
-        <!-- Bagian 2: Titik Simpul per Moda (Ukuran Sama Rata) -->
-        <div class="border-t border-slate-100 dark:border-slate-800 pt-2 space-y-1">
-          <div class="font-bold text-slate-800 dark:text-slate-100 text-[10px] uppercase tracking-wider mb-1 flex items-center justify-between">
-            <span>Simpul (Ukuran Seragam)</span>
-            <span class="text-[9px] text-slate-400 font-normal">855 Titik</span>
-          </div>
-          <div class="grid grid-cols-2 gap-x-2 gap-y-1 text-[10px] text-slate-700 dark:text-slate-300">
-            <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-[#0284C7] shrink-0 border border-white"></span> Udara (230)</span>
-            <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-[#EA580C] shrink-0 border border-white"></span> Kereta Api (186)</span>
-            <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-[#16A34A] shrink-0 border border-white"></span> Terminal (189)</span>
-            <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-[#9333EA] shrink-0 border border-white"></span> ASDP (196)</span>
-            <span class="flex items-center gap-1.5 col-span-2"><span class="w-2 h-2 rounded-full bg-[#0D9488] shrink-0 border border-white"></span> Pelabuhan Laut (209)</span>
-          </div>
-        </div>
-
-        <!-- Bagian 3: Titik Kritis Khusus Nataru -->
-        <div class="border-t border-slate-100 dark:border-slate-800 pt-1.5 text-[10px] flex items-center justify-between">
-          <span class="flex items-center gap-1 font-semibold text-rose-600 dark:text-rose-400">
-            <span class="w-2 h-2 rounded-xs bg-rose-500"></span> Gerbang Tol Barrier
-          </span>
-          <span class="flex items-center gap-1 font-semibold text-purple-600 dark:text-purple-400">
-            <span class="w-2 h-2 rounded-xs bg-purple-500"></span> Lintas Feri ASDP
-          </span>
         </div>
       </div>
     `;
+
+    // Mencegah interaksi peta saat mengklik legenda
+    L.DomEvent.disableClickPropagation(div);
+    L.DomEvent.disableScrollPropagation(div);
+
+    // Event listener ciutkan / buka (collapse toggle)
+    const toggleBtn = div.querySelector('#legend-header-toggle');
+    const legendBody = div.querySelector('#legend-body');
+    const toggleIcon = div.querySelector('#legend-toggle-icon');
+
+    if (toggleBtn && legendBody && toggleIcon) {
+      let isCollapsed = false;
+      toggleBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        isCollapsed = !isCollapsed;
+        if (isCollapsed) {
+          legendBody.classList.add('hidden');
+          toggleIcon.textContent = '▼';
+          toggleBtn.classList.remove('border-b', 'pb-2');
+        } else {
+          legendBody.classList.remove('hidden');
+          toggleIcon.textContent = '▲';
+          toggleBtn.classList.add('border-b', 'pb-2');
+        }
+      });
+    }
+
     return div;
   };
 
@@ -253,7 +292,6 @@ function setupMapControls() {
   const filterContainer = document.getElementById('gis-moda-pills');
   const btnResetMap = document.getElementById('btn-reset-map');
   const btnToggleHeatmap = document.getElementById('btn-toggle-heatmap');
-  const btnToggleMarkers = document.getElementById('btn-toggle-markers');
   const btnToggleCritical = document.getElementById('btn-toggle-critical');
 
   if (filterContainer) {
@@ -293,15 +331,6 @@ function setupMapControls() {
     btnToggleHeatmap.onclick = () => {
       showHeatmap = !showHeatmap;
       updateToggleBtnState(btnToggleHeatmap, showHeatmap, 'Heatmap Kepadatan');
-      refreshMapLayers();
-    };
-  }
-
-  // Toggle Markers Layer
-  if (btnToggleMarkers) {
-    btnToggleMarkers.onclick = () => {
-      showMarkers = !showMarkers;
-      updateToggleBtnState(btnToggleMarkers, showMarkers, 'Titik Simpul');
       refreshMapLayers();
     };
   }
@@ -352,7 +381,7 @@ function refreshMapLayers() {
   let totalVol = 0;
   filteredNodes.forEach(n => totalVol += (n.proyeksi_2026 || 0));
 
-  if (countEl) countEl.innerText = `${filteredNodes.length} Simpul Terpetakan (Titik Sama Rata)`;
+  if (countEl) countEl.innerText = `${filteredNodes.length} Simpul Terpetakan (Ukuran Seragam)`;
   if (volEl) volEl.innerText = `${formatNumber(totalVol)} Orang (Proyeksi 2026)`;
 
   // 2. Render Lapisan Heatmap (Kepadatan Spasial Halus)
@@ -418,9 +447,9 @@ function renderEqualMarkers(nodes) {
       radius: UNIFORM_RADIUS,
       fillColor: node.color || '#003882',
       color: isTop10 ? '#F59E0B' : '#FFFFFF',
-      weight: isTop10 ? 1.6 : 0.8,
+      weight: isTop10 ? 1.8 : 1.1,
       opacity: 1.0,
-      fillOpacity: 0.92
+      fillOpacity: 0.95
     });
 
     // Efek Hover: Membesar Halus tanpa Merusak Peta
@@ -428,7 +457,7 @@ function renderEqualMarkers(nodes) {
       this.setStyle({ radius: 6.5, weight: 2.2, fillOpacity: 1.0 });
     });
     marker.on('mouseout', function() {
-      this.setStyle({ radius: UNIFORM_RADIUS, weight: isTop10 ? 1.6 : 0.8, fillOpacity: 0.92 });
+      this.setStyle({ radius: UNIFORM_RADIUS, weight: isTop10 ? 1.8 : 1.1, fillOpacity: 0.95 });
     });
 
     // Tooltip Ramping
