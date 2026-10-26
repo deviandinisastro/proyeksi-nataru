@@ -217,8 +217,8 @@ function setupMapLegend() {
         <!-- Bagian 2: Titik Simpul per Moda (Ukuran Sama Rata) -->
         <div class="border-t border-slate-100 dark:border-slate-800 pt-2 space-y-1">
           <div class="font-bold text-slate-800 dark:text-slate-100 text-[10px] uppercase tracking-wider mb-1 flex items-center justify-between">
-            <span>Simpul (Titik Sama Rata)</span>
-            <span class="text-[9px] text-slate-400 font-normal">r = 4.2px</span>
+            <span>Simpul (Ukuran Seragam)</span>
+            <span class="text-[9px] text-slate-400 font-normal">855 Titik</span>
           </div>
           <div class="grid grid-cols-2 gap-x-2 gap-y-1 text-[10px] text-slate-700 dark:text-slate-300">
             <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-[#0284C7] shrink-0 border border-white"></span> Udara (230)</span>
