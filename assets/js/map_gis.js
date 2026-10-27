@@ -25,12 +25,12 @@ const UNIFORM_RADIUS = 4.2; // Ukuran titik sama rata sesuai arahan statistisi r
 const INDONESIA_BOUNDS = [[-10.8, 95.0], [5.8, 141.0]]; // Batas koordinat seluruh kepulauan Indonesia
 
 const MAP_MODA_CONFIG = [
-  { key: 'ALL', label: 'Semua Moda (855)', color: '#003882' },
-  { key: 'Angkutan Udara', label: '✈️ Bandara (230)', color: '#0284C7' },
-  { key: 'Kereta Api', label: '🚆 Stasiun KA (186)', color: '#EA580C' },
-  { key: 'Angkutan Jalan', label: '🚌 Terminal Bus (189)', color: '#16A34A' },
-  { key: 'Angkutan SDP', label: '⛴️ Penyeberangan (196)', color: '#9333EA' },
-  { key: 'Angkutan Laut', label: '🚢 Pelabuhan Laut (209)', color: '#0D9488' }
+  { key: 'ALL', label: 'Semua Moda (855)', color: '#003882', makro_total: 18462913 },
+  { key: 'Angkutan Udara', label: '✈️ Bandara (213)', color: '#0284C7', makro_total: 4880174 },
+  { key: 'Kereta Api', label: '🚆 Stasiun KA (183)', color: '#EA580C', makro_total: 4062995 },
+  { key: 'Angkutan Laut', label: '🚢 Pelabuhan Laut (201)', color: '#0D9488', makro_total: 2268857 },
+  { key: 'Angkutan Jalan', label: '🚌 Terminal Bus (134)', color: '#16A34A', makro_total: 3434854 },
+  { key: 'Angkutan SDP', label: '⛴️ Penyeberangan (124)', color: '#9333EA', makro_total: 3816033 }
 ];
 
 function renderMapModule() {
@@ -165,15 +165,15 @@ function setupMapLegend() {
           <!-- Bagian 2: Titik Simpul per Moda (Ukuran Seragam) -->
           <div class="border-t border-slate-100 dark:border-slate-800 pt-2 space-y-1">
             <div class="font-bold text-slate-800 dark:text-slate-100 text-[10px] uppercase tracking-wider mb-1 flex items-center justify-between">
-              <span>Simpul Pantau (Ukuran Seragam)</span>
+              <span>Simpul Terpetakan (Ukuran Seragam)</span>
               <span class="text-[9px] text-slate-400 font-normal">855 Titik</span>
             </div>
             <div class="grid grid-cols-2 gap-x-2 gap-y-1 text-[10px] text-slate-700 dark:text-slate-300">
-              <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-[#0284C7] shrink-0 border border-white"></span> Udara (230)</span>
-              <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-[#EA580C] shrink-0 border border-white"></span> Kereta Api (186)</span>
-              <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-[#16A34A] shrink-0 border border-white"></span> Terminal Bus (189)</span>
-              <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-[#9333EA] shrink-0 border border-white"></span> Pelabuhan SDP (196)</span>
-              <span class="flex items-center gap-1.5 col-span-2"><span class="w-2 h-2 rounded-full bg-[#0D9488] shrink-0 border border-white"></span> Pelabuhan Laut (209)</span>
+              <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-[#0284C7] shrink-0 border border-white"></span> Udara (213)</span>
+              <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-[#EA580C] shrink-0 border border-white"></span> Kereta Api (183)</span>
+              <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-[#0D9488] shrink-0 border border-white"></span> Pelabuhan Laut (201)</span>
+              <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-[#16A34A] shrink-0 border border-white"></span> Terminal Bus (134)</span>
+              <span class="flex items-center gap-1.5 col-span-2"><span class="w-2 h-2 rounded-full bg-[#9333EA] shrink-0 border border-white"></span> Pelabuhan SDP (124)</span>
             </div>
           </div>
         </div>
@@ -289,14 +289,31 @@ function refreshMapLayers() {
     ? allNodes
     : allNodes.filter(n => n.moda === currentMapModa);
 
-  // 1. Perbarui Info Teks di Atas Peta
+  // 1. Perbarui Info Teks di Atas Peta dengan Transparansi Cakupan Simpul vs Makro Nasional
   const countEl = document.getElementById('gis-nodes-count');
   const volEl = document.getElementById('gis-nodes-volume');
   let totalVol = 0;
   filteredNodes.forEach(n => totalVol += (n.proyeksi_2026 || 0));
 
-  if (countEl) countEl.innerText = `${filteredNodes.length} Simpul Terpetakan (Ukuran Seragam)`;
-  if (volEl) volEl.innerText = `${formatNumber(totalVol)} Orang (Proyeksi 2026)`;
+  const currentModaCfg = MAP_MODA_CONFIG.find(m => m.key === currentMapModa) || MAP_MODA_CONFIG[0];
+  const makroRef = currentModaCfg.makro_total || 18462913;
+  const coveragePct = ((totalVol / makroRef) * 100).toFixed(1);
+
+  if (countEl) {
+    if (currentMapModa === 'ALL') {
+      countEl.innerText = `${filteredNodes.length} Simpul Terpetakan (dari 909 Simpul Direktori)`;
+    } else {
+      countEl.innerText = `${filteredNodes.length} Simpul ${currentModaCfg.label.split(' ')[1] || ''} Terpetakan`;
+    }
+  }
+
+  if (volEl) {
+    volEl.innerHTML = `
+      <span class="text-xs font-semibold text-slate-500 dark:text-slate-400 font-sans">Cakupan Simpul:</span>
+      <span class="text-gov-navy dark:text-sky-400 font-extrabold text-sm ml-1">${formatNumber(totalVol)} Orang</span>
+      <span class="text-[11px] text-slate-400 dark:text-slate-500 font-normal ml-1">(${coveragePct}% dari Makro ${formatNumber(makroRef)})</span>
+    `;
+  }
 
   // 2. Render Lapisan Heatmap (Kepadatan Spasial Halus)
   renderHeatmapLayer(filteredNodes);
