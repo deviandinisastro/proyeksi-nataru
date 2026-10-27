@@ -5,26 +5,24 @@
  * Nataru 2026/2027
  * ==============================================================================
  * Standar Kartografi & Statistik Kemenhub:
- * 1. Ukuran titik simpul dibuat SAMA RATA (Uniform Radius: 4.2px) agar tidak bertumpuk
- *    atau menutupi simpul lain di wilayah padat (sesuai masukan rapat pegawai statistisi).
+ * 1. Ukuran titik simpul dibuat SAMA RATA (Uniform Radius: 4.2px) untuk seluruh 855
+ *    simpul multimoda terverifikasi agar tidak tumpang tindih.
  * 2. Perbedaan intensitas volume mobilitas diwakili oleh LAPISAN HEATMAP KEPADATAN
- *    dan KETERANGAN PETA SPASIAL di pojok kiri bawah peta (membebaskan area Papua & Indonesia Timur).
- * 3. Dilengkapi pemantauan Titik Kritis Khusus Posko Nataru (Gerbang Tol Barrier & ASDP).
+ *    dan KETERANGAN PETA SPASIAL di pojok kiri bawah peta (default terlipat rapi).
  * ==============================================================================
  */
 
 let mapInstance = null;
 let markerLayerGroup = null;
 let heatmapLayerGroup = null;
-let criticalLayerGroup = null;
 let baseTileLayer = null;
 let currentMapModa = 'ALL';
 let showHeatmap = true;
 let showMarkers = true;
-let showCritical = true;
 let mapInitialized = false;
 
 const UNIFORM_RADIUS = 4.2; // Ukuran titik sama rata sesuai arahan statistisi rapat
+const INDONESIA_BOUNDS = [[-10.8, 95.0], [5.8, 141.0]]; // Batas koordinat seluruh kepulauan Indonesia
 
 const MAP_MODA_CONFIG = [
   { key: 'ALL', label: 'Semua Moda (855)', color: '#003882' },
@@ -33,81 +31,6 @@ const MAP_MODA_CONFIG = [
   { key: 'Angkutan Jalan', label: '🚌 Terminal Bus (189)', color: '#16A34A' },
   { key: 'Angkutan SDP', label: '⛴️ Penyeberangan (196)', color: '#9333EA' },
   { key: 'Angkutan Laut', label: '🚢 Pelabuhan Laut (209)', color: '#0D9488' }
-];
-
-const TITIK_KRITIS_DATA = [
-  {
-    nama: 'GT Cikatama (Cikampek Utama)',
-    kategori: 'tol',
-    lat: -6.4025,
-    lon: 107.4586,
-    tipe: 'Gerbang Tol Barrier Trans Jawa',
-    vol_teks: '813.413 kendaraan (+16,76% YoY)',
-    info: 'Titik awal arus mudik keluar Jabodetabek menuju Jawa Tengah/Jatim'
-  },
-  {
-    nama: 'GT Kalikangkung (Semarang)',
-    kategori: 'tol',
-    lat: -6.9856,
-    lon: 110.3012,
-    tipe: 'Gerbang Tol Barrier Utama',
-    vol_teks: '482.350 kendaraan',
-    info: 'Titik temu arus mudik Jawa Tengah dan pelintasan ke Jawa Timur'
-  },
-  {
-    nama: 'GT Warugunung (Surabaya)',
-    kategori: 'tol',
-    lat: -7.3325,
-    lon: 112.6789,
-    tipe: 'Gerbang Tol Barrier Akhir Trans Jawa',
-    vol_teks: '392.120 kendaraan',
-    info: 'Pintu masuk utama aglomerasi Surabaya dan destinasi Jawa Timur'
-  },
-  {
-    nama: 'GT Ciawi (Jagorawi)',
-    kategori: 'tol',
-    lat: -6.6583,
-    lon: 106.8522,
-    tipe: 'Gerbang Tol Wisata Puncak',
-    vol_teks: '412.500 kendaraan',
-    info: 'Jalur wisata libur Natal & Tahun Baru kawasan Puncak/Bogor'
-  },
-  {
-    nama: 'Pelabuhan Merak (Banten)',
-    kategori: 'asdp',
-    lat: -5.9328,
-    lon: 105.9986,
-    tipe: 'Pelabuhan Penyeberangan Utama',
-    vol_teks: '612.235 kendaraan / 2.84 juta orang',
-    info: 'Lintas Selat Sunda Jawa menuju Sumatera (Pola TBB saat puncak)'
-  },
-  {
-    nama: 'Pelabuhan Bakauheni (Lampung)',
-    kategori: 'asdp',
-    lat: -5.8692,
-    lon: 105.7533,
-    tipe: 'Pelabuhan Penyeberangan Utama',
-    vol_teks: 'Puncak Arus Balik H+8 s/d H+9',
-    info: 'Pintu gerbang arus balik dari Tol Trans Sumatera menuju Pulau Jawa'
-  },
-  {
-    nama: 'Pelabuhan Ketapang (Banyuwangi)',
-    kategori: 'asdp',
-    lat: -8.1481,
-    lon: 114.3986,
-    tipe: 'Pelabuhan Penyeberangan Selat Bali',
-    vol_teks: '326.400 kendaraan / 1.18 juta orang',
-    info: 'Lintas utama penyeberangan wisatawan libur akhir tahun ke Bali'
-  },
-  {
-    nama: 'Pelabuhan Gilimanuk (Bali)',
-    kategori: 'asdp',
-    lat: -8.1611,
-    lon: 114.4394,
-    tipe: 'Pelabuhan Penyeberangan Selat Bali',
-    vol_teks: 'Arus Wisatawan Masuk & Balik',
-    info: 'Pintu masuk darat wisatawan domestik Pulau Bali'
-  }
 ];
 
 function renderMapModule() {
@@ -125,11 +48,22 @@ function renderMapModule() {
   setTimeout(() => {
     if (mapInstance) {
       mapInstance.invalidateSize();
-      mapInstance.setView([-2.5, 118.0], 5);
+      fitIndonesiaMap();
     }
   }, 150);
 
   refreshMapLayers();
+}
+
+/**
+ * Menyesuaikan zoom & batas peta agar seluruh pulau Indonesia (Sabang s/d Merauke) terlihat proporsional
+ */
+function fitIndonesiaMap() {
+  if (!mapInstance) return;
+  mapInstance.fitBounds(INDONESIA_BOUNDS, {
+    padding: [15, 15],
+    animate: true
+  });
 }
 
 /**
@@ -140,8 +74,8 @@ function initLeafletMap() {
   if (!mapContainer || mapInstance) return;
 
   mapInstance = L.map('gis-map-canvas', {
-    center: [-2.5, 118.0],
-    zoom: 5,
+    center: [-2.2, 118.0],
+    zoom: 4.8,
     minZoom: 4,
     maxZoom: 18,
     zoomControl: false
@@ -150,12 +84,11 @@ function initLeafletMap() {
   // Zoom Control di Kanan Atas
   L.control.zoom({ position: 'topright' }).addTo(mapInstance);
 
-  // Layer Group Urutan: Heatmap (bawah) -> Simpul Markers (tengah) -> Titik Kritis (atas)
+  // Layer Group Urutan: Heatmap (bawah) -> Simpul Markers (atas)
   heatmapLayerGroup = L.layerGroup().addTo(mapInstance);
   markerLayerGroup = L.layerGroup().addTo(mapInstance);
-  criticalLayerGroup = L.layerGroup().addTo(mapInstance);
 
-  // Pasang Legenda di Pojok Kanan Bawah
+  // Pasang Keterangan Peta di Pojok Kiri Bawah (Default Tertutup Rapi)
   setupMapLegend();
 
   // Pasang Basemap Resmi OpenStreetMap
@@ -188,7 +121,7 @@ function updateBasemap() {
 
 /**
  * Setup Kotak Keterangan Peta di Pojok Kiri Bawah (Membebaskan Area Papua & Indonesia Timur)
- * dengan Fitur Ciutkan / Buka ▲/▼
+ * Default: TERTUTUP RAPI (Collapsed) agar Tidak Menutupi Pulau/Simpul Manapun
  */
 function setupMapLegend() {
   const legend = L.control({ position: 'bottomleft' });
@@ -196,18 +129,18 @@ function setupMapLegend() {
   legend.onAdd = function() {
     const div = L.DomUtil.create('div', 'leaflet-bar border-0 shadow-none bg-transparent');
     div.innerHTML = `
-      <div class="p-3 rounded-xl bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border border-slate-200 dark:border-slate-800 text-[11px] shadow-lg max-w-[245px] font-sans">
-        <!-- Header Baris Atas dengan Tombol Ciutkan / Buka -->
-        <div id="legend-header-toggle" class="flex items-center justify-between gap-2 pb-2 border-b border-slate-100 dark:border-slate-800 cursor-pointer select-none" title="Klik untuk Ciutkan / Buka Keterangan Peta">
+      <div class="p-2.5 rounded-xl bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border border-slate-200 dark:border-slate-800 text-[11px] shadow-lg max-w-[245px] font-sans">
+        <!-- Header Baris Atas dengan Tombol Buka / Ciutkan (Default Tertutup Rapi) -->
+        <div id="legend-header-toggle" class="flex items-center justify-between gap-2 cursor-pointer select-none" title="Klik untuk Buka / Ciutkan Keterangan Peta">
           <div class="font-bold text-slate-800 dark:text-slate-100 flex items-center gap-1.5 text-xs">
             <span class="text-gov-azure font-extrabold">🗺️</span>
             <span>Keterangan Peta Spasial</span>
           </div>
-          <span id="legend-toggle-icon" class="text-[10px] text-slate-500 dark:text-slate-400 font-bold px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">▲</span>
+          <span id="legend-toggle-icon" class="text-[10px] text-slate-500 dark:text-slate-400 font-bold px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">▼</span>
         </div>
 
-        <!-- Isi Konten Legenda yang Dapat Diciutkan -->
-        <div id="legend-body" class="space-y-2.5 pt-2">
+        <!-- Isi Konten Legenda yang Secara Default Diciutkan (Hidden) agar Peta Bebas Hambatan -->
+        <div id="legend-body" class="space-y-2.5 pt-2 hidden">
           <!-- Bagian 1: Intensitas Kepadatan Arus (Heatmap) -->
           <div>
             <div class="font-bold text-slate-800 dark:text-slate-100 flex items-center justify-between mb-1">
@@ -243,23 +176,6 @@ function setupMapLegend() {
               <span class="flex items-center gap-1.5 col-span-2"><span class="w-2 h-2 rounded-full bg-[#0D9488] shrink-0 border border-white"></span> Pelabuhan Laut (209)</span>
             </div>
           </div>
-
-          <!-- Bagian 3: Titik Pantau Khusus Posko Nataru -->
-          <div class="border-t border-slate-100 dark:border-slate-800 pt-2 space-y-1">
-            <div class="font-bold text-slate-800 dark:text-slate-100 text-[10px] uppercase tracking-wider mb-1">
-              <span>Fokus Khusus Posko Nataru</span>
-            </div>
-            <div class="grid grid-cols-1 gap-y-1 text-[10px]">
-              <span class="flex items-center gap-1.5 font-semibold text-rose-600 dark:text-rose-400">
-                <span class="w-2 h-2 rotate-45 bg-[#E11D48] shrink-0 border border-white shadow-2xs"></span> 
-                <span>Gerbang Tol Barrier (Trans Jawa)</span>
-              </span>
-              <span class="flex items-center gap-1.5 font-semibold text-purple-600 dark:text-purple-400">
-                <span class="w-2.5 h-2.5 rounded-full bg-[#9333EA] ring-2 ring-amber-400 shrink-0 border border-white"></span> 
-                <span>Penyeberangan Utama (Merak & Ketapang)</span>
-              </span>
-            </div>
-          </div>
         </div>
       </div>
     `;
@@ -268,13 +184,13 @@ function setupMapLegend() {
     L.DomEvent.disableClickPropagation(div);
     L.DomEvent.disableScrollPropagation(div);
 
-    // Event listener ciutkan / buka (collapse toggle)
+    // Event listener ciutkan / buka (default: collapsed)
     const toggleBtn = div.querySelector('#legend-header-toggle');
     const legendBody = div.querySelector('#legend-body');
     const toggleIcon = div.querySelector('#legend-toggle-icon');
 
     if (toggleBtn && legendBody && toggleIcon) {
-      let isCollapsed = false;
+      let isCollapsed = true; // Default tertutup rapi
       toggleBtn.addEventListener('click', (e) => {
         e.stopPropagation();
         isCollapsed = !isCollapsed;
@@ -303,7 +219,6 @@ function setupMapControls() {
   const filterContainer = document.getElementById('gis-moda-pills');
   const btnResetMap = document.getElementById('btn-reset-map');
   const btnToggleHeatmap = document.getElementById('btn-toggle-heatmap');
-  const btnToggleCritical = document.getElementById('btn-toggle-critical');
 
   if (filterContainer) {
     filterContainer.innerHTML = MAP_MODA_CONFIG.map(m => `
@@ -346,23 +261,11 @@ function setupMapControls() {
     };
   }
 
-  // Toggle Critical Points Layer
-  if (btnToggleCritical) {
-    btnToggleCritical.onclick = () => {
-      showCritical = !showCritical;
-      updateToggleBtnState(btnToggleCritical, showCritical, 'Titik Kritis Posko');
-      refreshMapLayers();
-    };
-  }
-
-  // Reset Peta ke Seluruh Indonesia
+  // Reset Peta ke Seluruh Indonesia dengan Batas Wilayah Lengkap
   if (btnResetMap) {
     btnResetMap.addEventListener('click', (e) => {
       e.preventDefault();
-      if (mapInstance) {
-        mapInstance.invalidateSize();
-        mapInstance.setView([-2.5, 118.0], 5, { animate: true });
-      }
+      fitIndonesiaMap();
     });
   }
 }
@@ -376,7 +279,7 @@ function updateToggleBtnState(btn, isActive, label) {
 }
 
 /**
- * Refresh Seluruh Layer Peta (Heatmap, Markers Sama Rata, Titik Kritis)
+ * Refresh Seluruh Layer Peta (Heatmap, Markers Sama Rata)
  */
 function refreshMapLayers() {
   if (!mapInstance || !window.DSS_STATE.spatialNodes) return;
@@ -400,9 +303,6 @@ function refreshMapLayers() {
 
   // 3. Render Titik Simpul Marker (SAMA RATA / UNIFORM RADIUS)
   renderEqualMarkers(filteredNodes);
-
-  // 4. Render Titik Kritis Infrastruktur Posko Nataru
-  renderCriticalInfrastructure();
 }
 
 /**
@@ -441,7 +341,7 @@ function renderHeatmapLayer(nodes) {
 }
 
 /**
- * Render Titik Simpul Lingkaran (SAMA RATA / UNIFORM RADIUS)
+ * Render Titik Simpul Lingkaran (SAMA RATA / UNIFORM RADIUS: 4.2px)
  */
 function renderEqualMarkers(nodes) {
   if (!markerLayerGroup) return;
@@ -471,8 +371,8 @@ function renderEqualMarkers(nodes) {
       this.setStyle({ radius: UNIFORM_RADIUS, weight: isTop10 ? 1.8 : 1.1, fillOpacity: 0.95 });
     });
 
-    // Tooltip Ramping
-    marker.bindTooltip(`<b>${node.nama}</b><br><span class="text-gov-navy">${formatNumber(vol)} orang</span>`, {
+    // Tooltip Ramping dengan Angka Putih Jelas (Mudah Dibaca di Latar Gelap)
+    marker.bindTooltip(`<b>${node.nama}</b><br><span class="text-white font-medium">${formatNumber(vol)} orang</span>`, {
       direction: 'top',
       offset: [0, -4],
       className: 'bg-slate-900 text-white text-[11px] px-2 py-1 rounded shadow-md border-0'
@@ -514,98 +414,5 @@ function renderEqualMarkers(nodes) {
 
     marker.bindPopup(popupHtml, { maxWidth: 280 });
     markerLayerGroup.addLayer(marker);
-  });
-}
-
-/**
- * Render Titik Kritis Infrastruktur Posko Nataru (Gerbang Tol Barrier & Simpul Penyeberangan Utama)
- * Semua berukuran SAMA RATA (serasi dengan titik 4.2px) tanpa ada titik raksasa
- */
-function renderCriticalInfrastructure() {
-  if (!criticalLayerGroup) return;
-  criticalLayerGroup.clearLayers();
-
-  if (!showCritical) return;
-
-  TITIK_KRITIS_DATA.forEach(t => {
-    const isTol = t.kategori === 'tol';
-
-    if (isTol) {
-      // 1. Gerbang Tol Barrier: Penanda Belah Ketupat (Diamond Marker) Berukuran Sama Rata (8.5px)
-      const diamondIcon = L.divIcon({
-        className: 'border-0 bg-transparent flex items-center justify-center',
-        html: `<div style="width: 8.5px; height: 8.5px; background-color: #E11D48; border: 1.2px solid #FFFFFF; transform: rotate(45deg); box-shadow: 0 1px 3px rgba(0,0,0,0.5);"></div>`,
-        iconSize: [10, 10],
-        iconAnchor: [5, 5]
-      });
-
-      const marker = L.marker([t.lat, t.lon], { icon: diamondIcon });
-
-      marker.bindTooltip(`<b>🚩 ${t.nama}</b><br><span class="text-rose-400 font-bold">${t.tipe}</span>`, {
-        direction: 'top',
-        offset: [0, -6],
-        className: 'bg-slate-900 text-white text-[11px] px-2 py-1 rounded shadow-md border-0'
-      });
-
-      const popupHtml = `
-        <div class="p-2 space-y-2 max-w-[260px] text-xs font-sans">
-          <div class="border-b border-slate-200 pb-1.5 flex items-center justify-between">
-            <span class="font-bold text-slate-900">${t.nama}</span>
-            <span class="px-1.5 py-0.5 rounded text-[9px] font-bold text-white uppercase bg-rose-600">
-              Gerbang Tol Barrier
-            </span>
-          </div>
-          <p class="text-[11px] text-slate-600 leading-tight">${t.info}</p>
-          <div class="p-2 bg-rose-50 border border-rose-200 rounded text-[11px] font-bold text-rose-900">
-            Estimasi Beban: ${t.vol_teks}
-          </div>
-        </div>
-      `;
-
-      marker.bindPopup(popupHtml, { maxWidth: 280 });
-      criticalLayerGroup.addLayer(marker);
-    } else {
-      // 2. Simpul Penyeberangan Utama (Merak, Bakauheni, Ketapang, Gilimanuk):
-      // Ukuran SAMA RATA (radius 4.2px) dengan Cincin Emas Khas Simpul Prioritas Posko
-      const marker = L.circleMarker([t.lat, t.lon], {
-        radius: UNIFORM_RADIUS,
-        fillColor: '#9333EA',
-        color: '#F59E0B', // Cincin Emas Penanda Prioritas Posko Nataru
-        weight: 2.2,
-        opacity: 1.0,
-        fillOpacity: 1.0
-      });
-
-      marker.on('mouseover', function() {
-        this.setStyle({ radius: 6.5, weight: 3.0 });
-      });
-      marker.on('mouseout', function() {
-        this.setStyle({ radius: UNIFORM_RADIUS, weight: 2.2 });
-      });
-
-      marker.bindTooltip(`<b>⚓ ${t.nama}</b><br><span class="text-purple-300 font-bold">Simpul Prioritas Posko Nataru</span>`, {
-        direction: 'top',
-        offset: [0, -4],
-        className: 'bg-slate-900 text-white text-[11px] px-2 py-1 rounded shadow-md border-0'
-      });
-
-      const popupHtml = `
-        <div class="p-2 space-y-2 max-w-[260px] text-xs font-sans">
-          <div class="border-b border-slate-200 pb-1.5 flex items-center justify-between">
-            <span class="font-bold text-slate-900">${t.nama}</span>
-            <span class="px-1.5 py-0.5 rounded text-[9px] font-bold text-white uppercase bg-purple-700">
-              Penyeberangan Utama
-            </span>
-          </div>
-          <p class="text-[11px] text-slate-600 leading-tight">${t.info}</p>
-          <div class="p-2 bg-purple-50 border border-purple-200 rounded text-[11px] font-bold text-purple-900">
-            Estimasi Beban: ${t.vol_teks}
-          </div>
-        </div>
-      `;
-
-      marker.bindPopup(popupHtml, { maxWidth: 280 });
-      criticalLayerGroup.addLayer(marker);
-    }
   });
 }
