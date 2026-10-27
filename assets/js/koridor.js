@@ -101,7 +101,7 @@ function renderTitikKritisKPIs(tolData, asdpData) {
           Merak - Bakauheni
         </span>
       </div>
-      <div class="text-2xl font-extrabold text-purple-900 num-tabular mb-1">
+      <div class="text-2xl font-extrabold text-purple-900 dark:text-purple-300 num-tabular mb-1">
         ${formatNumber(merak.proyeksi_total_2026 || 0)}
       </div>
       <div class="flex items-center gap-2 text-xs text-slate-600 font-medium">
@@ -122,7 +122,7 @@ function renderTitikKritisKPIs(tolData, asdpData) {
           Ketapang - Gilimanuk
         </span>
       </div>
-      <div class="text-2xl font-extrabold text-purple-900 num-tabular mb-1">
+      <div class="text-2xl font-extrabold text-purple-900 dark:text-purple-300 num-tabular mb-1">
         ${formatNumber(ketapang.proyeksi_total_2026 || 0)}
       </div>
       <div class="flex items-center gap-2 text-xs text-slate-600 font-medium">
