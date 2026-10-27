@@ -120,7 +120,14 @@ function renderSimpulChart() {
 
   // Urutan dibalik agar peringkat 1 berada di atas pada horizontal bar
   const reversedList = [...top10].reverse();
-  const yNames = reversedList.map(item => item.nama);
+  const yNames = reversedList.map(item => {
+    let name = item.nama;
+    // Format khusus Sepinggan Balikpapan agar tidak terpotong di y-axis grafik
+    if (name.includes('Sultan Aji Muhammad Sulaiman Sepinggan')) {
+      return name.replace('Sultan Aji Muhammad Sulaiman Sepinggan', 'SAMS Sepinggan');
+    }
+    return name;
+  });
   const xValues = reversedList.map(item => item.proyeksi_2026);
   const shares = reversedList.map(item => item.porsi_share_pct);
   const r25 = reversedList.map(item => item.realisasi_2025);
@@ -142,10 +149,11 @@ function renderSimpulChart() {
     customdata: reversedList.map(item => ({
       share: item.porsi_share_pct,
       v25: item.realisasi_2025,
-      kat: item.kategori
+      kat: item.kategori,
+      fullName: item.nama
     })),
     hovertemplate: 
-      '<b>%{y}</b><br>' +
+      '<b>%{customdata.fullName}</b><br>' +
       'Proyeksi 2026: <b>%{x:,.0f} orang</b><br>' +
       'Realisasi 2025: %{customdata.v25:,.0f} orang<br>' +
       'Pangsa Moda: %{customdata.share}%<extra></extra>'
@@ -155,7 +163,7 @@ function renderSimpulChart() {
 
   const layout = {
     bargap: 0.40, // Batang ramping elegan sesuai standar INA Digital
-    margin: { t: 20, b: 40, l: 240, r: 40 },
+    margin: { t: 20, b: 40, l: 280, r: 40 },
     height: 380,
     paper_bgcolor: 'transparent',
     plot_bgcolor: 'transparent',

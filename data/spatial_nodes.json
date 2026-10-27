@@ -57,7 +57,7 @@
   },
   {
     "id": "YK",
-    "nama": "YOGYAKARTA (D.I. Yogyakarta)",
+    "nama": "Yogyakarta (D.I. Yogyakarta)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -71,7 +71,7 @@
   },
   {
     "id": "PSE",
-    "nama": "PASARSENEN (DKI Jakarta)",
+    "nama": "Pasar Senen (DKI Jakarta)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -85,7 +85,7 @@
   },
   {
     "id": "PRB",
-    "nama": "Purabaya (Jawa Timur) TTA Pantauan",
+    "nama": "Purabaya (Jawa Timur)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -113,7 +113,7 @@
   },
   {
     "id": "KNG",
-    "nama": "Kertonegoro (Jawa Timur) TTA Pantauan",
+    "nama": "Kertonegoro (Jawa Timur)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -127,7 +127,7 @@
   },
   {
     "id": "GMR",
-    "nama": "GAMBIR (DKI Jakarta)",
+    "nama": "Gambir (DKI Jakarta)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -141,7 +141,7 @@
   },
   {
     "id": "PBY",
-    "nama": "Purboyo (Jawa Timur) TTA Pantauan",
+    "nama": "Purboyo (Jawa Timur)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -169,7 +169,7 @@
   },
   {
     "id": "YK",
-    "nama": "Giwangan (D.I Yogyakarta) TTA Pantauan",
+    "nama": "Giwangan (D.I Yogyakarta)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -183,7 +183,7 @@
   },
   {
     "id": "KCJB-HLM",
-    "nama": "KCJB - HALIM (DKI Jakarta)",
+    "nama": "KCJB - Halim (DKI Jakarta)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -253,7 +253,7 @@
   },
   {
     "id": "KCJB-PDG",
-    "nama": "KCJB - PADALARANG (Jawa Barat)",
+    "nama": "KCJB - Padalarang (Jawa Barat)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -267,7 +267,7 @@
   },
   {
     "id": "BD",
-    "nama": "BANDUNG (Jawa Barat)",
+    "nama": "Bandung (Jawa Barat)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -281,7 +281,7 @@
   },
   {
     "id": "SMT",
-    "nama": "SEMARANG TAWANG (Jawa Tengah)",
+    "nama": "Semarang Tawang (Jawa Tengah)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -295,7 +295,7 @@
   },
   {
     "id": "SGU",
-    "nama": "SURABAYA GUBENG (Jawa Timur)",
+    "nama": "Surabaya Gubeng (Jawa Timur)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -309,7 +309,7 @@
   },
   {
     "id": "SBI",
-    "nama": "SURABAYA PASAR TURI (Jawa Timur)",
+    "nama": "Surabaya Pasar Turi (Jawa Timur)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -323,7 +323,7 @@
   },
   {
     "id": "TTN",
-    "nama": "Tirtonadi (Jawa Tengah) TTA Pantauan",
+    "nama": "Tirtonadi (Jawa Tengah)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -351,7 +351,7 @@
   },
   {
     "id": "PWT",
-    "nama": "PURWOKERTO (Jawa Tengah)",
+    "nama": "Purwokerto (Jawa Tengah)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -407,7 +407,7 @@
   },
   {
     "id": "SMC",
-    "nama": "SEMARANG PONCOL (Jawa Tengah)",
+    "nama": "Semarang Poncol (Jawa Tengah)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -421,7 +421,7 @@
   },
   {
     "id": "YK",
-    "nama": "LEMPUYANGAN (D.I. Yogyakarta)",
+    "nama": "Lempuyangan (D.I. Yogyakarta)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -435,7 +435,7 @@
   },
   {
     "id": "SKN",
-    "nama": "Ir. Soekarno (Jawa Tengah) TTA Pantauan",
+    "nama": "Ir. Soekarno (Jawa Tengah)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -463,7 +463,7 @@
   },
   {
     "id": "PKT",
-    "nama": "Pakupatan (Banten) TTA Pantauan",
+    "nama": "Pakupatan (Banten)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -491,7 +491,7 @@
   },
   {
     "id": "BKS",
-    "nama": "BEKASI (Jawa Barat)",
+    "nama": "Bekasi (Jawa Barat)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -505,7 +505,7 @@
   },
   {
     "id": "GRA",
-    "nama": "Giri Adipura (Jawa Tengah) TTA Pantauan",
+    "nama": "Giri Adipura (Jawa Tengah)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -519,7 +519,7 @@
   },
   {
     "id": "TGK",
-    "nama": "Tingkir (Jawa Tengah) TTA Pantauan",
+    "nama": "Tingkir (Jawa Tengah)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -547,7 +547,7 @@
   },
   {
     "id": "BWN",
-    "nama": "Bawen (Jawa Tengah) TTA Pantauan",
+    "nama": "Bawen (Jawa Tengah)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -575,7 +575,7 @@
   },
   {
     "id": "SLO",
-    "nama": "SOLO BALAPAN (Jawa Tengah)",
+    "nama": "Solo Balapan (Jawa Tengah)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -631,7 +631,7 @@
   },
   {
     "id": "ML",
-    "nama": "MALANG (Jawa Timur)",
+    "nama": "Malang (Jawa Timur)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -687,7 +687,7 @@
   },
   {
     "id": "KAC",
-    "nama": "KIARACONDONG (Jawa Barat)",
+    "nama": "Kiaracondong (Jawa Barat)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -715,7 +715,7 @@
   },
   {
     "id": "GBR",
-    "nama": "Gambut Barakat (Kalimantan Selatan) TTA Pantauan",
+    "nama": "Gambut Barakat (Kalimantan Selatan)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -729,7 +729,7 @@
   },
   {
     "id": "1462",
-    "nama": "TEGAL (Jawa Tengah)",
+    "nama": "Tegal (Jawa Tengah)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -771,7 +771,7 @@
   },
   {
     "id": "296",
-    "nama": "CIREBON (Jawa Barat)",
+    "nama": "Cirebon (Jawa Barat)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -785,7 +785,7 @@
   },
   {
     "id": "IDH",
-    "nama": "Indihiang (Jawa Barat) TTA Pantauan",
+    "nama": "Indihiang (Jawa Barat)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -827,7 +827,7 @@
   },
   {
     "id": "MDN",
-    "nama": "MEDAN (Sumatera Utara)",
+    "nama": "Medan (Sumatera Utara)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -855,7 +855,7 @@
   },
   {
     "id": "PKL",
-    "nama": "PEKALONGAN (Jawa Tengah)",
+    "nama": "Pekalongan (Jawa Tengah)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -869,7 +869,7 @@
   },
   {
     "id": "KTA",
-    "nama": "KUTOARJO (Jawa Tengah)",
+    "nama": "Kutoarjo (Jawa Tengah)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -883,7 +883,7 @@
   },
   {
     "id": "BYA",
-    "nama": "Banyuangga (Jawa Timur) TTA Pantauan",
+    "nama": "Banyuangga (Jawa Timur)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -897,7 +897,7 @@
   },
   {
     "id": "TDR",
-    "nama": "Tidar (Jawa Tengah) TTA Pantauan",
+    "nama": "Tidar (Jawa Tengah)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -911,7 +911,7 @@
   },
   {
     "id": "MN",
-    "nama": "MADIUN (Jawa Timur)",
+    "nama": "Madiun (Jawa Timur)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -939,7 +939,7 @@
   },
   {
     "id": "B211",
-    "nama": "JEMBER (Jawa Timur)",
+    "nama": "Jember (Jawa Timur)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -953,7 +953,7 @@
   },
   {
     "id": "1462",
-    "nama": "KCJB - TEGALLUAR (Jawa Barat)",
+    "nama": "KCJB - Tegalluar (Jawa Barat)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -967,7 +967,7 @@
   },
   {
     "id": "PTR",
-    "nama": "Patria (Jawa Timur) TTA Pantauan",
+    "nama": "Patria (Jawa Timur)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -981,7 +981,7 @@
   },
   {
     "id": "SAJ",
-    "nama": "Selo Aji (Jawa Timur) TTA Pantauan",
+    "nama": "Selo Aji (Jawa Timur)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -995,7 +995,7 @@
   },
   {
     "id": "ILP",
-    "nama": "Induk Lumpue (Sulawesi Selatan) TTA Pantauan",
+    "nama": "Induk Lumpue (Sulawesi Selatan)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -1009,7 +1009,7 @@
   },
   {
     "id": "JNG",
-    "nama": "JATINEGARA (DKI Jakarta)",
+    "nama": "Jatinegara (DKI Jakarta)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -1023,7 +1023,7 @@
   },
   {
     "id": "PYK",
-    "nama": "Bandar Raya Payung Sekaki (Riau) TTA Pantauan",
+    "nama": "Bandar Raya Payung Sekaki (Riau)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -1037,7 +1037,7 @@
   },
   {
     "id": "CKR",
-    "nama": "CIKARANG (Jawa Barat)",
+    "nama": "Cikarang (Jawa Barat)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -1079,7 +1079,7 @@
   },
   {
     "id": "AJS",
-    "nama": "Arjosari (Jawa Timur) TTA Pantauan",
+    "nama": "Arjosari (Jawa Timur)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -1093,7 +1093,7 @@
   },
   {
     "id": "KYA",
-    "nama": "KROYA (Jawa Tengah)",
+    "nama": "Kroya (Jawa Tengah)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -1107,7 +1107,7 @@
   },
   {
     "id": "YK",
-    "nama": "YOGYAKARTA INTERNATIONAL AIRPORT (D.I Yogyakarta)",
+    "nama": "Yogyakarta International Airport (D.I Yogyakarta)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -1135,7 +1135,7 @@
   },
   {
     "id": "PWT",
-    "nama": "Bulupitu Purwokerto (Jawa Tengah) TTA Pantauan",
+    "nama": "Bulupitu Purwokerto (Jawa Tengah)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -1149,7 +1149,7 @@
   },
   {
     "id": "BUU",
-    "nama": "Muara Bungo (Jambi) TTA Pantauan",
+    "nama": "Muara Bungo (Jambi)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -1205,7 +1205,7 @@
   },
   {
     "id": "TTPG",
-    "nama": "Pulo Gebang (DKI Jakarta) TTA Pantauan",
+    "nama": "Pulo Gebang (DKI Jakarta)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -1219,7 +1219,7 @@
   },
   {
     "id": "KPT",
-    "nama": "KERTAPATI (Sumatera Selatan)",
+    "nama": "Kertapati (Sumatera Selatan)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -1233,7 +1233,7 @@
   },
   {
     "id": "PRP",
-    "nama": "Poris Plawad (Banten) TTA Pantauan",
+    "nama": "Poris Plawad (Banten)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -1275,7 +1275,7 @@
   },
   {
     "id": "LWP",
-    "nama": "Leuwipanjang (Jawa Barat) TTA Pantauan",
+    "nama": "Leuwipanjang (Jawa Barat)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -1359,7 +1359,7 @@
   },
   {
     "id": "PS",
-    "nama": "Pasuruan (Jawa Timur) TTA Pantauan",
+    "nama": "Pasuruan (Jawa Timur)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -1373,7 +1373,7 @@
   },
   {
     "id": "GYT",
-    "nama": "Gayatri (Jawa Timur) TTA Pantauan",
+    "nama": "Gayatri (Jawa Timur)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -1387,7 +1387,7 @@
   },
   {
     "id": "KPT",
-    "nama": "Kambang Putih (Jawa Timur) TTA Pantauan",
+    "nama": "Kambang Putih (Jawa Timur)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -1415,7 +1415,7 @@
   },
   {
     "id": "TSM",
-    "nama": "TASIKMALAYA (Jawa Barat)",
+    "nama": "Tasikmalaya (Jawa Barat)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -1429,7 +1429,7 @@
   },
   {
     "id": "MGW",
-    "nama": "Mengwi (Bali) TTA Pantauan",
+    "nama": "Mengwi (Bali)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -1457,7 +1457,7 @@
   },
   {
     "id": "KBM",
-    "nama": "KEBUMEN (Jawa Tengah)",
+    "nama": "Kebumen (Jawa Tengah)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -1527,7 +1527,7 @@
   },
   {
     "id": "KT",
-    "nama": "KLATEN (Jawa Tengah)",
+    "nama": "Klaten (Jawa Tengah)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -1583,7 +1583,7 @@
   },
   {
     "id": "RJW",
-    "nama": "Rajekwesi (Jawa Timur) TTA Pantauan",
+    "nama": "Rajekwesi (Jawa Timur)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -1639,7 +1639,7 @@
   },
   {
     "id": "ML",
-    "nama": "PEMALANG (Jawa Tengah)",
+    "nama": "Pemalang (Jawa Tengah)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -1667,7 +1667,7 @@
   },
   {
     "id": "TWA",
-    "nama": "Tawangalun (Jawa Timur) TTA Pantauan",
+    "nama": "Tawangalun (Jawa Timur)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -1723,7 +1723,7 @@
   },
   {
     "id": "296",
-    "nama": "CIREBON PRUJAKAN (Jawa Barat)",
+    "nama": "Cirebon Prujakan (Jawa Barat)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -1737,7 +1737,7 @@
   },
   {
     "id": "LGS",
-    "nama": "Pilangsari (Jawa Tengah) TTB Pantauan",
+    "nama": "Pilangsari (Jawa Tengah)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -1751,7 +1751,7 @@
   },
   {
     "id": "JJR",
-    "nama": "Jatijajar (Jawa Barat) TTA Pantauan",
+    "nama": "Jatijajar (Jawa Barat)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -1765,7 +1765,7 @@
   },
   {
     "id": "BJR",
-    "nama": "Banjar (Jawa Barat) TTA Pantauan",
+    "nama": "Banjar (Jawa Barat)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -1779,7 +1779,7 @@
   },
   {
     "id": "TNK",
-    "nama": "TANJUNG KARANG (Lampung)",
+    "nama": "Tanjung Karang (Lampung)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -1849,7 +1849,7 @@
   },
   {
     "id": "KD",
-    "nama": "KEDIRI (Jawa Timur)",
+    "nama": "Kediri (Jawa Timur)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -1863,7 +1863,7 @@
   },
   {
     "id": "BJ",
-    "nama": "BOJONEGORO (Jawa Timur)",
+    "nama": "Bojonegoro (Jawa Timur)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -1905,7 +1905,7 @@
   },
   {
     "id": "BWI",
-    "nama": "BANYUWANGI KOTA (Jawa Timur)",
+    "nama": "Banyuwangi Kota (Jawa Timur)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -1947,7 +1947,7 @@
   },
   {
     "id": "PWS",
-    "nama": "PURWOSARI (Jawa Tengah)",
+    "nama": "Purwosari (Jawa Tengah)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -1975,7 +1975,7 @@
   },
   {
     "id": "1462",
-    "nama": "Tegal (Jawa Tengah) TTA Pantauan",
+    "nama": "Tegal (Jawa Tengah)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -2003,7 +2003,7 @@
   },
   {
     "id": "GB",
-    "nama": "GOMBONG (Jawa Tengah)",
+    "nama": "Gombong (Jawa Tengah)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -2017,7 +2017,7 @@
   },
   {
     "id": "YK",
-    "nama": "Dhaksinarga (D.I Yogyakarta) TTA Pantauan",
+    "nama": "Dhaksinarga (D.I Yogyakarta)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -2031,7 +2031,7 @@
   },
   {
     "id": "APS",
-    "nama": "Amplas (Sumatera Utara) TTA Pantauan",
+    "nama": "Amplas (Sumatera Utara)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -2045,7 +2045,7 @@
   },
   {
     "id": "PWJ",
-    "nama": "Purworejo (Jawa Tengah) TTA Pantauan",
+    "nama": "Purworejo (Jawa Tengah)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -2059,7 +2059,7 @@
   },
   {
     "id": "CPU",
-    "nama": "CEPU (Jawa Tengah)",
+    "nama": "Cepu (Jawa Tengah)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -2073,7 +2073,7 @@
   },
   {
     "id": "ML",
-    "nama": "Induk Pemalang (Jawa Tengah) TTA Pantauan",
+    "nama": "Induk Pemalang (Jawa Tengah)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -2087,7 +2087,7 @@
   },
   {
     "id": "JTI",
-    "nama": "Jati (Jawa Tengah) TTA Pantauan",
+    "nama": "Jati (Jawa Tengah)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -2101,7 +2101,7 @@
   },
   {
     "id": "BSL",
-    "nama": "Bareh Solok (Sumatera Barat) TTA Pantauan",
+    "nama": "Bareh Solok (Sumatera Barat)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -2115,7 +2115,7 @@
   },
   {
     "id": "KIS",
-    "nama": "KISARAN (Sumatera Utara)",
+    "nama": "Kisaran (Sumatera Utara)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -2143,7 +2143,7 @@
   },
   {
     "id": "JTB",
-    "nama": "JATIBARANG (Jawa Barat)",
+    "nama": "Jatibarang (Jawa Barat)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -2157,7 +2157,7 @@
   },
   {
     "id": "GMT",
-    "nama": "Guntur Melati (Jawa Barat) TTA Pantauan",
+    "nama": "Guntur Melati (Jawa Barat)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -2213,7 +2213,7 @@
   },
   {
     "id": "KLD",
-    "nama": "Kalideres (DKI Jakarta) TTA Pantauan",
+    "nama": "Kalideres (DKI Jakarta)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -2227,7 +2227,7 @@
   },
   {
     "id": "JG",
-    "nama": "JOMBANG (Jawa Timur)",
+    "nama": "Jombang (Jawa Timur)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -2241,7 +2241,7 @@
   },
   {
     "id": "BJR",
-    "nama": "BANJAR (Jawa Barat)",
+    "nama": "Banjar (Jawa Barat)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -2255,7 +2255,7 @@
   },
   {
     "id": "RAP",
-    "nama": "RANTAUPRAPAT (Sumatera Utara)",
+    "nama": "Rantauprapat (Sumatera Utara)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -2283,7 +2283,7 @@
   },
   {
     "id": "TKK",
-    "nama": "Tangkoko (Sulawesi Utara) TTA Pantauan",
+    "nama": "Tangkoko (Sulawesi Utara)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -2297,7 +2297,7 @@
   },
   {
     "id": "WLR",
-    "nama": "WELERI (Jawa Tengah)",
+    "nama": "Weleri (Jawa Tengah)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -2353,7 +2353,7 @@
   },
   {
     "id": "LLG",
-    "nama": "LUBUK LINGGAU (Sumatera Selatan)",
+    "nama": "Lubuk Linggau (Sumatera Selatan)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -2395,7 +2395,7 @@
   },
   {
     "id": "KTP",
-    "nama": "KETAPANG (Jawa Timur)",
+    "nama": "Ketapang (Jawa Timur)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -2409,7 +2409,7 @@
   },
   {
     "id": "KW",
-    "nama": "KARAWANG (Jawa Barat)",
+    "nama": "Karawang (Jawa Barat)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -2423,7 +2423,7 @@
   },
   {
     "id": "TNB",
-    "nama": "TANJUNGBALAI (Sumatera Utara)",
+    "nama": "Tanjungbalai (Sumatera Utara)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -2479,7 +2479,7 @@
   },
   {
     "id": "BL",
-    "nama": "BLITAR (Jawa Timur)",
+    "nama": "Blitar (Jawa Timur)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -2493,7 +2493,7 @@
   },
   {
     "id": "MDL",
-    "nama": "Mendolo (Jawa Tengah) TTA Pantauan",
+    "nama": "Mendolo (Jawa Tengah)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -2549,7 +2549,7 @@
   },
   {
     "id": "CKP",
-    "nama": "CIKAMPEK (Jawa Barat)",
+    "nama": "Cikampek (Jawa Barat)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -2563,7 +2563,7 @@
   },
   {
     "id": "GRT",
-    "nama": "GARUT (Jawa Barat)",
+    "nama": "Garut (Jawa Barat)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -2577,7 +2577,7 @@
   },
   {
     "id": "KB",
-    "nama": "KOTABUMI (Lampung)",
+    "nama": "Kotabumi (Lampung)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -2633,7 +2633,7 @@
   },
   {
     "id": "SDK",
-    "nama": "Surodakan (Jawa Timur) TTA Pantauan",
+    "nama": "Surodakan (Jawa Timur)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -2647,7 +2647,7 @@
   },
   {
     "id": "PWK",
-    "nama": "PURWAKARTA (Jawa Barat)",
+    "nama": "Purwakarta (Jawa Barat)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -2661,7 +2661,7 @@
   },
   {
     "id": "BB",
-    "nama": "BREBES (Jawa Tengah)",
+    "nama": "Brebes (Jawa Tengah)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -2689,7 +2689,7 @@
   },
   {
     "id": "TA",
-    "nama": "TULUNGAGUNG (Jawa Timur)",
+    "nama": "Tulungagung (Jawa Timur)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -2703,7 +2703,7 @@
   },
   {
     "id": "AJO",
-    "nama": "Alam Barajo (Jambi) TTA Pantauan",
+    "nama": "Alam Barajo (Jambi)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -2731,7 +2731,7 @@
   },
   {
     "id": "MDK",
-    "nama": "Mandalika (Nusa Tenggara Barat) TTA Pantauan",
+    "nama": "Mandalika (Nusa Tenggara Barat)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -2773,7 +2773,7 @@
   },
   {
     "id": "SPA",
-    "nama": "Simpang Aur (Sumatera Barat) TTA Pantauan",
+    "nama": "Simpang Aur (Sumatera Barat)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -2787,7 +2787,7 @@
   },
   {
     "id": "KAS",
-    "nama": "KH. Ahmad Sanusi (Jawa Barat) TTA Pantauan",
+    "nama": "KH. Ahmad Sanusi (Jawa Barat)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -2801,7 +2801,7 @@
   },
   {
     "id": "MR",
-    "nama": "MOJOKERTO (Jawa Timur)",
+    "nama": "Mojokerto (Jawa Timur)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -2843,7 +2843,7 @@
   },
   {
     "id": "SDA",
-    "nama": "SIDOARJO (Jawa Timur)",
+    "nama": "Sidoarjo (Jawa Timur)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -2857,7 +2857,7 @@
   },
   {
     "id": "MRK",
-    "nama": "Merak (Banten) TTA Pantauan",
+    "nama": "Merak (Banten)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -2871,7 +2871,7 @@
   },
   {
     "id": "TPG",
-    "nama": "Tanjung Pinggir (Sumatera Utara) TTA Pantauan",
+    "nama": "Tanjung Pinggir (Sumatera Utara)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -2885,7 +2885,7 @@
   },
   {
     "id": "LBN",
-    "nama": "Labuan (Banten) TTA Pantauan",
+    "nama": "Labuan (Banten)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -2913,7 +2913,7 @@
   },
   {
     "id": "BBS",
-    "nama": "Bobot Sari (Jawa Tengah) TTA Pantauan",
+    "nama": "Bobot Sari (Jawa Tengah)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -2927,7 +2927,7 @@
   },
   {
     "id": "KSL",
-    "nama": "KALISETAIL (Jawa Timur)",
+    "nama": "Kalisetail (Jawa Timur)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -2955,7 +2955,7 @@
   },
   {
     "id": "LSP",
-    "nama": "Latenri Sessu Pekkae (Sulawesi Selatan) TTA Pantauan",
+    "nama": "Latenri Sessu Pekkae (Sulawesi Selatan)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -3025,7 +3025,7 @@
   },
   {
     "id": "YK",
-    "nama": "WATES (D.I Yogyakarta)",
+    "nama": "Wates (D.I Yogyakarta)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -3039,7 +3039,7 @@
   },
   {
     "id": "BTA",
-    "nama": "BATURAJA (Sumatera Selatan)",
+    "nama": "Baturaja (Sumatera Selatan)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -3067,7 +3067,7 @@
   },
   {
     "id": "CMI",
-    "nama": "CIMAHI (Jawa Barat)",
+    "nama": "Cimahi (Jawa Barat)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -3081,7 +3081,7 @@
   },
   {
     "id": "KW",
-    "nama": "KCJB - KARAWANG (Jawa Barat)",
+    "nama": "KCJB - Karawang (Jawa Barat)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -3109,7 +3109,7 @@
   },
   {
     "id": "CP",
-    "nama": "CILACAP (Jawa Tengah)",
+    "nama": "Cilacap (Jawa Tengah)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -3123,7 +3123,7 @@
   },
   {
     "id": "AWJ",
-    "nama": "Arya Wiraraja (Jawa Timur) TTA Pantauan",
+    "nama": "Arya Wiraraja (Jawa Timur)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -3137,7 +3137,7 @@
   },
   {
     "id": "B41",
-    "nama": "Singaparna (Jawa Barat) TTB Pantauan",
+    "nama": "Singaparna (Jawa Barat)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -3151,7 +3151,7 @@
   },
   {
     "id": "KBM",
-    "nama": "Kebumen (Jawa Tengah) TTA Pantauan",
+    "nama": "Kebumen (Jawa Tengah)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -3165,7 +3165,7 @@
   },
   {
     "id": "MKG",
-    "nama": "Mangkang (Jawa Tengah) TTA Pantauan",
+    "nama": "Mangkang (Jawa Tengah)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -3193,7 +3193,7 @@
   },
   {
     "id": "B204",
-    "nama": "BUMIAYU (Jawa Tengah)",
+    "nama": "Bumiayu (Jawa Tengah)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -3235,7 +3235,7 @@
   },
   {
     "id": "SDR",
-    "nama": "SIDAREJA (Jawa Tengah)",
+    "nama": "Sidareja (Jawa Tengah)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -3277,7 +3277,7 @@
   },
   {
     "id": "RGP",
-    "nama": "ROGOJAMPI (Jawa Timur)",
+    "nama": "Rogojampi (Jawa Timur)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -3291,7 +3291,7 @@
   },
   {
     "id": "RJB",
-    "nama": "Rajabasa (Lampung) TTA Pantauan",
+    "nama": "Rajabasa (Lampung)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -3333,7 +3333,7 @@
   },
   {
     "id": "CKR",
-    "nama": "Ciakar (Jawa Barat) TTA Pantauan",
+    "nama": "Ciakar (Jawa Barat)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -3361,7 +3361,7 @@
   },
   {
     "id": "PB",
-    "nama": "PROBOLINGGO (Jawa Timur)",
+    "nama": "Probolinggo (Jawa Timur)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -3389,7 +3389,7 @@
   },
   {
     "id": "KTS",
-    "nama": "KERTOSONO (Jawa Timur)",
+    "nama": "Kertosono (Jawa Timur)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -3403,7 +3403,7 @@
   },
   {
     "id": "TTB_UNTUNG_SUROPATI",
-    "nama": "Untung Suropati (Jawa Timur) TTB Pantauan",
+    "nama": "Untung Suropati (Jawa Timur)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -3431,7 +3431,7 @@
   },
   {
     "id": "NBO",
-    "nama": "NGROMBO (Jawa Tengah)",
+    "nama": "Ngrombo (Jawa Tengah)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -3487,7 +3487,7 @@
   },
   {
     "id": "BBT",
-    "nama": "BABAT (Jawa Timur)",
+    "nama": "Babat (Jawa Timur)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -3501,7 +3501,7 @@
   },
   {
     "id": "ISM",
-    "nama": "Isimu (Gorontalo) TTA Pantauan",
+    "nama": "Isimu (Gorontalo)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -3529,7 +3529,7 @@
   },
   {
     "id": "HGL",
-    "nama": "HAURGEULIS (Jawa Barat)",
+    "nama": "Haurgeulis (Jawa Barat)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -3543,7 +3543,7 @@
   },
   {
     "id": "LMG",
-    "nama": "LAMONGAN (Jawa Timur)",
+    "nama": "Lamongan (Jawa Timur)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -3557,7 +3557,7 @@
   },
   {
     "id": "SLW",
-    "nama": "SLAWI (Jawa Tengah)",
+    "nama": "Slawi (Jawa Tengah)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -3571,7 +3571,7 @@
   },
   {
     "id": "NJ",
-    "nama": "NGANJUK (Jawa Timur)",
+    "nama": "Nganjuk (Jawa Timur)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -3599,7 +3599,7 @@
   },
   {
     "id": "LKM",
-    "nama": "Bolaang Mongondow (Sulawesi Utara) TTA Pantauan",
+    "nama": "Bolaang Mongondow (Sulawesi Utara)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -3655,7 +3655,7 @@
   },
   {
     "id": "KPR",
-    "nama": "Kampung Rambutan (DKI Jakarta) TTA Pantauan",
+    "nama": "Kampung Rambutan (DKI Jakarta)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -3669,7 +3669,7 @@
   },
   {
     "id": "3200",
-    "nama": "Dumai (Riau) TTA Pantauan",
+    "nama": "Dumai (Riau)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -3711,7 +3711,7 @@
   },
   {
     "id": "TTB_SUKOHARJO",
-    "nama": "Sukoharjo (Jawa Tengah) TTB Pantauan",
+    "nama": "Sukoharjo (Jawa Tengah)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -3795,7 +3795,7 @@
   },
   {
     "id": "MDI",
-    "nama": "MANDAI (Sulawesi Selatan)",
+    "nama": "Mandai (Sulawesi Selatan)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -3851,7 +3851,7 @@
   },
   {
     "id": "SIM",
-    "nama": "Simbuang (Sulawesi Barat) TTA Pantauan",
+    "nama": "Simbuang (Sulawesi Barat)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -3879,7 +3879,7 @@
   },
   {
     "id": "3779",
-    "nama": "GARONGKONG (Sulawesi Selatan)",
+    "nama": "Garongkong (Sulawesi Selatan)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -3907,7 +3907,7 @@
   },
   {
     "id": "JTI",
-    "nama": "Jatisrono (Jawa Tengah) TTB Pantauan",
+    "nama": "Jatisrono (Jawa Tengah)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -3935,7 +3935,7 @@
   },
   {
     "id": "SPY",
-    "nama": "Sumer Payung (Nusa Tenggara Barat) TTA Pantauan",
+    "nama": "Sumer Payung (Nusa Tenggara Barat)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -3949,7 +3949,7 @@
   },
   {
     "id": "BKO",
-    "nama": "Bangko (Jambi) TTA Pantauan",
+    "nama": "Bangko (Jambi)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -3963,7 +3963,7 @@
   },
   {
     "id": "BMD",
-    "nama": "Bangga Bangun Desa (Jawa Tengah) TTA Pantauan",
+    "nama": "Bangga Bangun Desa (Jawa Tengah)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -3977,7 +3977,7 @@
   },
   {
     "id": "SK",
-    "nama": "SOLOJEBRES (Jawa Tengah)",
+    "nama": "Solojebres (Jawa Tengah)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -4019,7 +4019,7 @@
   },
   {
     "id": "AAL",
-    "nama": "Alang-Alang Lebar (Sumatera Selatan) TTA Pantauan",
+    "nama": "Alang-Alang Lebar (Sumatera Selatan)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -4033,7 +4033,7 @@
   },
   {
     "id": "DMK",
-    "nama": "Demak (Jawa Tengah) TTA Pantauan",
+    "nama": "Demak (Jawa Tengah)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -4047,7 +4047,7 @@
   },
   {
     "id": "WO",
-    "nama": "WONOKROMO (Jawa Timur)",
+    "nama": "Wonokromo (Jawa Timur)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -4075,7 +4075,7 @@
   },
   {
     "id": "B169",
-    "nama": "CIAMIS (Jawa Barat)",
+    "nama": "Ciamis (Jawa Barat)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -4089,7 +4089,7 @@
   },
   {
     "id": "MA",
-    "nama": "MAOS (Jawa Tengah)",
+    "nama": "Maos (Jawa Tengah)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -4117,7 +4117,7 @@
   },
   {
     "id": "SR",
-    "nama": "SRAGEN (Jawa Tengah)",
+    "nama": "Sragen (Jawa Tengah)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -4131,7 +4131,7 @@
   },
   {
     "id": "TGL",
-    "nama": "TANGGUL (Jawa Timur)",
+    "nama": "Tanggul (Jawa Timur)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -4145,7 +4145,7 @@
   },
   {
     "id": "TPL",
-    "nama": "Tipalayo (Sulawesi Barat) TTA Pantauan",
+    "nama": "Tipalayo (Sulawesi Barat)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -4159,7 +4159,7 @@
   },
   {
     "id": "BAP",
-    "nama": "Batu Ampar (Kalimantan Timur) TTA Pantauan",
+    "nama": "Batu Ampar (Kalimantan Timur)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -4257,7 +4257,7 @@
   },
   {
     "id": "PKL",
-    "nama": "Pekalongan (Jawa Tengah) TTA Pantauan",
+    "nama": "Pekalongan (Jawa Tengah)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -4285,7 +4285,7 @@
   },
   {
     "id": "TI",
-    "nama": "TEBING TINGGI (Sumatera Utara)",
+    "nama": "Tebing Tinggi (Sumatera Utara)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -4299,7 +4299,7 @@
   },
   {
     "id": "DRA",
-    "nama": "Dara (Nusa Tenggara Barat) TTA Pantauan",
+    "nama": "Dara (Nusa Tenggara Barat)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -4327,7 +4327,7 @@
   },
   {
     "id": "WAG",
-    "nama": "W.A. Gara (Kalimantan Tengah) TTA Pantauan",
+    "nama": "W.A. Gara (Kalimantan Tengah)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -4397,7 +4397,7 @@
   },
   {
     "id": "BG",
-    "nama": "BANGIL (Jawa Timur)",
+    "nama": "Bangil (Jawa Timur)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -4411,7 +4411,7 @@
   },
   {
     "id": "MP",
-    "nama": "MARTAPURA (Sumatera Selatan)",
+    "nama": "Martapura (Sumatera Selatan)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -4425,7 +4425,7 @@
   },
   {
     "id": "TTB_MADURESO",
-    "nama": "Madureso (Jawa Tengah) TTB Pantauan",
+    "nama": "Madureso (Jawa Tengah)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -4481,7 +4481,7 @@
   },
   {
     "id": "MBR",
-    "nama": "Mamboro (Sulawesi Tengah) TTA Pantauan",
+    "nama": "Mamboro (Sulawesi Tengah)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -4495,7 +4495,7 @@
   },
   {
     "id": "LT",
-    "nama": "LAHAT (Sumatera Selatan)",
+    "nama": "Lahat (Sumatera Selatan)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -4509,7 +4509,7 @@
   },
   {
     "id": "TTB_PENGGUNG",
-    "nama": "Penggung (Jawa Tengah) TTB Pantauan",
+    "nama": "Penggung (Jawa Tengah)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -4523,7 +4523,7 @@
   },
   {
     "id": "B203",
-    "nama": "Tanjung (Jawa Tengah) TTB Pantauan",
+    "nama": "Tanjung (Jawa Tengah)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -4551,7 +4551,7 @@
   },
   {
     "id": "HJM",
-    "nama": "Harjamukti (Jawa Barat) TTA Pantauan",
+    "nama": "Harjamukti (Jawa Barat)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -4593,7 +4593,7 @@
   },
   {
     "id": "BRK",
-    "nama": "Boroko (Sulawesi Utara) TTA Pantauan",
+    "nama": "Boroko (Sulawesi Utara)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -4621,7 +4621,7 @@
   },
   {
     "id": "RBP",
-    "nama": "RAMBIPUJI (Jawa Timur)",
+    "nama": "Rambipuji (Jawa Timur)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -4635,7 +4635,7 @@
   },
   {
     "id": "NGW",
-    "nama": "NGAWI (Jawa Timur)",
+    "nama": "Ngawi (Jawa Timur)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -4663,7 +4663,7 @@
   },
   {
     "id": "PBM",
-    "nama": "PRABUMULIH (Sumatera Selatan)",
+    "nama": "Prabumulih (Sumatera Selatan)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -4677,7 +4677,7 @@
   },
   {
     "id": "BBU",
-    "nama": "BLAMBANGAN UMPU (Lampung)",
+    "nama": "Blambangan Umpu (Lampung)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -4705,7 +4705,7 @@
   },
   {
     "id": "KK",
-    "nama": "KLAKAH (Jawa Timur)",
+    "nama": "Klakah (Jawa Timur)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -4719,7 +4719,7 @@
   },
   {
     "id": "BAP",
-    "nama": "BANDARHALIPAH (Sumatera Utara)",
+    "nama": "Bandarhalipah (Sumatera Utara)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -4747,7 +4747,7 @@
   },
   {
     "id": "MLK",
-    "nama": "Mandala Lebak (Banten) TTA Pantauan",
+    "nama": "Mandala Lebak (Banten)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -4761,7 +4761,7 @@
   },
   {
     "id": "GM",
-    "nama": "GUMILIR (Jawa Tengah)",
+    "nama": "Gumilir (Jawa Tengah)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -4775,7 +4775,7 @@
   },
   {
     "id": "TTB_RONGGO_SUKOWATI",
-    "nama": "Ronggo Sukowati (Jawa Timur) TTB Pantauan",
+    "nama": "Ronggo Sukowati (Jawa Timur)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -4817,7 +4817,7 @@
   },
   {
     "id": "SAB",
-    "nama": "Sei Ambawang (Kalimantan Barat) TTA Pantauan",
+    "nama": "Sei Ambawang (Kalimantan Barat)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -4845,7 +4845,7 @@
   },
   {
     "id": "CPU",
-    "nama": "Cepu (Jawa Tengah) TTA Pantauan",
+    "nama": "Cepu (Jawa Tengah)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -4957,7 +4957,7 @@
   },
   {
     "id": "979",
-    "nama": "Lhokseumawe (D.I Aceh) TTA Pantauan",
+    "nama": "Lhokseumawe (D.I Aceh)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -4971,7 +4971,7 @@
   },
   {
     "id": "642",
-    "nama": "Pondok Cabe (Banten) TTA Pantauan",
+    "nama": "Pondok Cabe (Banten)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -5055,7 +5055,7 @@
   },
   {
     "id": "PCT",
-    "nama": "Pacitan (Jawa Timur) TTA Pantauan",
+    "nama": "Pacitan (Jawa Timur)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -5069,7 +5069,7 @@
   },
   {
     "id": "SBL",
-    "nama": "Sri Bulan (Jambi) TTA Pantauan",
+    "nama": "Sri Bulan (Jambi)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -5111,7 +5111,7 @@
   },
   {
     "id": "KW",
-    "nama": "Klari Karawang (Jawa Barat) TTA Pantauan",
+    "nama": "Klari Karawang (Jawa Barat)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -5125,7 +5125,7 @@
   },
   {
     "id": "PS",
-    "nama": "PASURUAN (Jawa Timur)",
+    "nama": "Pasuruan (Jawa Timur)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -5181,7 +5181,7 @@
   },
   {
     "id": "ME",
-    "nama": "MUARA ENIM (Sumatera Selatan)",
+    "nama": "Muara Enim (Sumatera Selatan)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -5195,7 +5195,7 @@
   },
   {
     "id": "BTG",
-    "nama": "Betung (Sumatera Selatan) TTA Pantauan",
+    "nama": "Betung (Sumatera Selatan)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -5237,7 +5237,7 @@
   },
   {
     "id": "SUB",
-    "nama": "Subang (Jawa Barat) TTA Pantauan",
+    "nama": "Subang (Jawa Barat)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -5251,7 +5251,7 @@
   },
   {
     "id": "LL",
-    "nama": "LELES (Jawa Barat)",
+    "nama": "Leles (Jawa Barat)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -5279,7 +5279,7 @@
   },
   {
     "id": "LBN",
-    "nama": "LABUAN RATU (Lampung)",
+    "nama": "Labuan Ratu (Lampung)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -5307,7 +5307,7 @@
   },
   {
     "id": "ML",
-    "nama": "MALANG KOTA LAMA (Jawa Timur)",
+    "nama": "Malang Kota Lama (Jawa Timur)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -5321,7 +5321,7 @@
   },
   {
     "id": "B204",
-    "nama": "Bumiayu (Jawa Tengah) TTB Pantauan",
+    "nama": "Bumiayu (Jawa Tengah)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -5335,7 +5335,7 @@
   },
   {
     "id": "KJY",
-    "nama": "Karya Jaya (Sumatera Selatan) TTA Pantauan",
+    "nama": "Karya Jaya (Sumatera Selatan)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -5349,7 +5349,7 @@
   },
   {
     "id": "LWS",
-    "nama": "Malalayang (Sulawesi Utara) TTA Pantauan",
+    "nama": "Malalayang (Sulawesi Utara)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -5377,7 +5377,7 @@
   },
   {
     "id": "CB",
-    "nama": "CIBATU (Jawa Barat)",
+    "nama": "Cibatu (Jawa Barat)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -5419,7 +5419,7 @@
   },
   {
     "id": "RBG",
-    "nama": "RANDUBLATUNG (Jawa Tengah)",
+    "nama": "Randublatung (Jawa Tengah)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -5461,7 +5461,7 @@
   },
   {
     "id": "GDM",
-    "nama": "GANDRUNGMANGUN (Jawa Tengah)",
+    "nama": "Gandrungmangun (Jawa Tengah)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -5475,7 +5475,7 @@
   },
   {
     "id": "KPN",
-    "nama": "KEPANJEN (Jawa Timur)",
+    "nama": "Kepanjen (Jawa Timur)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -5489,7 +5489,7 @@
   },
   {
     "id": "151",
-    "nama": "BATANG (Jawa Tengah)",
+    "nama": "Batang (Jawa Tengah)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -5517,7 +5517,7 @@
   },
   {
     "id": "CRB",
-    "nama": "CARUBAN (Jawa Timur)",
+    "nama": "Caruban (Jawa Timur)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -5531,7 +5531,7 @@
   },
   {
     "id": "TTB_PRACIMANTORO",
-    "nama": "Pracimantoro Wonogiri (Jawa Tengah) TTB Pantauan",
+    "nama": "Pracimantoro Wonogiri (Jawa Tengah)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -5573,7 +5573,7 @@
   },
   {
     "id": "LBP",
-    "nama": "LUBUKPAKAM (Sumatera Utara)",
+    "nama": "Lubukpakam (Sumatera Utara)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -5587,7 +5587,7 @@
   },
   {
     "id": "MBM",
-    "nama": "MAMBANGMUDA (Sumatera Utara)",
+    "nama": "Mambangmuda (Sumatera Utara)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -5615,7 +5615,7 @@
   },
   {
     "id": "KA",
-    "nama": "KARANGANYAR (Jawa Tengah)",
+    "nama": "Karanganyar (Jawa Tengah)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -5629,7 +5629,7 @@
   },
   {
     "id": "PGB",
-    "nama": "PEGADENBARU (Jawa Barat)",
+    "nama": "Pegadenbaru (Jawa Barat)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -5657,7 +5657,7 @@
   },
   {
     "id": "31",
-    "nama": "Samarinda Seberang (Kalimantan Timur) TTA Pantauan",
+    "nama": "Samarinda Seberang (Kalimantan Timur)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -5671,7 +5671,7 @@
   },
   {
     "id": "TTB_SUNGAI_KUNJANG",
-    "nama": "Sungai Kunjang (Kalimantan Timur) TTB Pantauan",
+    "nama": "Sungai Kunjang (Kalimantan Timur)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -5699,7 +5699,7 @@
   },
   {
     "id": "1462",
-    "nama": "Tegalgede (Jawa Tengah) TTB Pantauan",
+    "nama": "Tegalgede (Jawa Tengah)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -5713,7 +5713,7 @@
   },
   {
     "id": "PRA",
-    "nama": "PERLANAAN (Sumatera Utara)",
+    "nama": "Perlanaan (Sumatera Utara)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -5741,7 +5741,7 @@
   },
   {
     "id": "YK",
-    "nama": "Jombor (D.I Yogyakarta) TTB Pantauan",
+    "nama": "Jombor (D.I Yogyakarta)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -5755,7 +5755,7 @@
   },
   {
     "id": "TTB_KARTOSURO",
-    "nama": "Kartosuro (Jawa Tengah) TTB Pantauan",
+    "nama": "Kartosuro (Jawa Tengah)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -5769,7 +5769,7 @@
   },
   {
     "id": "LGS",
-    "nama": "Langsa (D.I Aceh) TTA Pantauan",
+    "nama": "Langsa (D.I Aceh)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -5839,7 +5839,7 @@
   },
   {
     "id": "TTB_LEMPAKE",
-    "nama": "Lempake (Kalimantan Timur) TTB Pantauan",
+    "nama": "Lempake (Kalimantan Timur)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -5853,7 +5853,7 @@
   },
   {
     "id": "B220",
-    "nama": "MAGETAN (Jawa Timur)",
+    "nama": "Magetan (Jawa Timur)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -5895,7 +5895,7 @@
   },
   {
     "id": "KBR",
-    "nama": "KALIBARU (Jawa Timur)",
+    "nama": "Kalibaru (Jawa Timur)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -5909,7 +5909,7 @@
   },
   {
     "id": "KJO",
-    "nama": "Kiliran Jao (Sumatera Barat) TTA Pantauan",
+    "nama": "Kiliran Jao (Sumatera Barat)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -5923,7 +5923,7 @@
   },
   {
     "id": "BBK",
-    "nama": "BABAKAN (Jawa Barat)",
+    "nama": "Babakan (Jawa Barat)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -6007,7 +6007,7 @@
   },
   {
     "id": "MTR",
-    "nama": "Madya Tarutung (Sumatera Utara) TTA Pantauan",
+    "nama": "Madya Tarutung (Sumatera Utara)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -6035,7 +6035,7 @@
   },
   {
     "id": "PPK",
-    "nama": "PRUPUK (Jawa Tengah)",
+    "nama": "Prupuk (Jawa Tengah)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -6133,7 +6133,7 @@
   },
   {
     "id": "TTB_BATURETNO",
-    "nama": "Baturetno (Jawa Tengah) TTB Pantauan",
+    "nama": "Baturetno (Jawa Tengah)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -6147,7 +6147,7 @@
   },
   {
     "id": "BKN",
-    "nama": "Batu Kuning (Sumatera Selatan) TTA Pantauan",
+    "nama": "Batu Kuning (Sumatera Selatan)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -6161,7 +6161,7 @@
   },
   {
     "id": "BOO",
-    "nama": "Leuwiliang Bogor (Jawa Barat) TTB Pantauan",
+    "nama": "Leuwiliang Bogor (Jawa Barat)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -6301,7 +6301,7 @@
   },
   {
     "id": "KAG",
-    "nama": "Kayuagung (Sumatera Selatan) TTA Pantauan",
+    "nama": "Kayuagung (Sumatera Selatan)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -6315,7 +6315,7 @@
   },
   {
     "id": "TI",
-    "nama": "TEBING TINGGI (Sumatera Selatan)",
+    "nama": "Tebing Tinggi (Sumatera Selatan)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -6343,7 +6343,7 @@
   },
   {
     "id": "WAY",
-    "nama": "WAYTUBA (Lampung)",
+    "nama": "Waytuba (Lampung)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -6357,7 +6357,7 @@
   },
   {
     "id": "WK",
-    "nama": "WALIKUKUN (Jawa Timur)",
+    "nama": "Walikukun (Jawa Timur)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -6371,7 +6371,7 @@
   },
   {
     "id": "3419",
-    "nama": "Air Sebakul (Bengkulu) TTA Pantauan",
+    "nama": "Air Sebakul (Bengkulu)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -6399,7 +6399,7 @@
   },
   {
     "id": "TTB_SIDO_MULYO",
-    "nama": "Sido Mulyo (Kalimantan Barat) TTB Pantauan",
+    "nama": "Sido Mulyo (Kalimantan Barat)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -6427,7 +6427,7 @@
   },
   {
     "id": "WR",
-    "nama": "WARU (Jawa Timur)",
+    "nama": "Waru (Jawa Timur)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -6483,7 +6483,7 @@
   },
   {
     "id": "PPW",
-    "nama": "Petta Pongawai (Sulawesi Selatan) TTA Pantauan",
+    "nama": "Petta Pongawai (Sulawesi Selatan)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -6497,7 +6497,7 @@
   },
   {
     "id": "SPH",
-    "nama": "SUMPIUH (Jawa Tengah)",
+    "nama": "Sumpiuh (Jawa Tengah)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -6539,7 +6539,7 @@
   },
   {
     "id": "KLT",
-    "nama": "KALISAT (Jawa Timur)",
+    "nama": "Kalisat (Jawa Timur)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -6553,7 +6553,7 @@
   },
   {
     "id": "BMK",
-    "nama": "Bimoku (Nusa Tenggara Timur) TTA Pantauan",
+    "nama": "Bimoku (Nusa Tenggara Timur)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -6581,7 +6581,7 @@
   },
   {
     "id": "TGR",
-    "nama": "TEMUGURUH (Jawa Timur)",
+    "nama": "Temuguruh (Jawa Timur)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -6595,7 +6595,7 @@
   },
   {
     "id": "BTH",
-    "nama": "Batoh (D.I Aceh) TTA Pantauan",
+    "nama": "Batoh (D.I Aceh)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -6609,7 +6609,7 @@
   },
   {
     "id": "B203",
-    "nama": "TANJUNG (Jawa Tengah)",
+    "nama": "Tanjung (Jawa Tengah)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -6651,7 +6651,7 @@
   },
   {
     "id": "JRL",
-    "nama": "JERUKLEGI (Jawa Tengah)",
+    "nama": "Jeruklegi (Jawa Tengah)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -6665,7 +6665,7 @@
   },
   {
     "id": "WG",
-    "nama": "WLINGI (Jawa Timur)",
+    "nama": "Wlingi (Jawa Timur)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -6693,7 +6693,7 @@
   },
   {
     "id": "3515",
-    "nama": "SEI BEJANGKAR (Sumatera Utara)",
+    "nama": "Sei Bejangkar (Sumatera Utara)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -6749,7 +6749,7 @@
   },
   {
     "id": "CLD",
-    "nama": "CILEDUG (Jawa Barat)",
+    "nama": "Ciledug (Jawa Barat)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -6791,7 +6791,7 @@
   },
   {
     "id": "PPR",
-    "nama": "PAPAR (Jawa Timur)",
+    "nama": "Papar (Jawa Timur)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -6805,7 +6805,7 @@
   },
   {
     "id": "TAN",
-    "nama": "TANETE RILAU (Sulawesi Selatan)",
+    "nama": "Tanete Rilau (Sulawesi Selatan)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -6833,7 +6833,7 @@
   },
   {
     "id": "TTB_DRS_PRAYITNO",
-    "nama": "Drs. Prayitno (Jawa Tengah) TTB Pantauan",
+    "nama": "Drs. Prayitno (Jawa Tengah)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -6847,7 +6847,7 @@
   },
   {
     "id": "KGG",
-    "nama": "KETANGGUNGAN (Jawa Tengah)",
+    "nama": "Ketanggungan (Jawa Tengah)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -6931,7 +6931,7 @@
   },
   {
     "id": "1711",
-    "nama": "Dungingi (Gorontalo) TTA Pantauan",
+    "nama": "Dungingi (Gorontalo)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -6959,7 +6959,7 @@
   },
   {
     "id": "KSW",
-    "nama": "Kasintuwu (Sulawesi Tengah) TTA Pantauan",
+    "nama": "Kasintuwu (Sulawesi Tengah)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -6973,7 +6973,7 @@
   },
   {
     "id": "CPD",
-    "nama": "CIPEUNDEUY (Jawa Barat)",
+    "nama": "Cipeundeuy (Jawa Barat)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -7001,7 +7001,7 @@
   },
   {
     "id": "548",
-    "nama": "Bontang (Kalimantan Timur) TTB Pantauan",
+    "nama": "Bontang (Kalimantan Timur)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -7015,7 +7015,7 @@
   },
   {
     "id": "GD",
-    "nama": "GUNDIH (Jawa Tengah)",
+    "nama": "Gundih (Jawa Tengah)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -7043,7 +7043,7 @@
   },
   {
     "id": "TTB_KEDAMIN",
-    "nama": "Kedamin (Kalimantan Barat) TTB Pantauan",
+    "nama": "Kedamin (Kalimantan Barat)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -7057,7 +7057,7 @@
   },
   {
     "id": "TLY",
-    "nama": "TULUNG BUYUT (Lampung)",
+    "nama": "Tulung Buyut (Lampung)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -7169,7 +7169,7 @@
   },
   {
     "id": "BKI",
-    "nama": "BEKRI (Lampung)",
+    "nama": "Bekri (Lampung)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -7183,7 +7183,7 @@
   },
   {
     "id": "LW",
-    "nama": "LAWANG (Jawa Timur)",
+    "nama": "Lawang (Jawa Timur)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -7211,7 +7211,7 @@
   },
   {
     "id": "B254",
-    "nama": "Sintang (Kalimantan Barat) TTB Pantauan",
+    "nama": "Sintang (Kalimantan Barat)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -7239,7 +7239,7 @@
   },
   {
     "id": "LMP",
-    "nama": "LIMAPULUH (Sumatera Utara)",
+    "nama": "Limapuluh (Sumatera Utara)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -7253,7 +7253,7 @@
   },
   {
     "id": "TGI",
-    "nama": "TEGINENENG (Lampung)",
+    "nama": "Tegineneng (Lampung)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -7267,7 +7267,7 @@
   },
   {
     "id": "MBU",
-    "nama": "MARBAU (Sumatera Utara)",
+    "nama": "Marbau (Sumatera Utara)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -7309,7 +7309,7 @@
   },
   {
     "id": "ETR",
-    "nama": "Entrop (Papua) TTA Pantauan",
+    "nama": "Entrop (Papua)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -7323,7 +7323,7 @@
   },
   {
     "id": "MGU",
-    "nama": "MANGILU (Sulawesi Selatan)",
+    "nama": "Mangilu (Sulawesi Selatan)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -7351,7 +7351,7 @@
   },
   {
     "id": "NGN",
-    "nama": "NEGERIAGUNG (Lampung)",
+    "nama": "Negeriagung (Lampung)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -7365,7 +7365,7 @@
   },
   {
     "id": "BAR",
-    "nama": "BARRU (Sulawesi Selatan)",
+    "nama": "Barru (Sulawesi Selatan)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -7379,7 +7379,7 @@
   },
   {
     "id": "PUW",
-    "nama": "Puuwatu (Sulawesi Tenggara) TTA Pantauan",
+    "nama": "Puuwatu (Sulawesi Tenggara)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -7421,7 +7421,7 @@
   },
   {
     "id": "PDL",
-    "nama": "PADALARANG (Jawa Barat)",
+    "nama": "Padalarang (Jawa Barat)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -7435,7 +7435,7 @@
   },
   {
     "id": "SBG",
-    "nama": "Sibolga (Sumatera Utara) TTA Pantauan",
+    "nama": "Sibolga (Sumatera Utara)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -7449,7 +7449,7 @@
   },
   {
     "id": "PNW",
-    "nama": "PENINJAWAN (Sumatera Selatan)",
+    "nama": "Peninjawan (Sumatera Selatan)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -7519,7 +7519,7 @@
   },
   {
     "id": "801",
-    "nama": "Indramayu (Jawa Barat) TTB Pantauan",
+    "nama": "Indramayu (Jawa Barat)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -7547,7 +7547,7 @@
   },
   {
     "id": "BDT",
-    "nama": "BANDARTINGGI (Sumatera Utara)",
+    "nama": "Bandartinggi (Sumatera Utara)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -7603,7 +7603,7 @@
   },
   {
     "id": "151",
-    "nama": "BATANGKUIS (Sumatera Utara)",
+    "nama": "Batangkuis (Sumatera Utara)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -7645,7 +7645,7 @@
   },
   {
     "id": "PBA",
-    "nama": "PERBAUNGAN (Sumatera Utara)",
+    "nama": "Perbaungan (Sumatera Utara)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -7673,7 +7673,7 @@
   },
   {
     "id": "KTP",
-    "nama": "KETAPANG (Lampung)",
+    "nama": "Ketapang (Lampung)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -7701,7 +7701,7 @@
   },
   {
     "id": "SLS",
-    "nama": "SULUSUBAN (Lampung)",
+    "nama": "Sulusuban (Lampung)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -7757,7 +7757,7 @@
   },
   {
     "id": "RJS",
-    "nama": "REJOSARI (Lampung)",
+    "nama": "Rejosari (Lampung)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -7785,7 +7785,7 @@
   },
   {
     "id": "TTB_GINTE",
-    "nama": "Ginte (Nusa Tenggara Barat) TTB Pantauan",
+    "nama": "Ginte (Nusa Tenggara Barat)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -7827,7 +7827,7 @@
   },
   {
     "id": "KA",
-    "nama": "Tawangmangu Karanganyar (Jawa Tengah) TTB Pantauan",
+    "nama": "Tawangmangu Karanganyar (Jawa Tengah)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -7883,7 +7883,7 @@
   },
   {
     "id": "PUR",
-    "nama": "PULURAJA (Sumatera Utara)",
+    "nama": "Puluraja (Sumatera Utara)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -7925,7 +7925,7 @@
   },
   {
     "id": "RPH",
-    "nama": "RAMPAH (Sumatera Utara)",
+    "nama": "Rampah (Sumatera Utara)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -7953,7 +7953,7 @@
   },
   {
     "id": "TTB_PURWANTORO",
-    "nama": "Purwantoro (Jawa Tengah) TTB Pantauan",
+    "nama": "Purwantoro (Jawa Tengah)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -7967,7 +7967,7 @@
   },
   {
     "id": "NT",
-    "nama": "NGUNUT (Jawa Timur)",
+    "nama": "Ngunut (Jawa Timur)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -8191,7 +8191,7 @@
   },
   {
     "id": "1711",
-    "nama": "Limboto (Gorontalo) TTB Pantauan",
+    "nama": "Limboto (Gorontalo)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -8205,7 +8205,7 @@
   },
   {
     "id": "NRR",
-    "nama": "NEGARA RATU (Lampung)",
+    "nama": "Negara Ratu (Lampung)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -8261,7 +8261,7 @@
   },
   {
     "id": "SLM",
-    "nama": "SALEM (Jawa Tengah)",
+    "nama": "Salem (Jawa Tengah)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -8275,7 +8275,7 @@
   },
   {
     "id": "TW",
-    "nama": "TELAWA (Jawa Tengah)",
+    "nama": "Telawa (Jawa Tengah)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -8289,7 +8289,7 @@
   },
   {
     "id": "B383",
-    "nama": "Timbau (Kalimantan Timur) TTB Pantauan",
+    "nama": "Timbau (Kalimantan Timur)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -8303,7 +8303,7 @@
   },
   {
     "id": "RCK",
-    "nama": "RANCAEKEK (Jawa Barat)",
+    "nama": "Rancaekek (Jawa Barat)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -8317,7 +8317,7 @@
   },
   {
     "id": "PKJ",
-    "nama": "PANGKAJENE (Sulawesi Selatan)",
+    "nama": "Pangkajene (Sulawesi Selatan)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -8331,7 +8331,7 @@
   },
   {
     "id": "B376",
-    "nama": "Sambas (Kalimantan Barat) TTB Pantauan",
+    "nama": "Sambas (Kalimantan Barat)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -8415,7 +8415,7 @@
   },
   {
     "id": "JTI",
-    "nama": "Induk Mulyojati (Lampung) TTB Pantauan",
+    "nama": "Induk Mulyojati (Lampung)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -8513,7 +8513,7 @@
   },
   {
     "id": "PHA",
-    "nama": "PADANGHALABAN (Sumatera Utara)",
+    "nama": "Padanghalaban (Sumatera Utara)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -8527,7 +8527,7 @@
   },
   {
     "id": "SPP",
-    "nama": "Simpang Priuk (Sumatera Selatan) TTA Pantauan",
+    "nama": "Simpang Priuk (Sumatera Selatan)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -8541,7 +8541,7 @@
   },
   {
     "id": "JTI",
-    "nama": "Jati Pariaman (Sumatera Barat) TTA Pantauan",
+    "nama": "Jati Pariaman (Sumatera Barat)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -8555,7 +8555,7 @@
   },
   {
     "id": "PYI",
-    "nama": "Paya Ilang (D.I Aceh) TTA Pantauan",
+    "nama": "Paya Ilang (D.I Aceh)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -8611,7 +8611,7 @@
   },
   {
     "id": "CLD",
-    "nama": "Ciledug (Jawa Barat) TTB Pantauan",
+    "nama": "Ciledug (Jawa Barat)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -8639,7 +8639,7 @@
   },
   {
     "id": "KTA",
-    "nama": "Kutoarjo (TTB) (Jawa Tengah) TTB Pantauan",
+    "nama": "Kutoarjo (TTB) (Jawa Tengah)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -8653,7 +8653,7 @@
   },
   {
     "id": "ARB",
-    "nama": "ARASKABU (Sumatera Utara)",
+    "nama": "Araskabu (Sumatera Utara)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -8667,7 +8667,7 @@
   },
   {
     "id": "PYK",
-    "nama": "PAYAKABUNG (Sumatera Selatan)",
+    "nama": "Payakabung (Sumatera Selatan)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -8681,7 +8681,7 @@
   },
   {
     "id": "TTB_SUMBER",
-    "nama": "Sumber (Jawa Barat) TTB Pantauan",
+    "nama": "Sumber (Jawa Barat)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -8709,7 +8709,7 @@
   },
   {
     "id": "LT",
-    "nama": "Regional Lahat (Batay) (Sumatera Selatan) TTA Pantauan",
+    "nama": "Regional Lahat (Batay) (Sumatera Selatan)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -8779,7 +8779,7 @@
   },
   {
     "id": "B347",
-    "nama": "Ledeng (Jawa Barat) TTB Pantauan",
+    "nama": "Ledeng (Jawa Barat)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -8835,7 +8835,7 @@
   },
   {
     "id": "TIS",
-    "nama": "TERISI (Jawa Barat)",
+    "nama": "Terisi (Jawa Barat)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -8891,7 +8891,7 @@
   },
   {
     "id": "JTI",
-    "nama": "KEDUNGJATI (Jawa Tengah)",
+    "nama": "Kedungjati (Jawa Tengah)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -8919,7 +8919,7 @@
   },
   {
     "id": "4202",
-    "nama": "KM 32 Indralaya (Sumatera Selatan) TTB Pantauan",
+    "nama": "KM 32 Indralaya (Sumatera Selatan)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -8961,7 +8961,7 @@
   },
   {
     "id": "MRS",
-    "nama": "MAROS (Sulawesi Selatan)",
+    "nama": "Maros (Sulawesi Selatan)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -9087,7 +9087,7 @@
   },
   {
     "id": "TTB_RENTENG",
-    "nama": "Renteng (Nusa Tenggara Barat) TTB Pantauan",
+    "nama": "Renteng (Nusa Tenggara Barat)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -9129,7 +9129,7 @@
   },
   {
     "id": "TTB_BONDOWOSO",
-    "nama": "Bondowoso (Jawa Timur) TTB Pantauan",
+    "nama": "Bondowoso (Jawa Timur)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -9185,7 +9185,7 @@
   },
   {
     "id": "SB",
-    "nama": "SURABAYA KOTA (Jawa Timur)",
+    "nama": "Surabaya Kota (Jawa Timur)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -9241,7 +9241,7 @@
   },
   {
     "id": "TTB_GAGAK_RIMANG",
-    "nama": "Gagak Rimang (Jawa Tengah) TTB Pantauan",
+    "nama": "Gagak Rimang (Jawa Tengah)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -9353,7 +9353,7 @@
   },
   {
     "id": "KBS",
-    "nama": "KEBASEN (Jawa Tengah)",
+    "nama": "Kebasen (Jawa Tengah)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -9395,7 +9395,7 @@
   },
   {
     "id": "3296",
-    "nama": "BRUMBUNG (Jawa Tengah)",
+    "nama": "Brumbung (Jawa Tengah)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -9521,7 +9521,7 @@
   },
   {
     "id": "LKK",
-    "nama": "LABAKKANG (Sulawesi Selatan)",
+    "nama": "Labakkang (Sulawesi Selatan)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -9535,7 +9535,7 @@
   },
   {
     "id": "LOS",
-    "nama": "LOSARI (Jawa Barat)",
+    "nama": "Losari (Jawa Barat)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -9549,7 +9549,7 @@
   },
   {
     "id": "TTB_ARJASA",
-    "nama": "Arjasa (Jawa Timur) TTB Pantauan",
+    "nama": "Arjasa (Jawa Timur)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -9563,7 +9563,7 @@
   },
   {
     "id": "HJP",
-    "nama": "HAJI PEMANGGILAN (Lampung)",
+    "nama": "Haji Pemanggilan (Lampung)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -9703,7 +9703,7 @@
   },
   {
     "id": "TTB_NATAI_SUKA",
-    "nama": "Natai Suka (Kalimantan Tengah) TTB Pantauan",
+    "nama": "Natai Suka (Kalimantan Tengah)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -9759,7 +9759,7 @@
   },
   {
     "id": "PME",
-    "nama": "PAMINGKE (Sumatera Utara)",
+    "nama": "Pamingke (Sumatera Utara)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -9773,7 +9773,7 @@
   },
   {
     "id": "SBP",
-    "nama": "SUMBERPUCUNG (Jawa Timur)",
+    "nama": "Sumberpucung (Jawa Timur)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -9801,7 +9801,7 @@
   },
   {
     "id": "RMG",
-    "nama": "RAMMANG RAMMANG (Sulawesi Selatan)",
+    "nama": "Rammang Rammang (Sulawesi Selatan)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -9843,7 +9843,7 @@
   },
   {
     "id": "GBN",
-    "nama": "GAMBRINGAN (Jawa Tengah)",
+    "nama": "Gambringan (Jawa Tengah)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -9885,7 +9885,7 @@
   },
   {
     "id": "KSB",
-    "nama": "KESAMBEN (Jawa Timur)",
+    "nama": "Kesamben (Jawa Timur)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -9955,7 +9955,7 @@
   },
   {
     "id": "B811",
-    "nama": "Purwodadi (Jawa Tengah) TTB Pantauan",
+    "nama": "Purwodadi (Jawa Tengah)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -9983,7 +9983,7 @@
   },
   {
     "id": "TTB_NGADIRAJO",
-    "nama": "Ngadirajo (Jawa Timur) TTB Pantauan",
+    "nama": "Ngadirajo (Jawa Timur)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -10109,7 +10109,7 @@
   },
   {
     "id": "MDL",
-    "nama": "MANDALLE (Sulawesi Selatan)",
+    "nama": "Mandalle (Sulawesi Selatan)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -10333,7 +10333,7 @@
   },
   {
     "id": "LDT",
-    "nama": "LIDAHTANAH (Sumatera Utara)",
+    "nama": "Lidahtanah (Sumatera Utara)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -10375,7 +10375,7 @@
   },
   {
     "id": "CKR",
-    "nama": "Cikarang (Jawa Barat) TTB Pantauan",
+    "nama": "Cikarang (Jawa Barat)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -10389,7 +10389,7 @@
   },
   {
     "id": "TKE",
-    "nama": "TELUK MENGKUDU (Sumatera Utara)",
+    "nama": "Teluk Mengkudu (Sumatera Utara)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -10445,7 +10445,7 @@
   },
   {
     "id": "MRG",
-    "nama": "MA RANG (Sulawesi Selatan)",
+    "nama": "Ma Rang (Sulawesi Selatan)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -10543,7 +10543,7 @@
   },
   {
     "id": "4202",
-    "nama": "Cappabungayya (Sulawesi Selatan) TTB Pantauan",
+    "nama": "Cappabungayya (Sulawesi Selatan)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -10557,7 +10557,7 @@
   },
   {
     "id": "939",
-    "nama": "Palabuhanratu (Jawa Barat) TTB Pantauan",
+    "nama": "Palabuhanratu (Jawa Barat)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -10571,7 +10571,7 @@
   },
   {
     "id": "TTB_AMBULU",
-    "nama": "Ambulu (Jawa Timur) TTB Pantauan",
+    "nama": "Ambulu (Jawa Timur)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -10599,7 +10599,7 @@
   },
   {
     "id": "YK",
-    "nama": "Wates (D.I Yogyakarta) TTB Pantauan",
+    "nama": "Wates (D.I Yogyakarta)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -10613,7 +10613,7 @@
   },
   {
     "id": "387",
-    "nama": "KOTA PADANG (Bengkulu)",
+    "nama": "Kota Padang (Bengkulu)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -10837,7 +10837,7 @@
   },
   {
     "id": "BGM",
-    "nama": "BUNGAMAS (Sumatera Selatan)",
+    "nama": "Bungamas (Sumatera Selatan)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -10949,7 +10949,7 @@
   },
   {
     "id": "AAI",
-    "nama": "Anak Air (Sumatera Barat) TTA Pantauan",
+    "nama": "Anak Air (Sumatera Barat)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -11215,7 +11215,7 @@
   },
   {
     "id": "NGG",
-    "nama": "Sanggu (Kalimantan Tengah) TTB Pantauan",
+    "nama": "Sanggu (Kalimantan Tengah)",
     "moda": "Angkutan Jalan",
     "moda_label": "Angkutan Jalan",
     "color": "#16A34A",
@@ -12363,7 +12363,7 @@
   },
   {
     "id": "WJ",
-    "nama": "WOJO (Jawa Tengah)",
+    "nama": "Wojo (Jawa Tengah)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",
@@ -12601,7 +12601,7 @@
   },
   {
     "id": "GHM",
-    "nama": "GIHAM (Lampung)",
+    "nama": "Giham (Lampung)",
     "moda": "Kereta Api",
     "moda_label": "Kereta Api",
     "color": "#EA580C",

@@ -22,6 +22,7 @@ import os
 import sys
 import io
 import json
+import re
 import datetime
 import pandas as pd
 import numpy as np
@@ -106,6 +107,41 @@ def sanitize_json(obj):
     elif isinstance(obj, np.ndarray):
         return [sanitize_json(v) for v in obj.tolist()]
     return obj
+
+def clean_simpul_name(nama, moda):
+    """
+    Standarisasi nama simpul agar bersih, rapi, dan konsisten antar-moda:
+    1. Menghilangkan akhiran raw administrasi seperti 'TTA Pantauan' / 'TTB Pantauan'.
+    2. Menjadikan nama stasiun kereta api yang tadinya kapital semua menjadi Title Case.
+    """
+    nama = str(nama).strip()
+    # Bersihkan tag TTA / TTB Pantauan pada terminal bus
+    nama = re.sub(r'\s+(TTA|TTB)\s+Pantauan\b', '', nama, flags=re.IGNORECASE)
+    nama = re.sub(r'\s+Pantauan\b', '', nama, flags=re.IGNORECASE)
+
+    # Standarisasi stasiun Kereta Api dari ALL CAPS ke Title Case
+    if moda == 'Kereta Api':
+        m = re.match(r'^(.*?)\s*(\(.*?\))?$', nama)
+        if m:
+            stn = m.group(1).strip()
+            prov = m.group(2) if m.group(2) else ""
+            words = stn.split()
+            clean_words = []
+            for w in words:
+                w_upper = w.upper()
+                if w_upper in ['KCJB', 'KA', 'KRL', 'LRT', 'MRT']:
+                    clean_words.append(w_upper)
+                elif '-' in w:
+                    subparts = [p.capitalize() if p.upper() not in ['KCJB', 'KA', 'KRL', 'LRT', 'MRT'] else p.upper() for p in w.split('-')]
+                    clean_words.append('-'.join(subparts))
+                else:
+                    clean_words.append(w.capitalize())
+            stn_clean = ' '.join(clean_words)
+            if stn_clean.lower() == 'pasarsenen':
+                stn_clean = 'Pasar Senen'
+            nama = f"{stn_clean} {prov}".strip()
+
+    return nama
 
 def build_data_pipeline():
     print("=" * 70)
@@ -225,7 +261,7 @@ def build_data_pipeline():
         for idx, r in sub.iterrows():
             records_all.append({
                 'peringkat_moda': idx + 1,
-                'nama': str(r['Nama_Simpul']).strip(),
+                'nama': clean_simpul_name(r['Nama_Simpul'], m),
                 'kategori': str(r['Kategori']).strip(),
                 'realisasi_2025': clean_val(r['Realisasi_2025']),
                 'proyeksi_2026': clean_val(r['Proyeksi_2026_2027']),
@@ -348,7 +384,7 @@ def build_data_pipeline():
             matched_count += 1
             spatial_nodes_list.append({
                 'id': coord_info.get('id', f"N{rank_nasional+1}"),
-                'nama': s_nama,
+                'nama': clean_simpul_name(s_nama, s_moda),
                 'moda': s_moda,
                 'moda_label': MODA_DISPLAY.get(s_moda, {}).get('label', s_moda),
                 'color': MODA_DISPLAY.get(s_moda, {}).get('color', '#003882'),
