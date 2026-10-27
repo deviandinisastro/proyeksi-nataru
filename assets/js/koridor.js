@@ -178,7 +178,7 @@ function renderTolChart(tolData) {
       color: '#0284C7',
       line: { color: '#0369A1', width: 1 }
     },
-    hovertemplate: '<b>%{x}</b><br>Keluar (Mudik): %{y:,.0f} Kendaraan<extra></extra>'
+    hovertemplate: '<b>%{x}</b><br><span style="color:#ffffff;">Keluar (Mudik): %{y:,.0f} Kendaraan</span><extra></extra>'
   };
 
   const traceMasuk = {
@@ -190,7 +190,7 @@ function renderTolChart(tolData) {
       color: '#003882',
       line: { color: '#002554', width: 1 }
     },
-    hovertemplate: '<b>%{x}</b><br>Masuk (Balik): %{y:,.0f} Kendaraan<extra></extra>'
+    hovertemplate: '<b>%{x}</b><br><span style="color:#ffffff;">Masuk (Balik): %{y:,.0f} Kendaraan</span><extra></extra>'
   };
 
   const layout = {
@@ -205,6 +205,11 @@ function renderTolChart(tolData) {
       family: 'Plus Jakarta Sans, sans-serif',
       size: 11,
       color: isDark ? '#94A3B8' : '#475569'
+    },
+    hoverlabel: {
+      bgcolor: '#0F172A',
+      bordercolor: '#334155',
+      font: { family: 'Plus Jakarta Sans', size: 11, color: '#FFFFFF' }
     },
     legend: {
       orientation: 'h',
@@ -281,9 +286,15 @@ function renderAsdpChart(asdpData) {
   const isDark = document.documentElement.classList.contains('dark');
 
   const names = asdpData.map(d => {
-    if (d.lintas.includes('Merak')) return 'Merak - Bakauheni<br><span style="font-size:10px;color:#64748b;">(Selat Sunda)</span>';
-    if (d.lintas.includes('Ketapang')) return 'Ketapang - Gilimanuk<br><span style="font-size:10px;color:#64748b;">(Selat Bali)</span>';
-    return 'Ciwandan & BBJ<br><span style="font-size:10px;color:#64748b;">(Kontinjensi Truk)</span>';
+    if (d.lintas.includes('Merak')) return 'Merak - Bakauheni<br><span style="font-size:10px;opacity:0.8;">(Selat Sunda)</span>';
+    if (d.lintas.includes('Ketapang')) return 'Ketapang - Gilimanuk<br><span style="font-size:10px;opacity:0.8;">(Selat Bali)</span>';
+    return 'Ciwandan & BBJ<br><span style="font-size:10px;opacity:0.8;">(Kontinjensi Truk)</span>';
+  });
+
+  const cleanNames = asdpData.map(d => {
+    if (d.lintas.includes('Merak')) return 'Merak - Bakauheni (Selat Sunda)';
+    if (d.lintas.includes('Ketapang')) return 'Ketapang - Gilimanuk (Selat Bali)';
+    return 'Ciwandan & BBJ Bojonegara (Pelabuhan Pengalihan Truk)';
   });
 
   const motor = asdpData.map(d => d.proyeksi_motor_r2 || 0);
@@ -296,7 +307,8 @@ function renderAsdpChart(asdpData) {
     name: 'Mobil Pribadi (Roda 4)',
     type: 'bar',
     marker: { color: '#0284C7' },
-    hovertemplate: '<b>%{x}</b><br>Mobil Pribadi (R4): %{y:,.0f} Unit<extra></extra>'
+    customdata: cleanNames,
+    hovertemplate: '<b>%{customdata}</b><br><span style="color:#ffffff;">Mobil Pribadi (R4): %{y:,.0f} Unit</span><extra></extra>'
   };
 
   const traceR2 = {
@@ -305,7 +317,8 @@ function renderAsdpChart(asdpData) {
     name: 'Sepeda Motor (Roda 2)',
     type: 'bar',
     marker: { color: '#F59E0B' },
-    hovertemplate: '<b>%{x}</b><br>Sepeda Motor (R2): %{y:,.0f} Unit<extra></extra>'
+    customdata: cleanNames,
+    hovertemplate: '<b>%{customdata}</b><br><span style="color:#ffffff;">Sepeda Motor (R2): %{y:,.0f} Unit</span><extra></extra>'
   };
 
   const traceTruk = {
@@ -314,7 +327,8 @@ function renderAsdpChart(asdpData) {
     name: 'Truk Logistik (Sumbu 3+)',
     type: 'bar',
     marker: { color: '#7C3AED' },
-    hovertemplate: '<b>%{x}</b><br>Truk Logistik: %{y:,.0f} Unit<extra></extra>'
+    customdata: cleanNames,
+    hovertemplate: '<b>%{customdata}</b><br><span style="color:#ffffff;">Truk Logistik: %{y:,.0f} Unit</span><extra></extra>'
   };
 
   const layout = {
@@ -328,6 +342,11 @@ function renderAsdpChart(asdpData) {
       family: 'Plus Jakarta Sans, sans-serif',
       size: 11,
       color: isDark ? '#94A3B8' : '#475569'
+    },
+    hoverlabel: {
+      bgcolor: '#0F172A',
+      bordercolor: '#334155',
+      font: { family: 'Plus Jakarta Sans', size: 11, color: '#FFFFFF' }
     },
     legend: {
       orientation: 'h',
@@ -362,31 +381,51 @@ function renderAsdpTable(asdpData) {
   const tbody = document.getElementById('table-asdp-body');
   if (!tbody || !asdpData || asdpData.length === 0) return;
 
+  const karakteristikMap = {
+    'merak': {
+      label: 'Didominasi Mobil Pribadi (65%)',
+      badge: 'bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 border-blue-200 dark:border-blue-800'
+    },
+    'ketapang': {
+      label: 'Didominasi Wisatawan Mobil (45%) & Motor (35%)',
+      badge: 'bg-amber-50 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300 border-amber-200 dark:border-amber-800'
+    },
+    'ciwandan': {
+      label: 'Khusus Pengalihan Truk Logistik (85%)',
+      badge: 'bg-purple-50 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 border-purple-200 dark:border-purple-800'
+    }
+  };
+
   tbody.innerHTML = asdpData.map((row, idx) => {
+    let key = 'merak';
+    if (row.lintas.toLowerCase().includes('ketapang')) key = 'ketapang';
+    if (row.lintas.toLowerCase().includes('ciwandan')) key = 'ciwandan';
+    const info = karakteristikMap[key];
+
     return `
-      <tr class="border-b border-slate-100 dark:border-slate-800 hover:bg-slate-50/70 transition-colors">
+      <tr class="border-b border-slate-100 dark:border-slate-800 hover:bg-slate-50/70 dark:hover:bg-slate-800/50 transition-colors">
         <td class="py-2.5 px-3 text-center text-slate-400 font-semibold">${idx + 1}</td>
         <td class="py-2.5 px-3 font-bold text-slate-800 dark:text-slate-100">
           ${row.lintas}
         </td>
-        <td class="py-2.5 px-3 text-right font-medium text-slate-600 num-tabular">
+        <td class="py-2.5 px-3 text-right font-medium text-slate-600 dark:text-slate-300 num-tabular">
           ${formatNumber(row.realisasi_total_2025)}
         </td>
-        <td class="py-2.5 px-3 text-right font-extrabold text-purple-900 num-tabular">
+        <td class="py-2.5 px-3 text-right font-extrabold text-purple-900 dark:text-purple-300 num-tabular">
           ${formatNumber(row.proyeksi_total_2026)}
         </td>
-        <td class="py-2.5 px-3 text-right text-amber-700 font-semibold num-tabular">
+        <td class="py-2.5 px-3 text-right text-amber-700 dark:text-amber-400 font-semibold num-tabular">
           ${formatNumber(row.proyeksi_motor_r2)}
         </td>
-        <td class="py-2.5 px-3 text-right text-blue-700 font-bold num-tabular">
+        <td class="py-2.5 px-3 text-right text-blue-700 dark:text-sky-400 font-bold num-tabular">
           ${formatNumber(row.proyeksi_mobil_r4)}
         </td>
-        <td class="py-2.5 px-3 text-right text-purple-700 font-semibold num-tabular">
+        <td class="py-2.5 px-3 text-right text-purple-700 dark:text-purple-400 font-semibold num-tabular">
           ${formatNumber(row.proyeksi_truk_sumbu3)}
         </td>
-        <td class="py-2.5 px-3 text-slate-600 text-[11px]">
-          <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-slate-100 text-slate-700 border border-slate-200">
-            ${row.kebijakan_operasional || 'Buffer Zone & Pengalihan Truk'}
+        <td class="py-2.5 px-3 text-[11px]">
+          <span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-semibold border ${info.badge}">
+            ${info.label}
           </span>
         </td>
       </tr>
