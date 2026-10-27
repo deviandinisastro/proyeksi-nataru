@@ -25,12 +25,12 @@ const UNIFORM_RADIUS = 4.2; // Ukuran titik sama rata sesuai arahan statistisi r
 const INDONESIA_BOUNDS = [[-10.8, 95.0], [5.8, 141.0]]; // Batas koordinat seluruh kepulauan Indonesia
 
 const MAP_MODA_CONFIG = [
-  { key: 'ALL', label: 'Semua Moda (855)', color: '#003882', makro_total: 18462913 },
-  { key: 'Angkutan Udara', label: '✈️ Bandara (213)', color: '#0284C7', makro_total: 4880174 },
-  { key: 'Kereta Api', label: '🚆 Stasiun KA (183)', color: '#EA580C', makro_total: 4062995 },
-  { key: 'Angkutan Laut', label: '🚢 Pelabuhan Laut (201)', color: '#0D9488', makro_total: 2268857 },
-  { key: 'Angkutan Jalan', label: '🚌 Terminal Bus (134)', color: '#16A34A', makro_total: 3434854 },
-  { key: 'Angkutan SDP', label: '⛴️ Penyeberangan (124)', color: '#9333EA', makro_total: 3816033 }
+  { key: 'ALL', label: 'Semua Moda (855)', moda_name: 'Multimoda', color: '#003882', makro_total: 18462913 },
+  { key: 'Angkutan Udara', label: '✈️ Bandara (213)', moda_name: 'Angkutan Udara', color: '#0284C7', makro_total: 4880174 },
+  { key: 'Kereta Api', label: '🚆 Stasiun KA (183)', moda_name: 'Kereta Api', color: '#EA580C', makro_total: 4062995 },
+  { key: 'Angkutan Laut', label: '🚢 Pelabuhan Laut (201)', moda_name: 'Angkutan Laut', color: '#0D9488', makro_total: 2268857 },
+  { key: 'Angkutan Jalan', label: '🚌 Terminal Bus (134)', moda_name: 'Angkutan Jalan', color: '#16A34A', makro_total: 3434854 },
+  { key: 'Angkutan SDP', label: '⛴️ Penyeberangan (124)', moda_name: 'Angkutan SDP', color: '#9333EA', makro_total: 3816033 }
 ];
 
 function renderMapModule() {
@@ -289,30 +289,33 @@ function refreshMapLayers() {
     ? allNodes
     : allNodes.filter(n => n.moda === currentMapModa);
 
-  // 1. Perbarui Info Teks di Atas Peta dengan Transparansi Cakupan Simpul vs Makro Nasional
+  // 1. Info Teks di Atas Peta: Menampilkan Angka Proyeksi Resmi Posko (100% Selaras dengan Modul Lain)
   const countEl = document.getElementById('gis-nodes-count');
   const volEl = document.getElementById('gis-nodes-volume');
-  let totalVol = 0;
-  filteredNodes.forEach(n => totalVol += (n.proyeksi_2026 || 0));
 
   const currentModaCfg = MAP_MODA_CONFIG.find(m => m.key === currentMapModa) || MAP_MODA_CONFIG[0];
-  const makroRef = currentModaCfg.makro_total || 18462913;
-  const coveragePct = ((totalVol / makroRef) * 100).toFixed(1);
+  const officialProj = currentModaCfg.makro_total || 18462913;
 
   if (countEl) {
     if (currentMapModa === 'ALL') {
-      countEl.innerText = `${filteredNodes.length} Simpul Terpetakan (dari 909 Simpul Direktori)`;
+      countEl.innerText = `${filteredNodes.length} Simpul Multimoda Terpetakan`;
     } else {
-      countEl.innerText = `${filteredNodes.length} Simpul ${currentModaCfg.label.split(' ')[1] || ''} Terpetakan`;
+      countEl.innerText = `${filteredNodes.length} Simpul ${currentModaCfg.moda_name} Terpetakan`;
     }
   }
 
   if (volEl) {
-    volEl.innerHTML = `
-      <span class="text-xs font-semibold text-slate-500 dark:text-slate-400 font-sans">Cakupan Simpul:</span>
-      <span class="text-gov-navy dark:text-sky-400 font-extrabold text-sm ml-1">${formatNumber(totalVol)} Orang</span>
-      <span class="text-[11px] text-slate-400 dark:text-slate-500 font-normal ml-1">(${coveragePct}% dari Makro ${formatNumber(makroRef)})</span>
-    `;
+    if (currentMapModa === 'ALL') {
+      volEl.innerHTML = `
+        <span class="text-xs font-semibold text-slate-500 dark:text-slate-400">Total Proyeksi Nasional:</span>
+        <span class="text-gov-navy dark:text-sky-400 font-extrabold text-sm ml-1.5">${formatNumber(officialProj)} Orang</span>
+      `;
+    } else {
+      volEl.innerHTML = `
+        <span class="text-xs font-semibold text-slate-500 dark:text-slate-400">Proyeksi ${currentModaCfg.moda_name}:</span>
+        <span class="text-gov-navy dark:text-sky-400 font-extrabold text-sm ml-1.5">${formatNumber(officialProj)} Orang</span>
+      `;
+    }
   }
 
   // 2. Render Lapisan Heatmap (Kepadatan Spasial Halus)
