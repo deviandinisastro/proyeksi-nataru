@@ -107,9 +107,9 @@
         <span class="sidebar-text">Peta Spasial Proyeksi</span>
       </a>
 
-      <a href="#koridor" data-tab="koridor" class="nav-item flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-xs font-semibold text-gov-muted" title="Aliran Koridor & Rute Utama (OD)">
-        <i data-lucide="git-fork" class="w-4 h-4 shrink-0 text-gov-muted"></i>
-        <span class="sidebar-text">Aliran Koridor & Rute (OD)</span>
+      <a href="#koridor" data-tab="koridor" class="nav-item flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-xs font-semibold text-gov-muted" title="Titik Kritis Gerbang Tol & Penyeberangan ASDP">
+        <i data-lucide="split" class="w-4 h-4 shrink-0 text-gov-muted"></i>
+        <span class="sidebar-text">Titik Kritis Tol & ASDP</span>
       </a>
 
       <a href="#metodologi" data-tab="metodologi" class="nav-item flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-xs font-semibold text-gov-muted" title="Matriks Indikator & Metodologi Model">
@@ -582,85 +582,103 @@
         </div>
       </section>
 
-      <!-- VIEW 5: ALIRAN KORIDOR & RUTE UTAMA (OD SANKEY) -->
+      <!-- VIEW 5: TITIK KRITIS GERBANG TOL & PENYEBERANGAN ASDP (SHEET 6 & 7) -->
       <section id="view-koridor" class="view-section hidden space-y-6">
-        <!-- Banner Konteks Koridor OD -->
+        <!-- Banner Konteks Titik Kritis Tol & ASDP -->
         <div class="p-4 bg-blue-50/70 border border-blue-200 rounded-xl flex items-start gap-3">
           <div class="w-8 h-8 rounded-lg bg-gov-navy text-white flex items-center justify-center shrink-0 mt-0.5">
-            <i data-lucide="git-fork" class="w-4 h-4"></i>
+            <i data-lucide="split" class="w-4 h-4"></i>
           </div>
           <div class="text-xs">
-            <h4 class="font-bold text-gov-navy mb-0.5">Dinamika Aliran Koridor Mobilitas & Matriks Asal–Tujuan (Origin–Destination)</h4>
+            <h4 class="font-bold text-gov-navy mb-0.5">Pemantauan Titik Kritis Gerbang Tol & Penyeberangan ASDP</h4>
             <p class="text-blue-900/80 leading-relaxed">
-              Pemetaan visual analitis aliran pergerakan penumpang dari 6 klaster wilayah asal (Origin) melalui 5 moda transportasi menuju 6 klaster wilayah tujuan (Destination) selama masa posko 18 hari Nataru 2026/2027 dengan total agregat konservasi aliran 18,46 juta penumpang.
+              Monitoring resmi Posko Nataru 2026/2027 untuk estimasi arus lalu lintas kendaraan di 4 Gerbang Tol Utama Akses Jabodetabek (Sheet 6) serta distribusi komposisi kendaraan pada 3 Lintas Penyeberangan Strategis ASDP (Sheet 7) berbasis data Pusdatin Kemenhub RI.
             </p>
           </div>
         </div>
 
-        <!-- 4 Kartu Ringkasan Koridor Utama -->
+        <!-- 4 Kartu Ringkasan KPI Titik Kritis -->
         <div id="koridor-kpi-cards" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           <!-- Diisi dinamis oleh koridor.js -->
         </div>
 
-        <!-- Diagram Sankey Interaktif -->
-        <div class="p-5 bg-white border border-gov-border rounded-xl shadow-xs">
-          <div class="flex flex-wrap items-center justify-between gap-3 mb-3 pb-3 border-b border-gov-border">
+        <!-- BAGIAN 1: ARUS 4 GERBANG TOL UTAMA JABODETABEK (SHEET 6) -->
+        <div class="p-5 bg-white border border-gov-border rounded-xl shadow-xs space-y-4">
+          <div class="flex flex-wrap items-center justify-between gap-3 pb-3 border-b border-gov-border">
             <div>
               <h3 class="text-sm font-bold text-gov-text flex items-center gap-2">
-                <i data-lucide="git-merge" class="w-4 h-4 text-gov-azure"></i>
-                Diagram Aliran Sankey: Asal (Origin) → Moda Transportasi → Tujuan (Destination)
+                <i data-lucide="split" class="w-4 h-4 text-gov-azure"></i>
+                Arus Lalu Lintas 4 Gerbang Tol Akses Utama Jabodetabek
               </h3>
-              <p class="text-[11px] text-gov-muted mt-0.5">Arahkan kursor (hover) pada node atau pita aliran untuk melihat volume penumpang dan klik-tahan untuk memindahkan posisi node.</p>
+              <p class="text-[11px] text-gov-muted mt-0.5">
+                Estimasi volume kendaraan Arus Mudik/Wisata (Keluar Jakarta) vs Arus Balik (Masuk Jakarta) berbasis model Damped Holt-Winters Gate Flow
+              </p>
             </div>
-            <span class="px-2.5 py-1 rounded text-[10px] font-bold bg-blue-50 text-gov-navy border border-blue-200">
-              Konservasi Aliran 18,46 Juta Penumpang
+            <span class="px-2.5 py-1 rounded text-[10px] font-bold bg-emerald-50 text-emerald-800 border border-emerald-200">
+              Pertumbuhan Nasional: +16,76%
             </span>
           </div>
-          <div id="chart-sankey-od" class="w-full"></div>
-        </div>
 
-        <!-- Tabel 8 Koridor Arus Mobilitas Utama -->
-        <div class="bg-white p-5 rounded-xl border border-gov-border shadow-xs">
-          <div class="flex flex-wrap items-center justify-between gap-3 mb-3 pb-3 border-b border-gov-border">
-            <div>
-              <h3 class="text-sm font-bold text-gov-text flex items-center gap-2">
-                <i data-lucide="list-ordered" class="w-4 h-4 text-gov-navy"></i>
-                Rekapitulasi 8 Koridor Arus Mobilitas Utama Nataru 2026/2027
-              </h3>
-              <p class="text-[11px] text-gov-muted mt-0.5">Karakteristik pergerakan, lintasan simpul kritis, dan estimasi beban pada masa puncak mudik serta balik</p>
-            </div>
+          <!-- Grafik Bar Chart Komparasi Tol -->
+          <div id="chart-tol-komparasi" class="w-full"></div>
 
-            <!-- Filter Kategori Koridor -->
-            <div class="inline-flex p-1 bg-slate-100 rounded-lg border border-slate-200">
-              <button id="btn-filter-koridor-semua" class="px-3.5 py-1.5 text-xs font-bold rounded-md bg-gov-navy text-white shadow-xs transition-all">
-                Semua Koridor
-              </button>
-              <button id="btn-filter-koridor-jawa" class="px-3.5 py-1.5 text-xs font-semibold rounded-md text-gov-muted hover:text-gov-text transition-all">
-                Trans Jawa
-              </button>
-              <button id="btn-filter-koridor-selat" class="px-3.5 py-1.5 text-xs font-semibold rounded-md text-gov-muted hover:text-gov-text transition-all">
-                Lintas Selat (ASDP)
-              </button>
-              <button id="btn-filter-koridor-udara-laut" class="px-3.5 py-1.5 text-xs font-semibold rounded-md text-gov-muted hover:text-gov-text transition-all">
-                Udara & Laut
-              </button>
-            </div>
-          </div>
-
-          <div class="overflow-x-auto">
+          <!-- Tabel Rinci Gerbang Tol (Sheet 6) -->
+          <div class="overflow-x-auto pt-2">
             <table class="w-full text-left text-xs border-collapse">
               <thead>
                 <tr class="text-[10px] uppercase font-bold text-slate-500 border-b border-slate-200 bg-slate-50">
                   <th class="py-2.5 px-3 text-center">No</th>
-                  <th class="py-2.5 px-3">Koridor Mobilitas & Lintasan</th>
-                  <th class="py-2.5 px-3 text-right">Volume Proyeksi</th>
-                  <th class="py-2.5 px-3">Moda Transportasi Utama</th>
-                  <th class="py-2.5 px-3">Pola Puncak</th>
-                  <th class="py-2.5 px-3 text-center">Rasio Lonjakan</th>
-                  <th class="py-2.5 px-3">Karakteristik Koridor</th>
+                  <th class="py-2.5 px-3">Gerbang Tol & Koridor Lintasan</th>
+                  <th class="py-2.5 px-3">Arah Pergerakan</th>
+                  <th class="py-2.5 px-3 text-right">Realisasi 2025</th>
+                  <th class="py-2.5 px-3 text-right">Proyeksi 2026/2027</th>
+                  <th class="py-2.5 px-3 text-center">Pertumbuhan</th>
+                  <th class="py-2.5 px-3">Metode Proyeksi</th>
                 </tr>
               </thead>
-              <tbody id="koridor-table-body">
+              <tbody id="table-tol-body">
+                <!-- Diisi dinamis oleh koridor.js -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- BAGIAN 2: KOMPOSISI KENDARAAN PENYEBERANGAN ASDP (SHEET 7) -->
+        <div class="p-5 bg-white border border-gov-border rounded-xl shadow-xs space-y-4">
+          <div class="flex flex-wrap items-center justify-between gap-3 pb-3 border-b border-gov-border">
+            <div>
+              <h3 class="text-sm font-bold text-gov-text flex items-center gap-2">
+                <i data-lucide="anchor" class="w-4 h-4 text-purple-600"></i>
+                Komposisi Kendaraan Lintas Penyeberangan Kritis ASDP
+              </h3>
+              <p class="text-[11px] text-gov-muted mt-0.5">
+                Rincian volume Sepeda Motor (R2), Mobil Pribadi (R4), dan Truk Logistik (Sumbu 3+) beserta skema buffer zone pelabuhan
+              </p>
+            </div>
+            <span class="px-2.5 py-1 rounded text-[10px] font-bold bg-purple-50 text-purple-800 border border-purple-200">
+              Lintas Selat Sunda & Selat Bali
+            </span>
+          </div>
+
+          <!-- Grafik Komposisi Kendaraan ASDP -->
+          <div id="chart-asdp-komposisi" class="w-full"></div>
+
+          <!-- Tabel Rinci ASDP (Sheet 7) -->
+          <div class="overflow-x-auto pt-2">
+            <table class="w-full text-left text-xs border-collapse">
+              <thead>
+                <tr class="text-[10px] uppercase font-bold text-slate-500 border-b border-slate-200 bg-slate-50">
+                  <th class="py-2.5 px-3 text-center">No</th>
+                  <th class="py-2.5 px-3">Lintas Penyeberangan</th>
+                  <th class="py-2.5 px-3 text-right">Realisasi 2025</th>
+                  <th class="py-2.5 px-3 text-right">Proyeksi 2026</th>
+                  <th class="py-2.5 px-3 text-right">Roda 2 (Motor)</th>
+                  <th class="py-2.5 px-3 text-right">Roda 4 (Pribadi)</th>
+                  <th class="py-2.5 px-3 text-right">Truk Logistik</th>
+                  <th class="py-2.5 px-3">Kebijakan Operasional</th>
+                </tr>
+              </thead>
+              <tbody id="table-asdp-body">
                 <!-- Diisi dinamis oleh koridor.js -->
               </tbody>
             </table>

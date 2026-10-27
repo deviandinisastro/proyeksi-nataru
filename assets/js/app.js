@@ -35,9 +35,9 @@ const TAB_METADATA = {
     question: 'Bagaimana sebaran geografis simpul dengan proyeksi volume terpadat di seluruh wilayah kepulauan Indonesia?'
   },
   koridor: {
-    title: 'Dinamika Aliran Koridor Mobilitas & Matriks Asal–Tujuan (Origin–Destination)',
-    breadcrumb: 'Aliran Koridor & Rute (OD)',
-    question: 'Bagaimana visualisasi aliran mobilitas penumpang dari wilayah asal menuju wilayah tujuan utama di seluruh koridor multimoda nasional?'
+    title: 'Pemantauan Titik Kritis Gerbang Tol & Penyeberangan ASDP',
+    breadcrumb: 'Titik Kritis Tol & ASDP',
+    question: 'Bagaimana estimasi beban lalu lintas di 4 gerbang tol utama Jabodetabek dan komposisi kendaraan penyeberangan lintas Merak-Bakauheni serta Ketapang-Gilimanuk selama masa Posko Nataru?'
   },
   metodologi: {
     title: 'Matriks Indikator Kuantitatif & Validasi Model Peramalan',
