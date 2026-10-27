@@ -697,22 +697,22 @@
         </div>
       </section>
 
-      <!-- VIEW 6: METODOLOGI & TURNAMEN MAPE -->
+      <!-- VIEW 6: METODOLOGI & ARSITEKTUR DSS -->
       <section id="view-metodologi" class="view-section hidden space-y-6">
-        <!-- Banner Kerangka Ilmiah & Sains Data -->
+        <!-- Banner Kerangka Sistem Informasi & Rekayasa Data -->
         <div class="p-4 bg-white dark:bg-slate-900 border border-gov-border dark:border-slate-800 rounded-xl shadow-xs flex items-start justify-between gap-4">
           <div>
             <div class="flex items-center gap-2 mb-1">
               <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-gov-azure_light text-gov-azure border border-blue-200 dark:border-blue-900">
-                Sains Data & Metodologi Peramalan
+                Arsitektur Sistem Informasi & Rekayasa Data
               </span>
-              <span class="text-xs text-gov-muted dark:text-slate-400">&bull; Evaluasi Komparatif 7 Metode Deret Waktu</span>
+              <span class="text-xs text-gov-muted dark:text-slate-400">&bull; Kerangka Sistem Penunjang Keputusan (DSS)</span>
             </div>
             <h3 class="text-sm font-bold text-gov-text dark:text-slate-100">
-              Transparansi Ilmiah Metodologi & Turnamen Empiris Mean Absolute Percentage Error (MAPE)
+              Kerangka Kerja Arsitektur Sistem Informasi & Penjaminan Mutu Data Proyeksi Nataru 2026/2027
             </h3>
             <p class="text-xs text-gov-muted dark:text-slate-400 mt-1 max-w-3xl leading-relaxed">
-              Seluruh angka peramalan dalam sistem ini didasarkan pada pengujian empiris terhadap data historis posko Nataru dengan 7 metode statistik dan time-series. Model Damped Holt-Winters (&phi;=0.85) terpilih sebagai model juara nasional karena mampu memodelkan tren musiman posko secara akurat tanpa over-forecasting eksponensial.
+              Dokumentasi transparansi teknis perancangan Sistem Informasi Penunjang Keputusan (Decision Support System / DSS) pemantauan mobilitas nasional. Sistem ini mengintegrasikan pipeline pembersihan data heterogen, penjaminan mutu agregasi makro 18,46 juta penumpang, serta pemetaan geospasial 909 simpul multimoda terpadu.
             </p>
           </div>
         </div>
@@ -752,116 +752,150 @@
           </div>
         </div>
 
-        <!-- Tabel 1: Ringkasan Model Juara Per Moda -->
+        <!-- Arsitektur DSS Tiga Tingkat (Three-Tier DSS Architecture) -->
         <div class="bg-white dark:bg-slate-900 p-5 rounded-xl border border-gov-border dark:border-slate-800 shadow-xs">
-          <div class="flex items-center justify-between mb-3 pb-3 border-b border-gov-border dark:border-slate-800">
+          <div class="flex items-center justify-between mb-4 pb-3 border-b border-gov-border dark:border-slate-800">
             <div>
               <h3 class="text-sm font-bold text-gov-text dark:text-slate-100 flex items-center gap-2">
-                <i data-lucide="award" class="w-4 h-4 text-amber-500"></i>
-                Ringkasan Model Juara Akurasi Terbaik per Moda Transportasi
+                <i data-lucide="network" class="w-4 h-4 text-gov-navy dark:text-sky-400"></i>
+                Arsitektur Tiga Tingkat Sistem Informasi Penunjang Keputusan (Three-Tier DSS)
               </h3>
-              <p class="text-[11px] text-gov-muted dark:text-slate-400 mt-0.5">Model terpilih dengan nilai galat (error) terendah pada evaluasi out-of-sample data posko</p>
+              <p class="text-[11px] text-gov-muted dark:text-slate-400 mt-0.5">Kerangka rekayasa perangkat lunak dan aliran data dari berkas mentah hingga antarmuka eksekutif</p>
             </div>
-            <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-amber-50 text-amber-800 border border-amber-200 dark:border-amber-800/80">
-              Evaluasi Juara
+            <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-blue-50 dark:bg-blue-950/40 text-gov-navy dark:text-sky-300 border border-blue-200 dark:border-blue-900">
+              Sistem Informasi
             </span>
           </div>
 
-          <div class="overflow-x-auto">
-            <table class="w-full text-left text-xs border-collapse">
-              <thead>
-                <tr class="text-[10px] uppercase font-bold text-slate-500 dark:text-slate-400 border-b border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800/60">
-                  <th class="py-2.5 px-3">Moda Transportasi</th>
-                  <th class="py-2.5 px-3">Metode Juara (Penumpang)</th>
-                  <th class="py-2.5 px-3 text-right">MAPE Penumpang</th>
-                  <th class="py-2.5 px-3">Metode Juara (Sarana)</th>
-                  <th class="py-2.5 px-3 text-right">MAPE Sarana</th>
-                </tr>
-              </thead>
-              <tbody id="metodologi-juara-body">
-                <!-- Diisi dinamis oleh metodologi.js -->
-              </tbody>
-            </table>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+            <!-- Tier 1: Ingestion & ETL -->
+            <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/80 flex flex-col justify-between">
+              <div>
+                <div class="w-8 h-8 rounded-lg bg-blue-100 dark:bg-blue-950/60 text-gov-navy dark:text-sky-300 flex items-center justify-center font-bold text-xs mb-3">
+                  T1
+                </div>
+                <h4 class="font-bold text-slate-900 dark:text-slate-100 text-sm mb-1">Data Ingestion & ETL Pipeline</h4>
+                <p class="text-[11px] text-slate-500 dark:text-slate-400 mb-3">Tingkat Ekstraksi, Transformasi, dan Normalisasi Data</p>
+                <ul class="space-y-2 text-[11px] text-slate-600 dark:text-slate-300">
+                  <li class="flex items-start gap-1.5">
+                    <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5"></i>
+                    <span>Ekstraksi data log harian Posko Kemenhub (Sheet 1 s/d Sheet 7).</span>
+                  </li>
+                  <li class="flex items-start gap-1.5">
+                    <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5"></i>
+                    <span>Pembersihan toponimi nama simpul (penghapusan tag birokrasi & format Title Case).</span>
+                  </li>
+                  <li class="flex items-start gap-1.5">
+                    <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5"></i>
+                    <span>Geocoding presisi lintang-bujur untuk 909 simpul pantau nasional.</span>
+                  </li>
+                </ul>
+              </div>
+              <div class="mt-4 pt-3 border-t border-slate-200 dark:border-slate-700/60 text-[10px] font-semibold text-gov-muted dark:text-slate-400">
+                Teknologi: Python Data Pipeline (build_data.py)
+              </div>
+            </div>
+
+            <!-- Tier 2: Analytic Engine -->
+            <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/80 flex flex-col justify-between">
+              <div>
+                <div class="w-8 h-8 rounded-lg bg-amber-100 dark:bg-amber-950/60 text-amber-800 dark:text-amber-300 flex items-center justify-center font-bold text-xs mb-3">
+                  T2
+                </div>
+                <h4 class="font-bold text-slate-900 dark:text-slate-100 text-sm mb-1">Analytic & Processing Engine</h4>
+                <p class="text-[11px] text-slate-500 dark:text-slate-400 mb-3">Tingkat Pengolahan Analisis & Pemodelan Posko</p>
+                <ul class="space-y-2 text-[11px] text-slate-600 dark:text-slate-300">
+                  <li class="flex items-start gap-1.5">
+                    <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5"></i>
+                    <span>Distribusi deret waktu 18 hari operasional posko (H-7 s/d H+10).</span>
+                  </li>
+                  <li class="flex items-start gap-1.5">
+                    <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5"></i>
+                    <span>Perhitungan faktor lonjakan beban puncak (Surge Ratio) dan laju pertumbuhan YoY.</span>
+                  </li>
+                  <li class="flex items-start gap-1.5">
+                    <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5"></i>
+                    <span>Estimasi kepadatan spasial (Kernel Density) untuk deteksi titik jenuh.</span>
+                  </li>
+                </ul>
+              </div>
+              <div class="mt-4 pt-3 border-t border-slate-200 dark:border-slate-700/60 text-[10px] font-semibold text-gov-muted dark:text-slate-400">
+                Logika: Normalisasi Kapasitas Nyata (Damped HW Concept)
+              </div>
+            </div>
+
+            <!-- Tier 3: Presentation Tier -->
+            <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/80 flex flex-col justify-between">
+              <div>
+                <div class="w-8 h-8 rounded-lg bg-emerald-100 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300 flex items-center justify-center font-bold text-xs mb-3">
+                  T3
+                </div>
+                <h4 class="font-bold text-slate-900 dark:text-slate-100 text-sm mb-1">Executive Presentation Tier</h4>
+                <p class="text-[11px] text-slate-500 dark:text-slate-400 mb-3">Tingkat Penyajian Antarmuka Keputusan Interaktif</p>
+                <ul class="space-y-2 text-[11px] text-slate-600 dark:text-slate-300">
+                  <li class="flex items-start gap-1.5">
+                    <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5"></i>
+                    <span>Single Page Application (SPA) responsif tanpa ketergantungan framework berat.</span>
+                  </li>
+                  <li class="flex items-start gap-1.5">
+                    <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5"></i>
+                    <span>Peta Geospasial Interaktif Leaflet GIS dengan kontrol utilitas terintegrasi.</span>
+                  </li>
+                  <li class="flex items-start gap-1.5">
+                    <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5"></i>
+                    <span>Visualisasi Plotly.js deret waktu & matriks dengan aksesibilitas mode gelap/terang.</span>
+                  </li>
+                </ul>
+              </div>
+              <div class="mt-4 pt-3 border-t border-slate-200 dark:border-slate-700/60 text-[10px] font-semibold text-gov-muted dark:text-slate-400">
+                Antarmuka: HTML5, Tailwind CSS, Leaflet GIS, Plotly.js
+              </div>
+            </div>
           </div>
         </div>
 
-        <!-- Tabel 2: Matriks Lengkap Evaluasi 7 Metode -->
+        <!-- 4 Pilar Penjaminan Mutu & Rekonsiliasi Data -->
         <div class="bg-white dark:bg-slate-900 p-5 rounded-xl border border-gov-border dark:border-slate-800 shadow-xs">
-          <div class="flex flex-wrap items-center justify-between gap-3 mb-3 pb-3 border-b border-gov-border dark:border-slate-800">
-            <div>
-              <h3 id="metodologi-mape-title" class="text-sm font-bold text-gov-text dark:text-slate-100">
-                Matriks Evaluasi MAPE 7 Metode Peramalan
-              </h3>
-              <p class="text-[11px] text-gov-muted dark:text-slate-400 mt-0.5">Nilai galat dalam persen (%). Semakin kecil nilai MAPE, semakin tinggi tingkat akurasi peramalan.</p>
-            </div>
-
-            <!-- Switcher Kategori Matriks -->
-            <div class="inline-flex p-1 bg-slate-100 dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700">
-              <button id="btn-mape-penumpang" class="px-3.5 py-1.5 text-xs font-bold rounded-md bg-gov-navy text-white shadow-xs transition-all">
-                Penumpang Multimoda
-              </button>
-              <button id="btn-mape-sarana" class="px-3.5 py-1.5 text-xs font-semibold rounded-md text-gov-muted hover:text-gov-text dark:text-slate-400 dark:hover:text-slate-200 transition-all">
-                Sarana / Kendaraan
-              </button>
-            </div>
-          </div>
-
-          <div class="overflow-x-auto">
-            <table class="w-full text-left text-xs border-collapse">
-              <thead>
-                <tr class="text-[10px] uppercase font-bold text-slate-500 dark:text-slate-400 border-b border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800/60">
-                  <th class="py-2.5 px-3">Moda</th>
-                  <th class="py-2.5 px-2 text-right">1. Seasonal Naive</th>
-                  <th class="py-2.5 px-2 text-right">2. Moving Avg (2-Yr)</th>
-                  <th class="py-2.5 px-2 text-right">3. PDP Daily</th>
-                  <th class="py-2.5 px-2 text-right">4. Holt-Winters Add</th>
-                  <th class="py-2.5 px-2 text-right">5. Damped HW (&phi;=0.85)</th>
-                  <th class="py-2.5 px-2 text-right">6. ARIMA</th>
-                  <th class="py-2.5 px-2 text-right">7. SARIMAX</th>
-                  <th class="py-2.5 px-3 text-right bg-slate-100 dark:bg-slate-800/80">Rata-Rata</th>
-                </tr>
-              </thead>
-              <tbody id="metodologi-mape-body">
-                <!-- Diisi dinamis oleh metodologi.js -->
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        <!-- Landasan Ilmiah Pemilihan Damped Holt-Winters -->
-        <div class="bg-white dark:bg-slate-900 p-5 rounded-xl border border-gov-border dark:border-slate-800 shadow-xs">
-          <div class="flex items-center justify-between mb-3 pb-3 border-b border-gov-border dark:border-slate-800">
+          <div class="flex items-center justify-between mb-4 pb-3 border-b border-gov-border dark:border-slate-800">
             <div>
               <h3 class="text-sm font-bold text-gov-text dark:text-slate-100 flex items-center gap-2">
-                <i data-lucide="book-open" class="w-4 h-4 text-gov-navy dark:text-sky-400"></i>
-                Justifikasi Teoretis Pemilihan Model Damped Holt-Winters (&phi;=0.85)
+                <i data-lucide="shield-check" class="w-4 h-4 text-emerald-600 dark:text-emerald-400"></i>
+                Prinsip Penjaminan Mutu & Rekonsiliasi Data (Data Quality Assurance)
               </h3>
-              <p class="text-[11px] text-gov-muted dark:text-slate-400 mt-0.5">Penjelasan ilmiah untuk pertanggungjawaban akademis Sistem Informasi</p>
+              <p class="text-[11px] text-gov-muted dark:text-slate-400 mt-0.5">Langkah verifikasi data untuk memastikan akurasi dan integritas informasi bagi pengambil keputusan</p>
             </div>
+            <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-50 dark:bg-emerald-950/40 text-emerald-800 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800/80">
+              Integritas Data
+            </span>
           </div>
 
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs text-slate-700 dark:text-slate-300 leading-relaxed">
-            <div class="p-4 bg-slate-50 dark:bg-slate-800/60 rounded-xl border border-slate-200 dark:border-slate-700/80">
-              <h4 class="font-bold text-gov-navy dark:text-sky-400 mb-1.5 flex items-center gap-1.5">
-                <i data-lucide="shield-alert" class="w-3.5 h-3.5 text-gov-azure dark:text-sky-400"></i>
-                Mengapa Tidak Menggunakan Model Linear Biasa?
-              </h4>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs">
+            <div class="p-3.5 rounded-lg bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/80">
+              <span class="font-extrabold text-gov-navy dark:text-sky-400 text-sm block mb-1">1. Zero Discrepancy</span>
               <p class="text-[11px] text-slate-600 dark:text-slate-300 leading-relaxed">
-                Pasca pandemi Covid-19, mobilitas masyarakat mengalami normalisasi tren. Model linier standar (Holt-Winters linier) cenderung memproyeksikan kenaikan tajam tanpa batas (over-forecasting) yang berbahaya jika dijadikan acuan kapasitas posko. Parameter peredam <code>&phi; = 0.85</code> secara matematis meredam proyeksi kemiringan tren jangka panjang agar mendekati titik jenuh kapasitas nyata jaringan transportasi nasional.
+                Total proyeksi nasional <strong>18.462.913 penumpang</strong> terdistribusi 100% konsisten ke 5 moda transportasi tanpa selisih pembulatan di seluruh modul.
               </p>
             </div>
 
-            <div class="p-4 bg-slate-50 dark:bg-slate-800/60 rounded-xl border border-slate-200 dark:border-slate-700/80">
-              <h4 class="font-bold text-gov-navy dark:text-sky-400 mb-1.5 flex items-center gap-1.5">
-                <i data-lucide="binary" class="w-3.5 h-3.5 text-gov-azure dark:text-sky-400"></i>
-                Persamaan Matematis Damped Holt-Winters
-              </h4>
-              <div class="num-mono text-[11.5px] text-slate-800 dark:text-slate-100 bg-white dark:bg-slate-900/90 p-3 rounded-lg border border-slate-200 dark:border-slate-700 space-y-1.5 font-mono shadow-xs">
-                <div>Level &nbsp; : &ell;<sub>t</sub> = &alpha;(y<sub>t</sub> - s<sub>t-m</sub>) + (1-&alpha;)(&ell;<sub>t-1</sub> + &phi;b<sub>t-1</sub>)</div>
-                <div>Trend &nbsp; : b<sub>t</sub> = &beta;(&ell;<sub>t</sub> - &ell;<sub>t-1</sub>) + (1-&beta;)&phi;b<sub>t-1</sub></div>
-                <div>Seasonal: s<sub>t</sub> = &gamma;(y<sub>t</sub> - &ell;<sub>t-1</sub> - &phi;b<sub>t-1</sub>) + (1-&gamma;)s<sub>t-m</sub></div>
-                <div class="text-gov-navy dark:text-sky-400 font-bold pt-1 border-t border-slate-100 dark:border-slate-700">Forecast: &#375;<sub>t+h</sub> = &ell;<sub>t</sub> + &sum;(&phi;<sup>i</sup> b<sub>t</sub>) + s<sub>t+h-m</sub></div>
-              </div>
+            <div class="p-3.5 rounded-lg bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/80">
+              <span class="font-extrabold text-gov-navy dark:text-sky-400 text-sm block mb-1">2. 909 Simpul Spasial</span>
+              <p class="text-[11px] text-slate-600 dark:text-slate-300 leading-relaxed">
+                Harmonisasi 213 Bandara, 183 Stasiun KA, 201 Pelabuhan Laut, 157 Terminal Bus, dan 155 Pelabuhan Penyeberangan dengan titik koordinat terverifikasi.
+              </p>
+            </div>
+
+            <div class="p-3.5 rounded-lg bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/80">
+              <span class="font-extrabold text-gov-navy dark:text-sky-400 text-sm block mb-1">3. Nomenklatur Baku</span>
+              <p class="text-[11px] text-slate-600 dark:text-slate-300 leading-relaxed">
+                Standardisasi penamaan simpul pantau nasional dan pembersihan tag penamaan administratif agar rapi dan mudah diidentifikasi para pejabat posko.
+              </p>
+            </div>
+
+            <div class="p-3.5 rounded-lg bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/80">
+              <span class="font-extrabold text-gov-navy dark:text-sky-400 text-sm block mb-1">4. Titik Kritis Terpisah</span>
+              <p class="text-[11px] text-slate-600 dark:text-slate-300 leading-relaxed">
+                Pemisahan monitoring khusus untuk 4 Gerbang Tol Utama Jabodetabek dan 3 Lintas Penyeberangan Strategis ASDP berbasis lembar resmi posko.
+              </p>
             </div>
           </div>
         </div>
@@ -874,7 +908,7 @@
                 <i data-lucide="book-marked" class="w-4 h-4 text-gov-navy dark:text-sky-400"></i>
                 Kamus Istilah Resmi & Glosarium Transportasi Pusdatin Kemenhub
               </h3>
-              <p class="text-[11px] text-gov-muted dark:text-slate-400 mt-0.5">Panduan terminologi operasional posko dan metodologi sains data peramalan multimoda</p>
+              <p class="text-[11px] text-gov-muted dark:text-slate-400 mt-0.5">Panduan terminologi operasional posko dan sains data transportasi multimoda nasional</p>
             </div>
             <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">
               Standar Pusdatin

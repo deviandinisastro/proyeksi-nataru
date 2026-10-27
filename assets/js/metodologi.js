@@ -191,23 +191,15 @@ const GLOSARIUM_DATA = [
     istilah: 'Damped Parameter (φ=0.85)',
     kepanjangan: 'Damping Factor Tren Peramalan Holt-Winters',
     definisi: 'Konstanta matematis peredam tren (0 < φ < 1) pada model Damped Holt-Winters yang menahan kemiringan proyeksi jangka panjang agar tidak mengalami over-forecasting eksponensial di luar kapasitas fisik infrastruktur.'
-  },
-  {
-    istilah: 'MAPE',
-    kepanjangan: 'Mean Absolute Percentage Error (Rata-rata Galat Persentase Absolut)',
-    definisi: 'Metrik evaluasi statistik resmi untuk mengukur deviasi rata-rata persentase galat peramalan terhadap data aktual historis. Nilai MAPE < 10% mengindikasikan tingkat akurasi peramalan yang sangat tinggi.'
   }
 ];
 
 function renderMetodologiModule() {
   const data = window.DSS_STATE.data;
-  if (!data || !data.turnamen_mape) return;
+  if (!data) return;
 
   renderIndikatorMatrixTable();
-  renderRingkasanJuara(data.turnamen_mape.ringkasan_juara);
-  renderMAPEMatrixTable(data.turnamen_mape);
   renderGlosariumTable();
-  setupMetodologiControls();
 
   if (typeof lucide !== 'undefined') {
     lucide.createIcons();
@@ -238,119 +230,7 @@ function renderIndikatorMatrixTable() {
 }
 
 /**
- * 2. Setup Toggle Metrik Matriks MAPE (Penumpang vs Sarana)
- */
-function setupMetodologiControls() {
-  const btnPnp = document.getElementById('btn-mape-penumpang');
-  const btnSar = document.getElementById('btn-mape-sarana');
-
-  if (btnPnp && btnSar) {
-    btnPnp.onclick = () => {
-      metodologiMetric = 'penumpang';
-      btnPnp.className = 'px-3.5 py-1.5 text-xs font-bold rounded-md bg-gov-navy text-white shadow-xs transition-all';
-      btnSar.className = 'px-3.5 py-1.5 text-xs font-semibold rounded-md text-gov-muted hover:text-gov-text dark:text-slate-400 dark:hover:text-slate-200 transition-all';
-      const data = window.DSS_STATE.data;
-      if (data) renderMAPEMatrixTable(data.turnamen_mape);
-    };
-
-    btnSar.onclick = () => {
-      metodologiMetric = 'sarana';
-      btnPnp.className = 'px-3.5 py-1.5 text-xs font-semibold rounded-md text-gov-muted hover:text-gov-text dark:text-slate-400 dark:hover:text-slate-200 transition-all';
-      btnSar.className = 'px-3.5 py-1.5 text-xs font-bold rounded-md bg-gov-navy text-white shadow-xs transition-all';
-      const data = window.DSS_STATE.data;
-      if (data) renderMAPEMatrixTable(data.turnamen_mape);
-    };
-  }
-}
-
-/**
- * 3. Render Tabel Ringkasan Model Juara
- */
-function renderRingkasanJuara(juaraList) {
-  const tbody = document.getElementById('metodologi-juara-body');
-  if (!tbody || !juaraList) return;
-
-  tbody.innerHTML = juaraList.map(j => {
-    const mapePnp = j['MAPE Penumpang (%)'];
-    const mapeSar = j['MAPE Sarana (%)'];
-
-    return `
-      <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors border-b border-slate-100 dark:border-slate-800">
-        <td class="py-2.5 px-3 font-bold text-slate-800 dark:text-slate-200 text-xs">${j.Moda}</td>
-        <td class="py-2.5 px-3 text-xs text-gov-navy dark:text-sky-400 font-semibold">
-          ${j['Metode Juara (Penumpang)'] || '<span class="text-slate-400 italic">Tidak Berlaku</span>'}
-        </td>
-        <td class="py-2.5 px-3 text-right num-tabular text-xs font-bold ${mapePnp ? 'text-emerald-700 dark:text-emerald-400' : 'text-slate-400'}">
-          ${mapePnp !== null && !isNaN(mapePnp) ? mapePnp.toFixed(2) + '%' : '-'}
-        </td>
-        <td class="py-2.5 px-3 text-xs text-gov-navy dark:text-sky-400 font-semibold">
-          ${j['Metode Juara (Sarana)'] || '-'}
-        </td>
-        <td class="py-2.5 px-3 text-right num-tabular text-xs font-bold ${mapeSar ? 'text-emerald-700 dark:text-emerald-400' : 'text-slate-400'}">
-          ${mapeSar !== null && !isNaN(mapeSar) ? mapeSar.toFixed(2) + '%' : '-'}
-        </td>
-      </tr>
-    `;
-  }).join('');
-}
-
-/**
- * 4. Render Matriks Lengkap Evaluasi 7 Metode Peramalan
- */
-function renderMAPEMatrixTable(turnamen) {
-  const tbody = document.getElementById('metodologi-mape-body');
-  const titleEl = document.getElementById('metodologi-mape-title');
-  if (!tbody || !turnamen) return;
-
-  const dataset = metodologiMetric === 'penumpang' ? turnamen.penumpang : turnamen.sarana;
-  if (titleEl) {
-    titleEl.innerText = `Matriks MAPE 7 Metode: Kategori ${metodologiMetric === 'penumpang' ? 'Penumpang Multimoda' : 'Sarana / Kendaraan'}`;
-  }
-
-  const methodCols = [
-    '1. Seasonal Naive (2024)',
-    '2. Moving Average (2-Yr)',
-    '3. Proportional Daily Profile (PDP)',
-    '4. Holt-Winters Additive',
-    '5. Damped Holt-Winters (phi=0.85)',
-    '6. ARIMA (1,1,1)',
-    '7. SARIMAX (Peak Calendar Regressor)'
-  ];
-
-  tbody.innerHTML = dataset.map(row => {
-    const validVals = methodCols.map(col => row[col]).filter(v => v !== null && !isNaN(v) && v > 0);
-    const minVal = validVals.length > 0 ? Math.min(...validVals) : null;
-
-    const cellsHtml = methodCols.map(col => {
-      const val = row[col];
-      if (val === null || val === undefined || isNaN(val)) {
-        return `<td class="py-2.5 px-2 text-center text-slate-400 num-tabular text-xs">-</td>`;
-      }
-
-      const isBest = minVal !== null && Math.abs(val - minVal) < 0.01;
-      return `
-        <td class="py-2.5 px-2 text-right num-tabular text-xs ${isBest ? 'bg-emerald-50 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300 font-extrabold border border-emerald-200 dark:border-emerald-800/80 rounded' : 'text-slate-600 dark:text-slate-300'}">
-          ${val.toFixed(2)}%
-        </td>
-      `;
-    }).join('');
-
-    const avgVal = row['Rata-Rata MAPE (%)'];
-
-    return `
-      <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors border-b border-slate-100 dark:border-slate-800">
-        <td class="py-2.5 px-3 font-bold text-slate-800 dark:text-slate-200 text-xs whitespace-nowrap">${row.Moda}</td>
-        ${cellsHtml}
-        <td class="py-2.5 px-3 text-right num-tabular text-xs font-bold text-gov-navy dark:text-sky-400 bg-slate-50/50 dark:bg-slate-800/50">
-          ${avgVal !== null && !isNaN(avgVal) ? avgVal.toFixed(2) + '%' : '-'}
-        </td>
-      </tr>
-    `;
-  }).join('');
-}
-
-/**
- * 5. Render Glosarium Istilah Resmi Transportasi
+ * 2. Render Glosarium Istilah Resmi Transportasi
  */
 function renderGlosariumTable() {
   const tbody = document.getElementById('metodologi-glosarium-body');
