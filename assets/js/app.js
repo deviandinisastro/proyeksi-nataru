@@ -40,9 +40,9 @@ const TAB_METADATA = {
     question: 'Bagaimana estimasi beban lalu lintas di 4 gerbang tol utama Jabodetabek dan komposisi kendaraan penyeberangan lintas Merak-Bakauheni serta Ketapang-Gilimanuk selama masa Posko Nataru?'
   },
   metodologi: {
-    title: 'Matriks Indikator Kuantitatif & Validasi Model Peramalan',
-    breadcrumb: 'Matriks Indikator & Metodologi',
-    question: 'Evaluasi akurasi 7 model time-series deret waktu serta matriks komparasi 12 indikator kinerja analitis multimoda nasional.'
+    title: 'Informasi Sistem, Metodologi Analisis & Kamus Rumus Posko',
+    breadcrumb: 'Matriks & Metodologi',
+    question: 'Dokumentasi transparansi data, formulasi matematis metrik dasar, peramalan deret waktu Damped Holt-Winters, matriks 12 indikator kinerja posko, dan glosarium resmi Pusdatin Kemenhub.'
   }
 };
 
