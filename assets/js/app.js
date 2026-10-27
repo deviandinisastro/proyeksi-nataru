@@ -25,9 +25,9 @@ const TAB_METADATA = {
     question: 'Kapan gelombang arus pergerakan diproyeksikan terjadi pada moda tertentu dan bagaimana polanya dibanding 2 tahun lalu?'
   },
   simpul: {
-    title: 'Peringkat & Direktori Simpul Transportasi Nasional',
-    breadcrumb: 'Peringkat & Direktori Simpul',
-    question: 'Simpul mana saja yang diproyeksikan paling padat pada moda tertentu dan berapa estimasi volume penumpangnya?'
+    title: 'Direktori Simpul Transportasi Nasional',
+    breadcrumb: 'Direktori Simpul Multimoda',
+    question: 'Bagaimana distribusi proyeksi volume penumpang dan sebaran simpul pemantauan di seluruh moda transportasi nasional?'
   },
   map: {
     title: 'Peta Spasial Proyeksi Simpul Multimoda (GIS)',

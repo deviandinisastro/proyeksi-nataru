@@ -42,7 +42,7 @@ function renderSimpulModule() {
  */
 function setupSimpulControls() {
   const selectModa = document.getElementById('select-simpul-moda');
-  const btnToggleView = document.getElementById('btn-toggle-simpul-view');
+  const btnLoadAll = document.getElementById('btn-load-all-simpul');
   const inputSearch = document.getElementById('input-simpul-search');
 
   // Populate Dropdown Moda (Hanya 5 Opsi Resmi)
@@ -55,17 +55,17 @@ function setupSimpulControls() {
 
     selectModa.addEventListener('change', (e) => {
       simpulState.activeModa = e.target.value;
+      simpulState.showAll = false; // Reset ke Top 10 saat moda berganti
       simpulState.searchQuery = '';
       if (inputSearch) inputSearch.value = '';
       updateSimpulView();
     });
   }
 
-  // Toggle antara Top 10 dan Seluruh Simpul
-  if (btnToggleView) {
-    btnToggleView.addEventListener('click', () => {
+  // Tombol Lihat Seluruh Simpul di Bawah Tabel
+  if (btnLoadAll) {
+    btnLoadAll.addEventListener('click', () => {
       simpulState.showAll = !simpulState.showAll;
-      updateToggleViewButton();
       renderSimpulTable();
     });
   }
@@ -76,32 +76,6 @@ function setupSimpulControls() {
       simpulState.searchQuery = e.target.value.toLowerCase().trim();
       renderSimpulTable();
     });
-  }
-}
-
-/**
- * Update Status Tampilan Tombol Toggle
- */
-function updateToggleViewButton() {
-  const btn = document.getElementById('btn-toggle-simpul-view');
-  if (!btn) return;
-
-  if (simpulState.showAll) {
-    btn.innerHTML = `
-      <i data-lucide="filter" class="w-3.5 h-3.5 text-gov-navy"></i>
-      <span>Tampilkan Top 10 Saja</span>
-    `;
-    btn.className = 'px-3 py-1.5 bg-blue-50 border border-blue-200 text-xs font-semibold text-gov-navy rounded-lg shadow-xs flex items-center gap-1.5 transition-all';
-  } else {
-    btn.innerHTML = `
-      <i data-lucide="list" class="w-3.5 h-3.5 text-slate-600"></i>
-      <span>Tampilkan Seluruh Simpul</span>
-    `;
-    btn.className = 'px-3 py-1.5 bg-white border border-gov-border hover:bg-slate-50 text-xs font-semibold text-slate-700 rounded-lg shadow-xs flex items-center gap-1.5 transition-all';
-  }
-
-  if (typeof lucide !== 'undefined') {
-    lucide.createIcons();
   }
 }
 
@@ -141,7 +115,7 @@ function renderSimpulChart() {
   const modaInfo = SIMPUL_MODA_LIST.find(m => m.key === simpulState.activeModa) || SIMPUL_MODA_LIST[0];
 
   if (chartTitleEl) {
-    chartTitleEl.innerText = `Grafik Peringkat 10 Simpul Terpadat: ${simpulState.activeModa}`;
+    chartTitleEl.innerText = `Grafik 10 Simpul Terpadat: ${simpulState.activeModa}`;
   }
 
   // Urutan dibalik agar peringkat 1 berada di atas pada horizontal bar
@@ -217,9 +191,14 @@ function renderSimpulTable() {
   const data = window.DSS_STATE.data;
   const tbody = document.getElementById('simpul-table-body');
   const countBadgeEl = document.getElementById('simpul-count-badge');
+  const btnLoadAll = document.getElementById('btn-load-all-simpul');
+  const footerInfo = document.getElementById('simpul-footer-info');
   if (!tbody || !data) return;
 
   const allSimpul = data.simpul_semua[simpulState.activeModa] || [];
+  const modaInfo = SIMPUL_MODA_LIST.find(m => m.key === simpulState.activeModa) || SIMPUL_MODA_LIST[0];
+  const modaNameClean = modaInfo.label.split('(')[1]?.replace(')', '').trim() || modaInfo.label;
+
   let displayList = simpulState.showAll ? allSimpul : (data.simpul_top10[simpulState.activeModa] || []);
 
   // Filter berdasarkan pencarian
@@ -227,14 +206,46 @@ function renderSimpulTable() {
     displayList = allSimpul.filter(s => s.nama.toLowerCase().includes(simpulState.searchQuery));
   }
 
+  // Update Status Badge di Atas
   if (countBadgeEl) {
-    countBadgeEl.innerText = `${displayList.length} dari ${allSimpul.length} Simpul`;
+    if (simpulState.searchQuery) {
+      countBadgeEl.innerText = `${displayList.length} Ditemukan`;
+    } else if (simpulState.showAll) {
+      countBadgeEl.innerText = `Menampilkan Seluruh ${allSimpul.length} Simpul`;
+    } else {
+      countBadgeEl.innerText = `10 dari ${allSimpul.length} Simpul`;
+    }
+  }
+
+  // Update Tombol Aksi di Bawah Tabel
+  if (btnLoadAll && footerInfo) {
+    if (simpulState.searchQuery) {
+      footerInfo.innerText = `Ditemukan ${displayList.length} simpul sesuai pencarian "${simpulState.searchQuery}" (dari total ${allSimpul.length} ${modaNameClean})`;
+      btnLoadAll.style.display = 'none';
+    } else {
+      btnLoadAll.style.display = 'inline-flex';
+      if (simpulState.showAll) {
+        footerInfo.innerText = `Menampilkan seluruh ${allSimpul.length} simpul ${modaNameClean} terverifikasi`;
+        btnLoadAll.innerHTML = `
+          <i data-lucide="chevron-up" class="w-4 h-4"></i>
+          <span>Tutup & Tampilkan 10 Simpul Saja</span>
+        `;
+        btnLoadAll.className = 'px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-300 font-bold rounded-lg shadow-xs flex items-center gap-2 transition-all text-xs';
+      } else {
+        footerInfo.innerText = `Menampilkan 10 simpul terpadat dari total ${allSimpul.length} ${modaNameClean}`;
+        btnLoadAll.innerHTML = `
+          <span>Lihat Seluruh Simpul (${allSimpul.length} ${modaNameClean})</span>
+          <i data-lucide="chevron-down" class="w-4 h-4"></i>
+        `;
+        btnLoadAll.className = 'px-4 py-2 bg-gov-navy hover:bg-gov-navy/90 text-white font-bold rounded-lg shadow-xs flex items-center gap-2 transition-all text-xs';
+      }
+    }
   }
 
   if (displayList.length === 0) {
     tbody.innerHTML = `
       <tr>
-        <td colspan="6" class="py-8 text-center text-xs text-gov-muted">
+        <td colspan="7" class="py-8 text-center text-xs text-gov-muted">
           Tidak ditemukan simpul dengan kata kunci "<b>${simpulState.searchQuery}</b>".
         </td>
       </tr>
@@ -270,4 +281,8 @@ function renderSimpulTable() {
       </tr>
     `;
   }).join('');
+
+  if (typeof lucide !== 'undefined') {
+    lucide.createIcons();
+  }
 }
