@@ -600,14 +600,6 @@ new_section_html = '''<!-- VIEW 6: METODOLOGI & ARSITEKTUR DSS -->
             </table>
           </div>
         </div>
-
-        <!-- Atribusi Akademik & Kelembagaan -->
-        <div class="p-5 bg-slate-50 dark:bg-slate-900/80 rounded-xl border border-gov-border dark:border-slate-800 text-xs text-gov-muted dark:text-slate-400 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div>
-            <span class="font-bold text-gov-text dark:text-slate-200 block mb-1">Atribusi Kelembagaan & Kolaborasi Penelitian:</span>
-            <span class="leading-relaxed">Pengolahan data empiris dan peramalan multimoda dilaksanakan di Subbidang Pengelolaan Data, Pusdatin Kemenhub RI bersama Novi Rahmawati (Statistisi) dan Wildan Nazhif (Statistisi). Arsitektur Sistem Informasi, Rekayasa Antarmuka Analitik, Integrasi Spasial GIS, dan Visualisasi Aliran Koridor dikembangkan oleh Devi Andini Sastro (Universitas Gunadarma).</span>
-          </div>
-        </div>
       </section>'''
 
 updated_content = content[:pos_start] + new_section_html + content[pos_end:]
