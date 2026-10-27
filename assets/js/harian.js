@@ -161,32 +161,32 @@ function renderHarianPlotlyChart(records) {
     name: 'Realisasi 2024',
     type: 'scatter',
     mode: 'lines+markers',
-    line: { color: isDark ? '#94A3B8' : '#94A3B8', width: 2.5 },
-    marker: { size: 5, color: '#94A3B8' },
+    line: { color: '#94A3B8', width: 2 },
+    marker: { size: 4.5, color: '#94A3B8' },
     hovertemplate: '%{y:,.0f} ' + unitLabel + '<extra>2024</extra>'
   };
 
-  // Trace 2: Realisasi 2025 (Navy Baseline Kemenhub Solid)
+  // Trace 2: Realisasi 2025 (Biru Resmi Baseline Kemenhub Solid)
   const trace2025 = {
     x: days,
     y: v2025,
     name: 'Realisasi 2025 (Baseline)',
     type: 'scatter',
     mode: 'lines+markers',
-    line: { color: isDark ? '#60A5FA' : '#003882', width: 2.5 },
-    marker: { size: 5, color: isDark ? '#60A5FA' : '#003882' },
+    line: { color: isDark ? '#38BDF8' : '#003882', width: 2.5 },
+    marker: { size: 5, color: isDark ? '#38BDF8' : '#003882' },
     hovertemplate: '%{y:,.0f} ' + unitLabel + '<extra>2025</extra>'
   };
 
-  // Trace 3: Proyeksi 2026 (Azure Modern Solid - Estimasi Damped HW)
+  // Trace 3: Proyeksi 2026 (Amber Gold / Sunset Glow - Kontras Tinggi & Sorotan Utama Damped HW)
   const trace2026 = {
     x: days,
     y: v2026,
     name: 'Proyeksi 2026 (Damped HW)',
     type: 'scatter',
     mode: 'lines+markers',
-    line: { color: isDark ? '#38BDF8' : '#0284C7', width: 2.5 },
-    marker: { size: 5, color: isDark ? '#38BDF8' : '#0284C7' },
+    line: { color: isDark ? '#F59E0B' : '#D97706', width: 3 },
+    marker: { size: 6, color: isDark ? '#F59E0B' : '#D97706' },
     hovertemplate: '%{y:,.0f} ' + unitLabel + '<extra>Proyeksi 2026</extra>'
   };
 
@@ -264,12 +264,13 @@ function renderHarianPlotlyChart(records) {
       tickfont: { family: 'Plus Jakarta Sans', size: 10, color: isDark ? '#CBD5E1' : '#64748B' },
       title: {
         text: `Volume (${unitLabel}/hari)`,
+        standoff: 18,
         font: { size: 11, family: 'Plus Jakarta Sans', color: isDark ? '#CBD5E1' : '#64748B' }
       }
     },
     shapes: shapes,
     annotations: annotations,
-    margin: { t: 50, b: 40, l: 70, r: 25 },
+    margin: { t: 50, b: 40, l: 90, r: 25 },
     height: 380,
     paper_bgcolor: 'transparent',
     plot_bgcolor: 'transparent'
