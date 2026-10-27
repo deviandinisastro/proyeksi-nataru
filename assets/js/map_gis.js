@@ -227,7 +227,7 @@ function setupMapControls() {
         class="map-pill px-3 py-1.5 rounded-lg text-xs font-semibold border transition-all flex items-center gap-1.5 ${
           m.key === currentMapModa 
             ? 'bg-gov-navy text-white border-gov-navy shadow-xs font-bold' 
-            : 'bg-white text-slate-700 border-gov-border hover:bg-slate-50'
+            : 'bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 border-gov-border dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700/60'
         }"
       >
         <span>${m.label}</span>
@@ -243,7 +243,7 @@ function setupMapControls() {
             if (b.getAttribute('data-map-moda') === target) {
               b.className = 'map-pill px-3 py-1.5 rounded-lg text-xs font-bold border transition-all flex items-center gap-1.5 bg-gov-navy text-white border-gov-navy shadow-xs';
             } else {
-              b.className = 'map-pill px-3 py-1.5 rounded-lg text-xs font-semibold border transition-all flex items-center gap-1.5 bg-white text-slate-700 border-gov-border hover:bg-slate-50';
+              b.className = 'map-pill px-3 py-1.5 rounded-lg text-xs font-semibold border transition-all flex items-center gap-1.5 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 border-gov-border dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700/60';
             }
           });
           refreshMapLayers();
@@ -268,13 +268,18 @@ function setupMapControls() {
       fitIndonesiaMap();
     });
   }
+
+  // Render ulang ikon Lucide jika diperlukan
+  if (typeof lucide !== 'undefined') {
+    lucide.createIcons();
+  }
 }
 
 function updateToggleBtnState(btn, isActive, label) {
   if (isActive) {
-    btn.className = 'px-3 py-1.5 rounded-lg text-xs font-bold border transition-all flex items-center gap-1.5 bg-gov-navy text-white border-gov-navy shadow-xs';
+    btn.className = 'px-3 py-1.5 rounded-lg text-xs font-bold border transition-all flex items-center gap-1.5 bg-gov-navy text-white border-gov-navy shadow-xs hover:bg-gov-navy/90';
   } else {
-    btn.className = 'px-3 py-1.5 rounded-lg text-xs font-semibold border transition-all flex items-center gap-1.5 bg-white text-slate-500 border-gov-border hover:bg-slate-50 opacity-60';
+    btn.className = 'px-3 py-1.5 rounded-lg text-xs font-semibold border transition-all flex items-center gap-1.5 bg-white dark:bg-slate-800 text-slate-500 dark:text-slate-400 border-gov-border dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700/60 opacity-60';
   }
 }
 
