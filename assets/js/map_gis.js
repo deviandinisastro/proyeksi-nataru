@@ -8,7 +8,7 @@
  * 1. Ukuran titik simpul dibuat SAMA RATA (Uniform Radius: 4.2px) agar tidak bertumpuk
  *    atau menutupi simpul lain di wilayah padat (sesuai masukan rapat pegawai statistisi).
  * 2. Perbedaan intensitas volume mobilitas diwakili oleh LAPISAN HEATMAP KEPADATAN
- *    dan LEGENDA GRADASI HEATMAP di pojok kanan bawah peta.
+ *    dan KETERANGAN PETA SPASIAL di pojok kiri bawah peta (membebaskan area Papua & Indonesia Timur).
  * 3. Dilengkapi pemantauan Titik Kritis Khusus Posko Nataru (Gerbang Tol Barrier & ASDP).
  * ==============================================================================
  */
@@ -187,41 +187,45 @@ function updateBasemap() {
 }
 
 /**
- * Setup Kotak Legenda di Pojok Kanan Bawah Peta (dengan Fitur Ciutkan / Buka ▲/▼)
+ * Setup Kotak Keterangan Peta di Pojok Kiri Bawah (Membebaskan Area Papua & Indonesia Timur)
+ * dengan Fitur Ciutkan / Buka ▲/▼
  */
 function setupMapLegend() {
-  const legend = L.control({ position: 'bottomright' });
+  const legend = L.control({ position: 'bottomleft' });
 
   legend.onAdd = function() {
-    const div = L.DomUtil.create('div', 'leaflet-bar');
+    const div = L.DomUtil.create('div', 'leaflet-bar border-0 shadow-none bg-transparent');
     div.innerHTML = `
-      <div class="p-3 rounded-xl bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border border-slate-200 dark:border-slate-800 text-[11px] shadow-lg max-w-[240px] font-sans">
+      <div class="p-3 rounded-xl bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border border-slate-200 dark:border-slate-800 text-[11px] shadow-lg max-w-[245px] font-sans">
         <!-- Header Baris Atas dengan Tombol Ciutkan / Buka -->
-        <div id="legend-header-toggle" class="flex items-center justify-between gap-2 pb-2 border-b border-slate-100 dark:border-slate-800 cursor-pointer select-none" title="Klik untuk Ciutkan / Buka Legenda">
+        <div id="legend-header-toggle" class="flex items-center justify-between gap-2 pb-2 border-b border-slate-100 dark:border-slate-800 cursor-pointer select-none" title="Klik untuk Ciutkan / Buka Keterangan Peta">
           <div class="font-bold text-slate-800 dark:text-slate-100 flex items-center gap-1.5 text-xs">
-            <span class="text-gov-azure font-extrabold">📊</span>
-            <span>Legenda & Heatmap</span>
+            <span class="text-gov-azure font-extrabold">🗺️</span>
+            <span>Keterangan Peta Spasial</span>
           </div>
           <span id="legend-toggle-icon" class="text-[10px] text-slate-500 dark:text-slate-400 font-bold px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">▲</span>
         </div>
 
         <!-- Isi Konten Legenda yang Dapat Diciutkan -->
         <div id="legend-body" class="space-y-2.5 pt-2">
-          <!-- Bagian 1: Heatmap Intensitas Kepadatan -->
+          <!-- Bagian 1: Intensitas Kepadatan Arus (Heatmap) -->
           <div>
             <div class="font-bold text-slate-800 dark:text-slate-100 flex items-center justify-between mb-1">
               <span class="flex items-center gap-1.5">
                 <span class="w-2.5 h-2.5 rounded-full bg-gradient-to-r from-sky-400 via-amber-400 to-rose-500"></span>
-                <span>Heatmap Kepadatan:</span>
+                <span>Intensitas Kepadatan Arus:</span>
               </span>
               <span class="text-[9px] font-semibold text-gov-navy dark:text-sky-300 px-1.5 py-0.2 bg-blue-50 dark:bg-blue-950/40 rounded">Posko Nataru</span>
             </div>
             <div class="h-2 rounded-full bg-gradient-to-r from-sky-400 via-emerald-400 via-amber-400 to-rose-600 mb-1"></div>
             <div class="flex justify-between text-[9px] text-slate-500 dark:text-slate-400 font-semibold">
-              <span>Rendah (&lt;10%)</span>
+              <span>Rendah</span>
               <span>Sedang</span>
-              <span>Tinggi</span>
-              <span>Puncak (&gt;60%)</span>
+              <span>Padat</span>
+              <span>Puncak Beban</span>
+            </div>
+            <div class="text-[8.5px] text-slate-400 dark:text-slate-500 italic mt-0.5 leading-tight">
+              *Normalisasi Kernel Density thd. Soetta (Simpul Terpadat)
             </div>
           </div>
 
@@ -234,26 +238,33 @@ function setupMapLegend() {
             <div class="grid grid-cols-2 gap-x-2 gap-y-1 text-[10px] text-slate-700 dark:text-slate-300">
               <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-[#0284C7] shrink-0 border border-white"></span> Udara (230)</span>
               <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-[#EA580C] shrink-0 border border-white"></span> Kereta Api (186)</span>
-              <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-[#16A34A] shrink-0 border border-white"></span> Terminal (189)</span>
-              <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-[#9333EA] shrink-0 border border-white"></span> ASDP (196)</span>
+              <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-[#16A34A] shrink-0 border border-white"></span> Terminal Bus (189)</span>
+              <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-[#9333EA] shrink-0 border border-white"></span> Pelabuhan SDP (196)</span>
               <span class="flex items-center gap-1.5 col-span-2"><span class="w-2 h-2 rounded-full bg-[#0D9488] shrink-0 border border-white"></span> Pelabuhan Laut (209)</span>
             </div>
           </div>
 
-          <!-- Bagian 3: Titik Kritis Khusus Nataru -->
-          <div class="border-t border-slate-100 dark:border-slate-800 pt-1.5 text-[10px] flex items-center justify-between">
-            <span class="flex items-center gap-1 font-semibold text-rose-600 dark:text-rose-400">
-              <span class="w-2 h-2 rounded-xs bg-rose-500"></span> Gerbang Tol Barrier
-            </span>
-            <span class="flex items-center gap-1 font-semibold text-purple-600 dark:text-purple-400">
-              <span class="w-2 h-2 rounded-xs bg-purple-500"></span> Lintas Feri ASDP
-            </span>
+          <!-- Bagian 3: Titik Pantau Khusus Posko Nataru -->
+          <div class="border-t border-slate-100 dark:border-slate-800 pt-2 space-y-1">
+            <div class="font-bold text-slate-800 dark:text-slate-100 text-[10px] uppercase tracking-wider mb-1">
+              <span>Fokus Khusus Posko Nataru</span>
+            </div>
+            <div class="grid grid-cols-1 gap-y-1 text-[10px]">
+              <span class="flex items-center gap-1.5 font-semibold text-rose-600 dark:text-rose-400">
+                <span class="w-2 h-2 rotate-45 bg-[#E11D48] shrink-0 border border-white shadow-2xs"></span> 
+                <span>Gerbang Tol Barrier (Trans Jawa)</span>
+              </span>
+              <span class="flex items-center gap-1.5 font-semibold text-purple-600 dark:text-purple-400">
+                <span class="w-2.5 h-2.5 rounded-full bg-[#9333EA] ring-2 ring-amber-400 shrink-0 border border-white"></span> 
+                <span>Penyeberangan Utama (Merak & Ketapang)</span>
+              </span>
+            </div>
           </div>
         </div>
       </div>
     `;
 
-    // Mencegah interaksi peta saat mengklik legenda
+    // Mencegah interaksi peta saat mengklik keterangan
     L.DomEvent.disableClickPropagation(div);
     L.DomEvent.disableScrollPropagation(div);
 
@@ -507,7 +518,8 @@ function renderEqualMarkers(nodes) {
 }
 
 /**
- * Render Titik Kritis Infrastruktur Posko Nataru (Gerbang Tol Barrier & ASDP Feri)
+ * Render Titik Kritis Infrastruktur Posko Nataru (Gerbang Tol Barrier & Simpul Penyeberangan Utama)
+ * Semua berukuran SAMA RATA (serasi dengan titik 4.2px) tanpa ada titik raksasa
  */
 function renderCriticalInfrastructure() {
   if (!criticalLayerGroup) return;
@@ -517,40 +529,83 @@ function renderCriticalInfrastructure() {
 
   TITIK_KRITIS_DATA.forEach(t => {
     const isTol = t.kategori === 'tol';
-    const markerColor = isTol ? '#E11D48' : '#7C3AED';
 
-    // Marker Kotak Khusus / Pin Kritis
-    const marker = L.circleMarker([t.lat, t.lon], {
-      radius: 6.5,
-      fillColor: markerColor,
-      color: '#FFFFFF',
-      weight: 2,
-      opacity: 1.0,
-      fillOpacity: 0.95
-    });
+    if (isTol) {
+      // 1. Gerbang Tol Barrier: Penanda Belah Ketupat (Diamond Marker) Berukuran Sama Rata (8.5px)
+      const diamondIcon = L.divIcon({
+        className: 'border-0 bg-transparent flex items-center justify-center',
+        html: `<div style="width: 8.5px; height: 8.5px; background-color: #E11D48; border: 1.2px solid #FFFFFF; transform: rotate(45deg); box-shadow: 0 1px 3px rgba(0,0,0,0.5);"></div>`,
+        iconSize: [10, 10],
+        iconAnchor: [5, 5]
+      });
 
-    marker.bindTooltip(`<b>🚩 ${t.nama}</b><br><span class="text-rose-600 font-bold">${t.tipe}</span>`, {
-      direction: 'top',
-      offset: [0, -6],
-      className: 'bg-slate-900 text-white text-[11px] px-2 py-1 rounded shadow-md'
-    });
+      const marker = L.marker([t.lat, t.lon], { icon: diamondIcon });
 
-    const popupHtml = `
-      <div class="p-2 space-y-2 max-w-[260px] text-xs font-sans">
-        <div class="border-b border-slate-200 pb-1.5 flex items-center justify-between">
-          <span class="font-bold text-slate-900">${t.nama}</span>
-          <span class="px-1.5 py-0.5 rounded text-[9px] font-bold text-white uppercase" style="background-color: ${markerColor}">
-            ${isTol ? 'Gerbang Tol' : 'Pelabuhan ASDP'}
-          </span>
+      marker.bindTooltip(`<b>🚩 ${t.nama}</b><br><span class="text-rose-400 font-bold">${t.tipe}</span>`, {
+        direction: 'top',
+        offset: [0, -6],
+        className: 'bg-slate-900 text-white text-[11px] px-2 py-1 rounded shadow-md border-0'
+      });
+
+      const popupHtml = `
+        <div class="p-2 space-y-2 max-w-[260px] text-xs font-sans">
+          <div class="border-b border-slate-200 pb-1.5 flex items-center justify-between">
+            <span class="font-bold text-slate-900">${t.nama}</span>
+            <span class="px-1.5 py-0.5 rounded text-[9px] font-bold text-white uppercase bg-rose-600">
+              Gerbang Tol Barrier
+            </span>
+          </div>
+          <p class="text-[11px] text-slate-600 leading-tight">${t.info}</p>
+          <div class="p-2 bg-rose-50 border border-rose-200 rounded text-[11px] font-bold text-rose-900">
+            Estimasi Beban: ${t.vol_teks}
+          </div>
         </div>
-        <p class="text-[11px] text-slate-600 leading-tight">${t.info}</p>
-        <div class="p-2 bg-rose-50 border border-rose-200 rounded text-[11px] font-bold text-rose-900">
-          Estimasi Beban: ${t.vol_teks}
-        </div>
-      </div>
-    `;
+      `;
 
-    marker.bindPopup(popupHtml, { maxWidth: 280 });
-    criticalLayerGroup.addLayer(marker);
+      marker.bindPopup(popupHtml, { maxWidth: 280 });
+      criticalLayerGroup.addLayer(marker);
+    } else {
+      // 2. Simpul Penyeberangan Utama (Merak, Bakauheni, Ketapang, Gilimanuk):
+      // Ukuran SAMA RATA (radius 4.2px) dengan Cincin Emas Khas Simpul Prioritas Posko
+      const marker = L.circleMarker([t.lat, t.lon], {
+        radius: UNIFORM_RADIUS,
+        fillColor: '#9333EA',
+        color: '#F59E0B', // Cincin Emas Penanda Prioritas Posko Nataru
+        weight: 2.2,
+        opacity: 1.0,
+        fillOpacity: 1.0
+      });
+
+      marker.on('mouseover', function() {
+        this.setStyle({ radius: 6.5, weight: 3.0 });
+      });
+      marker.on('mouseout', function() {
+        this.setStyle({ radius: UNIFORM_RADIUS, weight: 2.2 });
+      });
+
+      marker.bindTooltip(`<b>⚓ ${t.nama}</b><br><span class="text-purple-300 font-bold">Simpul Prioritas Posko Nataru</span>`, {
+        direction: 'top',
+        offset: [0, -4],
+        className: 'bg-slate-900 text-white text-[11px] px-2 py-1 rounded shadow-md border-0'
+      });
+
+      const popupHtml = `
+        <div class="p-2 space-y-2 max-w-[260px] text-xs font-sans">
+          <div class="border-b border-slate-200 pb-1.5 flex items-center justify-between">
+            <span class="font-bold text-slate-900">${t.nama}</span>
+            <span class="px-1.5 py-0.5 rounded text-[9px] font-bold text-white uppercase bg-purple-700">
+              Penyeberangan Utama
+            </span>
+          </div>
+          <p class="text-[11px] text-slate-600 leading-tight">${t.info}</p>
+          <div class="p-2 bg-purple-50 border border-purple-200 rounded text-[11px] font-bold text-purple-900">
+            Estimasi Beban: ${t.vol_teks}
+          </div>
+        </div>
+      `;
+
+      marker.bindPopup(popupHtml, { maxWidth: 280 });
+      criticalLayerGroup.addLayer(marker);
+    }
   });
 }
