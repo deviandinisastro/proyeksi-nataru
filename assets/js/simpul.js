@@ -18,11 +18,11 @@ let simpulState = {
 };
 
 const SIMPUL_MODA_LIST = [
-  { key: 'Angkutan Udara', label: '✈️ Angkutan Udara (213 Bandara)', color: '#0284C7', count: 213 },
-  { key: 'Angkutan Jalan', label: '🚌 Angkutan Jalan (157 Terminal)', color: '#16A34A', count: 157 },
-  { key: 'Angkutan Laut', label: '🚢 Angkutan Laut (201 Pelabuhan)', color: '#1E40AF', count: 201 },
-  { key: 'Kereta Api', label: '🚆 Kereta Api (183 Stasiun Antarkota)', color: '#EA580C', count: 183 },
-  { key: 'Angkutan SDP', label: '⛴️ Angkutan SDP (155 Lintas/Pelabuhan)', color: '#9333EA', count: 155 }
+  { key: 'Angkutan Udara', label: '✈️ Angkutan Udara (213 Bandara)', color: '#0284C7', count: 213, unit: 'Bandara' },
+  { key: 'Angkutan Jalan', label: '🚌 Angkutan Jalan (157 Terminal)', color: '#16A34A', count: 157, unit: 'Terminal Bus' },
+  { key: 'Angkutan Laut', label: '🚢 Angkutan Laut (201 Pelabuhan)', color: '#1E40AF', count: 201, unit: 'Pelabuhan Laut' },
+  { key: 'Kereta Api', label: '🚆 Kereta Api (183 Stasiun Antarkota)', color: '#EA580C', count: 183, unit: 'Stasiun KA' },
+  { key: 'Angkutan SDP', label: '⛴️ Angkutan SDP (155 Lintas/Pelabuhan)', color: '#9333EA', count: 155, unit: 'Penyeberangan SDP' }
 ];
 
 function renderSimpulModule() {
@@ -162,19 +162,27 @@ function renderSimpulChart() {
   const isDark = document.documentElement.classList.contains('dark');
 
   const layout = {
-    bargap: 0.40, // Batang ramping elegan sesuai standar INA Digital
-    margin: { t: 20, b: 40, l: 280, r: 40 },
-    height: 380,
+    bargap: 0.28, // Batang tegas dan proporsional
+    margin: { t: 20, b: 45, l: 270, r: 25 }, // Memberi ruang horizontal lebih panjang ke kanan
+    height: 420, // Tinggi proporsional agar 10 batang nyaman dilihat
     paper_bgcolor: 'transparent',
     plot_bgcolor: 'transparent',
     xaxis: {
       tickformat: ',.0f',
       gridcolor: isDark ? 'rgba(255, 255, 255, 0.08)' : '#F1F5F9',
-      linecolor: isDark ? '#334155' : '#CBD5E1',
+      linecolor: isDark ? '#334155' : '#E2E8F0',
+      zeroline: true,
+      zerolinecolor: isDark ? '#334155' : '#E2E8F0', // Garis batas vertikal lembut institusional (bukan hitam pekat)
+      zerolinewidth: 1.5,
       tickfont: { family: 'Plus Jakarta Sans', size: 10, color: isDark ? '#CBD5E1' : '#64748B' },
       title: { text: 'Volume Penumpang (orang)', font: { size: 11, family: 'Plus Jakarta Sans', color: isDark ? '#CBD5E1' : '#64748B' } }
     },
     yaxis: {
+      ticksuffix: '   ', // Jarak spasi breathing room sebelum garis vertikal
+      ticks: 'outside',
+      ticklen: 12, // Jarak fisik standoff 12px
+      tickcolor: 'transparent', // Tanpa garis tick yang mengganggu
+      showline: false, // Menghilangkan garis vertikal hitam kasar y-axis
       tickfont: { family: 'Plus Jakarta Sans', size: 11, color: isDark ? '#F8FAFC' : '#0F172A', weight: 600 }
     },
     hoverlabel: {
@@ -205,7 +213,7 @@ function renderSimpulTable() {
 
   const allSimpul = data.simpul_semua[simpulState.activeModa] || [];
   const modaInfo = SIMPUL_MODA_LIST.find(m => m.key === simpulState.activeModa) || SIMPUL_MODA_LIST[0];
-  const modaNameClean = modaInfo.label.split('(')[1]?.replace(')', '').trim() || modaInfo.label;
+  const unitLabel = modaInfo.unit || 'Simpul';
 
   let displayList = simpulState.showAll ? allSimpul : (data.simpul_top10[simpulState.activeModa] || []);
 
@@ -219,30 +227,30 @@ function renderSimpulTable() {
     if (simpulState.searchQuery) {
       countBadgeEl.innerText = `${displayList.length} Ditemukan`;
     } else if (simpulState.showAll) {
-      countBadgeEl.innerText = `Menampilkan Seluruh ${allSimpul.length} Simpul`;
+      countBadgeEl.innerText = `Menampilkan Seluruh ${allSimpul.length} ${unitLabel}`;
     } else {
-      countBadgeEl.innerText = `10 dari ${allSimpul.length} Simpul`;
+      countBadgeEl.innerText = `10 dari ${allSimpul.length} ${unitLabel}`;
     }
   }
 
   // Update Tombol Aksi di Bawah Tabel
   if (btnLoadAll && footerInfo) {
     if (simpulState.searchQuery) {
-      footerInfo.innerText = `Ditemukan ${displayList.length} simpul sesuai pencarian "${simpulState.searchQuery}" (dari total ${allSimpul.length} ${modaNameClean})`;
+      footerInfo.innerText = `Ditemukan ${displayList.length} simpul sesuai pencarian "${simpulState.searchQuery}" (dari total ${allSimpul.length} ${unitLabel})`;
       btnLoadAll.style.display = 'none';
     } else {
       btnLoadAll.style.display = 'inline-flex';
       if (simpulState.showAll) {
-        footerInfo.innerText = `Menampilkan seluruh ${allSimpul.length} simpul ${modaNameClean} terverifikasi`;
+        footerInfo.innerText = `Menampilkan seluruh ${allSimpul.length} ${unitLabel} terverifikasi`;
         btnLoadAll.innerHTML = `
           <i data-lucide="chevron-up" class="w-4 h-4"></i>
           <span>Tutup & Tampilkan 10 Simpul Saja</span>
         `;
         btnLoadAll.className = 'px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-300 font-bold rounded-lg shadow-xs flex items-center gap-2 transition-all text-xs';
       } else {
-        footerInfo.innerText = `Menampilkan 10 simpul terpadat dari total ${allSimpul.length} ${modaNameClean}`;
+        footerInfo.innerText = `Menampilkan 10 simpul terpadat dari total ${allSimpul.length} ${unitLabel}`;
         btnLoadAll.innerHTML = `
-          <span>Lihat Seluruh Simpul (${allSimpul.length} ${modaNameClean})</span>
+          <span>Lihat Seluruh Simpul (${allSimpul.length} ${unitLabel})</span>
           <i data-lucide="chevron-down" class="w-4 h-4"></i>
         `;
         btnLoadAll.className = 'px-4 py-2 bg-gov-navy hover:bg-gov-navy/90 text-white font-bold rounded-lg shadow-xs flex items-center gap-2 transition-all text-xs';
@@ -278,8 +286,8 @@ function renderSimpulTable() {
     return `
       <tr class="hover:bg-slate-50 transition-colors border-b border-slate-100 ${isTop3 ? 'bg-blue-50/20' : ''}">
         <td class="py-2.5 px-3 text-center whitespace-nowrap">${rankBadge}</td>
-        <td class="py-2.5 px-3 text-xs font-bold text-slate-800">${s.nama}</td>
-        <td class="py-2.5 px-3 text-xs text-slate-500 whitespace-nowrap">${s.kategori}</td>
+        <td class="py-2.5 px-3 text-xs font-bold text-slate-800 truncate" title="${s.nama}">${s.nama}</td>
+        <td class="py-2.5 px-3 text-xs text-slate-500 whitespace-nowrap truncate">${s.kategori}</td>
         <td class="py-2.5 px-3 text-right num-mono text-slate-600 text-xs">${formatNumber(s.realisasi_2025)}</td>
         <td class="py-2.5 px-3 text-right num-mono font-bold text-gov-navy text-xs">${formatNumber(s.proyeksi_2026)}</td>
         <td class="py-2.5 px-3 text-right num-mono font-bold text-gov-azure text-xs">${s.porsi_share_pct.toLocaleString('id-ID')}%</td>
