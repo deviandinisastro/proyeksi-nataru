@@ -5,7 +5,7 @@
  * Nataru 2026/2027
  * ==============================================================================
  * Standar Kartografi & Statistik Kemenhub:
- * 1. Ukuran titik simpul dibuat SAMA RATA (Uniform Radius: 4.2px) untuk seluruh 855
+ * 1. Ukuran titik simpul dibuat SAMA RATA (Uniform Radius: 4.2px) untuk seluruh 909
  *    simpul multimoda terverifikasi agar tidak tumpang tindih.
  * 2. Perbedaan intensitas volume mobilitas diwakili oleh LAPISAN HEATMAP KEPADATAN
  *    dan KETERANGAN PETA SPASIAL di pojok kiri bawah peta (default terlipat rapi).
@@ -25,12 +25,12 @@ const UNIFORM_RADIUS = 4.2; // Ukuran titik sama rata sesuai arahan statistisi r
 const INDONESIA_BOUNDS = [[-10.8, 95.0], [5.8, 141.0]]; // Batas koordinat seluruh kepulauan Indonesia
 
 const MAP_MODA_CONFIG = [
-  { key: 'ALL', label: 'Semua Moda (855)', moda_name: 'Multimoda', color: '#003882', makro_total: 18462913 },
+  { key: 'ALL', label: 'Semua Moda (909)', moda_name: 'Multimoda', color: '#003882', makro_total: 18462913 },
   { key: 'Angkutan Udara', label: '✈️ Bandara (213)', moda_name: 'Angkutan Udara', color: '#0284C7', makro_total: 4880174 },
   { key: 'Kereta Api', label: '🚆 Stasiun KA (183)', moda_name: 'Kereta Api', color: '#EA580C', makro_total: 4062995 },
   { key: 'Angkutan Laut', label: '🚢 Pelabuhan Laut (201)', moda_name: 'Angkutan Laut', color: '#0D9488', makro_total: 2268857 },
-  { key: 'Angkutan Jalan', label: '🚌 Terminal Bus (134)', moda_name: 'Angkutan Jalan', color: '#16A34A', makro_total: 3434854 },
-  { key: 'Angkutan SDP', label: '⛴️ Penyeberangan (124)', moda_name: 'Angkutan SDP', color: '#9333EA', makro_total: 3816033 }
+  { key: 'Angkutan Jalan', label: '🚌 Terminal Bus (157)', moda_name: 'Angkutan Jalan', color: '#16A34A', makro_total: 3434854 },
+  { key: 'Angkutan SDP', label: '⛴️ Penyeberangan (155)', moda_name: 'Angkutan SDP', color: '#9333EA', makro_total: 3816033 }
 ];
 
 function renderMapModule() {
@@ -166,14 +166,14 @@ function setupMapLegend() {
           <div class="border-t border-slate-100 dark:border-slate-800 pt-2 space-y-1">
             <div class="font-bold text-slate-800 dark:text-slate-100 text-[10px] uppercase tracking-wider mb-1 flex items-center justify-between">
               <span>Simpul Terpetakan (Ukuran Seragam)</span>
-              <span class="text-[9px] text-slate-400 font-normal">855 Titik</span>
+              <span class="text-[9px] text-slate-400 font-normal">909 Titik</span>
             </div>
             <div class="grid grid-cols-2 gap-x-2 gap-y-1 text-[10px] text-slate-700 dark:text-slate-300">
               <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-[#0284C7] shrink-0 border border-white"></span> Udara (213)</span>
               <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-[#EA580C] shrink-0 border border-white"></span> Kereta Api (183)</span>
               <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-[#0D9488] shrink-0 border border-white"></span> Pelabuhan Laut (201)</span>
-              <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-[#16A34A] shrink-0 border border-white"></span> Terminal Bus (134)</span>
-              <span class="flex items-center gap-1.5 col-span-2"><span class="w-2 h-2 rounded-full bg-[#9333EA] shrink-0 border border-white"></span> Pelabuhan SDP (124)</span>
+              <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-[#16A34A] shrink-0 border border-white"></span> Terminal Bus (157)</span>
+              <span class="flex items-center gap-1.5 col-span-2"><span class="w-2 h-2 rounded-full bg-[#9333EA] shrink-0 border border-white"></span> Pelabuhan SDP (155)</span>
             </div>
           </div>
         </div>

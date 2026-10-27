@@ -6410,5 +6410,437 @@
     "lon": 104.40139,
     "provinsi": "Lampung",
     "moda": "UDARA"
+  },
+  "UNTUNG SUROPATI (JAWA TIMUR) TTB PANTAUAN": {
+    "id": "TTB_UNTUNG_SUROPATI",
+    "nama": "Untung Suropati (Pasuruan)",
+    "lat": -7.6534,
+    "lon": 112.9126,
+    "provinsi": "Jawa Timur",
+    "moda": "BUS"
+  },
+  "SUKOHARJO (JAWA TENGAH) TTB PANTAUAN": {
+    "id": "TTB_SUKOHARJO",
+    "nama": "Sukoharjo",
+    "lat": -7.6833,
+    "lon": 110.8358,
+    "provinsi": "Jawa Tengah",
+    "moda": "BUS"
+  },
+  "MADURESO (JAWA TENGAH) TTB PANTAUAN": {
+    "id": "TTB_MADURESO",
+    "nama": "Madureso (Temanggung)",
+    "lat": -7.3094,
+    "lon": 110.1636,
+    "provinsi": "Jawa Tengah",
+    "moda": "BUS"
+  },
+  "PENGGUNG (JAWA TENGAH) TTB PANTAUAN": {
+    "id": "TTB_PENGGUNG",
+    "nama": "Penggung (Boyolali)",
+    "lat": -7.5463,
+    "lon": 110.6151,
+    "provinsi": "Jawa Tengah",
+    "moda": "BUS"
+  },
+  "RONGGO SUKOWATI (JAWA TIMUR) TTB PANTAUAN": {
+    "id": "TTB_RONGGO_SUKOWATI",
+    "nama": "Ronggo Sukowati (Pamekasan)",
+    "lat": -7.1594,
+    "lon": 113.4862,
+    "provinsi": "Jawa Timur",
+    "moda": "BUS"
+  },
+  "PRACIMANTORO WONOGIRI (JAWA TENGAH) TTB PANTAUAN": {
+    "id": "TTB_PRACIMANTORO",
+    "nama": "Pracimantoro Wonogiri",
+    "lat": -8.0494,
+    "lon": 110.8407,
+    "provinsi": "Jawa Tengah",
+    "moda": "BUS"
+  },
+  "SUNGAI KUNJANG (KALIMANTAN TIMUR) TTB PANTAUAN": {
+    "id": "TTB_SUNGAI_KUNJANG",
+    "nama": "Sungai Kunjang (Samarinda)",
+    "lat": -0.5239,
+    "lon": 117.1189,
+    "provinsi": "Kalimantan Timur",
+    "moda": "BUS"
+  },
+  "KARTOSURO (JAWA TENGAH) TTB PANTAUAN": {
+    "id": "TTB_KARTOSURO",
+    "nama": "Kartosuro",
+    "lat": -7.5518,
+    "lon": 110.7423,
+    "provinsi": "Jawa Tengah",
+    "moda": "BUS"
+  },
+  "LEMPAKE (KALIMANTAN TIMUR) TTB PANTAUAN": {
+    "id": "TTB_LEMPAKE",
+    "nama": "Lempake (Samarinda)",
+    "lat": -0.4287,
+    "lon": 117.1725,
+    "provinsi": "Kalimantan Timur",
+    "moda": "BUS"
+  },
+  "BATURETNO (JAWA TENGAH) TTB PANTAUAN": {
+    "id": "TTB_BATURETNO",
+    "nama": "Baturetno (Wonogiri)",
+    "lat": -7.9897,
+    "lon": 110.9492,
+    "provinsi": "Jawa Tengah",
+    "moda": "BUS"
+  },
+  "SIDO MULYO (KALIMANTAN BARAT) TTB PANTAUAN": {
+    "id": "TTB_SIDO_MULYO",
+    "nama": "Sido Mulyo (Sintang)",
+    "lat": 0.0573,
+    "lon": 111.4984,
+    "provinsi": "Kalimantan Barat",
+    "moda": "BUS"
+  },
+  "DRS. PRAYITNO (JAWA TENGAH) TTB PANTAUAN": {
+    "id": "TTB_DRS_PRAYITNO",
+    "nama": "Drs. Prayitno (Boyolali)",
+    "lat": -7.5381,
+    "lon": 110.5927,
+    "provinsi": "Jawa Tengah",
+    "moda": "BUS"
+  },
+  "KEDAMIN (KALIMANTAN BARAT) TTB PANTAUAN": {
+    "id": "TTB_KEDAMIN",
+    "nama": "Kedamin (Putussibau)",
+    "lat": 0.8142,
+    "lon": 112.9231,
+    "provinsi": "Kalimantan Barat",
+    "moda": "BUS"
+  },
+  "GINTE (NUSA TENGGARA BARAT) TTB PANTAUAN": {
+    "id": "TTB_GINTE",
+    "nama": "Ginte (Dompu)",
+    "lat": -8.5367,
+    "lon": 118.4632,
+    "provinsi": "Nusa Tenggara Barat",
+    "moda": "BUS"
+  },
+  "PURWANTORO (JAWA TENGAH) TTB PANTAUAN": {
+    "id": "TTB_PURWANTORO",
+    "nama": "Purwantoro (Wonogiri)",
+    "lat": -7.8447,
+    "lon": 111.2583,
+    "provinsi": "Jawa Tengah",
+    "moda": "BUS"
+  },
+  "SUMBER (JAWA BARAT) TTB PANTAUAN": {
+    "id": "TTB_SUMBER",
+    "nama": "Sumber (Cirebon)",
+    "lat": -6.7628,
+    "lon": 108.4812,
+    "provinsi": "Jawa Barat",
+    "moda": "BUS"
+  },
+  "RENTENG (NUSA TENGGARA BARAT) TTB PANTAUAN": {
+    "id": "TTB_RENTENG",
+    "nama": "Renteng (Praya)",
+    "lat": -8.7042,
+    "lon": 116.2731,
+    "provinsi": "Nusa Tenggara Barat",
+    "moda": "BUS"
+  },
+  "BONDOWOSO (JAWA TIMUR) TTB PANTAUAN": {
+    "id": "TTB_BONDOWOSO",
+    "nama": "Bondowoso",
+    "lat": -7.9142,
+    "lon": 113.8214,
+    "provinsi": "Jawa Timur",
+    "moda": "BUS"
+  },
+  "GAGAK RIMANG (JAWA TENGAH) TTB PANTAUAN": {
+    "id": "TTB_GAGAK_RIMANG",
+    "nama": "Gagak Rimang (Blora)",
+    "lat": -6.9744,
+    "lon": 111.4186,
+    "provinsi": "Jawa Tengah",
+    "moda": "BUS"
+  },
+  "ARJASA (JAWA TIMUR) TTB PANTAUAN": {
+    "id": "TTB_ARJASA",
+    "nama": "Arjasa (Situbondo)",
+    "lat": -7.7128,
+    "lon": 114.1294,
+    "provinsi": "Jawa Timur",
+    "moda": "BUS"
+  },
+  "NATAI SUKA (KALIMANTAN TENGAH) TTB PANTAUAN": {
+    "id": "TTB_NATAI_SUKA",
+    "nama": "Natai Suka (Pangkalan Bun)",
+    "lat": -2.6847,
+    "lon": 111.6214,
+    "provinsi": "Kalimantan Tengah",
+    "moda": "BUS"
+  },
+  "NGADIRAJO (JAWA TIMUR) TTB PANTAUAN": {
+    "id": "TTB_NGADIRAJO",
+    "nama": "Ngadirajo (Pacitan)",
+    "lat": -8.2239,
+    "lon": 111.2381,
+    "provinsi": "Jawa Timur",
+    "moda": "BUS"
+  },
+  "AMBULU (JAWA TIMUR) TTB PANTAUAN": {
+    "id": "TTB_AMBULU",
+    "nama": "Ambulu (Jember)",
+    "lat": -8.3478,
+    "lon": 113.6067,
+    "provinsi": "Jawa Timur",
+    "moda": "BUS"
+  },
+  "SEI SELARI (RIAU)": {
+    "id": "SDP_SEI_SELARI",
+    "nama": "Sei Selari (Sungai Pakning)",
+    "lat": 1.3411,
+    "lon": 102.1528,
+    "provinsi": "Riau",
+    "moda": "ASDP"
+  },
+  "SIMANINDO (SUMATERA UTARA)": {
+    "id": "SDP_SIMANINDO",
+    "nama": "Simanindo (Samosir)",
+    "lat": 2.7381,
+    "lon": 98.7512,
+    "provinsi": "Sumatera Utara",
+    "moda": "ASDP"
+  },
+  "ULEE LHEU (D.I ACEH)": {
+    "id": "SDP_ULEE_LHEU",
+    "nama": "Ulee Lheue (Banda Aceh)",
+    "lat": 5.5562,
+    "lon": 95.2917,
+    "provinsi": "Aceh",
+    "moda": "ASDP"
+  },
+  "RUPAT (RIAU)": {
+    "id": "SDP_RUPAT",
+    "nama": "Rupat (Bengkalis)",
+    "lat": 1.6264,
+    "lon": 101.5936,
+    "provinsi": "Riau",
+    "moda": "ASDP"
+  },
+  "TIGARAS (SUMATERA UTARA)": {
+    "id": "SDP_TIGARAS",
+    "nama": "Tigaras (Simalungun)",
+    "lat": 2.8122,
+    "lon": 98.7831,
+    "provinsi": "Sumatera Utara",
+    "moda": "ASDP"
+  },
+  "TOBAKU (SULAWESI TENGGARA)": {
+    "id": "SDP_TOBAKU",
+    "nama": "Tobaku (Kolaka Utara)",
+    "lat": -3.2792,
+    "lon": 120.9789,
+    "provinsi": "Sulawesi Tenggara",
+    "moda": "ASDP"
+  },
+  "SIPINGGAN (SUMATERA UTARA)": {
+    "id": "SDP_SIPINGGAN",
+    "nama": "Sipinggan (Samosir)",
+    "lat": 2.5312,
+    "lon": 98.8821,
+    "provinsi": "Sumatera Utara",
+    "moda": "ASDP"
+  },
+  "KOLONODALE (SULAWESI TENGAH)": {
+    "id": "SDP_KOLONODALE",
+    "nama": "Kolonodale (Morowali)",
+    "lat": -1.9792,
+    "lon": 121.3342,
+    "provinsi": "Sulawesi Tengah",
+    "moda": "ASDP"
+  },
+  "BATURUBE (SULAWESI TENGAH)": {
+    "id": "SDP_BATURUBE",
+    "nama": "Baturube (Morowali Utara)",
+    "lat": -1.8214,
+    "lon": 121.5789,
+    "provinsi": "Sulawesi Tengah",
+    "moda": "ASDP"
+  },
+  "PACIRAN (JAWA TIMUR)": {
+    "id": "SDP_PACIRAN",
+    "nama": "Paciran (Lamongan)",
+    "lat": -6.8719,
+    "lon": 112.3528,
+    "provinsi": "Jawa Timur",
+    "moda": "ASDP"
+  },
+  "MENGKAPAN (RIAU)": {
+    "id": "SDP_MENGKAPAN",
+    "nama": "Mengkapan (Tanjung Buton)",
+    "lat": 0.9572,
+    "lon": 102.2614,
+    "provinsi": "Riau",
+    "moda": "ASDP"
+  },
+  "KANGEAN (JAWA TIMUR)": {
+    "id": "SDP_KANGEAN",
+    "nama": "Kangean (Sumenep)",
+    "lat": -6.8714,
+    "lon": 115.3056,
+    "provinsi": "Jawa Timur",
+    "moda": "ASDP"
+  },
+  "BONITON (SULAWESI TENGAH)": {
+    "id": "SDP_BONITON",
+    "nama": "Boniton (Banggai Laut)",
+    "lat": -1.6128,
+    "lon": 123.5114,
+    "provinsi": "Sulawesi Tengah",
+    "moda": "ASDP"
+  },
+  "TAGULANDANG (SULAWESI UTARA)": {
+    "id": "SDP_TAGULANDANG",
+    "nama": "Tagulandang (Sitaro)",
+    "lat": 2.3392,
+    "lon": 125.4181,
+    "provinsi": "Sulawesi Utara",
+    "moda": "ASDP"
+  },
+  "TOMIA (SULAWESI TENGGARA)": {
+    "id": "SDP_TOMIA",
+    "nama": "Tomia (Wakatobi)",
+    "lat": -5.7628,
+    "lon": 123.9417,
+    "provinsi": "Sulawesi Tenggara",
+    "moda": "ASDP"
+  },
+  "TUAPEIJAT (SUMATERA BARAT)": {
+    "id": "SDP_TUAPEIJAT",
+    "nama": "Tuapeijat (Mentawai)",
+    "lat": -2.0253,
+    "lon": 99.5892,
+    "provinsi": "Sumatera Barat",
+    "moda": "ASDP"
+  },
+  "KAMARU (SULAWESI TENGGARA)": {
+    "id": "SDP_KAMARU",
+    "nama": "Kamaru (Buton)",
+    "lat": -5.1639,
+    "lon": 123.0181,
+    "provinsi": "Sulawesi Tenggara",
+    "moda": "ASDP"
+  },
+  "MUARA (SUMATERA BARAT)": {
+    "id": "SDP_MUARA",
+    "nama": "Muara (Padang)",
+    "lat": -0.9631,
+    "lon": 100.3542,
+    "provinsi": "Sumatera Barat",
+    "moda": "ASDP"
+  },
+  "SIBERUT (SUMATERA BARAT)": {
+    "id": "SDP_SIBERUT",
+    "nama": "Siberut (Mentawai)",
+    "lat": -1.5892,
+    "lon": 99.2156,
+    "provinsi": "Sumatera Barat",
+    "moda": "ASDP"
+  },
+  "BIARO (SULAWESI UTARA)": {
+    "id": "SDP_BIARO",
+    "nama": "Biaro (Sitaro)",
+    "lat": 2.1153,
+    "lon": 125.3672,
+    "provinsi": "Sulawesi Utara",
+    "moda": "ASDP"
+  },
+  "KADATUA (SULAWESI TENGGARA)": {
+    "id": "SDP_KADATUA",
+    "nama": "Kadatua (Buton Selatan)",
+    "lat": -5.5514,
+    "lon": 122.5181,
+    "provinsi": "Sulawesi Tenggara",
+    "moda": "ASDP"
+  },
+  "SALAWATI (PAPUA BARAT)": {
+    "id": "SDP_SALAWATI",
+    "nama": "Salawati (Raja Ampat)",
+    "lat": -1.1389,
+    "lon": 130.8528,
+    "provinsi": "Papua Barat Daya",
+    "moda": "ASDP"
+  },
+  "LEMBEH (SULAWESI UTARA)": {
+    "id": "SDP_LEMBEH",
+    "nama": "Lembeh (Bitung)",
+    "lat": 1.4428,
+    "lon": 125.2153,
+    "provinsi": "Sulawesi Utara",
+    "moda": "ASDP"
+  },
+  "BAU BAU (SULAWESI TENGGARA)": {
+    "id": "SDP_BAU_BAU",
+    "nama": "Bau Bau",
+    "lat": -5.4614,
+    "lon": 122.5981,
+    "provinsi": "Sulawesi Tenggara",
+    "moda": "ASDP"
+  },
+  "BATANTA (PAPUA BARAT)": {
+    "id": "SDP_BATANTA",
+    "nama": "Batanta (Raja Ampat)",
+    "lat": -0.8422,
+    "lon": 130.6514,
+    "provinsi": "Papua Barat Daya",
+    "moda": "ASDP"
+  },
+  "MANGARAN (SULAWESI UTARA)": {
+    "id": "SDP_MANGARAN",
+    "nama": "Mangaran (Talaud)",
+    "lat": 4.0153,
+    "lon": 126.6822,
+    "provinsi": "Sulawesi Utara",
+    "moda": "ASDP"
+  },
+  "SIKABALUAN (SUMATERA BARAT)": {
+    "id": "SDP_SIKABALUAN",
+    "nama": "Sikabaluan (Mentawai)",
+    "lat": -1.1564,
+    "lon": 98.9819,
+    "provinsi": "Sumatera Barat",
+    "moda": "ASDP"
+  },
+  "MUSI (SULAWESI UTARA)": {
+    "id": "SDP_MUSI",
+    "nama": "Musi (Talaud)",
+    "lat": 4.1417,
+    "lon": 126.7917,
+    "provinsi": "Sulawesi Utara",
+    "moda": "ASDP"
+  },
+  "PULAU BANYAK (D.I ACEH)": {
+    "id": "SDP_PULAU_BANYAK",
+    "nama": "Pulau Banyak (Aceh Singkil)",
+    "lat": 2.2742,
+    "lon": 97.2417,
+    "provinsi": "Aceh",
+    "moda": "ASDP"
+  },
+  "FOLLEY (PAPUA BARAT DAYA)": {
+    "id": "SDP_FOLLEY",
+    "nama": "Folley (Misool)",
+    "lat": -2.0792,
+    "lon": 130.5628,
+    "provinsi": "Papua Barat Daya",
+    "moda": "ASDP"
+  },
+  "TELUK GURITA (NUSA TENGGARA TIMUR)": {
+    "id": "SDP_TELUK_GURITA",
+    "nama": "Teluk Gurita (Belu)",
+    "lat": -9.0417,
+    "lon": 124.8917,
+    "provinsi": "NTT",
+    "moda": "ASDP"
   }
 }

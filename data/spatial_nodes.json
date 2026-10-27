@@ -3402,6 +3402,20 @@
     "peringkat_nasional": 243
   },
   {
+    "id": "TTB_UNTUNG_SUROPATI",
+    "nama": "Untung Suropati (Jawa Timur) TTB Pantauan",
+    "moda": "Angkutan Jalan",
+    "moda_label": "Angkutan Jalan",
+    "color": "#16A34A",
+    "provinsi": "Jawa Timur",
+    "lat": -7.6534,
+    "lon": 112.9126,
+    "realisasi_2025": 9971,
+    "proyeksi_2026": 10480,
+    "porsi_share_pct": 0.33,
+    "peringkat_nasional": 244
+  },
+  {
     "id": "472",
     "nama": "Selayar (Sulawesi Selatan)",
     "moda": "Angkutan Laut",
@@ -3626,6 +3640,20 @@
     "peringkat_nasional": 260
   },
   {
+    "id": "SDP_SEI_SELARI",
+    "nama": "Sei Selari (Riau)",
+    "moda": "Angkutan SDP",
+    "moda_label": "Angkutan Penyeberangan (SDP)",
+    "color": "#9333EA",
+    "provinsi": "Riau",
+    "lat": 1.3411,
+    "lon": 102.1528,
+    "realisasi_2025": 9357,
+    "proyeksi_2026": 9290,
+    "porsi_share_pct": 0.94,
+    "peringkat_nasional": 261
+  },
+  {
     "id": "KPR",
     "nama": "Kampung Rambutan (DKI Jakarta) TTA Pantauan",
     "moda": "Angkutan Jalan",
@@ -3680,6 +3708,20 @@
     "proyeksi_2026": 9225,
     "porsi_share_pct": 0.36,
     "peringkat_nasional": 265
+  },
+  {
+    "id": "TTB_SUKOHARJO",
+    "nama": "Sukoharjo (Jawa Tengah) TTB Pantauan",
+    "moda": "Angkutan Jalan",
+    "moda_label": "Angkutan Jalan",
+    "color": "#16A34A",
+    "provinsi": "Jawa Tengah",
+    "lat": -7.6833,
+    "lon": 110.8358,
+    "realisasi_2025": 8752,
+    "proyeksi_2026": 9198,
+    "porsi_share_pct": 0.29,
+    "peringkat_nasional": 266
   },
   {
     "id": "3230",
@@ -4382,6 +4424,20 @@
     "peringkat_nasional": 316
   },
   {
+    "id": "TTB_MADURESO",
+    "nama": "Madureso (Jawa Tengah) TTB Pantauan",
+    "moda": "Angkutan Jalan",
+    "moda_label": "Angkutan Jalan",
+    "color": "#16A34A",
+    "provinsi": "Jawa Tengah",
+    "lat": -7.3094,
+    "lon": 110.1636,
+    "realisasi_2025": 6544,
+    "proyeksi_2026": 6878,
+    "porsi_share_pct": 0.22,
+    "peringkat_nasional": 317
+  },
+  {
     "id": "308",
     "nama": "Muntok (Tanjung Kalian) (Kepulauan Bangka Belitung)",
     "moda": "Angkutan SDP",
@@ -4450,6 +4506,20 @@
     "proyeksi_2026": 6787,
     "porsi_share_pct": 0.17,
     "peringkat_nasional": 322
+  },
+  {
+    "id": "TTB_PENGGUNG",
+    "nama": "Penggung (Jawa Tengah) TTB Pantauan",
+    "moda": "Angkutan Jalan",
+    "moda_label": "Angkutan Jalan",
+    "color": "#16A34A",
+    "provinsi": "Jawa Tengah",
+    "lat": -7.5463,
+    "lon": 110.6151,
+    "realisasi_2025": 6389,
+    "proyeksi_2026": 6715,
+    "porsi_share_pct": 0.21,
+    "peringkat_nasional": 323
   },
   {
     "id": "B203",
@@ -4662,6 +4732,20 @@
     "peringkat_nasional": 338
   },
   {
+    "id": "SDP_SIMANINDO",
+    "nama": "Simanindo (Sumatera Utara)",
+    "moda": "Angkutan SDP",
+    "moda_label": "Angkutan Penyeberangan (SDP)",
+    "color": "#9333EA",
+    "provinsi": "Sumatera Utara",
+    "lat": 2.7381,
+    "lon": 98.7512,
+    "realisasi_2025": 5789,
+    "proyeksi_2026": 5747,
+    "porsi_share_pct": 0.58,
+    "peringkat_nasional": 339
+  },
+  {
     "id": "MLK",
     "nama": "Mandala Lebak (Banten) TTA Pantauan",
     "moda": "Angkutan Jalan",
@@ -4688,6 +4772,20 @@
     "proyeksi_2026": 5596,
     "porsi_share_pct": 0.14,
     "peringkat_nasional": 341
+  },
+  {
+    "id": "TTB_RONGGO_SUKOWATI",
+    "nama": "Ronggo Sukowati (Jawa Timur) TTB Pantauan",
+    "moda": "Angkutan Jalan",
+    "moda_label": "Angkutan Jalan",
+    "color": "#16A34A",
+    "provinsi": "Jawa Timur",
+    "lat": -7.1594,
+    "lon": 113.4862,
+    "realisasi_2025": 5299,
+    "proyeksi_2026": 5569,
+    "porsi_share_pct": 0.17,
+    "peringkat_nasional": 342
   },
   {
     "id": "25",
@@ -5264,6 +5362,20 @@
     "peringkat_nasional": 383
   },
   {
+    "id": "SDP_ULEE_LHEU",
+    "nama": "Ulee Lheu (D.I Aceh)",
+    "moda": "Angkutan SDP",
+    "moda_label": "Angkutan Penyeberangan (SDP)",
+    "color": "#9333EA",
+    "provinsi": "Aceh",
+    "lat": 5.5562,
+    "lon": 95.2917,
+    "realisasi_2025": 4523,
+    "proyeksi_2026": 4490,
+    "porsi_share_pct": 0.46,
+    "peringkat_nasional": 384
+  },
+  {
     "id": "CB",
     "nama": "CIBATU (Jawa Barat)",
     "moda": "Kereta Api",
@@ -5418,6 +5530,20 @@
     "peringkat_nasional": 395
   },
   {
+    "id": "TTB_PRACIMANTORO",
+    "nama": "Pracimantoro Wonogiri (Jawa Tengah) TTB Pantauan",
+    "moda": "Angkutan Jalan",
+    "moda_label": "Angkutan Jalan",
+    "color": "#16A34A",
+    "provinsi": "Jawa Tengah",
+    "lat": -8.0494,
+    "lon": 110.8407,
+    "realisasi_2025": 3800,
+    "proyeksi_2026": 3994,
+    "porsi_share_pct": 0.12,
+    "peringkat_nasional": 396
+  },
+  {
     "id": "627",
     "nama": "Bakauheni (Lampung)",
     "moda": "Angkutan Laut",
@@ -5430,6 +5556,20 @@
     "proyeksi_2026": 3994,
     "porsi_share_pct": 0.16,
     "peringkat_nasional": 397
+  },
+  {
+    "id": "SDP_RUPAT",
+    "nama": "Rupat (Riau)",
+    "moda": "Angkutan SDP",
+    "moda_label": "Angkutan Penyeberangan (SDP)",
+    "color": "#9333EA",
+    "provinsi": "Riau",
+    "lat": 1.6264,
+    "lon": 101.5936,
+    "realisasi_2025": 4013,
+    "proyeksi_2026": 3984,
+    "porsi_share_pct": 0.41,
+    "peringkat_nasional": 398
   },
   {
     "id": "LBP",
@@ -5530,6 +5670,20 @@
     "peringkat_nasional": 405
   },
   {
+    "id": "TTB_SUNGAI_KUNJANG",
+    "nama": "Sungai Kunjang (Kalimantan Timur) TTB Pantauan",
+    "moda": "Angkutan Jalan",
+    "moda_label": "Angkutan Jalan",
+    "color": "#16A34A",
+    "provinsi": "Kalimantan Timur",
+    "lat": -0.5239,
+    "lon": 117.1189,
+    "realisasi_2025": 3494,
+    "proyeksi_2026": 3672,
+    "porsi_share_pct": 0.12,
+    "peringkat_nasional": 406
+  },
+  {
     "id": "DEX",
     "nama": "Nop Goliat Dekai (Papua Pegunungan)",
     "moda": "Angkutan Udara",
@@ -5598,6 +5752,20 @@
     "proyeksi_2026": 3597,
     "porsi_share_pct": 0.11,
     "peringkat_nasional": 411
+  },
+  {
+    "id": "TTB_KARTOSURO",
+    "nama": "Kartosuro (Jawa Tengah) TTB Pantauan",
+    "moda": "Angkutan Jalan",
+    "moda_label": "Angkutan Jalan",
+    "color": "#16A34A",
+    "provinsi": "Jawa Tengah",
+    "lat": -7.5518,
+    "lon": 110.7423,
+    "realisasi_2025": 3359,
+    "proyeksi_2026": 3530,
+    "porsi_share_pct": 0.11,
+    "peringkat_nasional": 412
   },
   {
     "id": "LGS",
@@ -5670,6 +5838,20 @@
     "peringkat_nasional": 417
   },
   {
+    "id": "TTB_LEMPAKE",
+    "nama": "Lempake (Kalimantan Timur) TTB Pantauan",
+    "moda": "Angkutan Jalan",
+    "moda_label": "Angkutan Jalan",
+    "color": "#16A34A",
+    "provinsi": "Kalimantan Timur",
+    "lat": -0.4287,
+    "lon": 117.1725,
+    "realisasi_2025": 3242,
+    "proyeksi_2026": 3407,
+    "porsi_share_pct": 0.11,
+    "peringkat_nasional": 418
+  },
+  {
     "id": "B220",
     "nama": "MAGETAN (Jawa Timur)",
     "moda": "Kereta Api",
@@ -5682,6 +5864,20 @@
     "proyeksi_2026": 3398,
     "porsi_share_pct": 0.08,
     "peringkat_nasional": 419
+  },
+  {
+    "id": "SDP_TIGARAS",
+    "nama": "Tigaras (Sumatera Utara)",
+    "moda": "Angkutan SDP",
+    "moda_label": "Angkutan Penyeberangan (SDP)",
+    "color": "#9333EA",
+    "provinsi": "Sumatera Utara",
+    "lat": 2.8122,
+    "lon": 98.7831,
+    "realisasi_2025": 3345,
+    "proyeksi_2026": 3321,
+    "porsi_share_pct": 0.34,
+    "peringkat_nasional": 420
   },
   {
     "id": "4193",
@@ -5936,6 +6132,20 @@
     "peringkat_nasional": 438
   },
   {
+    "id": "TTB_BATURETNO",
+    "nama": "Baturetno (Jawa Tengah) TTB Pantauan",
+    "moda": "Angkutan Jalan",
+    "moda_label": "Angkutan Jalan",
+    "color": "#16A34A",
+    "provinsi": "Jawa Tengah",
+    "lat": -7.9897,
+    "lon": 110.9492,
+    "realisasi_2025": 2743,
+    "proyeksi_2026": 2883,
+    "porsi_share_pct": 0.09,
+    "peringkat_nasional": 439
+  },
+  {
     "id": "BKN",
     "nama": "Batu Kuning (Sumatera Selatan) TTA Pantauan",
     "moda": "Angkutan Jalan",
@@ -6186,6 +6396,20 @@
     "proyeksi_2026": 2558,
     "porsi_share_pct": 0.1,
     "peringkat_nasional": 457
+  },
+  {
+    "id": "TTB_SIDO_MULYO",
+    "nama": "Sido Mulyo (Kalimantan Barat) TTB Pantauan",
+    "moda": "Angkutan Jalan",
+    "moda_label": "Angkutan Jalan",
+    "color": "#16A34A",
+    "provinsi": "Kalimantan Barat",
+    "lat": 0.0573,
+    "lon": 111.4984,
+    "realisasi_2025": 2415,
+    "proyeksi_2026": 2538,
+    "porsi_share_pct": 0.08,
+    "peringkat_nasional": 458
   },
   {
     "id": "MOF",
@@ -6552,6 +6776,20 @@
     "peringkat_nasional": 484
   },
   {
+    "id": "SDP_TOBAKU",
+    "nama": "Tobaku (Sulawesi Tenggara)",
+    "moda": "Angkutan SDP",
+    "moda_label": "Angkutan Penyeberangan (SDP)",
+    "color": "#9333EA",
+    "provinsi": "Sulawesi Tenggara",
+    "lat": -3.2792,
+    "lon": 120.9789,
+    "realisasi_2025": 1871,
+    "proyeksi_2026": 1858,
+    "porsi_share_pct": 0.19,
+    "peringkat_nasional": 485
+  },
+  {
     "id": "PPR",
     "nama": "PAPAR (Jawa Timur)",
     "moda": "Kereta Api",
@@ -6592,6 +6830,20 @@
     "proyeksi_2026": 1834,
     "porsi_share_pct": 0.19,
     "peringkat_nasional": 488
+  },
+  {
+    "id": "TTB_DRS_PRAYITNO",
+    "nama": "Drs. Prayitno (Jawa Tengah) TTB Pantauan",
+    "moda": "Angkutan Jalan",
+    "moda_label": "Angkutan Jalan",
+    "color": "#16A34A",
+    "provinsi": "Jawa Tengah",
+    "lat": -7.5381,
+    "lon": 110.5927,
+    "realisasi_2025": 1738,
+    "proyeksi_2026": 1827,
+    "porsi_share_pct": 0.06,
+    "peringkat_nasional": 489
   },
   {
     "id": "KGG",
@@ -6788,6 +7040,20 @@
     "proyeksi_2026": 1596,
     "porsi_share_pct": 0.06,
     "peringkat_nasional": 503
+  },
+  {
+    "id": "TTB_KEDAMIN",
+    "nama": "Kedamin (Kalimantan Barat) TTB Pantauan",
+    "moda": "Angkutan Jalan",
+    "moda_label": "Angkutan Jalan",
+    "color": "#16A34A",
+    "provinsi": "Kalimantan Barat",
+    "lat": 0.8142,
+    "lon": 112.9231,
+    "realisasi_2025": 1507,
+    "proyeksi_2026": 1584,
+    "porsi_share_pct": 0.05,
+    "peringkat_nasional": 504
   },
   {
     "id": "TLY",
@@ -7462,6 +7728,20 @@
     "peringkat_nasional": 552
   },
   {
+    "id": "SDP_SIPINGGAN",
+    "nama": "Sipinggan (Sumatera Utara)",
+    "moda": "Angkutan SDP",
+    "moda_label": "Angkutan Penyeberangan (SDP)",
+    "color": "#9333EA",
+    "provinsi": "Sumatera Utara",
+    "lat": 2.5312,
+    "lon": 98.8821,
+    "realisasi_2025": 1078,
+    "proyeksi_2026": 1070,
+    "porsi_share_pct": 0.11,
+    "peringkat_nasional": 553
+  },
+  {
     "id": "151",
     "nama": "Teluk Batang (Kalimantan Barat)",
     "moda": "Angkutan Laut",
@@ -7502,6 +7782,20 @@
     "proyeksi_2026": 1059,
     "porsi_share_pct": 0.02,
     "peringkat_nasional": 556
+  },
+  {
+    "id": "TTB_GINTE",
+    "nama": "Ginte (Nusa Tenggara Barat) TTB Pantauan",
+    "moda": "Angkutan Jalan",
+    "moda_label": "Angkutan Jalan",
+    "color": "#16A34A",
+    "provinsi": "Nusa Tenggara Barat",
+    "lat": -8.5367,
+    "lon": 118.4632,
+    "realisasi_2025": 1007,
+    "proyeksi_2026": 1058,
+    "porsi_share_pct": 0.03,
+    "peringkat_nasional": 557
   },
   {
     "id": "3515",
@@ -7656,6 +7950,20 @@
     "proyeksi_2026": 994,
     "porsi_share_pct": 0.1,
     "peringkat_nasional": 568
+  },
+  {
+    "id": "TTB_PURWANTORO",
+    "nama": "Purwantoro (Jawa Tengah) TTB Pantauan",
+    "moda": "Angkutan Jalan",
+    "moda_label": "Angkutan Jalan",
+    "color": "#16A34A",
+    "provinsi": "Jawa Tengah",
+    "lat": -7.8447,
+    "lon": 111.2583,
+    "realisasi_2025": 940,
+    "proyeksi_2026": 988,
+    "porsi_share_pct": 0.03,
+    "peringkat_nasional": 569
   },
   {
     "id": "NT",
@@ -8050,6 +8358,20 @@
     "peringkat_nasional": 597
   },
   {
+    "id": "SDP_KOLONODALE",
+    "nama": "Kolonodale (Sulawesi Tengah)",
+    "moda": "Angkutan SDP",
+    "moda_label": "Angkutan Penyeberangan (SDP)",
+    "color": "#9333EA",
+    "provinsi": "Sulawesi Tengah",
+    "lat": -1.9792,
+    "lon": 121.3342,
+    "realisasi_2025": 822,
+    "proyeksi_2026": 816,
+    "porsi_share_pct": 0.08,
+    "peringkat_nasional": 598
+  },
+  {
     "id": "LNU",
     "nama": "Kol. Robert Atty Bessing (Kalimantan Utara)",
     "moda": "Angkutan Udara",
@@ -8076,6 +8398,20 @@
     "proyeksi_2026": 811,
     "porsi_share_pct": 0.08,
     "peringkat_nasional": 600
+  },
+  {
+    "id": "SDP_BATURUBE",
+    "nama": "Baturube (Sulawesi Tengah)",
+    "moda": "Angkutan SDP",
+    "moda_label": "Angkutan Penyeberangan (SDP)",
+    "color": "#9333EA",
+    "provinsi": "Sulawesi Tengah",
+    "lat": -1.8214,
+    "lon": 121.5789,
+    "realisasi_2025": 812,
+    "proyeksi_2026": 806,
+    "porsi_share_pct": 0.08,
+    "peringkat_nasional": 601
   },
   {
     "id": "JTI",
@@ -8342,6 +8678,20 @@
     "proyeksi_2026": 648,
     "porsi_share_pct": 0.02,
     "peringkat_nasional": 620
+  },
+  {
+    "id": "TTB_SUMBER",
+    "nama": "Sumber (Jawa Barat) TTB Pantauan",
+    "moda": "Angkutan Jalan",
+    "moda_label": "Angkutan Jalan",
+    "color": "#16A34A",
+    "provinsi": "Jawa Barat",
+    "lat": -6.7628,
+    "lon": 108.4812,
+    "realisasi_2025": 615,
+    "proyeksi_2026": 646,
+    "porsi_share_pct": 0.02,
+    "peringkat_nasional": 621
   },
   {
     "id": "1740",
@@ -8680,6 +9030,20 @@
     "peringkat_nasional": 645
   },
   {
+    "id": "SDP_PACIRAN",
+    "nama": "Paciran (Jawa Timur)",
+    "moda": "Angkutan SDP",
+    "moda_label": "Angkutan Penyeberangan (SDP)",
+    "color": "#9333EA",
+    "provinsi": "Jawa Timur",
+    "lat": -6.8719,
+    "lon": 112.3528,
+    "realisasi_2025": 458,
+    "proyeksi_2026": 455,
+    "porsi_share_pct": 0.05,
+    "peringkat_nasional": 646
+  },
+  {
     "id": "ARD",
     "nama": "Malikussaleh (D.I Aceh)",
     "moda": "Angkutan Udara",
@@ -8722,6 +9086,20 @@
     "peringkat_nasional": 649
   },
   {
+    "id": "TTB_RENTENG",
+    "nama": "Renteng (Nusa Tenggara Barat) TTB Pantauan",
+    "moda": "Angkutan Jalan",
+    "moda_label": "Angkutan Jalan",
+    "color": "#16A34A",
+    "provinsi": "Nusa Tenggara Barat",
+    "lat": -8.7042,
+    "lon": 116.2731,
+    "realisasi_2025": 423,
+    "proyeksi_2026": 445,
+    "porsi_share_pct": 0.01,
+    "peringkat_nasional": 650
+  },
+  {
     "id": "SQG",
     "nama": "Tebelian (Kalimantan Barat)",
     "moda": "Angkutan Udara",
@@ -8750,6 +9128,20 @@
     "peringkat_nasional": 652
   },
   {
+    "id": "TTB_BONDOWOSO",
+    "nama": "Bondowoso (Jawa Timur) TTB Pantauan",
+    "moda": "Angkutan Jalan",
+    "moda_label": "Angkutan Jalan",
+    "color": "#16A34A",
+    "provinsi": "Jawa Timur",
+    "lat": -7.9142,
+    "lon": 113.8214,
+    "realisasi_2025": 411,
+    "proyeksi_2026": 432,
+    "porsi_share_pct": 0.01,
+    "peringkat_nasional": 653
+  },
+  {
     "id": "JIO",
     "nama": "Jos Orno Imsula (Maluku)",
     "moda": "Angkutan Udara",
@@ -8776,6 +9168,20 @@
     "proyeksi_2026": 416,
     "porsi_share_pct": 0.04,
     "peringkat_nasional": 655
+  },
+  {
+    "id": "SDP_MENGKAPAN",
+    "nama": "Mengkapan (Riau)",
+    "moda": "Angkutan SDP",
+    "moda_label": "Angkutan Penyeberangan (SDP)",
+    "color": "#9333EA",
+    "provinsi": "Riau",
+    "lat": 0.9572,
+    "lon": 102.2614,
+    "realisasi_2025": 414,
+    "proyeksi_2026": 411,
+    "porsi_share_pct": 0.04,
+    "peringkat_nasional": 656
   },
   {
     "id": "SB",
@@ -8834,6 +9240,20 @@
     "peringkat_nasional": 660
   },
   {
+    "id": "TTB_GAGAK_RIMANG",
+    "nama": "Gagak Rimang (Jawa Tengah) TTB Pantauan",
+    "moda": "Angkutan Jalan",
+    "moda_label": "Angkutan Jalan",
+    "color": "#16A34A",
+    "provinsi": "Jawa Tengah",
+    "lat": -6.9744,
+    "lon": 111.4186,
+    "realisasi_2025": 372,
+    "proyeksi_2026": 391,
+    "porsi_share_pct": 0.01,
+    "peringkat_nasional": 661
+  },
+  {
     "id": "SQR",
     "nama": "Soroako (Sulawesi Selatan)",
     "moda": "Angkutan Udara",
@@ -8846,6 +9266,20 @@
     "proyeksi_2026": 390,
     "porsi_share_pct": 0.01,
     "peringkat_nasional": 662
+  },
+  {
+    "id": "SDP_KANGEAN",
+    "nama": "Kangean (Jawa Timur)",
+    "moda": "Angkutan SDP",
+    "moda_label": "Angkutan Penyeberangan (SDP)",
+    "color": "#9333EA",
+    "provinsi": "Jawa Timur",
+    "lat": -6.8714,
+    "lon": 115.3056,
+    "realisasi_2025": 374,
+    "proyeksi_2026": 371,
+    "porsi_share_pct": 0.04,
+    "peringkat_nasional": 663
   },
   {
     "id": "3620",
@@ -9114,6 +9548,20 @@
     "peringkat_nasional": 682
   },
   {
+    "id": "TTB_ARJASA",
+    "nama": "Arjasa (Jawa Timur) TTB Pantauan",
+    "moda": "Angkutan Jalan",
+    "moda_label": "Angkutan Jalan",
+    "color": "#16A34A",
+    "provinsi": "Jawa Timur",
+    "lat": -7.7128,
+    "lon": 114.1294,
+    "realisasi_2025": 273,
+    "proyeksi_2026": 287,
+    "porsi_share_pct": 0.01,
+    "peringkat_nasional": 683
+  },
+  {
     "id": "HJP",
     "nama": "HAJI PEMANGGILAN (Lampung)",
     "moda": "Kereta Api",
@@ -9252,6 +9700,20 @@
     "proyeksi_2026": 269,
     "porsi_share_pct": 0.03,
     "peringkat_nasional": 693
+  },
+  {
+    "id": "TTB_NATAI_SUKA",
+    "nama": "Natai Suka (Kalimantan Tengah) TTB Pantauan",
+    "moda": "Angkutan Jalan",
+    "moda_label": "Angkutan Jalan",
+    "color": "#16A34A",
+    "provinsi": "Kalimantan Tengah",
+    "lat": -2.6847,
+    "lon": 111.6214,
+    "realisasi_2025": 255,
+    "proyeksi_2026": 268,
+    "porsi_share_pct": 0.01,
+    "peringkat_nasional": 694
   },
   {
     "id": "KFR",
@@ -9520,6 +9982,20 @@
     "peringkat_nasional": 713
   },
   {
+    "id": "TTB_NGADIRAJO",
+    "nama": "Ngadirajo (Jawa Timur) TTB Pantauan",
+    "moda": "Angkutan Jalan",
+    "moda_label": "Angkutan Jalan",
+    "color": "#16A34A",
+    "provinsi": "Jawa Timur",
+    "lat": -8.2239,
+    "lon": 111.2381,
+    "realisasi_2025": 205,
+    "proyeksi_2026": 215,
+    "porsi_share_pct": 0.01,
+    "peringkat_nasional": 714
+  },
+  {
     "id": "266",
     "nama": "Sadai (Kepulauan Bangka Belitung)",
     "moda": "Angkutan SDP",
@@ -9688,6 +10164,20 @@
     "peringkat_nasional": 726
   },
   {
+    "id": "SDP_BONITON",
+    "nama": "Boniton (Sulawesi Tengah)",
+    "moda": "Angkutan SDP",
+    "moda_label": "Angkutan Penyeberangan (SDP)",
+    "color": "#9333EA",
+    "provinsi": "Sulawesi Tengah",
+    "lat": -1.6128,
+    "lon": 123.5114,
+    "realisasi_2025": 188,
+    "proyeksi_2026": 187,
+    "porsi_share_pct": 0.02,
+    "peringkat_nasional": 727
+  },
+  {
     "id": "NNX",
     "nama": "Nunukan (Kalimantan Utara)",
     "moda": "Angkutan Udara",
@@ -9784,6 +10274,20 @@
     "proyeksi_2026": 170,
     "porsi_share_pct": 0.01,
     "peringkat_nasional": 734
+  },
+  {
+    "id": "SDP_TAGULANDANG",
+    "nama": "Tagulandang (Sulawesi Utara)",
+    "moda": "Angkutan SDP",
+    "moda_label": "Angkutan Penyeberangan (SDP)",
+    "color": "#9333EA",
+    "provinsi": "Sulawesi Utara",
+    "lat": 2.3392,
+    "lon": 125.4181,
+    "realisasi_2025": 170,
+    "proyeksi_2026": 169,
+    "porsi_share_pct": 0.02,
+    "peringkat_nasional": 735
   },
   {
     "id": "CJN",
@@ -10066,6 +10570,20 @@
     "peringkat_nasional": 755
   },
   {
+    "id": "TTB_AMBULU",
+    "nama": "Ambulu (Jawa Timur) TTB Pantauan",
+    "moda": "Angkutan Jalan",
+    "moda_label": "Angkutan Jalan",
+    "color": "#16A34A",
+    "provinsi": "Jawa Timur",
+    "lat": -8.3478,
+    "lon": 113.6067,
+    "realisasi_2025": 111,
+    "proyeksi_2026": 117,
+    "porsi_share_pct": 0.0,
+    "peringkat_nasional": 756
+  },
+  {
     "id": "TXM",
     "nama": "Teminabuan (Papua Barat Daya)",
     "moda": "Angkutan Udara",
@@ -10120,6 +10638,20 @@
     "proyeksi_2026": 109,
     "porsi_share_pct": 0.01,
     "peringkat_nasional": 760
+  },
+  {
+    "id": "SDP_TOMIA",
+    "nama": "Tomia (Sulawesi Tenggara)",
+    "moda": "Angkutan SDP",
+    "moda_label": "Angkutan Penyeberangan (SDP)",
+    "color": "#9333EA",
+    "provinsi": "Sulawesi Tenggara",
+    "lat": -5.7628,
+    "lon": 123.9417,
+    "realisasi_2025": 110,
+    "proyeksi_2026": 109,
+    "porsi_share_pct": 0.01,
+    "peringkat_nasional": 761
   },
   {
     "id": "KWB",
@@ -10288,6 +10820,20 @@
     "proyeksi_2026": 96,
     "porsi_share_pct": 0.0,
     "peringkat_nasional": 773
+  },
+  {
+    "id": "SDP_TUAPEIJAT",
+    "nama": "Tuapeijat (Sumatera Barat)",
+    "moda": "Angkutan SDP",
+    "moda_label": "Angkutan Penyeberangan (SDP)",
+    "color": "#9333EA",
+    "provinsi": "Sumatera Barat",
+    "lat": -2.0253,
+    "lon": 99.5892,
+    "realisasi_2025": 94,
+    "proyeksi_2026": 93,
+    "porsi_share_pct": 0.01,
+    "peringkat_nasional": 774
   },
   {
     "id": "BGM",
@@ -10472,6 +11018,20 @@
     "peringkat_nasional": 787
   },
   {
+    "id": "SDP_KAMARU",
+    "nama": "Kamaru (Sulawesi Tenggara)",
+    "moda": "Angkutan SDP",
+    "moda_label": "Angkutan Penyeberangan (SDP)",
+    "color": "#9333EA",
+    "provinsi": "Sulawesi Tenggara",
+    "lat": -5.1639,
+    "lon": 123.0181,
+    "realisasi_2025": 73,
+    "proyeksi_2026": 72,
+    "porsi_share_pct": 0.01,
+    "peringkat_nasional": 788
+  },
+  {
     "id": "BXW",
     "nama": "Harun Thohir (Jawa Timur)",
     "moda": "Angkutan Udara",
@@ -10484,6 +11044,20 @@
     "proyeksi_2026": 72,
     "porsi_share_pct": 0.0,
     "peringkat_nasional": 789
+  },
+  {
+    "id": "SDP_MUARA",
+    "nama": "Muara (Sumatera Barat)",
+    "moda": "Angkutan SDP",
+    "moda_label": "Angkutan Penyeberangan (SDP)",
+    "color": "#9333EA",
+    "provinsi": "Sumatera Barat",
+    "lat": -0.9631,
+    "lon": 100.3542,
+    "realisasi_2025": 71,
+    "proyeksi_2026": 70,
+    "porsi_share_pct": 0.01,
+    "peringkat_nasional": 790
   },
   {
     "id": "BXQ",
@@ -10526,6 +11100,20 @@
     "proyeksi_2026": 69,
     "porsi_share_pct": 0.0,
     "peringkat_nasional": 793
+  },
+  {
+    "id": "SDP_SIBERUT",
+    "nama": "Siberut (Sumatera Barat)",
+    "moda": "Angkutan SDP",
+    "moda_label": "Angkutan Penyeberangan (SDP)",
+    "color": "#9333EA",
+    "provinsi": "Sumatera Barat",
+    "lat": -1.5892,
+    "lon": 99.2156,
+    "realisasi_2025": 70,
+    "proyeksi_2026": 69,
+    "porsi_share_pct": 0.01,
+    "peringkat_nasional": 794
   },
   {
     "id": "155",
@@ -10582,6 +11170,20 @@
     "proyeksi_2026": 64,
     "porsi_share_pct": 0.0,
     "peringkat_nasional": 798
+  },
+  {
+    "id": "SDP_BIARO",
+    "nama": "Biaro (Sulawesi Utara)",
+    "moda": "Angkutan SDP",
+    "moda_label": "Angkutan Penyeberangan (SDP)",
+    "color": "#9333EA",
+    "provinsi": "Sulawesi Utara",
+    "lat": 2.1153,
+    "lon": 125.3672,
+    "realisasi_2025": 62,
+    "proyeksi_2026": 62,
+    "porsi_share_pct": 0.01,
+    "peringkat_nasional": 799
   },
   {
     "id": "OKQ",
@@ -10654,6 +11256,20 @@
     "peringkat_nasional": 804
   },
   {
+    "id": "SDP_KADATUA",
+    "nama": "Kadatua (Sulawesi Tenggara)",
+    "moda": "Angkutan SDP",
+    "moda_label": "Angkutan Penyeberangan (SDP)",
+    "color": "#9333EA",
+    "provinsi": "Sulawesi Tenggara",
+    "lat": -5.5514,
+    "lon": 122.5181,
+    "realisasi_2025": 59,
+    "proyeksi_2026": 59,
+    "porsi_share_pct": 0.01,
+    "peringkat_nasional": 805
+  },
+  {
     "id": "3419",
     "nama": "Seba (Nusa Tenggara Timur)",
     "moda": "Angkutan SDP",
@@ -10666,6 +11282,20 @@
     "proyeksi_2026": 59,
     "porsi_share_pct": 0.01,
     "peringkat_nasional": 806
+  },
+  {
+    "id": "SDP_SALAWATI",
+    "nama": "Salawati (Papua Barat)",
+    "moda": "Angkutan SDP",
+    "moda_label": "Angkutan Penyeberangan (SDP)",
+    "color": "#9333EA",
+    "provinsi": "Papua Barat Daya",
+    "lat": -1.1389,
+    "lon": 130.8528,
+    "realisasi_2025": 56,
+    "proyeksi_2026": 56,
+    "porsi_share_pct": 0.01,
+    "peringkat_nasional": 807
   },
   {
     "id": "151",
@@ -10708,6 +11338,20 @@
     "proyeksi_2026": 54,
     "porsi_share_pct": 0.0,
     "peringkat_nasional": 810
+  },
+  {
+    "id": "SDP_LEMBEH",
+    "nama": "Lembeh (Sulawesi Utara)",
+    "moda": "Angkutan SDP",
+    "moda_label": "Angkutan Penyeberangan (SDP)",
+    "color": "#9333EA",
+    "provinsi": "Sulawesi Utara",
+    "lat": 1.4428,
+    "lon": 125.2153,
+    "realisasi_2025": 53,
+    "proyeksi_2026": 53,
+    "porsi_share_pct": 0.01,
+    "peringkat_nasional": 811
   },
   {
     "id": "MXB",
@@ -10792,6 +11436,20 @@
     "proyeksi_2026": 50,
     "porsi_share_pct": 0.0,
     "peringkat_nasional": 817
+  },
+  {
+    "id": "SDP_BAU_BAU",
+    "nama": "Bau Bau (Sulawesi Tenggara)",
+    "moda": "Angkutan SDP",
+    "moda_label": "Angkutan Penyeberangan (SDP)",
+    "color": "#9333EA",
+    "provinsi": "Sulawesi Tenggara",
+    "lat": -5.4614,
+    "lon": 122.5981,
+    "realisasi_2025": 50,
+    "proyeksi_2026": 50,
+    "porsi_share_pct": 0.01,
+    "peringkat_nasional": 818
   },
   {
     "id": "3293",
@@ -10904,6 +11562,20 @@
     "proyeksi_2026": 46,
     "porsi_share_pct": 0.01,
     "peringkat_nasional": 826
+  },
+  {
+    "id": "SDP_BATANTA",
+    "nama": "Batanta (Papua Barat)",
+    "moda": "Angkutan SDP",
+    "moda_label": "Angkutan Penyeberangan (SDP)",
+    "color": "#9333EA",
+    "provinsi": "Papua Barat Daya",
+    "lat": -0.8422,
+    "lon": 130.6514,
+    "realisasi_2025": 45,
+    "proyeksi_2026": 45,
+    "porsi_share_pct": 0.01,
+    "peringkat_nasional": 827
   },
   {
     "id": "A38",
@@ -11240,6 +11912,20 @@
     "proyeksi_2026": 31,
     "porsi_share_pct": 0.0,
     "peringkat_nasional": 851
+  },
+  {
+    "id": "SDP_MANGARAN",
+    "nama": "Mangaran (Sulawesi Utara)",
+    "moda": "Angkutan SDP",
+    "moda_label": "Angkutan Penyeberangan (SDP)",
+    "color": "#9333EA",
+    "provinsi": "Sulawesi Utara",
+    "lat": 4.0153,
+    "lon": 126.6822,
+    "realisasi_2025": 31,
+    "proyeksi_2026": 31,
+    "porsi_share_pct": 0.0,
+    "peringkat_nasional": 852
   },
   {
     "id": "PXA",
@@ -11634,6 +12320,20 @@
     "peringkat_nasional": 880
   },
   {
+    "id": "SDP_SIKABALUAN",
+    "nama": "Sikabaluan (Sumatera Barat)",
+    "moda": "Angkutan SDP",
+    "moda_label": "Angkutan Penyeberangan (SDP)",
+    "color": "#9333EA",
+    "provinsi": "Sumatera Barat",
+    "lat": -1.1564,
+    "lon": 98.9819,
+    "realisasi_2025": 15,
+    "proyeksi_2026": 15,
+    "porsi_share_pct": 0.0,
+    "peringkat_nasional": 881
+  },
+  {
     "id": "351",
     "nama": "Lewoleba (Nusa Tenggara Timur)",
     "moda": "Angkutan SDP",
@@ -11858,6 +12558,34 @@
     "peringkat_nasional": 897
   },
   {
+    "id": "SDP_PULAU_BANYAK",
+    "nama": "Pulau Banyak (D.I Aceh)",
+    "moda": "Angkutan SDP",
+    "moda_label": "Angkutan Penyeberangan (SDP)",
+    "color": "#9333EA",
+    "provinsi": "Aceh",
+    "lat": 2.2742,
+    "lon": 97.2417,
+    "realisasi_2025": 5,
+    "proyeksi_2026": 5,
+    "porsi_share_pct": 0.0,
+    "peringkat_nasional": 898
+  },
+  {
+    "id": "SDP_MUSI",
+    "nama": "Musi (Sulawesi Utara)",
+    "moda": "Angkutan SDP",
+    "moda_label": "Angkutan Penyeberangan (SDP)",
+    "color": "#9333EA",
+    "provinsi": "Sulawesi Utara",
+    "lat": 4.1417,
+    "lon": 126.7917,
+    "realisasi_2025": 5,
+    "proyeksi_2026": 5,
+    "porsi_share_pct": 0.0,
+    "peringkat_nasional": 899
+  },
+  {
     "id": "SBG",
     "nama": "Maimun Saleh (D.I Aceh)",
     "moda": "Angkutan Udara",
@@ -11914,6 +12642,20 @@
     "peringkat_nasional": 903
   },
   {
+    "id": "SDP_FOLLEY",
+    "nama": "Folley (Papua Barat Daya)",
+    "moda": "Angkutan SDP",
+    "moda_label": "Angkutan Penyeberangan (SDP)",
+    "color": "#9333EA",
+    "provinsi": "Papua Barat Daya",
+    "lat": -2.0792,
+    "lon": 130.5628,
+    "realisasi_2025": 2,
+    "proyeksi_2026": 2,
+    "porsi_share_pct": 0.0,
+    "peringkat_nasional": 904
+  },
+  {
     "id": "387",
     "nama": "Bintuhan (Bengkulu)",
     "moda": "Angkutan Laut",
@@ -11968,5 +12710,19 @@
     "proyeksi_2026": 1,
     "porsi_share_pct": 0.0,
     "peringkat_nasional": 908
+  },
+  {
+    "id": "SDP_TELUK_GURITA",
+    "nama": "Teluk Gurita (Nusa Tenggara Timur)",
+    "moda": "Angkutan SDP",
+    "moda_label": "Angkutan Penyeberangan (SDP)",
+    "color": "#9333EA",
+    "provinsi": "NTT",
+    "lat": -9.0417,
+    "lon": 124.8917,
+    "realisasi_2025": 1,
+    "proyeksi_2026": 1,
+    "porsi_share_pct": 0.0,
+    "peringkat_nasional": 909
   }
 ]
