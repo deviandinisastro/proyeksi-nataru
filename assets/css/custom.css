@@ -383,10 +383,29 @@ html.dark .bg-purple-100 {
 }
 html.dark .bg-blue-50,
 html.dark .bg-blue-100,
-html.dark .bg-gov-azure_light {
+html.dark .bg-gov-azure_light,
+html.dark .bg-blue-50\/50,
+html.dark th.bg-blue-50\/50,
+html.dark td.bg-blue-50\/50 {
   background-color: rgba(30, 58, 138, 0.35) !important;
   border-color: rgba(59, 130, 246, 0.4) !important;
   color: #93C5FD !important;
+}
+html.dark .bg-slate-50\/50,
+html.dark td.bg-slate-50\/50 {
+  background-color: rgba(30, 41, 59, 0.45) !important;
+  color: #F8FAFC !important;
+}
+html.dark .bg-slate-50\/30,
+html.dark tr.bg-slate-50\/30 {
+  background-color: rgba(30, 41, 59, 0.25) !important;
+}
+html.dark code {
+  background-color: #1E293B !important;
+  color: #FCD34D !important;
+  border: 1px solid #334155 !important;
+  padding: 0.1rem 0.3rem !important;
+  border-radius: 0.25rem !important;
 }
 html.dark .bg-slate-200 {
   background-color: #1E293B !important;
