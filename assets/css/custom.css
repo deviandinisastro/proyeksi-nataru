@@ -1,427 +1,452 @@
-/* ==============================================================================
-   CUSTOM STYLING: INA DIGITAL & ENTERPRISE GOVERNMENT UX
-   Sistem Penunjang Keputusan (DSS) Nataru 2026/2027 - Pusdatin Kemenhub
-   Standar: https://design.inadigital.go.id/foundation/color/
-   ============================================================================== */
-
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
-
-:root {
-  /* INA Digital Official Palette (Light Mode) */
-  --color-gov-navy: #003882;        /* Kemenhub Primary Deep Navy */
-  --color-gov-navy-dark: #002554;
-  --color-gov-azure: #0066CC;       /* INA Digital Primary Blue */
-  --color-gov-azure-light: #EFF6FF;
-  --color-canvas-bg: #F8FAFC;       /* Slate 50 Neutral Clean */
-  --color-card-bg: #FFFFFF;
-  --color-card-border: #E2E8F0;     /* Slate 200 */
-  --color-text-main: #0F172A;       /* Slate 900 */
-  --color-text-muted: #475569;      /* Slate 600 */
-  
-  /* Status Colors */
-  --color-status-success: #059669;  /* Emerald 600 */
-  --color-status-warning: #D97706;  /* Amber 600 */
-  --color-status-danger: #DC2626;   /* Crimson 600 */
-}
-
-/* Dark Mode Theme Variables */
-html.dark {
-  --color-gov-navy: #60A5FA;
-  --color-gov-navy-dark: #3B82F6;
-  --color-gov-azure: #60A5FA;
-  --color-gov-azure-light: #1E293B;
-  --color-canvas-bg: #0B1120;       /* Slate 950 Dark Canvas */
-  --color-card-bg: #131D31;         /* Deep Slate 900 Surface */
-  --color-card-border: #1E293B;     /* Slate 800 */
-  --color-text-main: #F8FAFC;       /* Slate 50 */
-  --color-text-muted: #CBD5E1;      /* Slate 300 - High Contrast */
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  background-color: var(--color-canvas-bg);
-  color: var(--color-text-main);
-  -webkit-font-smoothing: antialiased;
-  transition: background-color 0.2s ease, color 0.2s ease;
-}
-
-/* ==============================================================================
-   PENGATURAN FONT ANGKA: MODERN TABULAR NUMBERS (BUKAN COURIER / TYPEWRITER)
-   ============================================================================== */
-.num-mono, .num-tabular {
-  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif !important;
-  font-variant-numeric: tabular-nums lining-nums;
-  -moz-font-feature-settings: 'tnum', 'lnum';
-  -webkit-font-feature-settings: 'tnum', 'lnum';
-  font-feature-settings: 'tnum', 'lnum';
-  letter-spacing: -0.01em;
-}
-
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
-}
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-::-webkit-scrollbar-thumb {
-  background: #CBD5E1;
-  border-radius: 4px;
-}
-html.dark ::-webkit-scrollbar-thumb {
-  background: #334155;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #94A3B8;
-}
-
-/* Sidebar Navigasi Item Active State */
-.nav-item {
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-}
-.nav-item.active {
-  background-color: #003882;
-  color: #FFFFFF !important;
-  font-weight: 600;
-  box-shadow: 0 2px 6px rgba(0, 56, 130, 0.25);
-}
-html.dark .nav-item.active {
-  background-color: #2563EB;
-  color: #FFFFFF !important;
-  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.35);
-}
-.nav-item.active svg {
-  color: #FFFFFF !important;
-}
-.nav-item:not(.active):hover {
-  background-color: #F1F5F9;
-  color: #003882;
-}
-html.dark .nav-item:not(.active):hover {
-  background-color: #1E293B;
-  color: #60A5FA;
-}
-
-/* ==============================================================================
-   SIDEBAR TOGGLE: RESPONSIVE & PREDICTABLE (TANPA HOVER EXPAND YANG MENGGANGGU)
-   ============================================================================== */
-aside#main-sidebar {
-  transition: width 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-  overflow-x: hidden;
-  white-space: nowrap;
-}
-
-/* Kondisi saat Sidebar diciutkan (Collapsed) */
-aside#main-sidebar.collapsed-sidebar {
-  width: 72px !important;
-}
-
-aside#main-sidebar.collapsed-sidebar .sidebar-text,
-aside#main-sidebar.collapsed-sidebar .sidebar-verify-box {
-  opacity: 0;
-  pointer-events: none;
-  display: none !important;
-}
-aside#main-sidebar.collapsed-sidebar .nav-item {
-  justify-content: center;
-  padding-left: 0;
-  padding-right: 0;
-}
-aside#main-sidebar.collapsed-sidebar #sidebar-icon-collapse {
-  display: none !important;
-}
-aside#main-sidebar.collapsed-sidebar #sidebar-icon-expand {
-  display: inline-block !important;
-}
-
-/* Area Bawah Sidebar (Selalu Seragam, Tidak Belang) */
-.sidebar-footer-area {
-  background-color: transparent !important;
-}
-html.dark .sidebar-footer-area {
-  background-color: transparent !important;
-  border-color: #1E293B !important;
-}
-html.dark .sidebar-verify-box {
-  background-color: #0E1626 !important;
-  border-color: #1E293B !important;
-}
-html.dark #btn-toggle-sidebar {
-  background-color: #0E1626 !important;
-  border-color: #1E293B !important;
-  color: #E2E8F0 !important;
-}
-
-/* Leaflet Map Customization & Stacking Context Isolation */
-.leaflet-container,
-#gis-map-canvas {
-  font-family: 'Plus Jakarta Sans', sans-serif !important;
-  border-radius: 8px;
-  isolation: isolate;
-  z-index: 1 !important;
-}
-.leaflet-pane {
-  z-index: 10 !important;
-}
-.leaflet-top,
-.leaflet-bottom {
-  z-index: 20 !important;
-}
-.leaflet-popup-content-wrapper {
-  border-radius: 8px !important;
-  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.12) !important;
-  border: 1px solid #E2E8F0 !important;
-  padding: 0 !important;
-}
-.leaflet-popup-content {
-  margin: 12px !important;
-  font-size: 12px !important;
-  color: #0F172A !important;
-}
-html.dark .leaflet-popup-content-wrapper {
-  background-color: #131D31 !important;
-  border-color: #1E293B !important;
-  color: #F8FAFC !important;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5) !important;
-}
-html.dark .leaflet-popup-content {
-  color: #F8FAFC !important;
-}
-html.dark .leaflet-popup-tip {
-  background-color: #131D31 !important;
-}
-
-/* Card Badge Indicator */
-.badge-normal {
-  background-color: #ECFDF5;
-  color: #065F46;
-  border: 1px solid #A7F3D0;
-}
-html.dark .badge-normal {
-  background-color: rgba(6, 95, 70, 0.35);
-  color: #A7F3D0;
-  border-color: rgba(16, 185, 129, 0.4);
-}
-
-.badge-waspada {
-  background-color: #FFFBEB;
-  color: #92400E;
-  border: 1px solid #FDE68A;
-}
-html.dark .badge-waspada {
-  background-color: rgba(146, 64, 14, 0.35);
-  color: #FDE68A;
-  border-color: rgba(245, 158, 11, 0.4);
-}
-
-.badge-siaga {
-  background-color: #FEF2F2;
-  color: #991B1B;
-  border: 1px solid #FECACA;
-}
-html.dark .badge-siaga {
-  background-color: rgba(153, 27, 27, 0.35);
-  color: #FECACA;
-  border-color: rgba(239, 68, 68, 0.4);
-}
-
-/* ==============================================================================
-   DARK MODE OVERRIDES DENGAN KONTRAS TINGGI (ANTI TULISAN ABU-ABU GELAP)
-   ============================================================================== */
-html.dark aside,
-html.dark header,
-html.dark footer,
-html.dark .bg-white {
-  background-color: #131D31 !important;
-  border-color: #1E293B !important;
-  color: #F8FAFC !important;
-}
-
-html.dark .bg-gov-slate,
-html.dark .bg-slate-50,
-html.dark thead.bg-slate-50,
-html.dark thead {
-  background-color: #1A263D !important;
-  color: #F8FAFC !important;
-}
-
-html.dark .bg-slate-100 {
-  background-color: #24334E !important;
-  color: #F8FAFC !important;
-}
-
-html.dark .border-slate-100,
-html.dark .border-slate-200,
-html.dark .border-slate-300,
-html.dark .border-gov-border {
-  border-color: #1E293B !important;
-}
-
-/* Tabel Elemen & Header di Mode Gelap */
-html.dark table thead tr {
-  background-color: #1A263D !important;
-  border-bottom-color: #1E293B !important;
-}
-
-html.dark th,
-html.dark thead th,
-html.dark table thead th {
-  color: #F8FAFC !important;
-  background-color: #1A263D !important;
-  border-color: #1E293B !important;
-  font-weight: 700 !important;
-}
-
-html.dark td {
-  border-color: #1E293B !important;
-}
-
-html.dark tr:hover {
-  background-color: rgba(30, 41, 59, 0.6) !important;
-}
-
-/* Highlight Baris Puncak (H-1 & H+9) di Mode Gelap */
-html.dark tr.bg-amber-50\/40,
-html.dark tr.bg-amber-50\/30,
-html.dark tr.bg-amber-50 {
-  background-color: rgba(245, 158, 11, 0.16) !important;
-}
-html.dark tr.bg-blue-50\/20 {
-  background-color: rgba(37, 99, 235, 0.15) !important;
-}
-
-/* ==============================================================================
-   SEMUA TEKS ABU-ABU DIJADIKAN KONTRAS TINGGI & JELAS TERBACA DI MODE GELAP
-   ============================================================================== */
-
-/* Teks Utama & Nilai Angka Kunci: Putih Bersih (Slate-50) */
-html.dark .text-slate-800,
-html.dark .text-slate-900,
-html.dark .text-gray-800,
-html.dark .text-gray-900,
-html.dark .text-zinc-800,
-html.dark .text-zinc-900,
-html.dark .text-gov-text {
-  color: #F8FAFC !important;
-}
-
-/* Teks Sekunder (Nama Hari Harian/Pekan, Nilai Realisasi 2024/2025, Data Baris): Perak Terang (Slate-200) */
-html.dark .text-slate-700,
-html.dark .text-gray-700,
-html.dark .text-zinc-700,
-html.dark .text-slate-600,
-html.dark .text-gray-600,
-html.dark .text-zinc-600 {
-  color: #E2E8F0 !important; /* Terbaca sangat tajam di atas latar gelap */
-}
-
-/* Teks Muted (Label Kategori, Keterangan Satuan, Subjudul Kartu, Placeholder): Slate-300 */
-html.dark .text-slate-500,
-html.dark .text-gray-500,
-html.dark .text-zinc-500,
-html.dark .text-slate-400,
-html.dark .text-gray-400,
-html.dark .text-zinc-400,
-html.dark .text-gov-muted {
-  color: #CBD5E1 !important; /* Slate-300: High-contrast silver, tidak buram atau gelap */
-}
-
-/* Nilai Utama Navy di Mode Gelap menjadi Biru Terang (Azure) */
-html.dark .text-gov-navy {
-  color: #60A5FA !important;
-}
-
-/* Status & Peringkat Colors di Mode Gelap */
-html.dark .text-amber-700,
-html.dark .text-amber-800,
-html.dark .text-amber-900 {
-  color: #FCD34D !important; /* Amber-300 Gold Terang */
-}
-html.dark .text-emerald-600,
-html.dark .text-emerald-700,
-html.dark .text-emerald-800 {
-  color: #6EE7B7 !important; /* Emerald-300 Hijau Terang */
-}
-html.dark .text-rose-600,
-html.dark .text-rose-700,
-html.dark .text-rose-800 {
-  color: #FDA4AF !important; /* Rose-300 Merah/Pink Terang */
-}
-html.dark .text-purple-600,
-html.dark .text-purple-700,
-html.dark .text-purple-800,
-html.dark .text-purple-900 {
-  color: #D8B4FE !important; /* Purple-300 Lilac Terang persis seperti badge Merak-Bakauheni */
-}
-
-/* Background Pill & Badge di Mode Gelap */
-html.dark .bg-emerald-50,
-html.dark .bg-emerald-100 {
-  background-color: rgba(6, 95, 70, 0.3) !important;
-  border-color: rgba(16, 185, 129, 0.35) !important;
-  color: #A7F3D0 !important;
-}
-html.dark .bg-amber-50,
-html.dark .bg-amber-100,
-html.dark .bg-amber-200 {
-  background-color: rgba(146, 64, 14, 0.3) !important;
-  border-color: rgba(245, 158, 11, 0.35) !important;
-  color: #FDE68A !important;
-}
-html.dark .bg-rose-50,
-html.dark .bg-rose-100 {
-  background-color: rgba(153, 27, 27, 0.3) !important;
-  border-color: rgba(239, 68, 68, 0.35) !important;
-  color: #FECACA !important;
-}
-html.dark .bg-purple-50,
-html.dark .bg-purple-100 {
-  background-color: rgba(147, 51, 234, 0.25) !important;
-  border-color: rgba(168, 85, 247, 0.35) !important;
-  color: #D8B4FE !important;
-}
-html.dark .bg-blue-50,
-html.dark .bg-blue-100,
-html.dark .bg-gov-azure_light,
-html.dark .bg-blue-50\/50,
-html.dark th.bg-blue-50\/50,
-html.dark td.bg-blue-50\/50 {
-  background-color: rgba(30, 58, 138, 0.35) !important;
-  border-color: rgba(59, 130, 246, 0.4) !important;
-  color: #93C5FD !important;
-}
-html.dark .bg-slate-50\/50,
-html.dark td.bg-slate-50\/50 {
-  background-color: rgba(30, 41, 59, 0.45) !important;
-  color: #F8FAFC !important;
-}
-html.dark .bg-slate-50\/30,
-html.dark tr.bg-slate-50\/30 {
-  background-color: rgba(30, 41, 59, 0.25) !important;
-}
-html.dark code {
-  background-color: #1E293B !important;
-  color: #FCD34D !important;
-  border: 1px solid #334155 !important;
-  padding: 0.1rem 0.3rem !important;
-  border-radius: 0.25rem !important;
-}
-html.dark .bg-slate-200 {
-  background-color: #1E293B !important;
-  border-color: #334155 !important;
-  color: #E2E8F0 !important;
-}
-
-/* Smooth view transition */
-.view-section {
-  animation: fadeIn 0.2s ease-out;
-}
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(3px); }
-  to { opacity: 1; transform: translateY(0); }
-}
+/* ==============================================================================
+   CUSTOM STYLING: INA DIGITAL & ENTERPRISE GOVERNMENT UX
+   Sistem Penunjang Keputusan (DSS) Nataru 2026/2027 - Pusdatin Kemenhub
+   Standar: https://design.inadigital.go.id/foundation/color/
+   ============================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  /* INA Digital Official Palette (Light Mode) */
+  --color-gov-navy: #003882;        /* Kemenhub Primary Deep Navy */
+  --color-gov-navy-dark: #002554;
+  --color-gov-azure: #0066CC;       /* INA Digital Primary Blue */
+  --color-gov-azure-light: #EFF6FF;
+  --color-canvas-bg: #F8FAFC;       /* Slate 50 Neutral Clean */
+  --color-card-bg: #FFFFFF;
+  --color-card-border: #E2E8F0;     /* Slate 200 */
+  --color-text-main: #0F172A;       /* Slate 900 */
+  --color-text-muted: #475569;      /* Slate 600 */
+  
+  /* Status Colors */
+  --color-status-success: #059669;  /* Emerald 600 */
+  --color-status-warning: #D97706;  /* Amber 600 */
+  --color-status-danger: #DC2626;   /* Crimson 600 */
+}
+
+/* Dark Mode Theme Variables */
+html.dark {
+  --color-gov-navy: #60A5FA;
+  --color-gov-navy-dark: #3B82F6;
+  --color-gov-azure: #60A5FA;
+  --color-gov-azure-light: #1E293B;
+  --color-canvas-bg: #0B1120;       /* Slate 950 Dark Canvas */
+  --color-card-bg: #131D31;         /* Deep Slate 900 Surface */
+  --color-card-border: #1E293B;     /* Slate 800 */
+  --color-text-main: #F8FAFC;       /* Slate 50 */
+  --color-text-muted: #CBD5E1;      /* Slate 300 - High Contrast */
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--color-canvas-bg);
+  color: var(--color-text-main);
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* ==============================================================================
+   PENGATURAN FONT ANGKA: MODERN TABULAR NUMBERS (BUKAN COURIER / TYPEWRITER)
+   ============================================================================== */
+.num-mono, .num-tabular {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif !important;
+  font-variant-numeric: tabular-nums lining-nums;
+  -moz-font-feature-settings: 'tnum', 'lnum';
+  -webkit-font-feature-settings: 'tnum', 'lnum';
+  font-feature-settings: 'tnum', 'lnum';
+  letter-spacing: -0.01em;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 4px;
+}
+html.dark ::-webkit-scrollbar-thumb {
+  background: #334155;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}
+
+/* Sidebar Navigasi Item Active State */
+.nav-item {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.nav-item.active {
+  background-color: #003882;
+  color: #FFFFFF !important;
+  font-weight: 600;
+  box-shadow: 0 2px 6px rgba(0, 56, 130, 0.25);
+}
+html.dark .nav-item.active {
+  background-color: #2563EB;
+  color: #FFFFFF !important;
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.35);
+}
+.nav-item.active svg {
+  color: #FFFFFF !important;
+}
+.nav-item:not(.active):hover {
+  background-color: #F1F5F9;
+  color: #003882;
+}
+html.dark .nav-item:not(.active):hover {
+  background-color: #1E293B;
+  color: #60A5FA;
+}
+
+/* ==============================================================================
+   SIDEBAR & DRAWER NAVIGASI: RESPONSIF SPLIT-SCREEN & MOBILE VIEWPORT
+   ============================================================================== */
+aside#main-sidebar {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), width 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow-x: hidden;
+  white-space: nowrap;
+}
+
+/* Kondisi Layar Sempit / HP / Layar Split-Screen (< 768px): Mode Drawer Melayang */
+@media (max-width: 767.98px) {
+  aside#main-sidebar {
+    position: fixed !important;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 280px !important;
+    max-width: 85vw !important;
+    height: 100vh !important;
+    height: 100dvh !important;
+    z-index: 50 !important;
+    transform: translateX(-100%);
+    box-shadow: none;
+  }
+  aside#main-sidebar.mobile-open {
+    transform: translateX(0) !important;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.15) !important;
+  }
+}
+
+/* Kondisi Layar Lebar / Desktop (>= 768px): Sidebar Kiri Standar & Fitur Ciutkan Menu */
+@media (min-width: 768px) {
+  aside#main-sidebar {
+    transform: none !important;
+  }
+  aside#main-sidebar.collapsed-sidebar {
+    width: 72px !important;
+  }
+  aside#main-sidebar.collapsed-sidebar .sidebar-text,
+  aside#main-sidebar.collapsed-sidebar .sidebar-verify-box {
+    opacity: 0;
+    pointer-events: none;
+    display: none !important;
+  }
+  aside#main-sidebar.collapsed-sidebar .nav-item {
+    justify-content: center;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  aside#main-sidebar.collapsed-sidebar #sidebar-icon-collapse {
+    display: none !important;
+  }
+  aside#main-sidebar.collapsed-sidebar #sidebar-icon-expand {
+    display: inline-block !important;
+  }
+}
+
+/* Area Bawah Sidebar (Selalu Seragam, Tidak Belang) */
+.sidebar-footer-area {
+  background-color: transparent !important;
+}
+html.dark .sidebar-footer-area {
+  background-color: transparent !important;
+  border-color: #1E293B !important;
+}
+html.dark .sidebar-verify-box {
+  background-color: #0E1626 !important;
+  border-color: #1E293B !important;
+}
+html.dark #btn-toggle-sidebar {
+  background-color: #0E1626 !important;
+  border-color: #1E293B !important;
+  color: #E2E8F0 !important;
+}
+
+/* Leaflet Map Customization & Stacking Context Isolation */
+.leaflet-container,
+#gis-map-canvas {
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+  border-radius: 8px;
+  isolation: isolate;
+  z-index: 1 !important;
+}
+.leaflet-pane {
+  z-index: 10 !important;
+}
+.leaflet-top,
+.leaflet-bottom {
+  z-index: 20 !important;
+}
+.leaflet-popup-content-wrapper {
+  border-radius: 8px !important;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.12) !important;
+  border: 1px solid #E2E8F0 !important;
+  padding: 0 !important;
+}
+.leaflet-popup-content {
+  margin: 12px !important;
+  font-size: 12px !important;
+  color: #0F172A !important;
+}
+html.dark .leaflet-popup-content-wrapper {
+  background-color: #131D31 !important;
+  border-color: #1E293B !important;
+  color: #F8FAFC !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5) !important;
+}
+html.dark .leaflet-popup-content {
+  color: #F8FAFC !important;
+}
+html.dark .leaflet-popup-tip {
+  background-color: #131D31 !important;
+}
+
+/* Card Badge Indicator */
+.badge-normal {
+  background-color: #ECFDF5;
+  color: #065F46;
+  border: 1px solid #A7F3D0;
+}
+html.dark .badge-normal {
+  background-color: rgba(6, 95, 70, 0.35);
+  color: #A7F3D0;
+  border-color: rgba(16, 185, 129, 0.4);
+}
+
+.badge-waspada {
+  background-color: #FFFBEB;
+  color: #92400E;
+  border: 1px solid #FDE68A;
+}
+html.dark .badge-waspada {
+  background-color: rgba(146, 64, 14, 0.35);
+  color: #FDE68A;
+  border-color: rgba(245, 158, 11, 0.4);
+}
+
+.badge-siaga {
+  background-color: #FEF2F2;
+  color: #991B1B;
+  border: 1px solid #FECACA;
+}
+html.dark .badge-siaga {
+  background-color: rgba(153, 27, 27, 0.35);
+  color: #FECACA;
+  border-color: rgba(239, 68, 68, 0.4);
+}
+
+/* ==============================================================================
+   DARK MODE OVERRIDES DENGAN KONTRAS TINGGI (ANTI TULISAN ABU-ABU GELAP)
+   ============================================================================== */
+html.dark aside,
+html.dark header,
+html.dark footer,
+html.dark .bg-white {
+  background-color: #131D31 !important;
+  border-color: #1E293B !important;
+  color: #F8FAFC !important;
+}
+
+html.dark .bg-gov-slate,
+html.dark .bg-slate-50,
+html.dark thead.bg-slate-50,
+html.dark thead {
+  background-color: #1A263D !important;
+  color: #F8FAFC !important;
+}
+
+html.dark .bg-slate-100 {
+  background-color: #24334E !important;
+  color: #F8FAFC !important;
+}
+
+html.dark .border-slate-100,
+html.dark .border-slate-200,
+html.dark .border-slate-300,
+html.dark .border-gov-border {
+  border-color: #1E293B !important;
+}
+
+/* Tabel Elemen & Header di Mode Gelap */
+html.dark table thead tr {
+  background-color: #1A263D !important;
+  border-bottom-color: #1E293B !important;
+}
+
+html.dark th,
+html.dark thead th,
+html.dark table thead th {
+  color: #F8FAFC !important;
+  background-color: #1A263D !important;
+  border-color: #1E293B !important;
+  font-weight: 700 !important;
+}
+
+html.dark td {
+  border-color: #1E293B !important;
+}
+
+html.dark tr:hover {
+  background-color: rgba(30, 41, 59, 0.6) !important;
+}
+
+/* Highlight Baris Puncak (H-1 & H+9) di Mode Gelap */
+html.dark tr.bg-amber-50\/40,
+html.dark tr.bg-amber-50\/30,
+html.dark tr.bg-amber-50 {
+  background-color: rgba(245, 158, 11, 0.16) !important;
+}
+html.dark tr.bg-blue-50\/20 {
+  background-color: rgba(37, 99, 235, 0.15) !important;
+}
+
+/* ==============================================================================
+   SEMUA TEKS ABU-ABU DIJADIKAN KONTRAS TINGGI & JELAS TERBACA DI MODE GELAP
+   ============================================================================== */
+
+/* Teks Utama & Nilai Angka Kunci: Putih Bersih (Slate-50) */
+html.dark .text-slate-800,
+html.dark .text-slate-900,
+html.dark .text-gray-800,
+html.dark .text-gray-900,
+html.dark .text-zinc-800,
+html.dark .text-zinc-900,
+html.dark .text-gov-text {
+  color: #F8FAFC !important;
+}
+
+/* Teks Sekunder (Nama Hari Harian/Pekan, Nilai Realisasi 2024/2025, Data Baris): Perak Terang (Slate-200) */
+html.dark .text-slate-700,
+html.dark .text-gray-700,
+html.dark .text-zinc-700,
+html.dark .text-slate-600,
+html.dark .text-gray-600,
+html.dark .text-zinc-600 {
+  color: #E2E8F0 !important; /* Terbaca sangat tajam di atas latar gelap */
+}
+
+/* Teks Muted (Label Kategori, Keterangan Satuan, Subjudul Kartu, Placeholder): Slate-300 */
+html.dark .text-slate-500,
+html.dark .text-gray-500,
+html.dark .text-zinc-500,
+html.dark .text-slate-400,
+html.dark .text-gray-400,
+html.dark .text-zinc-400,
+html.dark .text-gov-muted {
+  color: #CBD5E1 !important; /* Slate-300: High-contrast silver, tidak buram atau gelap */
+}
+
+/* Nilai Utama Navy di Mode Gelap menjadi Biru Terang (Azure) */
+html.dark .text-gov-navy {
+  color: #60A5FA !important;
+}
+
+/* Status & Peringkat Colors di Mode Gelap */
+html.dark .text-amber-700,
+html.dark .text-amber-800,
+html.dark .text-amber-900 {
+  color: #FCD34D !important; /* Amber-300 Gold Terang */
+}
+html.dark .text-emerald-600,
+html.dark .text-emerald-700,
+html.dark .text-emerald-800 {
+  color: #6EE7B7 !important; /* Emerald-300 Hijau Terang */
+}
+html.dark .text-rose-600,
+html.dark .text-rose-700,
+html.dark .text-rose-800 {
+  color: #FDA4AF !important; /* Rose-300 Merah/Pink Terang */
+}
+html.dark .text-purple-600,
+html.dark .text-purple-700,
+html.dark .text-purple-800,
+html.dark .text-purple-900 {
+  color: #D8B4FE !important; /* Purple-300 Lilac Terang persis seperti badge Merak-Bakauheni */
+}
+
+/* Background Pill & Badge di Mode Gelap */
+html.dark .bg-emerald-50,
+html.dark .bg-emerald-100 {
+  background-color: rgba(6, 95, 70, 0.3) !important;
+  border-color: rgba(16, 185, 129, 0.35) !important;
+  color: #A7F3D0 !important;
+}
+html.dark .bg-amber-50,
+html.dark .bg-amber-100,
+html.dark .bg-amber-200 {
+  background-color: rgba(146, 64, 14, 0.3) !important;
+  border-color: rgba(245, 158, 11, 0.35) !important;
+  color: #FDE68A !important;
+}
+html.dark .bg-rose-50,
+html.dark .bg-rose-100 {
+  background-color: rgba(153, 27, 27, 0.3) !important;
+  border-color: rgba(239, 68, 68, 0.35) !important;
+  color: #FECACA !important;
+}
+html.dark .bg-purple-50,
+html.dark .bg-purple-100 {
+  background-color: rgba(147, 51, 234, 0.25) !important;
+  border-color: rgba(168, 85, 247, 0.35) !important;
+  color: #D8B4FE !important;
+}
+html.dark .bg-blue-50,
+html.dark .bg-blue-100,
+html.dark .bg-gov-azure_light,
+html.dark .bg-blue-50\/50,
+html.dark th.bg-blue-50\/50,
+html.dark td.bg-blue-50\/50 {
+  background-color: rgba(30, 58, 138, 0.35) !important;
+  border-color: rgba(59, 130, 246, 0.4) !important;
+  color: #93C5FD !important;
+}
+html.dark .bg-slate-50\/50,
+html.dark td.bg-slate-50\/50 {
+  background-color: rgba(30, 41, 59, 0.45) !important;
+  color: #F8FAFC !important;
+}
+html.dark .bg-slate-50\/30,
+html.dark tr.bg-slate-50\/30 {
+  background-color: rgba(30, 41, 59, 0.25) !important;
+}
+html.dark code {
+  background-color: #1E293B !important;
+  color: #FCD34D !important;
+  border: 1px solid #334155 !important;
+  padding: 0.1rem 0.3rem !important;
+  border-radius: 0.25rem !important;
+}
+html.dark .bg-slate-200 {
+  background-color: #1E293B !important;
+  border-color: #334155 !important;
+  color: #E2E8F0 !important;
+}
+
+/* Smooth view transition */
+.view-section {
+  animation: fadeIn 0.2s ease-out;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(3px); }
+  to { opacity: 1; transform: translateY(0); }
+}

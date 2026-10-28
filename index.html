@@ -1,1303 +1,1324 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sistem Analitik Data & Proyeksi Multimoda Nataru 2026/2027 — Pusdatin Kemenhub</title>
-
-  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          colors: {
-            gov: {
-              navy: '#003882',
-              navy_dark: '#002554',
-              azure: '#388AEB',
-              azure_light: '#EFF6FF',
-              slate: '#F8FAFC',
-              border: '#E2E8F0',
-              text: '#0F172A',
-              muted: '#475569'
-            }
-          }
-        }
-      }
-    };
-  </script>
-
-  <!-- Lucide Icons CDN -->
-  <script src="https://unpkg.com/lucide@latest"></script>
-
-  <!-- Plotly.js CDN -->
-  <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
-
-  <!-- Leaflet.js GIS CDN & Leaflet Heatmap -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <script src="./assets/js/leaflet-heat.js"></script>
-
-  <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23003882'><path d='M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5'/></svg>">
-
-  <!-- Custom INA Digital CSS -->
-  <link rel="stylesheet" href="./assets/css/custom.css">
-</head>
-<body class="bg-gov-slate text-gov-text min-h-screen flex flex-col md:flex-row antialiased selection:bg-gov-azure selection:text-white">
-
-  <!-- ========================================================================= -->
-  <!-- LOADING OVERLAY                                                           -->
-  <!-- ========================================================================= -->
-  <div id="loading-overlay" class="fixed inset-0 bg-white/95 backdrop-blur-sm z-50 flex items-center justify-center transition-opacity duration-300">
-    <div class="text-center max-w-sm px-6">
-      <div class="relative w-16 h-16 mx-auto mb-4">
-        <div class="absolute inset-0 rounded-full border-4 border-gov-border"></div>
-        <div class="absolute inset-0 rounded-full border-4 border-gov-navy border-t-transparent animate-spin"></div>
-        <div class="absolute inset-0 flex items-center justify-center text-gov-navy font-bold text-xs">DATA</div>
-      </div>
-      <h3 class="text-base font-bold text-gov-text mb-1 tracking-tight">Memuat Basis Data Nataru 2026/2027</h3>
-      <p class="text-xs text-gov-muted leading-relaxed">Menyiapkan dataset makro, time-series 18 hari, dan koordinat 909 simpul pantau nasional...</p>
-    </div>
-  </div>
-
-  <!-- ========================================================================= -->
-  <!-- SIDEBAR NAVIGASI (INA DIGITAL ENTERPRISE)                                  -->
-  <!-- ========================================================================= -->
-  <aside id="main-sidebar" class="w-full md:w-64 bg-white border-r border-gov-border flex flex-col shrink-0 md:h-screen md:sticky md:top-0 z-50 transition-all duration-300">
-    <!-- Brand / Header Sidebar (Klik Logo/Teks untuk Kembali ke Ikhtisar Posko) -->
-    <a href="#executive" id="brand-link" data-tab="executive" class="p-5 border-b border-gov-border flex items-center gap-3 cursor-pointer group hover:bg-slate-50/80 transition-colors" title="Kembali ke Ikhtisar Posko">
-      <div class="w-10 h-10 rounded-lg bg-gov-navy flex items-center justify-center text-white font-extrabold shadow-sm shrink-0 group-hover:scale-105 transition-transform">
-        <i data-lucide="shield-check" class="w-5 h-5 text-white"></i>
-      </div>
-      <div class="sidebar-text min-w-0">
-        <div class="text-[10px] font-bold text-gov-navy tracking-wider uppercase">Pusdatin Kemenhub</div>
-        <h1 class="text-xs font-extrabold text-gov-text tracking-tight leading-tight">Proyeksi Nataru 2026/2027</h1>
-      </div>
-    </a>
-
-    <!-- Menu Navigasi 6 Modul Datar (Tanpa Dropdown Bercabang) -->
-    <div class="p-4 flex-1 overflow-y-auto space-y-1.5">
-      <div class="px-3 pb-2 text-[10px] font-bold uppercase tracking-wider text-gov-muted/70 sidebar-text">Modul Analitik & Proyeksi</div>
-      
-      <a href="#executive" data-tab="executive" class="nav-item active flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-xs font-semibold text-gov-muted" title="Ikhtisar Proyeksi Posko">
-        <i data-lucide="layout-dashboard" class="w-4 h-4 shrink-0 text-gov-muted"></i>
-        <span class="sidebar-text">Ikhtisar Proyeksi Posko</span>
-      </a>
-
-      <a href="#harian" data-tab="harian" class="nav-item flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-xs font-semibold text-gov-muted" title="Tren Harian Proyeksi (18 Hari)">
-        <i data-lucide="line-chart" class="w-4 h-4 shrink-0 text-gov-muted"></i>
-        <span class="sidebar-text">Tren Harian Proyeksi</span>
-      </a>
-
-      <a href="#simpul" data-tab="simpul" class="nav-item flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-xs font-semibold text-gov-muted" title="Direktori Simpul Multimoda">
-        <i data-lucide="network" class="w-4 h-4 shrink-0 text-gov-muted"></i>
-        <span class="sidebar-text">Direktori Simpul Multimoda</span>
-      </a>
-
-      <a href="#map" data-tab="map" class="nav-item flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-xs font-semibold text-gov-muted" title="Peta Spasial Proyeksi (GIS)">
-        <i data-lucide="map-pin" class="w-4 h-4 shrink-0 text-gov-muted"></i>
-        <span class="sidebar-text">Peta Spasial Proyeksi</span>
-      </a>
-
-      <a href="#koridor" data-tab="koridor" class="nav-item flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-xs font-semibold text-gov-muted" title="Titik Kritis Gerbang Tol & Penyeberangan ASDP">
-        <i data-lucide="split" class="w-4 h-4 shrink-0 text-gov-muted"></i>
-        <span class="sidebar-text">Titik Kritis Tol & ASDP</span>
-      </a>
-
-      <a href="#metodologi" data-tab="metodologi" class="nav-item flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-xs font-semibold text-gov-muted" title="Informasi Sistem, Metodologi Analisis & Kamus Rumus">
-        <i data-lucide="table-properties" class="w-4 h-4 shrink-0 text-gov-muted"></i>
-        <span class="sidebar-text">Matriks & Metodologi</span>
-      </a>
-    </div>
-
-    <!-- Area Bawah Sidebar: Tombol Ciutkan Menu & Data Terverifikasi -->
-    <div class="p-4 border-t border-gov-border sidebar-footer-area">
-      <!-- Tombol Tutup / Buka Sidebar (Diposisikan di Atas Data Terverifikasi) -->
-      <button id="btn-toggle-sidebar" class="w-full mb-3 px-3 py-2 rounded-lg border border-gov-border bg-white hover:bg-slate-50 text-slate-700 text-xs font-semibold shadow-2xs flex items-center justify-center gap-2 transition-all group" title="Buka / Tutup Sidebar Navigasi">
-        <i data-lucide="panel-left-close" id="sidebar-icon-collapse" class="w-4 h-4 text-gov-azure group-hover:scale-110 transition-transform"></i>
-        <i data-lucide="panel-left-open" id="sidebar-icon-expand" class="w-4 h-4 text-gov-azure hidden group-hover:scale-110 transition-transform"></i>
-        <span class="sidebar-text">Ciutkan Menu</span>
-      </button>
-
-      <!-- Data Terverifikasi & Metrik Resmi -->
-      <div class="p-3 bg-white rounded-lg border border-gov-border shadow-xs space-y-2 sidebar-verify-box">
-        <div class="flex items-center justify-between">
-          <div class="flex items-center gap-1.5">
-            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-            <span class="text-[10px] font-bold text-emerald-800 uppercase tracking-wide">Data Terverifikasi</span>
-          </div>
-          <span class="text-[9px] font-semibold px-1.5 py-0.2 bg-slate-100 rounded text-slate-600">Pusdatin</span>
-        </div>
-        <div class="grid grid-cols-3 gap-1 pt-1.5 border-t border-slate-100 text-center">
-          <div>
-            <span class="text-[9px] text-slate-400 block">Simpul</span>
-            <span class="text-xs font-bold text-slate-800 num-tabular">909</span>
-          </div>
-          <div>
-            <span class="text-[9px] text-slate-400 block">Posko</span>
-            <span class="text-xs font-bold text-slate-800 num-tabular">18 Hari</span>
-          </div>
-          <div>
-            <span class="text-[9px] text-slate-400 block">Moda</span>
-            <span class="text-xs font-bold text-slate-800 num-tabular">5 Moda</span>
-          </div>
-        </div>
-      </div>
-      <div class="mt-2 text-[10px] text-center text-gov-muted/60 sidebar-text">
-        Pusdatin Kemenhub RI &bull; Nataru 2026/2027
-      </div>
-    </div>
-  </aside>
-
-  <!-- ========================================================================= -->
-  <!-- AREA KONTEN UTAMA                                                         -->
-  <!-- ========================================================================= -->
-  <main class="flex-1 flex flex-col min-w-0">
-    <!-- Topbar Header Bersih (Sticky dengan Z-Index Tinggi agar Tidak Tertutup Peta) -->
-    <header class="bg-white border-b border-gov-border px-6 py-3.5 flex items-center justify-between gap-4 sticky top-0 z-40 shadow-2xs">
-      <!-- Info Posko Siaga Nasional (Kiri) -->
-      <div class="flex items-center gap-2.5">
-        <div class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></div>
-        <span class="text-xs font-bold text-gov-navy uppercase tracking-wider">Posko Tingkat Nasional Terpadu Nataru 2026/2027</span>
-      </div>
-
-      <!-- Theme Switcher Mode Gelap / Terang (Kanan) -->
-      <div class="flex items-center gap-3">
-        <button id="btn-theme-toggle" class="p-2 rounded-lg border border-gov-border text-gov-muted hover:text-gov-text hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" title="Ganti Mode Terang / Gelap">
-          <i data-lucide="moon" id="theme-icon-moon" class="w-4 h-4"></i>
-          <i data-lucide="sun" id="theme-icon-sun" class="w-4 h-4 hidden text-amber-400"></i>
-        </button>
-      </div>
-    </header>
-
-    <!-- Page Title & Strategic Question Banner -->
-    <div class="px-6 pt-5 pb-3">
-      <div class="flex flex-wrap items-center justify-between gap-3 mb-1">
-        <h2 id="current-view-title" class="text-xl font-bold text-gov-text tracking-tight">
-          Ikhtisar Proyeksi Operasional & Hari Puncak Nataru 2026/2027
-        </h2>
-        <span class="px-2.5 py-0.5 rounded-full text-[10px] font-extrabold bg-gov-azure/10 text-gov-azure border border-gov-azure/30 flex items-center gap-1.5 uppercase tracking-wide">
-          <i data-lucide="sparkles" class="w-3 h-3"></i>
-          Model Damped Holt-Winters
-        </span>
-      </div>
-      <p id="current-view-desc" class="text-xs text-gov-muted w-full text-justify leading-relaxed">
-        Rangkuman angka proyeksi operasional angkutan multimoda periode 18 hari (H-7 s/d H+10) hasil pemodelan Damped Holt-Winters dibandingkan realisasi baseline 2025.
-      </p>
-    </div>
-
-    <!-- Main View Dynamic Container -->
-    <div id="main-content" class="px-6 pb-8 flex-1">
-      
-      <!-- VIEW 1: RINGKASAN EKSEKUTIF -->
-      <section id="view-executive" class="view-section space-y-6">
-        <!-- 4 Kartu KPI Utama -->
-        <div id="executive-kpi-cards" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          <!-- Diisi dinamis oleh executive.js -->
-        </div>
-
-        <!-- Baris 2: Pangsa Pasar Moda & Kalender Early Warning -->
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
-          <!-- Kolom Kiri: Donut Chart & Tabel Pangsa Moda (5 Cols) -->
-          <div class="lg:col-span-5 bg-white p-5 rounded-xl border border-gov-border shadow-xs flex flex-col">
-            <div class="flex items-center justify-between mb-3 pb-3 border-b border-gov-border">
-              <div>
-                <h3 class="text-sm font-bold text-gov-text flex items-center gap-2">
-                  <i data-lucide="pie-chart" class="w-4 h-4 text-gov-navy"></i>
-                  Pangsa Moda Proyeksi Penumpang 2026
-                </h3>
-                <p class="text-[11px] text-gov-muted mt-0.5">Proporsi proyeksi 18,46 juta penumpang dari 5 moda transportasi</p>
-              </div>
-              <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-blue-50 text-blue-700 border border-blue-200">
-                5 Moda
-              </span>
-            </div>
-
-            <!-- Plotly Donut Chart -->
-            <div id="chart-moda-share" class="w-full"></div>
-
-            <!-- Tabel Distribusi Moda -->
-            <div class="mt-3 overflow-x-auto">
-              <table class="w-full text-left text-xs border-collapse">
-                <thead>
-                  <tr class="text-[10px] uppercase font-bold text-slate-500 border-b border-slate-200 bg-slate-50">
-                    <th class="py-2 px-3">Moda Transportasi</th>
-                    <th class="py-2 px-3 text-right">Realisasi 2025</th>
-                    <th class="py-2 px-3 text-right">Proyeksi 2026</th>
-                    <th class="py-2 px-3 text-right">YoY</th>
-                    <th class="py-2 px-3 text-right">Porsi (%)</th>
-                  </tr>
-                </thead>
-                <tbody id="table-moda-share">
-                  <!-- Diisi dinamis oleh executive.js -->
-                </tbody>
-              </table>
-            </div>
-          </div>
-
-          <!-- Kolom Kanan: Kalender Deteksi Dini 18 Hari Posko (7 Cols) -->
-          <div class="lg:col-span-7 bg-white p-5 rounded-xl border border-gov-border shadow-xs flex flex-col justify-between">
-            <div class="flex flex-wrap items-center justify-between gap-2 mb-3 pb-3 border-b border-gov-border">
-              <div class="flex items-center gap-2.5">
-                <div class="w-8 h-8 rounded-lg bg-blue-50 text-gov-azure flex items-center justify-center shrink-0">
-                  <i data-lucide="calendar-days" class="w-4 h-4"></i>
-                </div>
-                <div>
-                  <h3 class="text-sm font-bold text-gov-text leading-tight">
-                    Kalender Proyeksi Beban Posko (18 Hari)
-                  </h3>
-                  <p class="text-[11px] text-gov-muted mt-0.5">Jadwal kronologis H-7 s/d H+10 estimasi volume proyeksi & status kesiagaan</p>
-                </div>
-              </div>
-              
-              <!-- Quick Status Counters -->
-              <div class="flex items-center gap-1.5 text-[10px] font-bold">
-                <span class="px-2 py-0.5 rounded bg-emerald-50 text-emerald-800 border border-emerald-200 flex items-center gap-1">
-                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-                  <span id="count-status-normal">-</span>
-                </span>
-                <span class="px-2 py-0.5 rounded bg-amber-50 text-amber-800 border border-amber-200 flex items-center gap-1">
-                  <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
-                  <span id="count-status-waspada">-</span>
-                </span>
-                <span class="px-2 py-0.5 rounded bg-rose-50 text-rose-800 border border-rose-200 flex items-center gap-1">
-                  <span class="w-1.5 h-1.5 rounded-full bg-rose-500"></span>
-                  <span id="count-status-siaga">-</span>
-                </span>
-              </div>
-            </div>
-
-            <!-- Scrollable Early Warning Table: Panjang Sejajar dengan Baris ASDP Pangsa Moda -->
-            <div class="overflow-y-auto border border-slate-100 rounded-lg h-[505px]">
-              <table class="w-full text-left text-xs border-collapse">
-                <thead class="sticky top-0 bg-slate-50 border-b border-slate-200 z-10 shadow-2xs">
-                  <tr class="text-[10px] uppercase font-bold text-slate-500">
-                    <th class="py-2.5 px-3">Hari Posko</th>
-                    <th class="py-2.5 px-3">Tanggal / Pekan</th>
-                    <th class="py-2.5 px-3 text-right">Volume Proyeksi (Orang)</th>
-                    <th class="py-2.5 px-3">Status Kesiagaan</th>
-                    <th class="py-2.5 px-3">Rekomendasi Aksi Taktis Posko</th>
-                  </tr>
-                </thead>
-                <tbody id="executive-early-warning-table">
-                  <!-- Diisi dinamis oleh executive.js -->
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-
-        <!-- Baris 3: Titik Kritis Infrastruktur (Tol Jakarta & ASDP Penyeberangan) -->
-        <div class="bg-white p-5 rounded-xl border border-gov-border shadow-xs">
-          <div class="flex items-center justify-between mb-4 pb-3 border-b border-gov-border">
-            <div>
-              <h3 class="text-sm font-bold text-gov-text flex items-center gap-2">
-                <i data-lucide="alert-octagon" class="w-4 h-4 text-amber-600"></i>
-                Pemantauan Proyeksi Titik Kritis Infrastruktur Strategis
-              </h3>
-              <p class="text-[11px] text-gov-muted mt-0.5">Estimasi volume proyeksi lalu lintas pada 4 gerbang tol barrier metropolitan Jakarta & 3 lintasan strategis ASDP</p>
-            </div>
-            <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-amber-50 text-amber-700 border border-amber-200">
-              Infrastruktur Kunci
-            </span>
-          </div>
-
-          <!-- Gerbang Tol Jakarta (4 Barrier Gates) -->
-          <div class="mb-6">
-            <h4 class="text-xs font-bold text-gov-navy uppercase tracking-wider mb-3 flex items-center gap-2">
-              <i data-lucide="git-commit" class="w-3.5 h-3.5 text-gov-navy"></i>
-              4 Gerbang Tol Barrier Keluar/Masuk Jakarta (Proyeksi Lalu Lintas)
-            </h4>
-            <div id="executive-tol-cards" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              <!-- Diisi dinamis oleh executive.js -->
-            </div>
-          </div>
-
-          <!-- Lintas Penyeberangan ASDP -->
-          <div>
-            <h4 class="text-xs font-bold text-gov-navy uppercase tracking-wider mb-3 flex items-center gap-2">
-              <i data-lucide="anchor" class="w-3.5 h-3.5 text-gov-navy"></i>
-              3 Lintas Penyeberangan Strategis ASDP (Proyeksi Kendaraan)
-            </h4>
-            <div id="executive-asdp-cards" class="grid grid-cols-1 lg:grid-cols-3 gap-4">
-              <!-- Diisi dinamis oleh executive.js -->
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- VIEW 2: TREN HARIAN 18 HARI -->
-      <section id="view-harian" class="view-section hidden space-y-6">
-        <!-- Kontrol Toolbar Modul 2 -->
-        <div class="p-4 bg-white border border-gov-border rounded-xl shadow-xs flex flex-wrap items-center justify-between gap-4">
-          <!-- Toggle Metrik: Penumpang vs Sarana -->
-          <div class="flex items-center gap-2">
-            <span class="text-xs font-bold text-gov-muted uppercase tracking-wider mr-1">Metrik:</span>
-            <div class="inline-flex p-1 bg-slate-100 rounded-lg border border-slate-200">
-              <button id="btn-metric-penumpang" class="px-4 py-1.5 text-xs font-bold rounded-md bg-gov-navy text-white shadow-xs transition-all flex items-center gap-1.5">
-                <i data-lucide="users" class="w-3.5 h-3.5"></i>
-                <span>Penumpang</span>
-              </button>
-              <button id="btn-metric-sarana" class="px-4 py-1.5 text-xs font-semibold rounded-md text-gov-muted hover:text-gov-text transition-all flex items-center gap-1.5">
-                <i data-lucide="car" class="w-3.5 h-3.5"></i>
-                <span>Sarana / Kendaraan</span>
-              </button>
-            </div>
-          </div>
-
-          <!-- Filter Moda & Export CSV -->
-          <div class="flex items-center gap-3 flex-wrap">
-            <div class="flex items-center gap-2">
-              <label for="select-harian-moda" class="text-xs font-bold text-gov-muted uppercase tracking-wider">Moda:</label>
-              <select id="select-harian-moda" class="bg-gov-slate border border-gov-border text-xs font-semibold rounded-lg px-3 py-2 text-gov-text focus:outline-none focus:ring-2 focus:ring-gov-azure/40">
-                <!-- Diisi dinamis oleh harian.js -->
-              </select>
-            </div>
-
-            <button id="btn-export-harian-csv" class="px-3.5 py-2 bg-white border border-gov-border hover:bg-slate-50 text-xs font-semibold text-slate-700 rounded-lg shadow-xs flex items-center gap-1.5 transition-all">
-              <i data-lucide="download" class="w-3.5 h-3.5 text-gov-navy"></i>
-              <span>Unduh CSV (18 Hari)</span>
-            </button>
-          </div>
-        </div>
-
-        <!-- Grafik Time-Series Plotly -->
-        <div class="p-5 bg-white border border-gov-border rounded-xl shadow-xs">
-          <div class="flex flex-wrap items-center justify-between gap-2 mb-2 pb-3 border-b border-gov-border">
-            <div>
-              <h3 class="text-sm font-bold text-gov-text flex items-center gap-2">
-                <i data-lucide="line-chart" class="w-4 h-4 text-gov-azure"></i>
-                Kurva Deret Waktu 18 Hari Operasional Posko (2024 - 2026)
-              </h3>
-              <p class="text-[11px] text-gov-muted mt-0.5">Komparasi Realisasi 2024, Realisasi 2025 (Baseline), dan Proyeksi Damped Holt-Winters 2026</p>
-            </div>
-            <div class="flex items-center gap-2">
-              <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-blue-50 text-blue-700 border border-blue-200">
-                Model: Damped HW (&phi;=0.85)
-              </span>
-            </div>
-          </div>
-
-          <!-- Plotly Chart Element -->
-          <div id="harian-timeseries-chart" class="w-full"></div>
-        </div>
-
-        <!-- Tabel Rincian Angka 18 Hari -->
-        <div class="bg-white p-5 rounded-xl border border-gov-border shadow-xs">
-          <div class="flex items-center justify-between mb-3 pb-3 border-b border-gov-border">
-            <div>
-              <h3 id="harian-table-title" class="text-sm font-bold text-gov-text">
-                Data Rinci Deret Waktu 18 Hari Operasional Posko
-              </h3>
-              <p class="text-[11px] text-gov-muted mt-0.5">Tabel rincian angka harian beserta selisih pertumbuhan tahunan (YoY)</p>
-            </div>
-          </div>
-
-          <div class="overflow-x-auto">
-            <table class="w-full text-left text-xs border-collapse">
-              <thead>
-                <tr class="text-[10px] uppercase font-bold text-slate-500 border-b border-slate-200 bg-slate-50">
-                  <th class="py-2.5 px-3">Hari Posko</th>
-                  <th class="py-2.5 px-3">Hari & Tanggal</th>
-                  <th class="py-2.5 px-3 text-right">Realisasi 2024</th>
-                  <th class="py-2.5 px-3 text-right">Realisasi 2025 (Baseline)</th>
-                  <th class="py-2.5 px-3 text-right text-gov-navy">Proyeksi 2026</th>
-                  <th class="py-2.5 px-3 text-right">Pertumbuhan YoY</th>
-                  <th class="py-2.5 px-3 text-right">Selisih Volume</th>
-                </tr>
-              </thead>
-              <tbody id="harian-table-body">
-                <!-- Diisi dinamis oleh harian.js -->
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
-
-      <!-- VIEW 3: DIREKTORI SIMPUL PANTAU -->
-      <section id="view-simpul" class="view-section hidden space-y-6">
-        <!-- Toolbar Modul 3 -->
-        <div class="p-4 bg-white border border-gov-border rounded-xl shadow-xs flex flex-wrap items-center justify-between gap-4">
-          <!-- Filter Dropdown Moda Terisolasi -->
-          <div class="flex items-center gap-3 flex-wrap">
-            <div class="flex items-center gap-2">
-              <label for="select-simpul-moda" class="text-xs font-bold text-gov-muted uppercase tracking-wider">Pilih Moda:</label>
-              <select id="select-simpul-moda" class="bg-gov-slate border border-gov-border text-xs font-semibold rounded-lg px-3 py-2 text-gov-text focus:outline-none focus:ring-2 focus:ring-gov-azure/40">
-                <!-- Diisi dinamis oleh simpul.js -->
-              </select>
-            </div>
-
-            <!-- Search Bar Simpul -->
-            <div class="relative">
-              <i data-lucide="search" class="w-3.5 h-3.5 absolute left-3 top-2.5 text-slate-400"></i>
-              <input 
-                id="input-simpul-search" 
-                type="text" 
-                placeholder="Cari nama simpul / daerah..." 
-                class="pl-8 pr-3 py-1.5 text-xs bg-gov-slate border border-gov-border rounded-lg text-gov-text focus:outline-none focus:ring-2 focus:ring-gov-azure/40 w-48 sm:w-64"
-              >
-            </div>
-          </div>
-
-          <!-- Counter Status -->
-          <div class="flex items-center gap-3">
-            <span id="simpul-count-badge" class="text-xs font-semibold text-gov-muted bg-slate-100 dark:bg-slate-800 px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700">
-              -
-            </span>
-          </div>
-        </div>
-
-        <!-- Grafik Top 10 Simpul (Horizontal Bar Plotly) -->
-        <div class="p-5 bg-white border border-gov-border rounded-xl shadow-xs">
-          <div class="flex items-center justify-between mb-2 pb-3 border-b border-gov-border">
-            <div>
-              <h3 id="simpul-chart-title" class="text-sm font-bold text-gov-text">
-                Grafik 10 Simpul Terpadat
-              </h3>
-              <p class="text-[11px] text-gov-muted mt-0.5">Perbandingan volume proyeksi penumpang 2026/2027 antar simpul pada moda yang sama (100% Apple-to-Apple)</p>
-            </div>
-            <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-blue-50 text-blue-700 border border-blue-200">
-              10 Simpul Terpadat
-            </span>
-          </div>
-          <div id="chart-simpul-top10" class="w-full"></div>
-        </div>
-
-        <!-- Tabel Direktori Simpul -->
-        <div class="bg-white p-5 rounded-xl border border-gov-border shadow-xs">
-          <div class="flex items-center justify-between mb-3 pb-3 border-b border-gov-border">
-            <div>
-              <h3 class="text-sm font-bold text-gov-text">
-                Daftar Simpul Pantau Nasional Terverifikasi
-              </h3>
-              <p class="text-[11px] text-gov-muted mt-0.5">Rincian realisasi 2025, proyeksi 2026, pangsa moda, dan persentase pertumbuhan</p>
-            </div>
-          </div>
-
-          <div class="overflow-x-auto border border-slate-100 dark:border-slate-800 rounded-lg">
-            <table class="w-full table-fixed text-left text-xs border-collapse">
-              <colgroup>
-                <col class="w-16">
-                <col class="w-[30%]">
-                <col class="w-[16%]">
-                <col class="w-[12%]">
-                <col class="w-[13%]">
-                <col class="w-[11%]">
-                <col class="w-[12%]">
-              </colgroup>
-              <thead class="bg-slate-50 dark:bg-slate-800 border-b border-slate-200 dark:border-slate-700">
-                <tr class="text-[10px] uppercase font-bold text-slate-500 dark:text-slate-400">
-                  <th class="py-2.5 px-3 text-center">No</th>
-                  <th class="py-2.5 px-3">Nama Simpul Pantau</th>
-                  <th class="py-2.5 px-3">Kategori</th>
-                  <th class="py-2.5 px-3 text-right">Realisasi 2025</th>
-                  <th class="py-2.5 px-3 text-right text-gov-navy dark:text-sky-400">Proyeksi 2026</th>
-                  <th class="py-2.5 px-3 text-right">Pangsa Moda</th>
-                  <th class="py-2.5 px-3 text-right">Pertumbuhan YoY</th>
-                </tr>
-              </thead>
-              <tbody id="simpul-table-body">
-                <!-- Diisi dinamis oleh simpul.js -->
-              </tbody>
-            </table>
-          </div>
-
-          <!-- Footer Aksi: Tombol Lihat Seluruh Simpul di Bawah Tabel -->
-          <div id="simpul-table-footer" class="mt-4 pt-3.5 border-t border-slate-100 dark:border-slate-800 flex flex-wrap items-center justify-between gap-3 text-xs">
-            <div class="flex items-center gap-2">
-              <span class="w-2 h-2 rounded-full bg-blue-500"></span>
-              <span id="simpul-footer-info" class="text-gov-muted dark:text-slate-400 font-medium text-xs">
-                Menampilkan 10 simpul terpadat
-              </span>
-            </div>
-            <button id="btn-load-all-simpul" class="px-4 py-2 bg-gov-navy hover:bg-gov-navy/90 text-white font-bold rounded-lg shadow-xs flex items-center gap-2 transition-all text-xs">
-              <span>Lihat Seluruh Simpul</span>
-              <i data-lucide="chevron-down" class="w-4 h-4"></i>
-            </button>
-          </div>
-        </div>
-      </section>
-
-      <!-- VIEW 4: PETA SPASIAL (GIS) -->
-      <section id="view-map" class="view-section hidden space-y-4">
-        <!-- Toolbar & Filter Kategori Moda (Murni Filter Data) -->
-        <div class="p-3.5 bg-white dark:bg-slate-900 border border-gov-border dark:border-slate-800 rounded-xl shadow-xs flex flex-wrap items-center justify-between gap-3">
-          <!-- Filter Kancing / Pills Moda -->
-          <div class="flex items-center gap-2 flex-wrap">
-            <span class="text-xs font-bold text-gov-muted dark:text-slate-400 uppercase tracking-wider shrink-0 mr-1 flex items-center gap-1.5">
-              <i data-lucide="filter" class="w-3.5 h-3.5 text-gov-navy dark:text-sky-400"></i>
-              Filter Moda:
-            </span>
-            <div class="flex items-center gap-1.5 flex-wrap" id="gis-moda-pills">
-              <!-- Diisi dinamis oleh map_gis.js -->
-            </div>
-          </div>
-
-          <!-- Total Volume Proyeksi Sesuai Moda Aktif (Menyeimbangkan Sisi Kanan Baris Filter) -->
-          <div id="gis-nodes-volume" class="num-tabular font-bold text-gov-navy dark:text-sky-400 text-xs sm:text-sm shrink-0 ml-auto">
-            <!-- Diisi dinamis oleh map_gis.js -->
-          </div>
-        </div>
-
-        <!-- Kartu Kanvas Peta Leaflet GIS Lengkap dengan Kontrol Utilitas Peta -->
-        <div class="bg-white dark:bg-slate-900 p-3.5 rounded-xl border border-gov-border dark:border-slate-800 shadow-xs relative z-0 isolate overflow-hidden space-y-3">
-          <!-- Header Bar Kanvas Peta: Status Data (Kiri) & Kontrol Utilitas GIS (Kanan) -->
-          <div class="flex flex-wrap items-center justify-between gap-3 pb-3 border-b border-slate-100 dark:border-slate-800">
-            <!-- Status Simpul Terpetakan -->
-            <div class="flex items-center gap-2 text-xs font-semibold">
-              <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
-              <span id="gis-nodes-count" class="text-slate-800 dark:text-slate-200 font-bold">-</span>
-              <span class="text-slate-400 dark:text-slate-500 font-normal hidden sm:inline">&bull; Skala Koordinat Resmi Pusdatin</span>
-            </div>
-
-            <!-- Kontrol Utilitas & Navigasi Peta -->
-            <div class="flex items-center gap-2">
-              <span class="text-[11px] font-semibold text-slate-500 dark:text-slate-400 mr-1 hidden sm:inline">Kontrol Peta:</span>
-              
-              <!-- Toggle Heatmap Kepadatan -->
-              <button id="btn-toggle-heatmap" class="px-3 py-1.5 rounded-lg text-xs font-bold border transition-all flex items-center gap-1.5 bg-gov-navy text-white border-gov-navy shadow-xs hover:bg-gov-navy/90" title="Tampilkan / Sembunyikan Lapisan Heatmap Kepadatan">
-                <i data-lucide="flame" class="w-3.5 h-3.5 text-amber-300"></i>
-                <span>Heatmap Kepadatan</span>
-              </button>
-
-              <!-- Pusatkan Indonesia -->
-              <button id="btn-reset-map" class="px-3 py-1.5 bg-white dark:bg-slate-800 border border-gov-border dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700/60 text-xs font-semibold text-slate-700 dark:text-slate-200 rounded-lg shadow-xs flex items-center gap-1.5 transition-all" title="Kembalikan Peta ke Seluruh Wilayah Indonesia">
-                <i data-lucide="rotate-ccw" class="w-3.5 h-3.5 text-gov-navy dark:text-sky-400"></i>
-                <span>Pusatkan Peta</span>
-              </button>
-            </div>
-          </div>
-
-          <!-- Kanvas Peta Leaflet GIS (Terisolasi Stacking Context z-0 agar Tidak Menembus Header) -->
-          <div id="gis-map-canvas" class="w-full h-[540px] rounded-lg relative z-0 isolate"></div>
-          
-          <!-- 3 Kartu Wawasan Spasial Strategis (Insightful & Tidak Redundan) -->
-          <div class="pt-3 border-t border-slate-100 dark:border-slate-800 grid grid-cols-1 md:grid-cols-3 gap-3 text-xs">
-            <div class="p-2.5 rounded-lg bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-700/60 flex items-start gap-2.5">
-              <span class="text-gov-azure dark:text-sky-400 font-extrabold text-sm shrink-0">📍</span>
-              <div>
-                <strong class="text-slate-900 dark:text-slate-100 block text-[11px] font-bold">Konsentrasi Arus Nasional</strong>
-                <span class="text-[11px] text-gov-muted dark:text-slate-400 leading-tight">68,4% volume terpusat di koridor Jawa & Lintas Penyeberangan Selat Sunda.</span>
-              </div>
-            </div>
-            <div class="p-2.5 rounded-lg bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-700/60 flex items-start gap-2.5">
-              <span class="text-amber-500 font-extrabold text-sm shrink-0">⭐</span>
-              <div>
-                <strong class="text-slate-900 dark:text-slate-100 block text-[11px] font-bold">Simpul Beban Tertinggi</strong>
-                <span class="text-[11px] text-gov-muted dark:text-slate-400 leading-tight">Bandara Soetta (1,57 jt org) & Stasiun Pasar Senen (624 rb org).</span>
-              </div>
-            </div>
-            <div class="p-2.5 rounded-lg bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-700/60 flex items-start gap-2.5">
-              <span class="text-rose-500 font-extrabold text-sm shrink-0">🚩</span>
-              <div>
-                <strong class="text-slate-900 dark:text-slate-100 block text-[11px] font-bold">Titik Hambatan Kritis</strong>
-                <span class="text-[11px] text-gov-muted dark:text-slate-400 leading-tight">GT Cikatama (813 rb kendaraan) & Pelabuhan Merak (612 rb kendaraan).</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- VIEW 5: TITIK KRITIS GERBANG TOL & PENYEBERANGAN ASDP -->
-      <section id="view-koridor" class="view-section hidden space-y-6">
-        <!-- 4 Kartu Ringkasan KPI Titik Kritis -->
-        <div id="koridor-kpi-cards" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          <!-- Diisi dinamis oleh koridor.js -->
-        </div>
-
-        <!-- BAGIAN 1: ARUS 4 GERBANG TOL UTAMA JABODETABEK -->
-        <div class="p-5 bg-white border border-gov-border rounded-xl shadow-xs space-y-4">
-          <div class="flex flex-wrap items-center justify-between gap-3 pb-3 border-b border-gov-border">
-            <div>
-              <h3 class="text-sm font-bold text-gov-text flex items-center gap-2">
-                <i data-lucide="split" class="w-4 h-4 text-gov-azure"></i>
-                Arus Lalu Lintas 4 Gerbang Tol Akses Utama Jabodetabek
-              </h3>
-              <p class="text-[11px] text-gov-muted mt-0.5">
-                Estimasi volume kendaraan Arus Mudik/Wisata (Keluar Jakarta) vs Arus Balik (Masuk Jakarta) berbasis model Damped Holt-Winters Gate Flow
-              </p>
-            </div>
-            <span class="px-2.5 py-1 rounded text-[10px] font-bold bg-emerald-50 text-emerald-800 border border-emerald-200">
-              Pertumbuhan Nasional: +16,76%
-            </span>
-          </div>
-
-          <!-- Grafik Bar Chart Komparasi Tol -->
-          <div id="chart-tol-komparasi" class="w-full"></div>
-
-          <!-- Tabel Rinci Gerbang Tol (Sheet 6) -->
-          <div class="overflow-x-auto pt-2">
-            <table class="w-full text-left text-xs border-collapse">
-              <thead>
-                <tr class="text-[10px] uppercase font-bold text-slate-500 border-b border-slate-200 bg-slate-50">
-                  <th class="py-2.5 px-3 text-center">No</th>
-                  <th class="py-2.5 px-3">Gerbang Tol & Koridor Lintasan</th>
-                  <th class="py-2.5 px-3">Arah Pergerakan</th>
-                  <th class="py-2.5 px-3 text-right">Realisasi 2025</th>
-                  <th class="py-2.5 px-3 text-right">Proyeksi 2026/2027</th>
-                  <th class="py-2.5 px-3 text-center">Pertumbuhan</th>
-                  <th class="py-2.5 px-3">Metode Proyeksi</th>
-                </tr>
-              </thead>
-              <tbody id="table-tol-body">
-                <!-- Diisi dinamis oleh koridor.js -->
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        <!-- BAGIAN 2: KOMPOSISI KENDARAAN PENYEBERANGAN ASDP (SHEET 7) -->
-        <div class="p-5 bg-white border border-gov-border rounded-xl shadow-xs space-y-4">
-          <div class="flex flex-wrap items-center justify-between gap-3 pb-3 border-b border-gov-border">
-            <div>
-              <h3 class="text-sm font-bold text-gov-text flex items-center gap-2">
-                <i data-lucide="anchor" class="w-4 h-4 text-purple-600"></i>
-                Komposisi Kendaraan Lintas Penyeberangan Kritis ASDP
-              </h3>
-              <p class="text-[11px] text-gov-muted mt-0.5">
-                Rincian volume Sepeda Motor (R2), Mobil Pribadi (R4), dan Truk Logistik (Sumbu 3+) beserta skema buffer zone pelabuhan
-              </p>
-            </div>
-            <span class="px-2.5 py-1 rounded text-[10px] font-bold bg-purple-50 text-purple-800 border border-purple-200">
-              Lintas Selat Sunda & Selat Bali
-            </span>
-          </div>
-
-          <!-- Grafik Komposisi Kendaraan ASDP -->
-          <div id="chart-asdp-komposisi" class="w-full"></div>
-
-          <!-- Tabel Rinci ASDP (Sheet 7) -->
-          <div class="overflow-x-auto pt-2">
-            <table class="w-full text-left text-xs border-collapse">
-              <thead>
-                <tr class="text-[10px] uppercase font-bold text-slate-500 border-b border-slate-200 bg-slate-50">
-                  <th class="py-2.5 px-3 text-center">No</th>
-                  <th class="py-2.5 px-3">Lintas Penyeberangan</th>
-                  <th class="py-2.5 px-3 text-right">Realisasi 2025</th>
-                  <th class="py-2.5 px-3 text-right">Proyeksi 2026</th>
-                  <th class="py-2.5 px-3 text-right">Roda 2 (Motor)</th>
-                  <th class="py-2.5 px-3 text-right">Roda 4 (Pribadi)</th>
-                  <th class="py-2.5 px-3 text-right">Truk Logistik</th>
-                  <th class="py-2.5 px-3">Karakteristik & Fokus Lintas</th>
-                </tr>
-              </thead>
-              <tbody id="table-asdp-body">
-                <!-- Diisi dinamis oleh koridor.js -->
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
-
-      <!-- VIEW 6: METODOLOGI & ARSITEKTUR DSS -->
-      <section id="view-metodologi" class="view-section hidden space-y-6">
-        <!-- Banner Kerangka Sistem Informasi & Rekayasa Data -->
-        <div class="p-5 bg-white dark:bg-slate-900 border border-gov-border dark:border-slate-800 rounded-xl shadow-xs">
-          <div class="flex flex-wrap items-center justify-between gap-3 mb-2">
-            <div class="flex items-center gap-2">
-              <span class="px-2.5 py-0.5 rounded text-[10px] font-bold bg-gov-azure_light text-gov-azure border border-blue-200 dark:border-blue-900">
-                Pusdatin Kemenhub RI
-              </span>
-              <span class="px-2.5 py-0.5 rounded text-[10px] font-bold bg-emerald-50 dark:bg-emerald-950/40 text-emerald-800 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800/80">
-                Data Terverifikasi
-              </span>
-              <span class="text-xs text-gov-muted dark:text-slate-400 hidden sm:inline">&bull; Dokumentasi Transparansi Analitik</span>
-            </div>
-            <span class="text-[11px] font-semibold text-gov-muted dark:text-slate-400">Posko Terpadu Nataru 2026/2027</span>
-          </div>
-          <h2 class="text-base sm:text-lg font-extrabold text-gov-text dark:text-slate-100">
-            Informasi Sistem, Metodologi Analisis & Kamus Rumus Proyeksi Nataru 2026/2027
-          </h2>
-          <p class="text-xs text-gov-muted dark:text-slate-400 mt-1.5 leading-relaxed w-full">
-            Dokumentasi transparansi data, formulasi matematis metrik dasar, peramalan deret waktu Damped Holt-Winters, matriks indikator kinerja posko, serta kamus istilah resmi Pusat Data dan Teknologi Informasi (Pusdatin) Kementerian Perhubungan RI.
-          </p>
-
-          <!-- Navigasi Lompat Cepat (Quick Jump Pills - 7 Bagian Terstruktur Proporsional) -->
-          <div class="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800">
-            <div class="text-[10px] font-bold uppercase tracking-wider text-gov-muted dark:text-slate-400 mb-2.5 flex items-center gap-1.5">
-              <i data-lucide="compass" class="w-3.5 h-3.5 text-gov-azure dark:text-sky-400"></i>
-              Lompat Cepat ke Bagian Dokumen:
-            </div>
-            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-2">
-              <a href="#sec-integritas" class="px-2.5 py-2 rounded-lg text-[11px] font-semibold bg-slate-100 hover:bg-gov-azure_light text-slate-700 hover:text-gov-azure dark:bg-slate-800 dark:hover:bg-slate-700/80 dark:text-slate-300 dark:hover:text-sky-300 transition-all border border-slate-200 dark:border-slate-700/80 flex items-center justify-center gap-1.5 text-center">
-                <i data-lucide="database" class="w-3 h-3 text-gov-azure dark:text-sky-400 shrink-0"></i>
-                <span>1. Integritas Data</span>
-              </a>
-              <a href="#sec-metrik-dasar" class="px-2.5 py-2 rounded-lg text-[11px] font-semibold bg-slate-100 hover:bg-gov-azure_light text-slate-700 hover:text-gov-azure dark:bg-slate-800 dark:hover:bg-slate-700/80 dark:text-slate-300 dark:hover:text-sky-300 transition-all border border-slate-200 dark:border-slate-700/80 flex items-center justify-center gap-1.5 text-center">
-                <i data-lucide="calculator" class="w-3 h-3 text-gov-azure dark:text-sky-400 shrink-0"></i>
-                <span>2. Metrik Dasar</span>
-              </a>
-              <a href="#sec-modal-share" class="px-2.5 py-2 rounded-lg text-[11px] font-semibold bg-slate-100 hover:bg-gov-azure_light text-slate-700 hover:text-gov-azure dark:bg-slate-800 dark:hover:bg-slate-700/80 dark:text-slate-300 dark:hover:text-sky-300 transition-all border border-slate-200 dark:border-slate-700/80 flex items-center justify-center gap-1.5 text-center">
-                <i data-lucide="pie-chart" class="w-3 h-3 text-gov-azure dark:text-sky-400 shrink-0"></i>
-                <span>3. Modal Share</span>
-              </a>
-              <a href="#sec-analisis-puncak" class="px-2.5 py-2 rounded-lg text-[11px] font-semibold bg-slate-100 hover:bg-gov-azure_light text-slate-700 hover:text-gov-azure dark:bg-slate-800 dark:hover:bg-slate-700/80 dark:text-slate-300 dark:hover:text-sky-300 transition-all border border-slate-200 dark:border-slate-700/80 flex items-center justify-center gap-1.5 text-center">
-                <i data-lucide="trending-up" class="w-3 h-3 text-gov-azure dark:text-sky-400 shrink-0"></i>
-                <span>4. Hari Puncak</span>
-              </a>
-              <a href="#sec-model-damped" class="px-2.5 py-2 rounded-lg text-[11px] font-semibold bg-slate-100 hover:bg-gov-azure_light text-slate-700 hover:text-gov-azure dark:bg-slate-800 dark:hover:bg-slate-700/80 dark:text-slate-300 dark:hover:text-sky-300 transition-all border border-slate-200 dark:border-slate-700/80 flex items-center justify-center gap-1.5 text-center">
-                <i data-lucide="cpu" class="w-3 h-3 text-gov-azure dark:text-sky-400 shrink-0"></i>
-                <span>5. Holt-Winters</span>
-              </a>
-              <a href="#sec-matriks-12" class="px-2.5 py-2 rounded-lg text-[11px] font-semibold bg-slate-100 hover:bg-gov-azure_light text-slate-700 hover:text-gov-azure dark:bg-slate-800 dark:hover:bg-slate-700/80 dark:text-slate-300 dark:hover:text-sky-300 transition-all border border-slate-200 dark:border-slate-700/80 flex items-center justify-center gap-1.5 text-center">
-                <i data-lucide="layers" class="w-3 h-3 text-gov-azure dark:text-sky-400 shrink-0"></i>
-                <span>6. Matriks 12</span>
-              </a>
-              <a href="#sec-glosarium" class="px-2.5 py-2 rounded-lg text-[11px] font-semibold bg-slate-100 hover:bg-gov-azure_light text-slate-700 hover:text-gov-azure dark:bg-slate-800 dark:hover:bg-slate-700/80 dark:text-slate-300 dark:hover:text-sky-300 transition-all border border-slate-200 dark:border-slate-700/80 flex items-center justify-center gap-1.5 text-center">
-                <i data-lucide="book-marked" class="w-3 h-3 text-gov-azure dark:text-sky-400 shrink-0"></i>
-                <span>7. Glosarium</span>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- 1. KOTAK INTEGRITAS DATASET -->
-        <div id="sec-integritas" class="scroll-mt-6 bg-white dark:bg-slate-900 p-5 rounded-xl border border-gov-border dark:border-slate-800 shadow-xs">
-          <div class="flex items-center justify-between mb-4 pb-3 border-b border-gov-border dark:border-slate-800">
-            <div>
-              <h3 class="text-sm font-bold text-gov-text dark:text-slate-100 flex items-center gap-2">
-                <i data-lucide="database" class="w-4 h-4 text-gov-navy dark:text-sky-400"></i>
-                1. Integritas Dataset & Cakupan Operasional Posko Nataru 2026/2027
-              </h3>
-              <p class="text-[11px] text-gov-muted dark:text-slate-400 mt-0.5">Parameter agregasi resmi, cakupan waktu, dan batas geografis pemantauan posko terpadu nasional</p>
-            </div>
-            <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-50 dark:bg-emerald-950/40 text-emerald-800 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800/80">
-              Terverifikasi Pusdatin
-            </span>
-          </div>
-
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            <!-- Card 1: Total Volume -->
-            <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/80 flex flex-col justify-between">
-              <div>
-                <span class="text-[11px] font-semibold text-slate-500 dark:text-slate-400 block mb-1">Total Proyeksi Nasional</span>
-                <div class="text-xl font-extrabold text-gov-navy dark:text-sky-300 tracking-tight num-tabular">18.462.913</div>
-                <div class="text-[11px] font-semibold text-emerald-700 dark:text-emerald-400 mt-0.5 flex items-center gap-1">
-                  <span>+3,45% YoY</span>
-                  <span class="text-slate-400 dark:text-slate-500 font-normal">vs 17.848.066 (2025)</span>
-                </div>
-              </div>
-              <p class="text-[11px] text-slate-600 dark:text-slate-400 mt-3 pt-2.5 border-t border-slate-200 dark:border-slate-700/60 leading-relaxed">
-                Akumulasi proyeksi resmi 5 moda transportasi selama 18 hari masa posko tanpa selisih pembulatan antar-modul.
-              </p>
-            </div>
-
-            <!-- Card 2: Durasi Posko -->
-            <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/80 flex flex-col justify-between">
-              <div>
-                <span class="text-[11px] font-semibold text-slate-500 dark:text-slate-400 block mb-1">Durasi Operasional</span>
-                <div class="text-xl font-extrabold text-gov-navy dark:text-sky-300 tracking-tight num-tabular">18 Hari Posko</div>
-                <div class="text-[11px] font-semibold text-slate-700 dark:text-slate-300 mt-0.5">
-                  H-7 s/d H+10 (18 Des 2026 – 4 Jan 2027)
-                </div>
-              </div>
-              <p class="text-[11px] text-slate-600 dark:text-slate-400 mt-3 pt-2.5 border-t border-slate-200 dark:border-slate-700/60 leading-relaxed">
-                Mencakup puncak mudik Natal pada <strong>H-1 (24 Des 2026)</strong> dan puncak arus balik Tahun Baru pada <strong>H+9 (3 Jan 2027)</strong>.
-              </p>
-            </div>
-
-            <!-- Card 3: Simpul Pantau -->
-            <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/80 flex flex-col justify-between">
-              <div>
-                <span class="text-[11px] font-semibold text-slate-500 dark:text-slate-400 block mb-1">Simpul Multimoda Spasial</span>
-                <div class="text-xl font-extrabold text-gov-navy dark:text-sky-300 tracking-tight num-tabular">909 Simpul</div>
-                <div class="text-[11px] font-semibold text-slate-700 dark:text-slate-300 mt-0.5">
-                  100% Terpetakan Geospasial GIS
-                </div>
-              </div>
-              <p class="text-[11px] text-slate-600 dark:text-slate-400 mt-3 pt-2.5 border-t border-slate-200 dark:border-slate-700/60 leading-relaxed">
-                213 Bandara, 183 Stasiun KA, 201 Pelabuhan Laut, 157 Terminal Bus, dan 155 Pelabuhan ASDP dengan koordinat lintang/bujur terverifikasi.
-              </p>
-            </div>
-
-            <!-- Card 4: Moda & Koridor -->
-            <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/80 flex flex-col justify-between">
-              <div>
-                <span class="text-[11px] font-semibold text-slate-500 dark:text-slate-400 block mb-1">Cakupan Moda & Titik Kritis</span>
-                <div class="text-xl font-extrabold text-gov-navy dark:text-sky-300 tracking-tight num-tabular">5 Moda + Tol & ASDP</div>
-                <div class="text-[11px] font-semibold text-slate-700 dark:text-slate-300 mt-0.5">
-                  4 Gerbang Tol & 3 Lintas ASDP
-                </div>
-              </div>
-              <p class="text-[11px] text-slate-600 dark:text-slate-400 mt-3 pt-2.5 border-t border-slate-200 dark:border-slate-700/60 leading-relaxed">
-                Integrasi menyeluruh 5 moda transportasi ditambah pemantauan intensif titik rawan antrean gerbang tol barrier dan dermaga penyeberangan.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- 2. FORMULASI METRIK DASAR PERGERAKAN -->
-        <div id="sec-metrik-dasar" class="scroll-mt-6 bg-white dark:bg-slate-900 p-5 rounded-xl border border-gov-border dark:border-slate-800 shadow-xs space-y-4">
-          <div class="flex items-center justify-between pb-3 border-b border-gov-border dark:border-slate-800">
-            <div>
-              <h3 class="text-sm font-bold text-gov-text dark:text-slate-100 flex items-center gap-2">
-                <i data-lucide="calculator" class="w-4 h-4 text-gov-azure dark:text-sky-400"></i>
-                2. Formulasi Metrik Dasar Pergerakan Penumpang
-              </h3>
-              <p class="text-[11px] text-gov-muted dark:text-slate-400 mt-0.5">Perhitungan total volume kumulatif pergerakan dan rata-rata intensitas harian operasional posko</p>
-            </div>
-            <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-blue-50 dark:bg-blue-950/40 text-gov-navy dark:text-sky-300 border border-blue-200 dark:border-blue-900">
-              Metrik Dasar
-            </span>
-          </div>
-
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <!-- Box Rumus 1: Total Volume Nasional -->
-            <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/80">
-              <span class="text-xs font-bold text-slate-800 dark:text-slate-200 block mb-1">Total Volume Pergerakan Nasional (P<sub>total</sub>)</span>
-              <p class="text-[11px] text-slate-500 dark:text-slate-400 mb-3">Akumulasi volume pergerakan seluruh moda transportasi selama 18 hari masa posko</p>
-              
-              <div class="font-mono text-center text-sm font-bold text-gov-navy dark:text-sky-300 py-3 px-4 bg-white dark:bg-slate-900 rounded-lg border border-slate-200 dark:border-slate-800 shadow-inner">
-                P<sub>total</sub> = &Sigma; P<sub>m</sub> = 18.462.913 orang
-              </div>
-
-              <p class="text-[11px] text-slate-600 dark:text-slate-300 mt-3 leading-relaxed">
-                Penjumlahan volume 5 moda transportasi resmi: Udara (4.880.174), KA (4.062.995), ASDP (3.816.033), Jalan (3.434.854), dan Laut (2.268.857).
-              </p>
-            </div>
-
-            <!-- Box Rumus 2: Rata-Rata Harian -->
-            <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/80">
-              <span class="text-xs font-bold text-slate-800 dark:text-slate-200 block mb-1">Rata-Rata Volume Harian Posko (P̄<sub>harian</sub>)</span>
-              <p class="text-[11px] text-slate-500 dark:text-slate-400 mb-3">Intensitas beban harian normal selama 18 hari masa posko</p>
-              
-              <div class="font-mono text-center text-sm font-bold text-gov-navy dark:text-sky-300 py-3 px-4 bg-white dark:bg-slate-900 rounded-lg border border-slate-200 dark:border-slate-800 shadow-inner">
-                P̄<sub>harian</sub> = P<sub>total</sub> / N = 18.462.913 / 18 = 1.025.717 orang/hari
-              </div>
-
-              <p class="text-[11px] text-slate-600 dark:text-slate-300 mt-3 leading-relaxed">
-                Rata-rata beban mobilitas nasional per hari operasional sebagai tolok ukur stabil untuk mengukur kelipatan lonjakan pada hari puncak.
-              </p>
-            </div>
-          </div>
-
-          <!-- Tabel Notasi Simbol Metrik Dasar -->
-          <div class="overflow-x-auto pt-2">
-            <table class="w-full text-left text-xs border-collapse">
-              <thead>
-                <tr class="text-[10px] uppercase font-bold text-slate-500 dark:text-slate-400 border-b border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800/60">
-                  <th class="py-2.5 px-3 w-28">Simbol</th>
-                  <th class="py-2.5 px-3 w-48">Nama Variabel</th>
-                  <th class="py-2.5 px-3 w-28">Satuan</th>
-                  <th class="py-2.5 px-3 w-40">Nilai Resmi</th>
-                  <th class="py-2.5 px-3">Keterangan Operasional Posko</th>
-                </tr>
-              </thead>
-              <tbody class="divide-y divide-slate-100 dark:divide-slate-800">
-                <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/40">
-                  <td class="py-2 px-3 font-mono font-bold text-gov-navy dark:text-sky-400">P<sub>total</sub></td>
-                  <td class="py-2 px-3 font-semibold text-slate-800 dark:text-slate-200">Total Proyeksi Penumpang</td>
-                  <td class="py-2 px-3 text-slate-600 dark:text-slate-400">orang</td>
-                  <td class="py-2 px-3 font-mono font-bold text-gov-navy dark:text-sky-300">18.462.913</td>
-                  <td class="py-2 px-3 text-slate-600 dark:text-slate-300">Akumulasi pergerakan 5 moda transportasi selama 18 hari masa posko</td>
-                </tr>
-                <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/40">
-                  <td class="py-2 px-3 font-mono font-bold text-gov-navy dark:text-sky-400">P<sub>m</sub></td>
-                  <td class="py-2 px-3 font-semibold text-slate-800 dark:text-slate-200">Volume Proyeksi Moda <em>m</em></td>
-                  <td class="py-2 px-3 text-slate-600 dark:text-slate-400">orang</td>
-                  <td class="py-2 px-3 font-mono">2,27 jt &ndash; 4,88 jt</td>
-                  <td class="py-2 px-3 text-slate-600 dark:text-slate-300">Total volume penumpang selama posko untuk moda transportasi tertentu</td>
-                </tr>
-                <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/40">
-                  <td class="py-2 px-3 font-mono font-bold text-gov-navy dark:text-sky-400">P̄<sub>harian</sub></td>
-                  <td class="py-2 px-3 font-semibold text-slate-800 dark:text-slate-200">Rata-Rata Harian Nasional</td>
-                  <td class="py-2 px-3 text-slate-600 dark:text-slate-400">orang/hari</td>
-                  <td class="py-2 px-3 font-mono font-bold text-gov-navy dark:text-sky-300">1.025.717</td>
-                  <td class="py-2 px-3 text-slate-600 dark:text-slate-300">Beban pergerakan rata-rata harian nasional selama masa posko</td>
-                </tr>
-                <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/40">
-                  <td class="py-2 px-3 font-mono font-bold text-gov-navy dark:text-sky-400">N</td>
-                  <td class="py-2 px-3 font-semibold text-slate-800 dark:text-slate-200">Jumlah Hari Pemantauan</td>
-                  <td class="py-2 px-3 text-slate-600 dark:text-slate-400">hari</td>
-                  <td class="py-2 px-3 font-mono">18</td>
-                  <td class="py-2 px-3 text-slate-600 dark:text-slate-300">Masa pemantauan posko: H-7 (18 Des 2026) s/d H+10 (4 Jan 2027)</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        <!-- 3. PANGSA PASAR (MODAL SHARE) & LAJU PERTUMBUHAN (YOY) -->
-        <div id="sec-modal-share" class="scroll-mt-6 bg-white dark:bg-slate-900 p-5 rounded-xl border border-gov-border dark:border-slate-800 shadow-xs space-y-4">
-          <div class="flex items-center justify-between pb-3 border-b border-gov-border dark:border-slate-800">
-            <div>
-              <h3 class="text-sm font-bold text-gov-text dark:text-slate-100 flex items-center gap-2">
-                <i data-lucide="pie-chart" class="w-4 h-4 text-gov-azure dark:text-sky-400"></i>
-                3. Formulasi Pangsa Pasar (Modal Share) & Laju Pertumbuhan Tahunan (YoY)
-              </h3>
-              <p class="text-[11px] text-gov-muted dark:text-slate-400 mt-0.5">Metrik distribusi antarmoda transportasi dan laju perubahan volume terhadap baseline historis</p>
-            </div>
-            <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-blue-50 dark:bg-blue-950/40 text-gov-navy dark:text-sky-300 border border-blue-200 dark:border-blue-900">
-              Distribusi Antarmoda
-            </span>
-          </div>
-
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <!-- Box Rumus 1: Modal Share -->
-            <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/80">
-              <span class="text-xs font-bold text-slate-800 dark:text-slate-200 block mb-1">Pangsa Pasar Antar-Moda (Modal Share)</span>
-              <p class="text-[11px] text-slate-500 dark:text-slate-400 mb-3">Proporsi kontribusi volume pergerakan tiap moda terhadap total nasional</p>
-              
-              <div class="font-mono text-center text-sm font-bold text-gov-navy dark:text-sky-300 py-3 px-4 bg-white dark:bg-slate-900 rounded-lg border border-slate-200 dark:border-slate-800 shadow-inner">
-                MS<sub>m</sub> = ( P<sub>m</sub> / P<sub>total</sub> ) &times; 100%
-              </div>
-
-              <p class="text-[11px] text-slate-600 dark:text-slate-300 mt-3 leading-relaxed">
-                Pangsa pasar tertinggi dipegang Angkutan Udara (<strong>26,43%</strong>), diikuti Kereta Api (<strong>22,01%</strong>), ASDP (<strong>20,67%</strong>), Angkutan Jalan (<strong>18,60%</strong>), dan Angkutan Laut (<strong>12,29%</strong>).
-              </p>
-            </div>
-
-            <!-- Box Rumus 2: YoY Growth -->
-            <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/80">
-              <span class="text-xs font-bold text-slate-800 dark:text-slate-200 block mb-1">Laju Pertumbuhan Tahunan (Year-on-Year / YoY)</span>
-              <p class="text-[11px] text-slate-500 dark:text-slate-400 mb-3">Persentase pertumbuhan proyeksi 2026 terhadap realisasi baseline 2025</p>
-              
-              <div class="font-mono text-center text-sm font-bold text-gov-navy dark:text-sky-300 py-3 px-4 bg-white dark:bg-slate-900 rounded-lg border border-slate-200 dark:border-slate-800 shadow-inner">
-                YoY<sub>m</sub> = [ ( P<sub>m,2026</sub> - P<sub>m,2025</sub> ) / P<sub>m,2025</sub> ] &times; 100%
-              </div>
-
-              <p class="text-[11px] text-slate-600 dark:text-slate-300 mt-3 leading-relaxed">
-                Total nasional tumbuh <strong>+3,45% YoY</strong> (dari 17.848.066 menjadi 18.462.913). Pertumbuhan tertinggi terjadi pada Angkutan Jalan (<strong>+8,65%</strong>) dan Kereta Api (<strong>+5,00%</strong>).
-              </p>
-            </div>
-          </div>
-
-          <!-- Tabel Notasi Simbol Modal Share & YoY -->
-          <div class="overflow-x-auto pt-2">
-            <table class="w-full text-left text-xs border-collapse">
-              <thead>
-                <tr class="text-[10px] uppercase font-bold text-slate-500 dark:text-slate-400 border-b border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800/60">
-                  <th class="py-2.5 px-3 w-28">Simbol</th>
-                  <th class="py-2.5 px-3 w-48">Nama Variabel</th>
-                  <th class="py-2.5 px-3 w-28">Satuan</th>
-                  <th class="py-2.5 px-3 w-40">Nilai Resmi</th>
-                  <th class="py-2.5 px-3">Keterangan Operasional Posko</th>
-                </tr>
-              </thead>
-              <tbody class="divide-y divide-slate-100 dark:divide-slate-800">
-                <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/40">
-                  <td class="py-2 px-3 font-mono font-bold text-gov-navy dark:text-sky-400">MS<sub>m</sub></td>
-                  <td class="py-2 px-3 font-semibold text-slate-800 dark:text-slate-200">Pangsa Pasar Moda <em>m</em></td>
-                  <td class="py-2 px-3 text-slate-600 dark:text-slate-400">%</td>
-                  <td class="py-2 px-3 font-mono">12,29% &ndash; 26,43%</td>
-                  <td class="py-2 px-3 text-slate-600 dark:text-slate-300">Pangsa pasar tiap moda transportasi (total seluruh 5 moda = 100,00%)</td>
-                </tr>
-                <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/40">
-                  <td class="py-2 px-3 font-mono font-bold text-gov-navy dark:text-sky-400">P<sub>m,2026</sub></td>
-                  <td class="py-2 px-3 font-semibold text-slate-800 dark:text-slate-200">Volume Proyeksi Moda 2026</td>
-                  <td class="py-2 px-3 text-slate-600 dark:text-slate-400">orang</td>
-                  <td class="py-2 px-3 font-mono font-bold text-gov-navy dark:text-sky-300">2,27 jt &ndash; 4,88 jt</td>
-                  <td class="py-2 px-3 text-slate-600 dark:text-slate-300">Volume proyeksi resmi masa posko Nataru 2026/2027 per moda</td>
-                </tr>
-                <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/40">
-                  <td class="py-2 px-3 font-mono font-bold text-gov-navy dark:text-sky-400">P<sub>m,2025</sub></td>
-                  <td class="py-2 px-3 font-semibold text-slate-800 dark:text-slate-200">Realisasi Baseline Posko 2025</td>
-                  <td class="py-2 px-3 text-slate-600 dark:text-slate-400">orang</td>
-                  <td class="py-2 px-3 font-mono font-bold text-gov-navy dark:text-sky-300">17.848.066 (Total)</td>
-                  <td class="py-2 px-3 text-slate-600 dark:text-slate-300">Data aktual hasil evaluasi Posko Terpadu Nataru 2025/2026 sebagai pembanding</td>
-                </tr>
-                <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/40">
-                  <td class="py-2 px-3 font-mono font-bold text-gov-navy dark:text-sky-400">YoY<sub>m</sub></td>
-                  <td class="py-2 px-3 font-semibold text-slate-800 dark:text-slate-200">Laju Pertumbuhan Tahunan</td>
-                  <td class="py-2 px-3 text-slate-600 dark:text-slate-400">%</td>
-                  <td class="py-2 px-3 font-mono text-emerald-600 dark:text-emerald-400 font-bold">+0,63% &ndash; +8,65%</td>
-                  <td class="py-2 px-3 text-slate-600 dark:text-slate-300">Tingkat kenaikan mobilitas masyarakat per moda pada periode liburan akhir tahun</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        <!-- 4. ANALISIS HARI PUNCAK & LONJAKAN (SURGE FACTOR) -->
-        <div id="sec-analisis-puncak" class="scroll-mt-6 bg-white dark:bg-slate-900 p-5 rounded-xl border border-gov-border dark:border-slate-800 shadow-xs space-y-4">
-          <div class="flex items-center justify-between pb-3 border-b border-gov-border dark:border-slate-800">
-            <div>
-              <h3 class="text-sm font-bold text-gov-text dark:text-slate-100 flex items-center gap-2">
-                <i data-lucide="trending-up" class="w-4 h-4 text-gov-azure dark:text-sky-400"></i>
-                4. Formulasi Hari Puncak & Rasio Lonjakan Beban (Surge Ratio)
-              </h3>
-              <p class="text-[11px] text-gov-muted dark:text-slate-400 mt-0.5">Identifikasi waktu beban kritis dan kalkulasi kelipatan lonjakan penumpang terhadap volume harian normal</p>
-            </div>
-            <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-amber-50 dark:bg-amber-950/40 text-amber-800 dark:text-amber-300 border border-amber-200 dark:border-amber-800/80">
-              Analisis Beban Puncak
-            </span>
-          </div>
-
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <!-- Box Rumus 1: Surge Ratio -->
-            <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/80">
-              <span class="text-xs font-bold text-slate-800 dark:text-slate-200 block mb-1">Faktor Rasio Lonjakan (Surge Ratio)</span>
-              <p class="text-[11px] text-slate-500 dark:text-slate-400 mb-3">Kelipatan volume hari puncak terhadap rata-rata volume harian posko</p>
-              
-              <div class="font-mono text-center text-sm font-bold text-gov-navy dark:text-sky-300 py-3 px-4 bg-white dark:bg-slate-900 rounded-lg border border-slate-200 dark:border-slate-800 shadow-inner">
-                Surge Ratio = P<sub>puncak,mudik</sub> / P̄<sub>harian</sub> = 1.149.332 / 1.025.717 &asymp; 1,12&times;
-              </div>
-
-              <p class="text-[11px] text-slate-600 dark:text-slate-300 mt-3 leading-relaxed">
-                Surge Ratio nasional sebesar <strong>1,12&times;</strong> menunjukkan beban puncak mudik (H-1) berada 12% di atas rata-rata harian normal. Mengindikasikan penambahan kapasitas sarana yang harus disiapkan operator.
-              </p>
-            </div>
-
-            <!-- Box Rumus 2: Nomenklatur Hari Operasional -->
-            <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/80">
-              <span class="text-xs font-bold text-slate-800 dark:text-slate-200 block mb-1">Nomenklatur Hari Operasional Posko (&Delta;Hari)</span>
-              <p class="text-[11px] text-slate-500 dark:text-slate-400 mb-3">Standardisasi hari kalender terhadap titik jangkar Hari H Natal</p>
-              
-              <div class="font-mono text-center text-sm font-bold text-gov-navy dark:text-sky-300 py-3 px-4 bg-white dark:bg-slate-900 rounded-lg border border-slate-200 dark:border-slate-800 shadow-inner">
-                &Delta;Hari = Tanggal Operasional &minus; 25 Desember 2026
-              </div>
-
-              <p class="text-[11px] text-slate-600 dark:text-slate-300 mt-3 leading-relaxed">
-                Titik jangkar adalah 25 Des 2026 (<strong>Hari H</strong>). Rentang pemantauan: <strong>H-7 (18 Des)</strong> hingga <strong>H+10 (4 Jan 2027)</strong>. Puncak Mudik: <strong>H-1 (24 Des: 1.149.332 orang)</strong>, Puncak Balik: <strong>H+9 (3 Jan 2027: 1.127.235 orang)</strong>.
-              </p>
-            </div>
-          </div>
-
-          <!-- Tabel Notasi Simbol Surge & Hari Puncak -->
-          <div class="overflow-x-auto pt-2">
-            <table class="w-full text-left text-xs border-collapse">
-              <thead>
-                <tr class="text-[10px] uppercase font-bold text-slate-500 dark:text-slate-400 border-b border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800/60">
-                  <th class="py-2.5 px-3 w-28">Simbol</th>
-                  <th class="py-2.5 px-3 w-48">Nama Variabel</th>
-                  <th class="py-2.5 px-3 w-28">Satuan</th>
-                  <th class="py-2.5 px-3 w-40">Nilai Resmi</th>
-                  <th class="py-2.5 px-3">Keterangan Operasional Posko</th>
-                </tr>
-              </thead>
-              <tbody class="divide-y divide-slate-100 dark:divide-slate-800">
-                <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/40">
-                  <td class="py-2 px-3 font-mono font-bold text-gov-navy dark:text-sky-400">Surge Ratio</td>
-                  <td class="py-2 px-3 font-semibold text-slate-800 dark:text-slate-200">Faktor Lonjakan Puncak</td>
-                  <td class="py-2 px-3 text-slate-600 dark:text-slate-400">pengali (&times;)</td>
-                  <td class="py-2 px-3 font-mono font-bold text-amber-700 dark:text-amber-400">1,08&times; &ndash; 1,15&times;</td>
-                  <td class="py-2 px-3 text-slate-600 dark:text-slate-300">Tingkat lonjakan kapasitas sarana yang wajib diantisipasi operator pada hari puncak</td>
-                </tr>
-                <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/40">
-                  <td class="py-2 px-3 font-mono font-bold text-gov-navy dark:text-sky-400">P<sub>puncak,mudik</sub></td>
-                  <td class="py-2 px-3 font-semibold text-slate-800 dark:text-slate-200">Volume Puncak Arus Mudik</td>
-                  <td class="py-2 px-3 text-slate-600 dark:text-slate-400">orang/hari</td>
-                  <td class="py-2 px-3 font-mono font-bold text-gov-navy dark:text-sky-300">1.149.332</td>
-                  <td class="py-2 px-3 text-slate-600 dark:text-slate-300">Beban arus mudik tertinggi nasional, terjadi serentak pada H-1 (Kamis, 24 Des 2026)</td>
-                </tr>
-                <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/40">
-                  <td class="py-2 px-3 font-mono font-bold text-gov-navy dark:text-sky-400">P<sub>puncak,balik</sub></td>
-                  <td class="py-2 px-3 font-semibold text-slate-800 dark:text-slate-200">Volume Puncak Arus Balik</td>
-                  <td class="py-2 px-3 text-slate-600 dark:text-slate-400">orang/hari</td>
-                  <td class="py-2 px-3 font-mono font-bold text-gov-navy dark:text-sky-300">1.127.235</td>
-                  <td class="py-2 px-3 text-slate-600 dark:text-slate-300">Beban arus balik liburan akhir tahun, terkonsentrasi pada H+9 (Minggu, 3 Jan 2027)</td>
-                </tr>
-                <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/40">
-                  <td class="py-2 px-3 font-mono font-bold text-gov-navy dark:text-sky-400">H</td>
-                  <td class="py-2 px-3 font-semibold text-slate-800 dark:text-slate-200">Titik Jangkar Hari H Posko</td>
-                  <td class="py-2 px-3 text-slate-600 dark:text-slate-400">tanggal</td>
-                  <td class="py-2 px-3 font-mono">25 Des 2026</td>
-                  <td class="py-2 px-3 text-slate-600 dark:text-slate-300">Hari Raya Natal sebagai titik pembagi masa arus mudik (H-n) dan arus balik (H+n)</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        <!-- 5. MODEL DERET WAKTU TERPILIH: DAMPED HOLT-WINTERS -->
-        <div id="sec-model-damped" class="scroll-mt-6 bg-white dark:bg-slate-900 p-5 rounded-xl border border-gov-border dark:border-slate-800 shadow-xs space-y-4">
-          <div class="flex items-center justify-between pb-3 border-b border-gov-border dark:border-slate-800">
-            <div>
-              <h3 class="text-sm font-bold text-gov-text dark:text-slate-100 flex items-center gap-2">
-                <i data-lucide="cpu" class="w-4 h-4 text-gov-azure dark:text-sky-400"></i>
-                5. Model Deret Waktu Terpilih: Holt-Winters Multiplicative Damped (&phi; = 0.85)
-              </h3>
-              <p class="text-[11px] text-gov-muted dark:text-slate-400 mt-0.5">Rasional ilmiah pemilihan model acuan resmi peramalan proyeksi mobilitas nasional Nataru</p>
-            </div>
-            <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-50 dark:bg-emerald-950/40 text-emerald-800 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800/80">
-              Model Acuan Posko
-            </span>
-          </div>
-
-          <!-- Penjelasan Mengapa Holt-Winters Damped Terpilih -->
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/80 flex flex-col justify-between">
-              <div>
-                <span class="text-xs font-bold text-slate-900 dark:text-slate-100 block mb-1">Mengapa Holt-Winters Damped Dipilih?</span>
-                <p class="text-[11px] text-slate-600 dark:text-slate-300 leading-relaxed mb-3">
-                  Pusdatin Kemenhub menetapkan model <strong>Holt-Winters Multiplicative dengan Redaman Tren (Damped Trend)</strong> sebagai acuan resmi karena mampu menangkap tiga karakteristik pergerakan liburan: tingkat intensitas dasar (level), arah pertumbuhan tahunan (trend), serta siklus lonjakan mingguan (seasonality 7-hari).
-                </p>
-              </div>
-              <div class="text-[10px] font-semibold text-gov-azure dark:text-sky-400 pt-2 border-t border-slate-200 dark:border-slate-700/60">
-                Sifat Adaptif: Menangkap siklus libur akhir pekan & pergeseran cuti bersama
-              </div>
-            </div>
-
-            <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/80 flex flex-col justify-between">
-              <div>
-                <span class="text-xs font-bold text-slate-900 dark:text-slate-100 block mb-1">Prinsip Batas Kapasitas Fisik (&phi; = 0.85)</span>
-                <p class="text-[11px] text-slate-600 dark:text-slate-300 leading-relaxed mb-3">
-                  Dalam operasional transportasi nyata, lonjakan penumpang dibatasi oleh <strong>kapasitas fisik maksimum sarana</strong> (jumlah armada bus AKAP, ketersediaan rangkaian gerbong kereta api, slot penerbangan bandara, serta kapasitas geladak kapal penyeberangan). Parameter redaman (&phi; = 0.85) menahan kurva proyeksi agar tidak mengalami <em>over-forecasting</em> di luar daya tampung riil.
-                </p>
-              </div>
-              <div class="text-[10px] font-semibold text-amber-700 dark:text-amber-400 pt-2 border-t border-slate-200 dark:border-slate-700/60">
-                Prinsip Operasional: Proyeksi terkendali sesuai batas daya tampung sarana
-              </div>
-            </div>
-          </div>
-
-          <!-- Formula Holt-Winters Damped Display -->
-          <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/80">
-            <span class="text-xs font-bold text-slate-800 dark:text-slate-200 block mb-1">Formulasi Matematis Peramalan Damped Holt-Winters</span>
-            <p class="text-[11px] text-slate-500 dark:text-slate-400 mb-3">Persamaan proyeksi horizon <em>h</em> hari ke depan dengan redaman kemiringan tren geometris</p>
-            
-            <div class="font-mono text-center text-sm font-bold text-gov-navy dark:text-sky-300 py-3 px-4 bg-white dark:bg-slate-900 rounded-lg border border-slate-200 dark:border-slate-800 shadow-inner overflow-x-auto">
-              &#375;<sub>t+h|t</sub> = [ &ell;<sub>t</sub> + (&phi; + &phi;<sup>2</sup> + ... + &phi;<sup>h</sup>) b<sub>t</sub> ] &times; s<sub>t+h&minus;m</sub>
-            </div>
-          </div>
-
-          <!-- Tabel Notasi Parameter & Komponen Model -->
-          <div class="overflow-x-auto pt-2">
-            <table class="w-full text-left text-xs border-collapse">
-              <thead>
-                <tr class="text-[10px] uppercase font-bold text-slate-500 dark:text-slate-400 border-b border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800/60">
-                  <th class="py-2.5 px-3 w-28">Parameter</th>
-                  <th class="py-2.5 px-3 w-48">Komponen Model</th>
-                  <th class="py-2.5 px-3 w-28">Nilai / Tipe</th>
-                  <th class="py-2.5 px-3">Makna Operasional Transportasi</th>
-                </tr>
-              </thead>
-              <tbody class="divide-y divide-slate-100 dark:divide-slate-800">
-                <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/40">
-                  <td class="py-2 px-3 font-mono font-bold text-gov-navy dark:text-sky-400">&ell;<sub>t</sub></td>
-                  <td class="py-2 px-3 font-semibold text-slate-800 dark:text-slate-200">Tingkat Dasar (Level)</td>
-                  <td class="py-2 px-3 font-mono">Variabel waktu</td>
-                  <td class="py-2 px-3 text-slate-600 dark:text-slate-300">Estimasi intensitas dasar rata-rata volume penumpang pada hari ke-<em>t</em></td>
-                </tr>
-                <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/40">
-                  <td class="py-2 px-3 font-mono font-bold text-gov-navy dark:text-sky-400">b<sub>t</sub></td>
-                  <td class="py-2 px-3 font-semibold text-slate-800 dark:text-slate-200">Kemiringan Tren (Trend Slope)</td>
-                  <td class="py-2 px-3 font-mono">Variabel waktu</td>
-                  <td class="py-2 px-3 text-slate-600 dark:text-slate-300">Laju kenaikan atau penurunan volume pergerakan antarhari operasional</td>
-                </tr>
-                <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/40">
-                  <td class="py-2 px-3 font-mono font-bold text-gov-navy dark:text-sky-400">s<sub>t</sub></td>
-                  <td class="py-2 px-3 font-semibold text-slate-800 dark:text-slate-200">Indeks Musiman (Seasonality)</td>
-                  <td class="py-2 px-3 font-mono">Multiplikatif</td>
-                  <td class="py-2 px-3 text-slate-600 dark:text-slate-300">Faktor pengali siklus mingguan (<em>m=7</em>), membedakan dinamika hari kerja vs akhir pekan</td>
-                </tr>
-                <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/40">
-                  <td class="py-2 px-3 font-mono font-bold text-gov-navy dark:text-sky-400">&phi;</td>
-                  <td class="py-2 px-3 font-semibold text-slate-800 dark:text-slate-200">Faktor Redaman (Damping Factor)</td>
-                  <td class="py-2 px-3 font-mono font-bold text-amber-700 dark:text-amber-400">&phi; = 0.85</td>
-                  <td class="py-2 px-3 text-slate-600 dark:text-slate-300">Koefisien peredam (0 &lt; &phi; &lt; 1) yang menahan tren agar tetap berada dalam kapasitas sarana riil</td>
-                </tr>
-                <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/40">
-                  <td class="py-2 px-3 font-mono font-bold text-gov-navy dark:text-sky-400">&alpha;, &beta;, &gamma;</td>
-                  <td class="py-2 px-3 font-semibold text-slate-800 dark:text-slate-200">Bobot Pemulusan (Smoothing Weights)</td>
-                  <td class="py-2 px-3 font-mono">0 &lt; w &lt; 1</td>
-                  <td class="py-2 px-3 text-slate-600 dark:text-slate-300">Bobot optimasi empiris data historis yang mengontrol kecepatan pembaruan estimasi model</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        <!-- 6. TABEL MATRIKS 12 INDIKATOR KOMPARASI KINERJA MULTIMODA -->
-        <div id="sec-matriks-12" class="scroll-mt-6 bg-white dark:bg-slate-900 p-5 rounded-xl border border-gov-border dark:border-slate-800 shadow-xs">
-          <div class="flex flex-wrap items-center justify-between gap-3 mb-3 pb-3 border-b border-gov-border dark:border-slate-800">
-            <div>
-              <h3 class="text-sm font-bold text-gov-text dark:text-slate-100 flex items-center gap-2">
-                <i data-lucide="layers" class="w-4 h-4 text-gov-azure dark:text-sky-400"></i>
-                6. Matriks Rekapitulasi Komparasi 12 Indikator Multimoda Nasional 2026/2027
-              </h3>
-              <p class="text-[11px] text-gov-muted dark:text-slate-400 mt-0.5">Perbandingan performa proyeksi, pangsa pasar, beban puncak, armada, dan titik simpul terpadat 5 moda</p>
-            </div>
-            <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-gov-azure_light text-gov-azure border border-blue-200 dark:border-blue-900">
-              12 Indikator Kuantitatif
-            </span>
-          </div>
-
-          <div class="overflow-x-auto">
-            <table class="w-full text-left text-xs border-collapse">
-              <thead>
-                <tr class="text-[10px] uppercase font-bold text-slate-500 dark:text-slate-400 border-b border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800/60">
-                  <th class="py-2.5 px-3">Indikator Kuantitatif</th>
-                  <th class="py-2.5 px-3 text-right">Angkutan Jalan</th>
-                  <th class="py-2.5 px-3 text-right">Kereta Api</th>
-                  <th class="py-2.5 px-3 text-right">Angkutan Udara</th>
-                  <th class="py-2.5 px-3 text-right">Penyeberangan (ASDP)</th>
-                  <th class="py-2.5 px-3 text-right">Angkutan Laut</th>
-                  <th class="py-2.5 px-3 text-right bg-blue-50/50 dark:bg-blue-950/40 text-gov-navy dark:text-sky-400">Total Seluruh Moda</th>
-                </tr>
-              </thead>
-              <tbody id="metodologi-indikator-body">
-                <!-- Diisi dinamis oleh metodologi.js -->
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        <!-- 7. GLOSARIUM RESMI TRANSPORTASI PUSDATIN KEMENHUB -->
-        <div id="sec-glosarium" class="scroll-mt-6 bg-white dark:bg-slate-900 p-5 rounded-xl border border-gov-border dark:border-slate-800 shadow-xs">
-          <div class="flex items-center justify-between mb-3 pb-3 border-b border-gov-border dark:border-slate-800">
-            <div>
-              <h3 class="text-sm font-bold text-gov-text dark:text-slate-100 flex items-center gap-2">
-                <i data-lucide="book-marked" class="w-4 h-4 text-gov-navy dark:text-sky-400"></i>
-                7. Kamus Istilah Resmi & Glosarium Transportasi Pusdatin Kemenhub
-              </h3>
-              <p class="text-[11px] text-gov-muted dark:text-slate-400 mt-0.5">Panduan terminologi operasional posko dan sains data transportasi multimoda nasional</p>
-            </div>
-            <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">
-              Standar Pusdatin
-            </span>
-          </div>
-
-          <div class="overflow-x-auto">
-            <table class="w-full text-left text-xs border-collapse">
-              <thead>
-                <tr class="text-[10px] uppercase font-bold text-slate-500 dark:text-slate-400 border-b border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800/60">
-                  <th class="py-2.5 px-3 w-36">Istilah Resmi</th>
-                  <th class="py-2.5 px-3 w-72">Kepanjangan / Nama Baku</th>
-                  <th class="py-2.5 px-3">Definisi & Makna Operasional Lapangan</th>
-                </tr>
-              </thead>
-              <tbody id="metodologi-glosarium-body">
-                <!-- Diisi dinamis oleh metodologi.js -->
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
-
-    </div>
-
-    <!-- Global Footer -->
-    <footer class="bg-white dark:bg-slate-900 border-t border-gov-border dark:border-slate-800 px-6 py-4 text-xs text-gov-muted dark:text-slate-400 flex items-center justify-center sm:justify-end mt-auto">
-      <div>
-        <span class="font-semibold text-gov-text dark:text-slate-200">Pusat Data dan Teknologi Informasi (Pusdatin)</span> &bull; Kementerian Perhubungan RI
-      </div>
-    </footer>
-  </main>
-
-  <!-- Script Inisialisasi Modul & Utama -->
-  <script src="./assets/js/executive.js"></script>
-  <script src="./assets/js/harian.js"></script>
-  <script src="./assets/js/simpul.js"></script>
-  <script src="./assets/js/map_gis.js"></script>
-  <script src="./assets/js/koridor.js"></script>
-  <script src="./assets/js/metodologi.js"></script>
-  <script src="./assets/js/app.js"></script>
-  <script>
-    // Aktifkan Lucide Icons setelah DOM dimuat
-    document.addEventListener('DOMContentLoaded', () => {
-      if (typeof lucide !== 'undefined') {
-        lucide.createIcons();
-      }
-    });
-  </script>
-</body>
-</html>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistem Analitik Data & Proyeksi Multimoda Nataru 2026/2027 — Pusdatin Kemenhub</title>
+
+  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            gov: {
+              navy: '#003882',
+              navy_dark: '#002554',
+              azure: '#388AEB',
+              azure_light: '#EFF6FF',
+              slate: '#F8FAFC',
+              border: '#E2E8F0',
+              text: '#0F172A',
+              muted: '#475569'
+            }
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Plotly.js CDN -->
+  <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+
+  <!-- Leaflet.js GIS CDN & Leaflet Heatmap -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="./assets/js/leaflet-heat.js"></script>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23003882'><path d='M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5'/></svg>">
+
+  <!-- Custom INA Digital CSS -->
+  <link rel="stylesheet" href="./assets/css/custom.css">
+</head>
+<body class="bg-gov-slate text-gov-text min-h-screen flex flex-col md:flex-row antialiased selection:bg-gov-azure selection:text-white overflow-x-hidden">
+
+  <!-- ========================================================================= -->
+  <!-- LOADING OVERLAY                                                           -->
+  <!-- ========================================================================= -->
+  <div id="loading-overlay" class="fixed inset-0 bg-white/95 backdrop-blur-sm z-50 flex items-center justify-center transition-opacity duration-300">
+    <div class="text-center max-w-sm px-6">
+      <div class="relative w-16 h-16 mx-auto mb-4">
+        <div class="absolute inset-0 rounded-full border-4 border-gov-border"></div>
+        <div class="absolute inset-0 rounded-full border-4 border-gov-navy border-t-transparent animate-spin"></div>
+        <div class="absolute inset-0 flex items-center justify-center text-gov-navy font-bold text-xs">DATA</div>
+      </div>
+      <h3 class="text-base font-bold text-gov-text mb-1 tracking-tight">Memuat Basis Data Nataru 2026/2027</h3>
+      <p class="text-xs text-gov-muted leading-relaxed">Menyiapkan dataset makro, time-series 18 hari, dan koordinat 909 simpul pantau nasional...</p>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- MOBILE DRAWER BACKDROP (Overlay Gelap Saat Menu Dibuka di Layar HP/Split)   -->
+  <!-- ========================================================================= -->
+  <div id="sidebar-backdrop" class="fixed inset-0 bg-slate-900/60 backdrop-blur-xs z-40 hidden md:hidden transition-opacity duration-300"></div>
+
+  <!-- ========================================================================= -->
+  <!-- SIDEBAR NAVIGASI (INA DIGITAL ENTERPRISE)                                  -->
+  <!-- Desktop: Sidebar Kiri Tetap; Layar Sempit/Split-Screen: Drawer Melayang    -->
+  <!-- ========================================================================= -->
+  <aside id="main-sidebar" class="fixed inset-y-0 left-0 z-50 w-72 max-w-[85vw] bg-white border-r border-gov-border flex flex-col shrink-0 md:static md:w-64 md:h-screen md:sticky md:top-0 transition-transform md:transition-all duration-300 shadow-2xl md:shadow-none">
+    <!-- Brand / Header Sidebar (Klik Logo/Teks untuk Kembali ke Ikhtisar Posko) -->
+    <div class="p-4 md:p-5 border-b border-gov-border flex items-center justify-between">
+      <a href="#executive" id="brand-link" data-tab="executive" class="flex items-center gap-3 cursor-pointer group hover:opacity-90 transition-opacity min-w-0" title="Kembali ke Ikhtisar Posko">
+        <div class="w-10 h-10 rounded-lg bg-gov-navy flex items-center justify-center text-white font-extrabold shadow-sm shrink-0 group-hover:scale-105 transition-transform">
+          <i data-lucide="shield-check" class="w-5 h-5 text-white"></i>
+        </div>
+        <div class="sidebar-text min-w-0">
+          <div class="text-[10px] font-bold text-gov-navy tracking-wider uppercase truncate">Pusdatin Kemenhub</div>
+          <h1 class="text-xs font-extrabold text-gov-text tracking-tight leading-tight truncate">Proyeksi Nataru 2026/2027</h1>
+        </div>
+      </a>
+      <!-- Tombol Tutup Khusus Layar Sempit / HP / Split-Screen (✕) -->
+      <button id="btn-close-mobile-sidebar" class="md:hidden p-1.5 rounded-lg text-slate-400 hover:text-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" title="Tutup Menu Navigasi" aria-label="Tutup Menu Navigasi">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+    </div>
+
+    <!-- Menu Navigasi 6 Modul Datar (Tanpa Dropdown Bercabang) -->
+    <div class="p-4 flex-1 overflow-y-auto space-y-1.5">
+      <div class="px-3 pb-2 text-[10px] font-bold uppercase tracking-wider text-gov-muted/70 sidebar-text">Modul Analitik & Proyeksi</div>
+      
+      <a href="#executive" data-tab="executive" class="nav-item active flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-xs font-semibold text-gov-muted" title="Ikhtisar Proyeksi Posko">
+        <i data-lucide="layout-dashboard" class="w-4 h-4 shrink-0 text-gov-muted"></i>
+        <span class="sidebar-text">Ikhtisar Proyeksi Posko</span>
+      </a>
+
+      <a href="#harian" data-tab="harian" class="nav-item flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-xs font-semibold text-gov-muted" title="Tren Harian Proyeksi (18 Hari)">
+        <i data-lucide="line-chart" class="w-4 h-4 shrink-0 text-gov-muted"></i>
+        <span class="sidebar-text">Tren Harian Proyeksi</span>
+      </a>
+
+      <a href="#simpul" data-tab="simpul" class="nav-item flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-xs font-semibold text-gov-muted" title="Direktori Simpul Multimoda">
+        <i data-lucide="network" class="w-4 h-4 shrink-0 text-gov-muted"></i>
+        <span class="sidebar-text">Direktori Simpul Multimoda</span>
+      </a>
+
+      <a href="#map" data-tab="map" class="nav-item flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-xs font-semibold text-gov-muted" title="Peta Spasial Proyeksi (GIS)">
+        <i data-lucide="map-pin" class="w-4 h-4 shrink-0 text-gov-muted"></i>
+        <span class="sidebar-text">Peta Spasial Proyeksi</span>
+      </a>
+
+      <a href="#koridor" data-tab="koridor" class="nav-item flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-xs font-semibold text-gov-muted" title="Titik Kritis Gerbang Tol & Penyeberangan ASDP">
+        <i data-lucide="split" class="w-4 h-4 shrink-0 text-gov-muted"></i>
+        <span class="sidebar-text">Titik Kritis Tol & ASDP</span>
+      </a>
+
+      <a href="#metodologi" data-tab="metodologi" class="nav-item flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-xs font-semibold text-gov-muted" title="Informasi Sistem, Metodologi Analisis & Kamus Rumus">
+        <i data-lucide="table-properties" class="w-4 h-4 shrink-0 text-gov-muted"></i>
+        <span class="sidebar-text">Matriks & Metodologi</span>
+      </a>
+    </div>
+
+    <!-- Area Bawah Sidebar: Tombol Ciutkan Menu & Data Terverifikasi -->
+    <div class="p-4 border-t border-gov-border sidebar-footer-area">
+      <!-- Tombol Tutup / Buka Sidebar (Diposisikan di Atas Data Terverifikasi) -->
+      <button id="btn-toggle-sidebar" class="hidden md:flex w-full mb-3 px-3 py-2 rounded-lg border border-gov-border bg-white hover:bg-slate-50 text-slate-700 text-xs font-semibold shadow-2xs items-center justify-center gap-2 transition-all group" title="Buka / Tutup Sidebar Navigasi">
+        <i data-lucide="panel-left-close" id="sidebar-icon-collapse" class="w-4 h-4 text-gov-azure group-hover:scale-110 transition-transform"></i>
+        <i data-lucide="panel-left-open" id="sidebar-icon-expand" class="w-4 h-4 text-gov-azure hidden group-hover:scale-110 transition-transform"></i>
+        <span class="sidebar-text">Ciutkan Menu</span>
+      </button>
+
+      <!-- Data Terverifikasi & Metrik Resmi -->
+      <div class="p-3 bg-white rounded-lg border border-gov-border shadow-xs space-y-2 sidebar-verify-box">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span class="text-[10px] font-bold text-emerald-800 uppercase tracking-wide">Data Terverifikasi</span>
+          </div>
+          <span class="text-[9px] font-semibold px-1.5 py-0.2 bg-slate-100 rounded text-slate-600">Pusdatin</span>
+        </div>
+        <div class="grid grid-cols-3 gap-1 pt-1.5 border-t border-slate-100 text-center">
+          <div>
+            <span class="text-[9px] text-slate-400 block">Simpul</span>
+            <span class="text-xs font-bold text-slate-800 num-tabular">909</span>
+          </div>
+          <div>
+            <span class="text-[9px] text-slate-400 block">Posko</span>
+            <span class="text-xs font-bold text-slate-800 num-tabular">18 Hari</span>
+          </div>
+          <div>
+            <span class="text-[9px] text-slate-400 block">Moda</span>
+            <span class="text-xs font-bold text-slate-800 num-tabular">5 Moda</span>
+          </div>
+        </div>
+      </div>
+      <div class="mt-2 text-[10px] text-center text-gov-muted/60 sidebar-text">
+        Pusdatin Kemenhub RI &bull; Nataru 2026/2027
+      </div>
+    </div>
+  </aside>
+
+  <!-- ========================================================================= -->
+  <!-- AREA KONTEN UTAMA                                                         -->
+  <!-- ========================================================================= -->
+  <main class="flex-1 flex flex-col min-w-0">
+    <!-- Topbar Header Bersih (Sticky dengan Z-Index Tinggi agar Tidak Tertutup Peta) -->
+    <header class="bg-white border-b border-gov-border px-4 md:px-6 py-3 md:py-3.5 flex items-center justify-between gap-3 sticky top-0 z-40 shadow-2xs">
+      <!-- Info Posko Siaga Nasional & Tombol Hamburger Menu di Layar Sempit / Split-Screen -->
+      <div class="flex items-center gap-2.5 min-w-0">
+        <!-- Tombol Hamburger (Khusus Layar Sempit / Split-Screen) -->
+        <button id="btn-mobile-menu" class="md:hidden p-2 rounded-lg border border-gov-border text-gov-navy hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors shrink-0" title="Buka Menu Navigasi" aria-label="Buka Menu Navigasi">
+          <i data-lucide="menu" class="w-5 h-5"></i>
+        </button>
+
+        <div class="flex items-center gap-2 min-w-0">
+          <div class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse shrink-0"></div>
+          <span class="text-xs font-bold text-gov-navy uppercase tracking-wider truncate">
+            Posko Tingkat Nasional Terpadu Nataru 2026/2027
+          </span>
+        </div>
+      </div>
+
+      <!-- Theme Switcher Mode Gelap / Terang (Kanan) -->
+      <div class="flex items-center gap-2 shrink-0">
+        <button id="btn-theme-toggle" class="p-2 rounded-lg border border-gov-border text-gov-muted hover:text-gov-text hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" title="Ganti Mode Terang / Gelap">
+          <i data-lucide="moon" id="theme-icon-moon" class="w-4 h-4"></i>
+          <i data-lucide="sun" id="theme-icon-sun" class="w-4 h-4 hidden text-amber-400"></i>
+        </button>
+      </div>
+    </header>
+
+    <!-- Page Title & Strategic Question Banner -->
+    <div class="px-4 md:px-6 pt-4 md:pt-5 pb-3">
+      <div class="flex flex-wrap items-center justify-between gap-3 mb-1">
+        <h2 id="current-view-title" class="text-xl font-bold text-gov-text tracking-tight">
+          Ikhtisar Proyeksi Operasional & Hari Puncak Nataru 2026/2027
+        </h2>
+        <span class="px-2.5 py-0.5 rounded-full text-[10px] font-extrabold bg-gov-azure/10 text-gov-azure border border-gov-azure/30 flex items-center gap-1.5 uppercase tracking-wide">
+          <i data-lucide="sparkles" class="w-3 h-3"></i>
+          Model Damped Holt-Winters
+        </span>
+      </div>
+      <p id="current-view-desc" class="text-xs text-gov-muted w-full text-justify leading-relaxed">
+        Rangkuman angka proyeksi operasional angkutan multimoda periode 18 hari (H-7 s/d H+10) hasil pemodelan Damped Holt-Winters dibandingkan realisasi baseline 2025.
+      </p>
+    </div>
+
+    <!-- Main View Dynamic Container -->
+    <div id="main-content" class="px-4 md:px-6 pb-8 flex-1">
+      
+      <!-- VIEW 1: RINGKASAN EKSEKUTIF -->
+      <section id="view-executive" class="view-section space-y-6">
+        <!-- 4 Kartu KPI Utama -->
+        <div id="executive-kpi-cards" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <!-- Diisi dinamis oleh executive.js -->
+        </div>
+
+        <!-- Baris 2: Pangsa Pasar Moda & Kalender Early Warning -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+          <!-- Kolom Kiri: Donut Chart & Tabel Pangsa Moda (5 Cols) -->
+          <div class="lg:col-span-5 bg-white p-5 rounded-xl border border-gov-border shadow-xs flex flex-col">
+            <div class="flex items-center justify-between mb-3 pb-3 border-b border-gov-border">
+              <div>
+                <h3 class="text-sm font-bold text-gov-text flex items-center gap-2">
+                  <i data-lucide="pie-chart" class="w-4 h-4 text-gov-navy"></i>
+                  Pangsa Moda Proyeksi Penumpang 2026
+                </h3>
+                <p class="text-[11px] text-gov-muted mt-0.5">Proporsi proyeksi 18,46 juta penumpang dari 5 moda transportasi</p>
+              </div>
+              <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-blue-50 text-blue-700 border border-blue-200">
+                5 Moda
+              </span>
+            </div>
+
+            <!-- Plotly Donut Chart -->
+            <div id="chart-moda-share" class="w-full"></div>
+
+            <!-- Tabel Distribusi Moda -->
+            <div class="mt-3 overflow-x-auto">
+              <table class="w-full text-left text-xs border-collapse">
+                <thead>
+                  <tr class="text-[10px] uppercase font-bold text-slate-500 border-b border-slate-200 bg-slate-50">
+                    <th class="py-2 px-3">Moda Transportasi</th>
+                    <th class="py-2 px-3 text-right">Realisasi 2025</th>
+                    <th class="py-2 px-3 text-right">Proyeksi 2026</th>
+                    <th class="py-2 px-3 text-right">YoY</th>
+                    <th class="py-2 px-3 text-right">Porsi (%)</th>
+                  </tr>
+                </thead>
+                <tbody id="table-moda-share">
+                  <!-- Diisi dinamis oleh executive.js -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Kolom Kanan: Kalender Deteksi Dini 18 Hari Posko (7 Cols) -->
+          <div class="lg:col-span-7 bg-white p-5 rounded-xl border border-gov-border shadow-xs flex flex-col justify-between">
+            <div class="flex flex-wrap items-center justify-between gap-2 mb-3 pb-3 border-b border-gov-border">
+              <div class="flex items-center gap-2.5">
+                <div class="w-8 h-8 rounded-lg bg-blue-50 text-gov-azure flex items-center justify-center shrink-0">
+                  <i data-lucide="calendar-days" class="w-4 h-4"></i>
+                </div>
+                <div>
+                  <h3 class="text-sm font-bold text-gov-text leading-tight">
+                    Kalender Proyeksi Beban Posko (18 Hari)
+                  </h3>
+                  <p class="text-[11px] text-gov-muted mt-0.5">Jadwal kronologis H-7 s/d H+10 estimasi volume proyeksi & status kesiagaan</p>
+                </div>
+              </div>
+              
+              <!-- Quick Status Counters -->
+              <div class="flex items-center gap-1.5 text-[10px] font-bold">
+                <span class="px-2 py-0.5 rounded bg-emerald-50 text-emerald-800 border border-emerald-200 flex items-center gap-1">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                  <span id="count-status-normal">-</span>
+                </span>
+                <span class="px-2 py-0.5 rounded bg-amber-50 text-amber-800 border border-amber-200 flex items-center gap-1">
+                  <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+                  <span id="count-status-waspada">-</span>
+                </span>
+                <span class="px-2 py-0.5 rounded bg-rose-50 text-rose-800 border border-rose-200 flex items-center gap-1">
+                  <span class="w-1.5 h-1.5 rounded-full bg-rose-500"></span>
+                  <span id="count-status-siaga">-</span>
+                </span>
+              </div>
+            </div>
+
+            <!-- Scrollable Early Warning Table: Panjang Sejajar dengan Baris ASDP Pangsa Moda -->
+            <div class="overflow-auto border border-slate-100 rounded-lg max-h-[505px]">
+              <table class="w-full text-left text-xs border-collapse">
+                <thead class="sticky top-0 bg-slate-50 border-b border-slate-200 z-10 shadow-2xs">
+                  <tr class="text-[10px] uppercase font-bold text-slate-500">
+                    <th class="py-2.5 px-3">Hari Posko</th>
+                    <th class="py-2.5 px-3">Tanggal / Pekan</th>
+                    <th class="py-2.5 px-3 text-right">Volume Proyeksi (Orang)</th>
+                    <th class="py-2.5 px-3">Status Kesiagaan</th>
+                    <th class="py-2.5 px-3">Rekomendasi Aksi Taktis Posko</th>
+                  </tr>
+                </thead>
+                <tbody id="executive-early-warning-table">
+                  <!-- Diisi dinamis oleh executive.js -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- Baris 3: Titik Kritis Infrastruktur (Tol Jakarta & ASDP Penyeberangan) -->
+        <div class="bg-white p-5 rounded-xl border border-gov-border shadow-xs">
+          <div class="flex items-center justify-between mb-4 pb-3 border-b border-gov-border">
+            <div>
+              <h3 class="text-sm font-bold text-gov-text flex items-center gap-2">
+                <i data-lucide="alert-octagon" class="w-4 h-4 text-amber-600"></i>
+                Pemantauan Proyeksi Titik Kritis Infrastruktur Strategis
+              </h3>
+              <p class="text-[11px] text-gov-muted mt-0.5">Estimasi volume proyeksi lalu lintas pada 4 gerbang tol barrier metropolitan Jakarta & 3 lintasan strategis ASDP</p>
+            </div>
+            <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-amber-50 text-amber-700 border border-amber-200">
+              Infrastruktur Kunci
+            </span>
+          </div>
+
+          <!-- Gerbang Tol Jakarta (4 Barrier Gates) -->
+          <div class="mb-6">
+            <h4 class="text-xs font-bold text-gov-navy uppercase tracking-wider mb-3 flex items-center gap-2">
+              <i data-lucide="git-commit" class="w-3.5 h-3.5 text-gov-navy"></i>
+              4 Gerbang Tol Barrier Keluar/Masuk Jakarta (Proyeksi Lalu Lintas)
+            </h4>
+            <div id="executive-tol-cards" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              <!-- Diisi dinamis oleh executive.js -->
+            </div>
+          </div>
+
+          <!-- Lintas Penyeberangan ASDP -->
+          <div>
+            <h4 class="text-xs font-bold text-gov-navy uppercase tracking-wider mb-3 flex items-center gap-2">
+              <i data-lucide="anchor" class="w-3.5 h-3.5 text-gov-navy"></i>
+              3 Lintas Penyeberangan Strategis ASDP (Proyeksi Kendaraan)
+            </h4>
+            <div id="executive-asdp-cards" class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+              <!-- Diisi dinamis oleh executive.js -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- VIEW 2: TREN HARIAN 18 HARI -->
+      <section id="view-harian" class="view-section hidden space-y-6">
+        <!-- Kontrol Toolbar Modul 2 -->
+        <div class="p-4 bg-white border border-gov-border rounded-xl shadow-xs flex flex-wrap items-center justify-between gap-4">
+          <!-- Toggle Metrik: Penumpang vs Sarana -->
+          <div class="flex items-center gap-2">
+            <span class="text-xs font-bold text-gov-muted uppercase tracking-wider mr-1">Metrik:</span>
+            <div class="inline-flex p-1 bg-slate-100 rounded-lg border border-slate-200">
+              <button id="btn-metric-penumpang" class="px-4 py-1.5 text-xs font-bold rounded-md bg-gov-navy text-white shadow-xs transition-all flex items-center gap-1.5">
+                <i data-lucide="users" class="w-3.5 h-3.5"></i>
+                <span>Penumpang</span>
+              </button>
+              <button id="btn-metric-sarana" class="px-4 py-1.5 text-xs font-semibold rounded-md text-gov-muted hover:text-gov-text transition-all flex items-center gap-1.5">
+                <i data-lucide="car" class="w-3.5 h-3.5"></i>
+                <span>Sarana / Kendaraan</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Filter Moda & Export CSV -->
+          <div class="flex items-center gap-3 flex-wrap">
+            <div class="flex items-center gap-2">
+              <label for="select-harian-moda" class="text-xs font-bold text-gov-muted uppercase tracking-wider">Moda:</label>
+              <select id="select-harian-moda" class="bg-gov-slate border border-gov-border text-xs font-semibold rounded-lg px-3 py-2 text-gov-text focus:outline-none focus:ring-2 focus:ring-gov-azure/40">
+                <!-- Diisi dinamis oleh harian.js -->
+              </select>
+            </div>
+
+            <button id="btn-export-harian-csv" class="px-3.5 py-2 bg-white border border-gov-border hover:bg-slate-50 text-xs font-semibold text-slate-700 rounded-lg shadow-xs flex items-center gap-1.5 transition-all">
+              <i data-lucide="download" class="w-3.5 h-3.5 text-gov-navy"></i>
+              <span>Unduh CSV (18 Hari)</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Grafik Time-Series Plotly -->
+        <div class="p-5 bg-white border border-gov-border rounded-xl shadow-xs">
+          <div class="flex flex-wrap items-center justify-between gap-2 mb-2 pb-3 border-b border-gov-border">
+            <div>
+              <h3 class="text-sm font-bold text-gov-text flex items-center gap-2">
+                <i data-lucide="line-chart" class="w-4 h-4 text-gov-azure"></i>
+                Kurva Deret Waktu 18 Hari Operasional Posko (2024 - 2026)
+              </h3>
+              <p class="text-[11px] text-gov-muted mt-0.5">Komparasi Realisasi 2024, Realisasi 2025 (Baseline), dan Proyeksi Damped Holt-Winters 2026</p>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-blue-50 text-blue-700 border border-blue-200">
+                Model: Damped HW (&phi;=0.85)
+              </span>
+            </div>
+          </div>
+
+          <!-- Plotly Chart Element -->
+          <div id="harian-timeseries-chart" class="w-full"></div>
+        </div>
+
+        <!-- Tabel Rincian Angka 18 Hari -->
+        <div class="bg-white p-5 rounded-xl border border-gov-border shadow-xs">
+          <div class="flex items-center justify-between mb-3 pb-3 border-b border-gov-border">
+            <div>
+              <h3 id="harian-table-title" class="text-sm font-bold text-gov-text">
+                Data Rinci Deret Waktu 18 Hari Operasional Posko
+              </h3>
+              <p class="text-[11px] text-gov-muted mt-0.5">Tabel rincian angka harian beserta selisih pertumbuhan tahunan (YoY)</p>
+            </div>
+          </div>
+
+          <div class="overflow-x-auto">
+            <table class="w-full text-left text-xs border-collapse">
+              <thead>
+                <tr class="text-[10px] uppercase font-bold text-slate-500 border-b border-slate-200 bg-slate-50">
+                  <th class="py-2.5 px-3">Hari Posko</th>
+                  <th class="py-2.5 px-3">Hari & Tanggal</th>
+                  <th class="py-2.5 px-3 text-right">Realisasi 2024</th>
+                  <th class="py-2.5 px-3 text-right">Realisasi 2025 (Baseline)</th>
+                  <th class="py-2.5 px-3 text-right text-gov-navy">Proyeksi 2026</th>
+                  <th class="py-2.5 px-3 text-right">Pertumbuhan YoY</th>
+                  <th class="py-2.5 px-3 text-right">Selisih Volume</th>
+                </tr>
+              </thead>
+              <tbody id="harian-table-body">
+                <!-- Diisi dinamis oleh harian.js -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- VIEW 3: DIREKTORI SIMPUL PANTAU -->
+      <section id="view-simpul" class="view-section hidden space-y-6">
+        <!-- Toolbar Modul 3 -->
+        <div class="p-4 bg-white border border-gov-border rounded-xl shadow-xs flex flex-wrap items-center justify-between gap-4">
+          <!-- Filter Dropdown Moda Terisolasi -->
+          <div class="flex items-center gap-3 flex-wrap">
+            <div class="flex items-center gap-2">
+              <label for="select-simpul-moda" class="text-xs font-bold text-gov-muted uppercase tracking-wider">Pilih Moda:</label>
+              <select id="select-simpul-moda" class="bg-gov-slate border border-gov-border text-xs font-semibold rounded-lg px-3 py-2 text-gov-text focus:outline-none focus:ring-2 focus:ring-gov-azure/40">
+                <!-- Diisi dinamis oleh simpul.js -->
+              </select>
+            </div>
+
+            <!-- Search Bar Simpul -->
+            <div class="relative">
+              <i data-lucide="search" class="w-3.5 h-3.5 absolute left-3 top-2.5 text-slate-400"></i>
+              <input 
+                id="input-simpul-search" 
+                type="text" 
+                placeholder="Cari nama simpul / daerah..." 
+                class="pl-8 pr-3 py-1.5 text-xs bg-gov-slate border border-gov-border rounded-lg text-gov-text focus:outline-none focus:ring-2 focus:ring-gov-azure/40 w-48 sm:w-64"
+              >
+            </div>
+          </div>
+
+          <!-- Counter Status -->
+          <div class="flex items-center gap-3">
+            <span id="simpul-count-badge" class="text-xs font-semibold text-gov-muted bg-slate-100 dark:bg-slate-800 px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700">
+              -
+            </span>
+          </div>
+        </div>
+
+        <!-- Grafik Top 10 Simpul (Horizontal Bar Plotly) -->
+        <div class="p-5 bg-white border border-gov-border rounded-xl shadow-xs">
+          <div class="flex items-center justify-between mb-2 pb-3 border-b border-gov-border">
+            <div>
+              <h3 id="simpul-chart-title" class="text-sm font-bold text-gov-text">
+                Grafik 10 Simpul Terpadat
+              </h3>
+              <p class="text-[11px] text-gov-muted mt-0.5">Perbandingan volume proyeksi penumpang 2026/2027 antar simpul pada moda yang sama (100% Apple-to-Apple)</p>
+            </div>
+            <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-blue-50 text-blue-700 border border-blue-200">
+              10 Simpul Terpadat
+            </span>
+          </div>
+          <div id="chart-simpul-top10" class="w-full"></div>
+        </div>
+
+        <!-- Tabel Direktori Simpul -->
+        <div class="bg-white p-5 rounded-xl border border-gov-border shadow-xs">
+          <div class="flex items-center justify-between mb-3 pb-3 border-b border-gov-border">
+            <div>
+              <h3 class="text-sm font-bold text-gov-text">
+                Daftar Simpul Pantau Nasional Terverifikasi
+              </h3>
+              <p class="text-[11px] text-gov-muted mt-0.5">Rincian realisasi 2025, proyeksi 2026, pangsa moda, dan persentase pertumbuhan</p>
+            </div>
+          </div>
+
+          <div class="overflow-x-auto border border-slate-100 dark:border-slate-800 rounded-lg">
+            <table class="w-full table-fixed text-left text-xs border-collapse">
+              <colgroup>
+                <col class="w-16">
+                <col class="w-[30%]">
+                <col class="w-[16%]">
+                <col class="w-[12%]">
+                <col class="w-[13%]">
+                <col class="w-[11%]">
+                <col class="w-[12%]">
+              </colgroup>
+              <thead class="bg-slate-50 dark:bg-slate-800 border-b border-slate-200 dark:border-slate-700">
+                <tr class="text-[10px] uppercase font-bold text-slate-500 dark:text-slate-400">
+                  <th class="py-2.5 px-3 text-center">No</th>
+                  <th class="py-2.5 px-3">Nama Simpul Pantau</th>
+                  <th class="py-2.5 px-3">Kategori</th>
+                  <th class="py-2.5 px-3 text-right">Realisasi 2025</th>
+                  <th class="py-2.5 px-3 text-right text-gov-navy dark:text-sky-400">Proyeksi 2026</th>
+                  <th class="py-2.5 px-3 text-right">Pangsa Moda</th>
+                  <th class="py-2.5 px-3 text-right">Pertumbuhan YoY</th>
+                </tr>
+              </thead>
+              <tbody id="simpul-table-body">
+                <!-- Diisi dinamis oleh simpul.js -->
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Footer Aksi: Tombol Lihat Seluruh Simpul di Bawah Tabel -->
+          <div id="simpul-table-footer" class="mt-4 pt-3.5 border-t border-slate-100 dark:border-slate-800 flex flex-wrap items-center justify-between gap-3 text-xs">
+            <div class="flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-blue-500"></span>
+              <span id="simpul-footer-info" class="text-gov-muted dark:text-slate-400 font-medium text-xs">
+                Menampilkan 10 simpul terpadat
+              </span>
+            </div>
+            <button id="btn-load-all-simpul" class="px-4 py-2 bg-gov-navy hover:bg-gov-navy/90 text-white font-bold rounded-lg shadow-xs flex items-center gap-2 transition-all text-xs">
+              <span>Lihat Seluruh Simpul</span>
+              <i data-lucide="chevron-down" class="w-4 h-4"></i>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- VIEW 4: PETA SPASIAL (GIS) -->
+      <section id="view-map" class="view-section hidden space-y-4">
+        <!-- Toolbar & Filter Kategori Moda (Murni Filter Data) -->
+        <div class="p-3.5 bg-white dark:bg-slate-900 border border-gov-border dark:border-slate-800 rounded-xl shadow-xs flex flex-wrap items-center justify-between gap-3">
+          <!-- Filter Kancing / Pills Moda -->
+          <div class="flex items-center gap-2 flex-wrap">
+            <span class="text-xs font-bold text-gov-muted dark:text-slate-400 uppercase tracking-wider shrink-0 mr-1 flex items-center gap-1.5">
+              <i data-lucide="filter" class="w-3.5 h-3.5 text-gov-navy dark:text-sky-400"></i>
+              Filter Moda:
+            </span>
+            <div class="flex items-center gap-1.5 flex-wrap" id="gis-moda-pills">
+              <!-- Diisi dinamis oleh map_gis.js -->
+            </div>
+          </div>
+
+          <!-- Total Volume Proyeksi Sesuai Moda Aktif (Menyeimbangkan Sisi Kanan Baris Filter) -->
+          <div id="gis-nodes-volume" class="num-tabular font-bold text-gov-navy dark:text-sky-400 text-xs sm:text-sm shrink-0 ml-auto">
+            <!-- Diisi dinamis oleh map_gis.js -->
+          </div>
+        </div>
+
+        <!-- Kartu Kanvas Peta Leaflet GIS Lengkap dengan Kontrol Utilitas Peta -->
+        <div class="bg-white dark:bg-slate-900 p-3.5 rounded-xl border border-gov-border dark:border-slate-800 shadow-xs relative z-0 isolate overflow-hidden space-y-3">
+          <!-- Header Bar Kanvas Peta: Status Data (Kiri) & Kontrol Utilitas GIS (Kanan) -->
+          <div class="flex flex-wrap items-center justify-between gap-3 pb-3 border-b border-slate-100 dark:border-slate-800">
+            <!-- Status Simpul Terpetakan -->
+            <div class="flex items-center gap-2 text-xs font-semibold">
+              <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+              <span id="gis-nodes-count" class="text-slate-800 dark:text-slate-200 font-bold">-</span>
+              <span class="text-slate-400 dark:text-slate-500 font-normal hidden sm:inline">&bull; Skala Koordinat Resmi Pusdatin</span>
+            </div>
+
+            <!-- Kontrol Utilitas & Navigasi Peta -->
+            <div class="flex items-center gap-2">
+              <span class="text-[11px] font-semibold text-slate-500 dark:text-slate-400 mr-1 hidden sm:inline">Kontrol Peta:</span>
+              
+              <!-- Toggle Heatmap Kepadatan -->
+              <button id="btn-toggle-heatmap" class="px-3 py-1.5 rounded-lg text-xs font-bold border transition-all flex items-center gap-1.5 bg-gov-navy text-white border-gov-navy shadow-xs hover:bg-gov-navy/90" title="Tampilkan / Sembunyikan Lapisan Heatmap Kepadatan">
+                <i data-lucide="flame" class="w-3.5 h-3.5 text-amber-300"></i>
+                <span>Heatmap Kepadatan</span>
+              </button>
+
+              <!-- Pusatkan Indonesia -->
+              <button id="btn-reset-map" class="px-3 py-1.5 bg-white dark:bg-slate-800 border border-gov-border dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700/60 text-xs font-semibold text-slate-700 dark:text-slate-200 rounded-lg shadow-xs flex items-center gap-1.5 transition-all" title="Kembalikan Peta ke Seluruh Wilayah Indonesia">
+                <i data-lucide="rotate-ccw" class="w-3.5 h-3.5 text-gov-navy dark:text-sky-400"></i>
+                <span>Pusatkan Peta</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Kanvas Peta Leaflet GIS (Terisolasi Stacking Context z-0 agar Tidak Menembus Header) -->
+          <div id="gis-map-canvas" class="w-full h-[540px] rounded-lg relative z-0 isolate"></div>
+          
+          <!-- 3 Kartu Wawasan Spasial Strategis (Insightful & Tidak Redundan) -->
+          <div class="pt-3 border-t border-slate-100 dark:border-slate-800 grid grid-cols-1 md:grid-cols-3 gap-3 text-xs">
+            <div class="p-2.5 rounded-lg bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-700/60 flex items-start gap-2.5">
+              <span class="text-gov-azure dark:text-sky-400 font-extrabold text-sm shrink-0">📍</span>
+              <div>
+                <strong class="text-slate-900 dark:text-slate-100 block text-[11px] font-bold">Konsentrasi Arus Nasional</strong>
+                <span class="text-[11px] text-gov-muted dark:text-slate-400 leading-tight">68,4% volume terpusat di koridor Jawa & Lintas Penyeberangan Selat Sunda.</span>
+              </div>
+            </div>
+            <div class="p-2.5 rounded-lg bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-700/60 flex items-start gap-2.5">
+              <span class="text-amber-500 font-extrabold text-sm shrink-0">⭐</span>
+              <div>
+                <strong class="text-slate-900 dark:text-slate-100 block text-[11px] font-bold">Simpul Beban Tertinggi</strong>
+                <span class="text-[11px] text-gov-muted dark:text-slate-400 leading-tight">Bandara Soetta (1,57 jt org) & Stasiun Pasar Senen (624 rb org).</span>
+              </div>
+            </div>
+            <div class="p-2.5 rounded-lg bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-700/60 flex items-start gap-2.5">
+              <span class="text-rose-500 font-extrabold text-sm shrink-0">🚩</span>
+              <div>
+                <strong class="text-slate-900 dark:text-slate-100 block text-[11px] font-bold">Titik Hambatan Kritis</strong>
+                <span class="text-[11px] text-gov-muted dark:text-slate-400 leading-tight">GT Cikatama (813 rb kendaraan) & Pelabuhan Merak (612 rb kendaraan).</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- VIEW 5: TITIK KRITIS GERBANG TOL & PENYEBERANGAN ASDP -->
+      <section id="view-koridor" class="view-section hidden space-y-6">
+        <!-- 4 Kartu Ringkasan KPI Titik Kritis -->
+        <div id="koridor-kpi-cards" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <!-- Diisi dinamis oleh koridor.js -->
+        </div>
+
+        <!-- BAGIAN 1: ARUS 4 GERBANG TOL UTAMA JABODETABEK -->
+        <div class="p-5 bg-white border border-gov-border rounded-xl shadow-xs space-y-4">
+          <div class="flex flex-wrap items-center justify-between gap-3 pb-3 border-b border-gov-border">
+            <div>
+              <h3 class="text-sm font-bold text-gov-text flex items-center gap-2">
+                <i data-lucide="split" class="w-4 h-4 text-gov-azure"></i>
+                Arus Lalu Lintas 4 Gerbang Tol Akses Utama Jabodetabek
+              </h3>
+              <p class="text-[11px] text-gov-muted mt-0.5">
+                Estimasi volume kendaraan Arus Mudik/Wisata (Keluar Jakarta) vs Arus Balik (Masuk Jakarta) berbasis model Damped Holt-Winters Gate Flow
+              </p>
+            </div>
+            <span class="px-2.5 py-1 rounded text-[10px] font-bold bg-emerald-50 text-emerald-800 border border-emerald-200">
+              Pertumbuhan Nasional: +16,76%
+            </span>
+          </div>
+
+          <!-- Grafik Bar Chart Komparasi Tol -->
+          <div id="chart-tol-komparasi" class="w-full"></div>
+
+          <!-- Tabel Rinci Gerbang Tol (Sheet 6) -->
+          <div class="overflow-x-auto pt-2">
+            <table class="w-full text-left text-xs border-collapse">
+              <thead>
+                <tr class="text-[10px] uppercase font-bold text-slate-500 border-b border-slate-200 bg-slate-50">
+                  <th class="py-2.5 px-3 text-center">No</th>
+                  <th class="py-2.5 px-3">Gerbang Tol & Koridor Lintasan</th>
+                  <th class="py-2.5 px-3">Arah Pergerakan</th>
+                  <th class="py-2.5 px-3 text-right">Realisasi 2025</th>
+                  <th class="py-2.5 px-3 text-right">Proyeksi 2026/2027</th>
+                  <th class="py-2.5 px-3 text-center">Pertumbuhan</th>
+                  <th class="py-2.5 px-3">Metode Proyeksi</th>
+                </tr>
+              </thead>
+              <tbody id="table-tol-body">
+                <!-- Diisi dinamis oleh koridor.js -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- BAGIAN 2: KOMPOSISI KENDARAAN PENYEBERANGAN ASDP (SHEET 7) -->
+        <div class="p-5 bg-white border border-gov-border rounded-xl shadow-xs space-y-4">
+          <div class="flex flex-wrap items-center justify-between gap-3 pb-3 border-b border-gov-border">
+            <div>
+              <h3 class="text-sm font-bold text-gov-text flex items-center gap-2">
+                <i data-lucide="anchor" class="w-4 h-4 text-purple-600"></i>
+                Komposisi Kendaraan Lintas Penyeberangan Kritis ASDP
+              </h3>
+              <p class="text-[11px] text-gov-muted mt-0.5">
+                Rincian volume Sepeda Motor (R2), Mobil Pribadi (R4), dan Truk Logistik (Sumbu 3+) beserta skema buffer zone pelabuhan
+              </p>
+            </div>
+            <span class="px-2.5 py-1 rounded text-[10px] font-bold bg-purple-50 text-purple-800 border border-purple-200">
+              Lintas Selat Sunda & Selat Bali
+            </span>
+          </div>
+
+          <!-- Grafik Komposisi Kendaraan ASDP -->
+          <div id="chart-asdp-komposisi" class="w-full"></div>
+
+          <!-- Tabel Rinci ASDP (Sheet 7) -->
+          <div class="overflow-x-auto pt-2">
+            <table class="w-full text-left text-xs border-collapse">
+              <thead>
+                <tr class="text-[10px] uppercase font-bold text-slate-500 border-b border-slate-200 bg-slate-50">
+                  <th class="py-2.5 px-3 text-center">No</th>
+                  <th class="py-2.5 px-3">Lintas Penyeberangan</th>
+                  <th class="py-2.5 px-3 text-right">Realisasi 2025</th>
+                  <th class="py-2.5 px-3 text-right">Proyeksi 2026</th>
+                  <th class="py-2.5 px-3 text-right">Roda 2 (Motor)</th>
+                  <th class="py-2.5 px-3 text-right">Roda 4 (Pribadi)</th>
+                  <th class="py-2.5 px-3 text-right">Truk Logistik</th>
+                  <th class="py-2.5 px-3">Karakteristik & Fokus Lintas</th>
+                </tr>
+              </thead>
+              <tbody id="table-asdp-body">
+                <!-- Diisi dinamis oleh koridor.js -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- VIEW 6: METODOLOGI & ARSITEKTUR DSS -->
+      <section id="view-metodologi" class="view-section hidden space-y-6">
+        <!-- Banner Kerangka Sistem Informasi & Rekayasa Data -->
+        <div class="p-5 bg-white dark:bg-slate-900 border border-gov-border dark:border-slate-800 rounded-xl shadow-xs">
+          <div class="flex flex-wrap items-center justify-between gap-3 mb-2">
+            <div class="flex items-center gap-2">
+              <span class="px-2.5 py-0.5 rounded text-[10px] font-bold bg-gov-azure_light text-gov-azure border border-blue-200 dark:border-blue-900">
+                Pusdatin Kemenhub RI
+              </span>
+              <span class="px-2.5 py-0.5 rounded text-[10px] font-bold bg-emerald-50 dark:bg-emerald-950/40 text-emerald-800 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800/80">
+                Data Terverifikasi
+              </span>
+              <span class="text-xs text-gov-muted dark:text-slate-400 hidden sm:inline">&bull; Dokumentasi Transparansi Analitik</span>
+            </div>
+            <span class="text-[11px] font-semibold text-gov-muted dark:text-slate-400">Posko Terpadu Nataru 2026/2027</span>
+          </div>
+          <h2 class="text-base sm:text-lg font-extrabold text-gov-text dark:text-slate-100">
+            Informasi Sistem, Metodologi Analisis & Kamus Rumus Proyeksi Nataru 2026/2027
+          </h2>
+          <p class="text-xs text-gov-muted dark:text-slate-400 mt-1.5 leading-relaxed w-full">
+            Dokumentasi transparansi data, formulasi matematis metrik dasar, peramalan deret waktu Damped Holt-Winters, matriks indikator kinerja posko, serta kamus istilah resmi Pusat Data dan Teknologi Informasi (Pusdatin) Kementerian Perhubungan RI.
+          </p>
+
+          <!-- Navigasi Lompat Cepat (Quick Jump Pills - 7 Bagian Terstruktur Proporsional) -->
+          <div class="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800">
+            <div class="text-[10px] font-bold uppercase tracking-wider text-gov-muted dark:text-slate-400 mb-2.5 flex items-center gap-1.5">
+              <i data-lucide="compass" class="w-3.5 h-3.5 text-gov-azure dark:text-sky-400"></i>
+              Lompat Cepat ke Bagian Dokumen:
+            </div>
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-2">
+              <a href="#sec-integritas" class="px-2.5 py-2 rounded-lg text-[11px] font-semibold bg-slate-100 hover:bg-gov-azure_light text-slate-700 hover:text-gov-azure dark:bg-slate-800 dark:hover:bg-slate-700/80 dark:text-slate-300 dark:hover:text-sky-300 transition-all border border-slate-200 dark:border-slate-700/80 flex items-center justify-center gap-1.5 text-center">
+                <i data-lucide="database" class="w-3 h-3 text-gov-azure dark:text-sky-400 shrink-0"></i>
+                <span>1. Integritas Data</span>
+              </a>
+              <a href="#sec-metrik-dasar" class="px-2.5 py-2 rounded-lg text-[11px] font-semibold bg-slate-100 hover:bg-gov-azure_light text-slate-700 hover:text-gov-azure dark:bg-slate-800 dark:hover:bg-slate-700/80 dark:text-slate-300 dark:hover:text-sky-300 transition-all border border-slate-200 dark:border-slate-700/80 flex items-center justify-center gap-1.5 text-center">
+                <i data-lucide="calculator" class="w-3 h-3 text-gov-azure dark:text-sky-400 shrink-0"></i>
+                <span>2. Metrik Dasar</span>
+              </a>
+              <a href="#sec-modal-share" class="px-2.5 py-2 rounded-lg text-[11px] font-semibold bg-slate-100 hover:bg-gov-azure_light text-slate-700 hover:text-gov-azure dark:bg-slate-800 dark:hover:bg-slate-700/80 dark:text-slate-300 dark:hover:text-sky-300 transition-all border border-slate-200 dark:border-slate-700/80 flex items-center justify-center gap-1.5 text-center">
+                <i data-lucide="pie-chart" class="w-3 h-3 text-gov-azure dark:text-sky-400 shrink-0"></i>
+                <span>3. Modal Share</span>
+              </a>
+              <a href="#sec-analisis-puncak" class="px-2.5 py-2 rounded-lg text-[11px] font-semibold bg-slate-100 hover:bg-gov-azure_light text-slate-700 hover:text-gov-azure dark:bg-slate-800 dark:hover:bg-slate-700/80 dark:text-slate-300 dark:hover:text-sky-300 transition-all border border-slate-200 dark:border-slate-700/80 flex items-center justify-center gap-1.5 text-center">
+                <i data-lucide="trending-up" class="w-3 h-3 text-gov-azure dark:text-sky-400 shrink-0"></i>
+                <span>4. Hari Puncak</span>
+              </a>
+              <a href="#sec-model-damped" class="px-2.5 py-2 rounded-lg text-[11px] font-semibold bg-slate-100 hover:bg-gov-azure_light text-slate-700 hover:text-gov-azure dark:bg-slate-800 dark:hover:bg-slate-700/80 dark:text-slate-300 dark:hover:text-sky-300 transition-all border border-slate-200 dark:border-slate-700/80 flex items-center justify-center gap-1.5 text-center">
+                <i data-lucide="cpu" class="w-3 h-3 text-gov-azure dark:text-sky-400 shrink-0"></i>
+                <span>5. Holt-Winters</span>
+              </a>
+              <a href="#sec-matriks-12" class="px-2.5 py-2 rounded-lg text-[11px] font-semibold bg-slate-100 hover:bg-gov-azure_light text-slate-700 hover:text-gov-azure dark:bg-slate-800 dark:hover:bg-slate-700/80 dark:text-slate-300 dark:hover:text-sky-300 transition-all border border-slate-200 dark:border-slate-700/80 flex items-center justify-center gap-1.5 text-center">
+                <i data-lucide="layers" class="w-3 h-3 text-gov-azure dark:text-sky-400 shrink-0"></i>
+                <span>6. Matriks 12</span>
+              </a>
+              <a href="#sec-glosarium" class="px-2.5 py-2 rounded-lg text-[11px] font-semibold bg-slate-100 hover:bg-gov-azure_light text-slate-700 hover:text-gov-azure dark:bg-slate-800 dark:hover:bg-slate-700/80 dark:text-slate-300 dark:hover:text-sky-300 transition-all border border-slate-200 dark:border-slate-700/80 flex items-center justify-center gap-1.5 text-center">
+                <i data-lucide="book-marked" class="w-3 h-3 text-gov-azure dark:text-sky-400 shrink-0"></i>
+                <span>7. Glosarium</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 1. KOTAK INTEGRITAS DATASET -->
+        <div id="sec-integritas" class="scroll-mt-6 bg-white dark:bg-slate-900 p-5 rounded-xl border border-gov-border dark:border-slate-800 shadow-xs">
+          <div class="flex items-center justify-between mb-4 pb-3 border-b border-gov-border dark:border-slate-800">
+            <div>
+              <h3 class="text-sm font-bold text-gov-text dark:text-slate-100 flex items-center gap-2">
+                <i data-lucide="database" class="w-4 h-4 text-gov-navy dark:text-sky-400"></i>
+                1. Integritas Dataset & Cakupan Operasional Posko Nataru 2026/2027
+              </h3>
+              <p class="text-[11px] text-gov-muted dark:text-slate-400 mt-0.5">Parameter agregasi resmi, cakupan waktu, dan batas geografis pemantauan posko terpadu nasional</p>
+            </div>
+            <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-50 dark:bg-emerald-950/40 text-emerald-800 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800/80">
+              Terverifikasi Pusdatin
+            </span>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <!-- Card 1: Total Volume -->
+            <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/80 flex flex-col justify-between">
+              <div>
+                <span class="text-[11px] font-semibold text-slate-500 dark:text-slate-400 block mb-1">Total Proyeksi Nasional</span>
+                <div class="text-xl font-extrabold text-gov-navy dark:text-sky-300 tracking-tight num-tabular">18.462.913</div>
+                <div class="text-[11px] font-semibold text-emerald-700 dark:text-emerald-400 mt-0.5 flex items-center gap-1">
+                  <span>+3,45% YoY</span>
+                  <span class="text-slate-400 dark:text-slate-500 font-normal">vs 17.848.066 (2025)</span>
+                </div>
+              </div>
+              <p class="text-[11px] text-slate-600 dark:text-slate-400 mt-3 pt-2.5 border-t border-slate-200 dark:border-slate-700/60 leading-relaxed">
+                Akumulasi proyeksi resmi 5 moda transportasi selama 18 hari masa posko tanpa selisih pembulatan antar-modul.
+              </p>
+            </div>
+
+            <!-- Card 2: Durasi Posko -->
+            <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/80 flex flex-col justify-between">
+              <div>
+                <span class="text-[11px] font-semibold text-slate-500 dark:text-slate-400 block mb-1">Durasi Operasional</span>
+                <div class="text-xl font-extrabold text-gov-navy dark:text-sky-300 tracking-tight num-tabular">18 Hari Posko</div>
+                <div class="text-[11px] font-semibold text-slate-700 dark:text-slate-300 mt-0.5">
+                  H-7 s/d H+10 (18 Des 2026 – 4 Jan 2027)
+                </div>
+              </div>
+              <p class="text-[11px] text-slate-600 dark:text-slate-400 mt-3 pt-2.5 border-t border-slate-200 dark:border-slate-700/60 leading-relaxed">
+                Mencakup puncak mudik Natal pada <strong>H-1 (24 Des 2026)</strong> dan puncak arus balik Tahun Baru pada <strong>H+9 (3 Jan 2027)</strong>.
+              </p>
+            </div>
+
+            <!-- Card 3: Simpul Pantau -->
+            <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/80 flex flex-col justify-between">
+              <div>
+                <span class="text-[11px] font-semibold text-slate-500 dark:text-slate-400 block mb-1">Simpul Multimoda Spasial</span>
+                <div class="text-xl font-extrabold text-gov-navy dark:text-sky-300 tracking-tight num-tabular">909 Simpul</div>
+                <div class="text-[11px] font-semibold text-slate-700 dark:text-slate-300 mt-0.5">
+                  100% Terpetakan Geospasial GIS
+                </div>
+              </div>
+              <p class="text-[11px] text-slate-600 dark:text-slate-400 mt-3 pt-2.5 border-t border-slate-200 dark:border-slate-700/60 leading-relaxed">
+                213 Bandara, 183 Stasiun KA, 201 Pelabuhan Laut, 157 Terminal Bus, dan 155 Pelabuhan ASDP dengan koordinat lintang/bujur terverifikasi.
+              </p>
+            </div>
+
+            <!-- Card 4: Moda & Koridor -->
+            <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/80 flex flex-col justify-between">
+              <div>
+                <span class="text-[11px] font-semibold text-slate-500 dark:text-slate-400 block mb-1">Cakupan Moda & Titik Kritis</span>
+                <div class="text-xl font-extrabold text-gov-navy dark:text-sky-300 tracking-tight num-tabular">5 Moda + Tol & ASDP</div>
+                <div class="text-[11px] font-semibold text-slate-700 dark:text-slate-300 mt-0.5">
+                  4 Gerbang Tol & 3 Lintas ASDP
+                </div>
+              </div>
+              <p class="text-[11px] text-slate-600 dark:text-slate-400 mt-3 pt-2.5 border-t border-slate-200 dark:border-slate-700/60 leading-relaxed">
+                Integrasi menyeluruh 5 moda transportasi ditambah pemantauan intensif titik rawan antrean gerbang tol barrier dan dermaga penyeberangan.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. FORMULASI METRIK DASAR PERGERAKAN -->
+        <div id="sec-metrik-dasar" class="scroll-mt-6 bg-white dark:bg-slate-900 p-5 rounded-xl border border-gov-border dark:border-slate-800 shadow-xs space-y-4">
+          <div class="flex items-center justify-between pb-3 border-b border-gov-border dark:border-slate-800">
+            <div>
+              <h3 class="text-sm font-bold text-gov-text dark:text-slate-100 flex items-center gap-2">
+                <i data-lucide="calculator" class="w-4 h-4 text-gov-azure dark:text-sky-400"></i>
+                2. Formulasi Metrik Dasar Pergerakan Penumpang
+              </h3>
+              <p class="text-[11px] text-gov-muted dark:text-slate-400 mt-0.5">Perhitungan total volume kumulatif pergerakan dan rata-rata intensitas harian operasional posko</p>
+            </div>
+            <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-blue-50 dark:bg-blue-950/40 text-gov-navy dark:text-sky-300 border border-blue-200 dark:border-blue-900">
+              Metrik Dasar
+            </span>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <!-- Box Rumus 1: Total Volume Nasional -->
+            <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/80">
+              <span class="text-xs font-bold text-slate-800 dark:text-slate-200 block mb-1">Total Volume Pergerakan Nasional (P<sub>total</sub>)</span>
+              <p class="text-[11px] text-slate-500 dark:text-slate-400 mb-3">Akumulasi volume pergerakan seluruh moda transportasi selama 18 hari masa posko</p>
+              
+              <div class="font-mono text-center text-sm font-bold text-gov-navy dark:text-sky-300 py-3 px-4 bg-white dark:bg-slate-900 rounded-lg border border-slate-200 dark:border-slate-800 shadow-inner">
+                P<sub>total</sub> = &Sigma; P<sub>m</sub> = 18.462.913 orang
+              </div>
+
+              <p class="text-[11px] text-slate-600 dark:text-slate-300 mt-3 leading-relaxed">
+                Penjumlahan volume 5 moda transportasi resmi: Udara (4.880.174), KA (4.062.995), ASDP (3.816.033), Jalan (3.434.854), dan Laut (2.268.857).
+              </p>
+            </div>
+
+            <!-- Box Rumus 2: Rata-Rata Harian -->
+            <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/80">
+              <span class="text-xs font-bold text-slate-800 dark:text-slate-200 block mb-1">Rata-Rata Volume Harian Posko (P̄<sub>harian</sub>)</span>
+              <p class="text-[11px] text-slate-500 dark:text-slate-400 mb-3">Intensitas beban harian normal selama 18 hari masa posko</p>
+              
+              <div class="font-mono text-center text-sm font-bold text-gov-navy dark:text-sky-300 py-3 px-4 bg-white dark:bg-slate-900 rounded-lg border border-slate-200 dark:border-slate-800 shadow-inner">
+                P̄<sub>harian</sub> = P<sub>total</sub> / N = 18.462.913 / 18 = 1.025.717 orang/hari
+              </div>
+
+              <p class="text-[11px] text-slate-600 dark:text-slate-300 mt-3 leading-relaxed">
+                Rata-rata beban mobilitas nasional per hari operasional sebagai tolok ukur stabil untuk mengukur kelipatan lonjakan pada hari puncak.
+              </p>
+            </div>
+          </div>
+
+          <!-- Tabel Notasi Simbol Metrik Dasar -->
+          <div class="overflow-x-auto pt-2">
+            <table class="w-full text-left text-xs border-collapse">
+              <thead>
+                <tr class="text-[10px] uppercase font-bold text-slate-500 dark:text-slate-400 border-b border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800/60">
+                  <th class="py-2.5 px-3 w-28">Simbol</th>
+                  <th class="py-2.5 px-3 w-48">Nama Variabel</th>
+                  <th class="py-2.5 px-3 w-28">Satuan</th>
+                  <th class="py-2.5 px-3 w-40">Nilai Resmi</th>
+                  <th class="py-2.5 px-3">Keterangan Operasional Posko</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-100 dark:divide-slate-800">
+                <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/40">
+                  <td class="py-2 px-3 font-mono font-bold text-gov-navy dark:text-sky-400">P<sub>total</sub></td>
+                  <td class="py-2 px-3 font-semibold text-slate-800 dark:text-slate-200">Total Proyeksi Penumpang</td>
+                  <td class="py-2 px-3 text-slate-600 dark:text-slate-400">orang</td>
+                  <td class="py-2 px-3 font-mono font-bold text-gov-navy dark:text-sky-300">18.462.913</td>
+                  <td class="py-2 px-3 text-slate-600 dark:text-slate-300">Akumulasi pergerakan 5 moda transportasi selama 18 hari masa posko</td>
+                </tr>
+                <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/40">
+                  <td class="py-2 px-3 font-mono font-bold text-gov-navy dark:text-sky-400">P<sub>m</sub></td>
+                  <td class="py-2 px-3 font-semibold text-slate-800 dark:text-slate-200">Volume Proyeksi Moda <em>m</em></td>
+                  <td class="py-2 px-3 text-slate-600 dark:text-slate-400">orang</td>
+                  <td class="py-2 px-3 font-mono">2,27 jt &ndash; 4,88 jt</td>
+                  <td class="py-2 px-3 text-slate-600 dark:text-slate-300">Total volume penumpang selama posko untuk moda transportasi tertentu</td>
+                </tr>
+                <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/40">
+                  <td class="py-2 px-3 font-mono font-bold text-gov-navy dark:text-sky-400">P̄<sub>harian</sub></td>
+                  <td class="py-2 px-3 font-semibold text-slate-800 dark:text-slate-200">Rata-Rata Harian Nasional</td>
+                  <td class="py-2 px-3 text-slate-600 dark:text-slate-400">orang/hari</td>
+                  <td class="py-2 px-3 font-mono font-bold text-gov-navy dark:text-sky-300">1.025.717</td>
+                  <td class="py-2 px-3 text-slate-600 dark:text-slate-300">Beban pergerakan rata-rata harian nasional selama masa posko</td>
+                </tr>
+                <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/40">
+                  <td class="py-2 px-3 font-mono font-bold text-gov-navy dark:text-sky-400">N</td>
+                  <td class="py-2 px-3 font-semibold text-slate-800 dark:text-slate-200">Jumlah Hari Pemantauan</td>
+                  <td class="py-2 px-3 text-slate-600 dark:text-slate-400">hari</td>
+                  <td class="py-2 px-3 font-mono">18</td>
+                  <td class="py-2 px-3 text-slate-600 dark:text-slate-300">Masa pemantauan posko: H-7 (18 Des 2026) s/d H+10 (4 Jan 2027)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- 3. PANGSA PASAR (MODAL SHARE) & LAJU PERTUMBUHAN (YOY) -->
+        <div id="sec-modal-share" class="scroll-mt-6 bg-white dark:bg-slate-900 p-5 rounded-xl border border-gov-border dark:border-slate-800 shadow-xs space-y-4">
+          <div class="flex items-center justify-between pb-3 border-b border-gov-border dark:border-slate-800">
+            <div>
+              <h3 class="text-sm font-bold text-gov-text dark:text-slate-100 flex items-center gap-2">
+                <i data-lucide="pie-chart" class="w-4 h-4 text-gov-azure dark:text-sky-400"></i>
+                3. Formulasi Pangsa Pasar (Modal Share) & Laju Pertumbuhan Tahunan (YoY)
+              </h3>
+              <p class="text-[11px] text-gov-muted dark:text-slate-400 mt-0.5">Metrik distribusi antarmoda transportasi dan laju perubahan volume terhadap baseline historis</p>
+            </div>
+            <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-blue-50 dark:bg-blue-950/40 text-gov-navy dark:text-sky-300 border border-blue-200 dark:border-blue-900">
+              Distribusi Antarmoda
+            </span>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <!-- Box Rumus 1: Modal Share -->
+            <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/80">
+              <span class="text-xs font-bold text-slate-800 dark:text-slate-200 block mb-1">Pangsa Pasar Antar-Moda (Modal Share)</span>
+              <p class="text-[11px] text-slate-500 dark:text-slate-400 mb-3">Proporsi kontribusi volume pergerakan tiap moda terhadap total nasional</p>
+              
+              <div class="font-mono text-center text-sm font-bold text-gov-navy dark:text-sky-300 py-3 px-4 bg-white dark:bg-slate-900 rounded-lg border border-slate-200 dark:border-slate-800 shadow-inner">
+                MS<sub>m</sub> = ( P<sub>m</sub> / P<sub>total</sub> ) &times; 100%
+              </div>
+
+              <p class="text-[11px] text-slate-600 dark:text-slate-300 mt-3 leading-relaxed">
+                Pangsa pasar tertinggi dipegang Angkutan Udara (<strong>26,43%</strong>), diikuti Kereta Api (<strong>22,01%</strong>), ASDP (<strong>20,67%</strong>), Angkutan Jalan (<strong>18,60%</strong>), dan Angkutan Laut (<strong>12,29%</strong>).
+              </p>
+            </div>
+
+            <!-- Box Rumus 2: YoY Growth -->
+            <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/80">
+              <span class="text-xs font-bold text-slate-800 dark:text-slate-200 block mb-1">Laju Pertumbuhan Tahunan (Year-on-Year / YoY)</span>
+              <p class="text-[11px] text-slate-500 dark:text-slate-400 mb-3">Persentase pertumbuhan proyeksi 2026 terhadap realisasi baseline 2025</p>
+              
+              <div class="font-mono text-center text-sm font-bold text-gov-navy dark:text-sky-300 py-3 px-4 bg-white dark:bg-slate-900 rounded-lg border border-slate-200 dark:border-slate-800 shadow-inner">
+                YoY<sub>m</sub> = [ ( P<sub>m,2026</sub> - P<sub>m,2025</sub> ) / P<sub>m,2025</sub> ] &times; 100%
+              </div>
+
+              <p class="text-[11px] text-slate-600 dark:text-slate-300 mt-3 leading-relaxed">
+                Total nasional tumbuh <strong>+3,45% YoY</strong> (dari 17.848.066 menjadi 18.462.913). Pertumbuhan tertinggi terjadi pada Angkutan Jalan (<strong>+8,65%</strong>) dan Kereta Api (<strong>+5,00%</strong>).
+              </p>
+            </div>
+          </div>
+
+          <!-- Tabel Notasi Simbol Modal Share & YoY -->
+          <div class="overflow-x-auto pt-2">
+            <table class="w-full text-left text-xs border-collapse">
+              <thead>
+                <tr class="text-[10px] uppercase font-bold text-slate-500 dark:text-slate-400 border-b border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800/60">
+                  <th class="py-2.5 px-3 w-28">Simbol</th>
+                  <th class="py-2.5 px-3 w-48">Nama Variabel</th>
+                  <th class="py-2.5 px-3 w-28">Satuan</th>
+                  <th class="py-2.5 px-3 w-40">Nilai Resmi</th>
+                  <th class="py-2.5 px-3">Keterangan Operasional Posko</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-100 dark:divide-slate-800">
+                <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/40">
+                  <td class="py-2 px-3 font-mono font-bold text-gov-navy dark:text-sky-400">MS<sub>m</sub></td>
+                  <td class="py-2 px-3 font-semibold text-slate-800 dark:text-slate-200">Pangsa Pasar Moda <em>m</em></td>
+                  <td class="py-2 px-3 text-slate-600 dark:text-slate-400">%</td>
+                  <td class="py-2 px-3 font-mono">12,29% &ndash; 26,43%</td>
+                  <td class="py-2 px-3 text-slate-600 dark:text-slate-300">Pangsa pasar tiap moda transportasi (total seluruh 5 moda = 100,00%)</td>
+                </tr>
+                <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/40">
+                  <td class="py-2 px-3 font-mono font-bold text-gov-navy dark:text-sky-400">P<sub>m,2026</sub></td>
+                  <td class="py-2 px-3 font-semibold text-slate-800 dark:text-slate-200">Volume Proyeksi Moda 2026</td>
+                  <td class="py-2 px-3 text-slate-600 dark:text-slate-400">orang</td>
+                  <td class="py-2 px-3 font-mono font-bold text-gov-navy dark:text-sky-300">2,27 jt &ndash; 4,88 jt</td>
+                  <td class="py-2 px-3 text-slate-600 dark:text-slate-300">Volume proyeksi resmi masa posko Nataru 2026/2027 per moda</td>
+                </tr>
+                <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/40">
+                  <td class="py-2 px-3 font-mono font-bold text-gov-navy dark:text-sky-400">P<sub>m,2025</sub></td>
+                  <td class="py-2 px-3 font-semibold text-slate-800 dark:text-slate-200">Realisasi Baseline Posko 2025</td>
+                  <td class="py-2 px-3 text-slate-600 dark:text-slate-400">orang</td>
+                  <td class="py-2 px-3 font-mono font-bold text-gov-navy dark:text-sky-300">17.848.066 (Total)</td>
+                  <td class="py-2 px-3 text-slate-600 dark:text-slate-300">Data aktual hasil evaluasi Posko Terpadu Nataru 2025/2026 sebagai pembanding</td>
+                </tr>
+                <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/40">
+                  <td class="py-2 px-3 font-mono font-bold text-gov-navy dark:text-sky-400">YoY<sub>m</sub></td>
+                  <td class="py-2 px-3 font-semibold text-slate-800 dark:text-slate-200">Laju Pertumbuhan Tahunan</td>
+                  <td class="py-2 px-3 text-slate-600 dark:text-slate-400">%</td>
+                  <td class="py-2 px-3 font-mono text-emerald-600 dark:text-emerald-400 font-bold">+0,63% &ndash; +8,65%</td>
+                  <td class="py-2 px-3 text-slate-600 dark:text-slate-300">Tingkat kenaikan mobilitas masyarakat per moda pada periode liburan akhir tahun</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- 4. ANALISIS HARI PUNCAK & LONJAKAN (SURGE FACTOR) -->
+        <div id="sec-analisis-puncak" class="scroll-mt-6 bg-white dark:bg-slate-900 p-5 rounded-xl border border-gov-border dark:border-slate-800 shadow-xs space-y-4">
+          <div class="flex items-center justify-between pb-3 border-b border-gov-border dark:border-slate-800">
+            <div>
+              <h3 class="text-sm font-bold text-gov-text dark:text-slate-100 flex items-center gap-2">
+                <i data-lucide="trending-up" class="w-4 h-4 text-gov-azure dark:text-sky-400"></i>
+                4. Formulasi Hari Puncak & Rasio Lonjakan Beban (Surge Ratio)
+              </h3>
+              <p class="text-[11px] text-gov-muted dark:text-slate-400 mt-0.5">Identifikasi waktu beban kritis dan kalkulasi kelipatan lonjakan penumpang terhadap volume harian normal</p>
+            </div>
+            <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-amber-50 dark:bg-amber-950/40 text-amber-800 dark:text-amber-300 border border-amber-200 dark:border-amber-800/80">
+              Analisis Beban Puncak
+            </span>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <!-- Box Rumus 1: Surge Ratio -->
+            <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/80">
+              <span class="text-xs font-bold text-slate-800 dark:text-slate-200 block mb-1">Faktor Rasio Lonjakan (Surge Ratio)</span>
+              <p class="text-[11px] text-slate-500 dark:text-slate-400 mb-3">Kelipatan volume hari puncak terhadap rata-rata volume harian posko</p>
+              
+              <div class="font-mono text-center text-sm font-bold text-gov-navy dark:text-sky-300 py-3 px-4 bg-white dark:bg-slate-900 rounded-lg border border-slate-200 dark:border-slate-800 shadow-inner">
+                Surge Ratio = P<sub>puncak,mudik</sub> / P̄<sub>harian</sub> = 1.149.332 / 1.025.717 &asymp; 1,12&times;
+              </div>
+
+              <p class="text-[11px] text-slate-600 dark:text-slate-300 mt-3 leading-relaxed">
+                Surge Ratio nasional sebesar <strong>1,12&times;</strong> menunjukkan beban puncak mudik (H-1) berada 12% di atas rata-rata harian normal. Mengindikasikan penambahan kapasitas sarana yang harus disiapkan operator.
+              </p>
+            </div>
+
+            <!-- Box Rumus 2: Nomenklatur Hari Operasional -->
+            <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/80">
+              <span class="text-xs font-bold text-slate-800 dark:text-slate-200 block mb-1">Nomenklatur Hari Operasional Posko (&Delta;Hari)</span>
+              <p class="text-[11px] text-slate-500 dark:text-slate-400 mb-3">Standardisasi hari kalender terhadap titik jangkar Hari H Natal</p>
+              
+              <div class="font-mono text-center text-sm font-bold text-gov-navy dark:text-sky-300 py-3 px-4 bg-white dark:bg-slate-900 rounded-lg border border-slate-200 dark:border-slate-800 shadow-inner">
+                &Delta;Hari = Tanggal Operasional &minus; 25 Desember 2026
+              </div>
+
+              <p class="text-[11px] text-slate-600 dark:text-slate-300 mt-3 leading-relaxed">
+                Titik jangkar adalah 25 Des 2026 (<strong>Hari H</strong>). Rentang pemantauan: <strong>H-7 (18 Des)</strong> hingga <strong>H+10 (4 Jan 2027)</strong>. Puncak Mudik: <strong>H-1 (24 Des: 1.149.332 orang)</strong>, Puncak Balik: <strong>H+9 (3 Jan 2027: 1.127.235 orang)</strong>.
+              </p>
+            </div>
+          </div>
+
+          <!-- Tabel Notasi Simbol Surge & Hari Puncak -->
+          <div class="overflow-x-auto pt-2">
+            <table class="w-full text-left text-xs border-collapse">
+              <thead>
+                <tr class="text-[10px] uppercase font-bold text-slate-500 dark:text-slate-400 border-b border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800/60">
+                  <th class="py-2.5 px-3 w-28">Simbol</th>
+                  <th class="py-2.5 px-3 w-48">Nama Variabel</th>
+                  <th class="py-2.5 px-3 w-28">Satuan</th>
+                  <th class="py-2.5 px-3 w-40">Nilai Resmi</th>
+                  <th class="py-2.5 px-3">Keterangan Operasional Posko</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-100 dark:divide-slate-800">
+                <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/40">
+                  <td class="py-2 px-3 font-mono font-bold text-gov-navy dark:text-sky-400">Surge Ratio</td>
+                  <td class="py-2 px-3 font-semibold text-slate-800 dark:text-slate-200">Faktor Lonjakan Puncak</td>
+                  <td class="py-2 px-3 text-slate-600 dark:text-slate-400">pengali (&times;)</td>
+                  <td class="py-2 px-3 font-mono font-bold text-amber-700 dark:text-amber-400">1,08&times; &ndash; 1,15&times;</td>
+                  <td class="py-2 px-3 text-slate-600 dark:text-slate-300">Tingkat lonjakan kapasitas sarana yang wajib diantisipasi operator pada hari puncak</td>
+                </tr>
+                <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/40">
+                  <td class="py-2 px-3 font-mono font-bold text-gov-navy dark:text-sky-400">P<sub>puncak,mudik</sub></td>
+                  <td class="py-2 px-3 font-semibold text-slate-800 dark:text-slate-200">Volume Puncak Arus Mudik</td>
+                  <td class="py-2 px-3 text-slate-600 dark:text-slate-400">orang/hari</td>
+                  <td class="py-2 px-3 font-mono font-bold text-gov-navy dark:text-sky-300">1.149.332</td>
+                  <td class="py-2 px-3 text-slate-600 dark:text-slate-300">Beban arus mudik tertinggi nasional, terjadi serentak pada H-1 (Kamis, 24 Des 2026)</td>
+                </tr>
+                <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/40">
+                  <td class="py-2 px-3 font-mono font-bold text-gov-navy dark:text-sky-400">P<sub>puncak,balik</sub></td>
+                  <td class="py-2 px-3 font-semibold text-slate-800 dark:text-slate-200">Volume Puncak Arus Balik</td>
+                  <td class="py-2 px-3 text-slate-600 dark:text-slate-400">orang/hari</td>
+                  <td class="py-2 px-3 font-mono font-bold text-gov-navy dark:text-sky-300">1.127.235</td>
+                  <td class="py-2 px-3 text-slate-600 dark:text-slate-300">Beban arus balik liburan akhir tahun, terkonsentrasi pada H+9 (Minggu, 3 Jan 2027)</td>
+                </tr>
+                <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/40">
+                  <td class="py-2 px-3 font-mono font-bold text-gov-navy dark:text-sky-400">H</td>
+                  <td class="py-2 px-3 font-semibold text-slate-800 dark:text-slate-200">Titik Jangkar Hari H Posko</td>
+                  <td class="py-2 px-3 text-slate-600 dark:text-slate-400">tanggal</td>
+                  <td class="py-2 px-3 font-mono">25 Des 2026</td>
+                  <td class="py-2 px-3 text-slate-600 dark:text-slate-300">Hari Raya Natal sebagai titik pembagi masa arus mudik (H-n) dan arus balik (H+n)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- 5. MODEL DERET WAKTU TERPILIH: DAMPED HOLT-WINTERS -->
+        <div id="sec-model-damped" class="scroll-mt-6 bg-white dark:bg-slate-900 p-5 rounded-xl border border-gov-border dark:border-slate-800 shadow-xs space-y-4">
+          <div class="flex items-center justify-between pb-3 border-b border-gov-border dark:border-slate-800">
+            <div>
+              <h3 class="text-sm font-bold text-gov-text dark:text-slate-100 flex items-center gap-2">
+                <i data-lucide="cpu" class="w-4 h-4 text-gov-azure dark:text-sky-400"></i>
+                5. Model Deret Waktu Terpilih: Holt-Winters Multiplicative Damped (&phi; = 0.85)
+              </h3>
+              <p class="text-[11px] text-gov-muted dark:text-slate-400 mt-0.5">Rasional ilmiah pemilihan model acuan resmi peramalan proyeksi mobilitas nasional Nataru</p>
+            </div>
+            <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-50 dark:bg-emerald-950/40 text-emerald-800 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800/80">
+              Model Acuan Posko
+            </span>
+          </div>
+
+          <!-- Penjelasan Mengapa Holt-Winters Damped Terpilih -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/80 flex flex-col justify-between">
+              <div>
+                <span class="text-xs font-bold text-slate-900 dark:text-slate-100 block mb-1">Mengapa Holt-Winters Damped Dipilih?</span>
+                <p class="text-[11px] text-slate-600 dark:text-slate-300 leading-relaxed mb-3">
+                  Pusdatin Kemenhub menetapkan model <strong>Holt-Winters Multiplicative dengan Redaman Tren (Damped Trend)</strong> sebagai acuan resmi karena mampu menangkap tiga karakteristik pergerakan liburan: tingkat intensitas dasar (level), arah pertumbuhan tahunan (trend), serta siklus lonjakan mingguan (seasonality 7-hari).
+                </p>
+              </div>
+              <div class="text-[10px] font-semibold text-gov-azure dark:text-sky-400 pt-2 border-t border-slate-200 dark:border-slate-700/60">
+                Sifat Adaptif: Menangkap siklus libur akhir pekan & pergeseran cuti bersama
+              </div>
+            </div>
+
+            <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/80 flex flex-col justify-between">
+              <div>
+                <span class="text-xs font-bold text-slate-900 dark:text-slate-100 block mb-1">Prinsip Batas Kapasitas Fisik (&phi; = 0.85)</span>
+                <p class="text-[11px] text-slate-600 dark:text-slate-300 leading-relaxed mb-3">
+                  Dalam operasional transportasi nyata, lonjakan penumpang dibatasi oleh <strong>kapasitas fisik maksimum sarana</strong> (jumlah armada bus AKAP, ketersediaan rangkaian gerbong kereta api, slot penerbangan bandara, serta kapasitas geladak kapal penyeberangan). Parameter redaman (&phi; = 0.85) menahan kurva proyeksi agar tidak mengalami <em>over-forecasting</em> di luar daya tampung riil.
+                </p>
+              </div>
+              <div class="text-[10px] font-semibold text-amber-700 dark:text-amber-400 pt-2 border-t border-slate-200 dark:border-slate-700/60">
+                Prinsip Operasional: Proyeksi terkendali sesuai batas daya tampung sarana
+              </div>
+            </div>
+          </div>
+
+          <!-- Formula Holt-Winters Damped Display -->
+          <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/80">
+            <span class="text-xs font-bold text-slate-800 dark:text-slate-200 block mb-1">Formulasi Matematis Peramalan Damped Holt-Winters</span>
+            <p class="text-[11px] text-slate-500 dark:text-slate-400 mb-3">Persamaan proyeksi horizon <em>h</em> hari ke depan dengan redaman kemiringan tren geometris</p>
+            
+            <div class="font-mono text-center text-sm font-bold text-gov-navy dark:text-sky-300 py-3 px-4 bg-white dark:bg-slate-900 rounded-lg border border-slate-200 dark:border-slate-800 shadow-inner overflow-x-auto">
+              &#375;<sub>t+h|t</sub> = [ &ell;<sub>t</sub> + (&phi; + &phi;<sup>2</sup> + ... + &phi;<sup>h</sup>) b<sub>t</sub> ] &times; s<sub>t+h&minus;m</sub>
+            </div>
+          </div>
+
+          <!-- Tabel Notasi Parameter & Komponen Model -->
+          <div class="overflow-x-auto pt-2">
+            <table class="w-full text-left text-xs border-collapse">
+              <thead>
+                <tr class="text-[10px] uppercase font-bold text-slate-500 dark:text-slate-400 border-b border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800/60">
+                  <th class="py-2.5 px-3 w-28">Parameter</th>
+                  <th class="py-2.5 px-3 w-48">Komponen Model</th>
+                  <th class="py-2.5 px-3 w-28">Nilai / Tipe</th>
+                  <th class="py-2.5 px-3">Makna Operasional Transportasi</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-100 dark:divide-slate-800">
+                <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/40">
+                  <td class="py-2 px-3 font-mono font-bold text-gov-navy dark:text-sky-400">&ell;<sub>t</sub></td>
+                  <td class="py-2 px-3 font-semibold text-slate-800 dark:text-slate-200">Tingkat Dasar (Level)</td>
+                  <td class="py-2 px-3 font-mono">Variabel waktu</td>
+                  <td class="py-2 px-3 text-slate-600 dark:text-slate-300">Estimasi intensitas dasar rata-rata volume penumpang pada hari ke-<em>t</em></td>
+                </tr>
+                <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/40">
+                  <td class="py-2 px-3 font-mono font-bold text-gov-navy dark:text-sky-400">b<sub>t</sub></td>
+                  <td class="py-2 px-3 font-semibold text-slate-800 dark:text-slate-200">Kemiringan Tren (Trend Slope)</td>
+                  <td class="py-2 px-3 font-mono">Variabel waktu</td>
+                  <td class="py-2 px-3 text-slate-600 dark:text-slate-300">Laju kenaikan atau penurunan volume pergerakan antarhari operasional</td>
+                </tr>
+                <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/40">
+                  <td class="py-2 px-3 font-mono font-bold text-gov-navy dark:text-sky-400">s<sub>t</sub></td>
+                  <td class="py-2 px-3 font-semibold text-slate-800 dark:text-slate-200">Indeks Musiman (Seasonality)</td>
+                  <td class="py-2 px-3 font-mono">Multiplikatif</td>
+                  <td class="py-2 px-3 text-slate-600 dark:text-slate-300">Faktor pengali siklus mingguan (<em>m=7</em>), membedakan dinamika hari kerja vs akhir pekan</td>
+                </tr>
+                <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/40">
+                  <td class="py-2 px-3 font-mono font-bold text-gov-navy dark:text-sky-400">&phi;</td>
+                  <td class="py-2 px-3 font-semibold text-slate-800 dark:text-slate-200">Faktor Redaman (Damping Factor)</td>
+                  <td class="py-2 px-3 font-mono font-bold text-amber-700 dark:text-amber-400">&phi; = 0.85</td>
+                  <td class="py-2 px-3 text-slate-600 dark:text-slate-300">Koefisien peredam (0 &lt; &phi; &lt; 1) yang menahan tren agar tetap berada dalam kapasitas sarana riil</td>
+                </tr>
+                <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/40">
+                  <td class="py-2 px-3 font-mono font-bold text-gov-navy dark:text-sky-400">&alpha;, &beta;, &gamma;</td>
+                  <td class="py-2 px-3 font-semibold text-slate-800 dark:text-slate-200">Bobot Pemulusan (Smoothing Weights)</td>
+                  <td class="py-2 px-3 font-mono">0 &lt; w &lt; 1</td>
+                  <td class="py-2 px-3 text-slate-600 dark:text-slate-300">Bobot optimasi empiris data historis yang mengontrol kecepatan pembaruan estimasi model</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- 6. TABEL MATRIKS 12 INDIKATOR KOMPARASI KINERJA MULTIMODA -->
+        <div id="sec-matriks-12" class="scroll-mt-6 bg-white dark:bg-slate-900 p-5 rounded-xl border border-gov-border dark:border-slate-800 shadow-xs">
+          <div class="flex flex-wrap items-center justify-between gap-3 mb-3 pb-3 border-b border-gov-border dark:border-slate-800">
+            <div>
+              <h3 class="text-sm font-bold text-gov-text dark:text-slate-100 flex items-center gap-2">
+                <i data-lucide="layers" class="w-4 h-4 text-gov-azure dark:text-sky-400"></i>
+                6. Matriks Rekapitulasi Komparasi 12 Indikator Multimoda Nasional 2026/2027
+              </h3>
+              <p class="text-[11px] text-gov-muted dark:text-slate-400 mt-0.5">Perbandingan performa proyeksi, pangsa pasar, beban puncak, armada, dan titik simpul terpadat 5 moda</p>
+            </div>
+            <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-gov-azure_light text-gov-azure border border-blue-200 dark:border-blue-900">
+              12 Indikator Kuantitatif
+            </span>
+          </div>
+
+          <div class="overflow-x-auto">
+            <table class="w-full text-left text-xs border-collapse">
+              <thead>
+                <tr class="text-[10px] uppercase font-bold text-slate-500 dark:text-slate-400 border-b border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800/60">
+                  <th class="py-2.5 px-3">Indikator Kuantitatif</th>
+                  <th class="py-2.5 px-3 text-right">Angkutan Jalan</th>
+                  <th class="py-2.5 px-3 text-right">Kereta Api</th>
+                  <th class="py-2.5 px-3 text-right">Angkutan Udara</th>
+                  <th class="py-2.5 px-3 text-right">Penyeberangan (ASDP)</th>
+                  <th class="py-2.5 px-3 text-right">Angkutan Laut</th>
+                  <th class="py-2.5 px-3 text-right bg-blue-50/50 dark:bg-blue-950/40 text-gov-navy dark:text-sky-400">Total Seluruh Moda</th>
+                </tr>
+              </thead>
+              <tbody id="metodologi-indikator-body">
+                <!-- Diisi dinamis oleh metodologi.js -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- 7. GLOSARIUM RESMI TRANSPORTASI PUSDATIN KEMENHUB -->
+        <div id="sec-glosarium" class="scroll-mt-6 bg-white dark:bg-slate-900 p-5 rounded-xl border border-gov-border dark:border-slate-800 shadow-xs">
+          <div class="flex items-center justify-between mb-3 pb-3 border-b border-gov-border dark:border-slate-800">
+            <div>
+              <h3 class="text-sm font-bold text-gov-text dark:text-slate-100 flex items-center gap-2">
+                <i data-lucide="book-marked" class="w-4 h-4 text-gov-navy dark:text-sky-400"></i>
+                7. Kamus Istilah Resmi & Glosarium Transportasi Pusdatin Kemenhub
+              </h3>
+              <p class="text-[11px] text-gov-muted dark:text-slate-400 mt-0.5">Panduan terminologi operasional posko dan sains data transportasi multimoda nasional</p>
+            </div>
+            <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">
+              Standar Pusdatin
+            </span>
+          </div>
+
+          <div class="overflow-x-auto">
+            <table class="w-full text-left text-xs border-collapse">
+              <thead>
+                <tr class="text-[10px] uppercase font-bold text-slate-500 dark:text-slate-400 border-b border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800/60">
+                  <th class="py-2.5 px-3 w-36">Istilah Resmi</th>
+                  <th class="py-2.5 px-3 w-72">Kepanjangan / Nama Baku</th>
+                  <th class="py-2.5 px-3">Definisi & Makna Operasional Lapangan</th>
+                </tr>
+              </thead>
+              <tbody id="metodologi-glosarium-body">
+                <!-- Diisi dinamis oleh metodologi.js -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- Global Footer -->
+    <footer class="bg-white dark:bg-slate-900 border-t border-gov-border dark:border-slate-800 px-6 py-4 text-xs text-gov-muted dark:text-slate-400 flex items-center justify-center sm:justify-end mt-auto">
+      <div>
+        <span class="font-semibold text-gov-text dark:text-slate-200">Pusat Data dan Teknologi Informasi (Pusdatin)</span> &bull; Kementerian Perhubungan RI
+      </div>
+    </footer>
+  </main>
+
+  <!-- Script Inisialisasi Modul & Utama -->
+  <script src="./assets/js/executive.js"></script>
+  <script src="./assets/js/harian.js"></script>
+  <script src="./assets/js/simpul.js"></script>
+  <script src="./assets/js/map_gis.js"></script>
+  <script src="./assets/js/koridor.js"></script>
+  <script src="./assets/js/metodologi.js"></script>
+  <script src="./assets/js/app.js"></script>
+  <script>
+    // Aktifkan Lucide Icons setelah DOM dimuat
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+      }
+    });
+  </script>
+</body>
+</html>
