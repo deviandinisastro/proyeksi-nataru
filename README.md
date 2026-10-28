@@ -1,88 +1,114 @@
-# 🚆 Dashboard Proyeksi Angkutan Nataru 2026/2027
+# Dashboard Proyeksi Angkutan Nataru 2026/2027
 
-> **Dashboard Pemantauan dan Visualisasi Proyeksi Mobilitas Nasional Masa Posko Natal dan Tahun Baru 2026/2027**  
-> *Pusat Data dan Teknologi Informasi (Pusdatin) — Kementerian Perhubungan Republik Indonesia*
+Sistem pemantauan dan visualisasi proyeksi mobilitas penumpang serta sarana transportasi nasional selama masa Posko Terpadu Natal 2026 dan Tahun Baru 2027 (Nataru 2026/2027). Dikembangkan dalam rangka kegiatan magang mandiri di Subbidang Pengelolaan Data, Pusat Data dan Teknologi Informasi (Pusdatin), Kementerian Perhubungan Republik Indonesia.
 
-🌐 **Akses Web Demo (Live):** [https://deviandinisastro.github.io/proyeksi-nataru/](https://deviandinisastro.github.io/proyeksi-nataru/)
-
----
-
-## 📌 Sekilas Proyek
-
-Repositori ini memuat prototipe antarmuka web interaktif untuk pemantauan dan analisis proyeksi mobilitas penumpang serta sarana transportasi nasional selama masa **Posko Terpadu Nataru 2026/2027** (18 hari operasional: H-7 s/d H+10, 18 Desember 2026 – 4 Januari 2027).
-
-Sistem ini mengintegrasikan pengolahan data deret waktu (*time-series forecasting*) berbasis model acuan resmi **Damped Holt-Winters ($\phi=0.85$)** dengan visualisasi geospasial (*Web GIS*) untuk memetakan seluruh simpul pantau nasional secara terpadu.
-
-### 📊 Parameter Utama Dataset
-* **Total Volume Proyeksi:** **18.462.913 penumpang** (+3,45% YoY vs 17.848.066 realisasi 2025).
-* **Durasi Pemantauan:** 18 Hari Posko Terpadu (18 Des 2026 s.d. 4 Jan 2027).
-* **Cakupan Spasial:** **909 Simpul Pantau Nasional** berkoordinat presisi (213 Bandara, 183 Stasiun KA, 201 Pelabuhan Laut, 157 Terminal Bus, dan 155 Pelabuhan Penyeberangan ASDP).
-* **Titik Kritis Jalur:** 4 Gerbang Tol Utama Barrier Jabodetabek & 3 Lintas Penyeberangan Utama ASDP.
+🔗 **Akses Dashboard (Live Demo):** [https://deviandinisastro.github.io/proyeksi-nataru/](https://deviandinisastro.github.io/proyeksi-nataru/)
 
 ---
 
-## 🚀 Fitur Utama Dashboard
+## 1. Latar Belakang & Ruang Lingkup Analisis
 
-1. **Ikhtisar Proyeksi Posko (*Executive Overview*)**  
-   Rangkuman indikator makro nasional, pangsa pasar (*modal share*) 5 moda transportasi, estimasi kebutuhan armada, serta kalender deteksi hari puncak arus mudik (**H-1 / 24 Des 2026**) dan arus balik (**H+9 / 3 Jan 2027**).
+Penyelenggaraan Posko Terpadu Nataru memiliki karakteristik mobilitas yang unik dan berbeda dari pola perjalanan harian reguler. Lonjakan perjalanan terpusat pada jendela waktu libur akhir tahun yang relatif singkat, dengan dinamika arus mudik Natal dan arus balik Tahun Baru yang terpisah dalam dua gelombang.
 
-2. **Tren Harian Proyeksi (18 Hari Deret Waktu)**  
-   Visualisasi grafik pergerakan harian komparasi 3 tahun (2024, 2025, dan Proyeksi 2026) dengan filter interaktif per moda transportasi dan pilihan metrik (*Penumpang vs Sarana*).
+Dashboard ini dirancang khusus untuk memodelkan dan menyajikan perilaku mobilitas pada **18 hari masa posko resmi (H-7 s.d. H+10, 18 Desember 2026 – 4 Januari 2027)** dengan titik jangkar pada Hari Raya Natal (25 Desember 2026). 
 
-3. **Direktori Simpul Multimoda**  
-   Peringkat 10 simpul terpadat nasional per moda serta tabel direktori pencarian 909 simpul pantau dengan fitur pencarian instan (*live search*), filter moda, dan penomoran halaman (*pagination*).
-
-4. **Peta Spasial Proyeksi (*Web GIS Leaflet*)**  
-   Pemetaan geospasial interaktif 909 simpul transportasi nasional yang dilengkapi dengan fitur *Heatmap* Kepadatan Spasial, filter moda, dan informasi detail volume per simpul.
-
-5. **Titik Kritis Gerbang Tol & Penyeberangan ASDP**  
-   Pemantauan volume lalu lintas keluar/masuk Jakarta melalui 4 Gerbang Tol Barrier utama (Cikatama, Kalihurip Utama, Cikupa, Ciawi) serta dinamika operasional penyeberangan lintas Selat Sunda (Merak–Bakauheni) dan Selat Bali (Ketapang–Gilimanuk).
-
-6. **Informasi Sistem & Kamus Rumus Posko**  
-   Dokumentasi transparansi data, formulasi matematis metrik dasar ($P_{\text{total}}$, $\bar{P}_{\text{harian}}$, *Modal Share*, YoY, *Surge Ratio*), rasional ilmiah pemilihan model Damped Holt-Winters, matriks 12 indikator posko, serta kamus istilah resmi transportasi Kemenhub RI.
+Berbeda dari analisis tren harian umum sepanjang tahun berjalan, sistem ini mengolah deret waktu historis 4 tahun masa posko (2022 s.d. 2025) untuk menangkap pola musiman mingguan (*weekly seasonality*) sekaligus mengantisipasi titik jenuh kapasitas sarana transportasi nasional.
 
 ---
 
-## 🛠️ Tumpukan Teknologi (*Tech Stack*)
+## 2. Ringkasan Proyeksi Multimoda Nasional 2026/2027
 
-* **Frontend:** HTML5, Tailwind CSS (Modern Government Palette INA Digital), JavaScript (Vanilla ES6).
-* **Visualisasi Grafis:** Plotly.js (Grafik Deret Waktu & Bar Chart).
-* **Geospasial (GIS):** Leaflet.js, Leaflet Heatmap.
-* **Ikonografi & Desain:** Lucide Icons, Plus Jakarta Sans Typography.
-* **Pengolahan Data (ETL):** Python 3, Pandas, NumPy (Pipeline ekstraksi log posko menjadi JSON terstruktur).
-* **Hosting:** GitHub Pages.
+Berdasarkan hasil pemodelan deret waktu *Damped Holt-Winters* ($\phi = 0.85$), total pergerakan penumpang angkutan umum nasional diproyeksikan mencapai **18.462.913 penumpang**, tumbuh **+3,45% (YoY)** dibandingkan realisasi baseline Posko Nataru 2025/2026 sebesar 17.848.066 penumpang.
 
----
+### Rekapitulasi Proyeksi 5 Moda Transportasi
 
-## 📁 Struktur Direktori
-
-```text
-proyeksi-nataru/
-├── index.html              # Halaman antarmuka utama dashboard (Single Page Application)
-├── assets/
-│   ├── css/
-│   │   └── custom.css      # Styling khusus, tema INA Digital & mode gelap/terang
-│   └── js/
-│       ├── app.js          # Router utama, inisialisasi state, dan event handler navigasi
-│       ├── executive.js    # Modul renderer Ikhtisar Proyeksi Posko
-│       ├── harian.js       # Modul renderer visualisasi deret waktu 18 hari
-│       ├── simpul.js       # Modul renderer direktori & tabel 909 simpul pantau
-│       ├── map_gis.js      # Modul renderer peta spasial GIS & heatmap Leaflet
-│       ├── koridor.js      # Modul renderer titik kritis Gerbang Tol & lintasan ASDP
-│       ├── metodologi.js   # Modul renderer matriks 12 indikator & kamus glosarium
-│       └── leaflet-heat.js # Library heatmap spasial untuk Leaflet
-├── data/
-│   ├── nataru_data.json    # Master dataset numerik posko (makro, harian, tol, ASDP)
-│   └── spatial_nodes.json  # Dataset koordinat geografis 909 simpul pantau nasional
-└── scripts/
-    ├── build_data.py       # Skrip Python pipeline ekstraksi & normalisasi data Excel ke JSON
-    └── reference_coords.json # Basis data referensi koordinat simpul transportasi
-```
+| Moda Transportasi | Realisasi 2025 (Baseline) | Proyeksi 2026/2027 | Pertumbuhan (YoY) | Pangsa Pasar (*Modal Share*) | Estimasi Sarana Operasi |
+| :--- | :---: | :---: | :---: | :---: | :---: |
+| **Angkutan Udara** | 4.770.215 | **4.880.174** | +2,31% | 26,43% | 44.332 flight |
+| **Kereta Api** | 3.869.519 | **4.062.995** | +5,00% | 22,01% | 70.814 KA |
+| **Penyeberangan (ASDP)** | 3.792.149 | **3.816.033** | +0,63% | 20,67% | 25.945 trip |
+| **Angkutan Jalan (AKAP)** | 3.161.450 | **3.434.854** | +8,65% | 18,60% | 247.027 bus |
+| **Angkutan Laut** | 2.254.733 | **2.268.857** | +0,63% | 12,29% | 33.352 kapal |
+| **Total Seluruh Moda** | **17.848.066** | **18.462.913** | **+3,45%** | **100,00%** | **421.470 unit** |
 
 ---
 
-## 👤 Penyusun
+## 3. Temuan Analitik & Titik Kritis Operasional Posko
 
-* **Devi Andini Sastro** (NPM: 10123320)  
-  *Program Studi S1 Sistem Informasi — Universitas Gunadarma*  
-  *Program Magang Mandiri — Tim Pengelolaan Data, Pusdatin Kementerian Perhubungan RI*
+1. **Deteksi Gelombang Puncak Ganda (*Twin Peaks*):**
+   * **Puncak Arus Mudik (Peak 1):** Diproyeksikan terjadi pada **H-1 (Kamis, 24 Desember 2026)** dengan volume beban nasional sebesar **1.149.332 penumpang/hari**.
+   * **Puncak Arus Balik (Peak 2):** Terkonsentrasi pada **H+9 (Minggu, 3 Januari 2027)** dengan volume beban sebesar **1.127.235 penumpang/hari**.
+   * **Rasio Lonjakan (*Surge Ratio*):** Rata-rata beban harian nasional berada pada angka **1.025.717 penumpang/hari**, sehingga rasio lonjakan hari puncak mencapai **1,12×** di atas rata-rata beban harian normal.
+
+2. **Dinamika Antarmoda:**
+   * Angkutan Udara dan Kereta Api tetap menjadi tulang punggung mobilitas antarkota dengan total kontribusi mencapai **48,44%** dari total penumpang nasional.
+   * Angkutan Jalan mencatatkan laju pertumbuhan tahunan tertinggi (**+8,65% YoY**), didorong oleh optimalisasi jaringan jalan tol Trans Jawa dan Trans Sumatera.
+
+3. **Titik Leher (*Bottleneck*) Jalan Tol & Lintas Penyeberangan:**
+   * **Jalan Tol Jabodetabek:** Titik pantau utama terpusat pada 4 Gerbang Tol Barrier, dengan beban terberat pada GT Cikampek Utama (arah timur/Trans Jawa) dan GT Kalihurip Utama (arah selatan/Bandung).
+   * **Lintas Penyeberangan Utama:** Pemantauan intensif di Pelabuhan Merak–Bakauheni (estimasi 612 ribu penumpang di Merak) dan Ketapang–Gilimanuk (estimasi 454 ribu penumpang di Ketapang), dengan kesiagaan penerapan Pola TBB (Tiba Bongkar Berangkat) saat antrean kendaraan meningkat.
+
+---
+
+## 4. Modul Antarmuka Dashboard
+
+Aplikasi dikemas dalam arsitektur *Single Page Application* (SPA) dengan 6 modul navigasi:
+
+* **Modul 1: Ikhtisar Proyeksi Posko** — Ringkasan indikator makro nasional, kartu metrik 5 moda, kalender 18 hari pemantauan, serta indikator titik kritis tol dan ASDP.
+* **Modul 2: Tren Harian Proyeksi** — Visualisasi kurva deret waktu 18 hari komparasi 3 tahun (2024, 2025, dan 2026) dengan filter moda dan pemilahan metrik *Penumpang vs Sarana*.
+* **Modul 3: Direktori Simpul Multimoda** — Visualisasi peringkat 10 simpul terpadat per moda serta tabel direktori pencarian 909 simpul pantau terverifikasi lengkap dengan fitur *live search* dan *pagination*.
+* **Modul 4: Peta Spasial Proyeksi (Web GIS)** — Pemetaan geografis 909 simpul se-Indonesia berbasis Leaflet.js, dilengkapi visualisasi *Heatmap* Kepadatan Spasial dan filter antarmoda.
+* **Modul 5: Titik Kritis Tol & ASDP** — Monitoring pergerakan kendaraan keluar/masuk 4 gerbang tol barrier utama serta detail volume, golongan kendaraan, dan alur penyeberangan feri Merak–Bakauheni dan Ketapang–Gilimanuk.
+* **Modul 6: Informasi Sistem & Kamus Rumus** — Dokumentasi transparansi perhitungan matematis ($P_{\text{total}}$, $\bar{P}_{\text{harian}}$, *Modal Share*, YoY, *Surge Ratio*), matriks 12 indikator komparasi multimoda, serta kamus istilah resmi transportasi Kemenhub.
+
+---
+
+## 5. Metodologi Pemodelan Deret Waktu
+
+Peramalan mobilitas posko menggunakan model acuan **Holt-Winters Multiplicative dengan Redaman Tren (*Damped Trend*, $\phi = 0.85$)**:
+
+$$\hat{y}_{t+h|t} = \left[ \ell_t + \sum_{i=1}^{h} \phi^i b_t \right] \times s_{t+h-m}$$
+
+* **Komponen Level ($\ell_t$) & Musiman ($s_t$):** Mengakomodasi variasi siklus mingguan (*periodisitas $m=7$ hari*) untuk membedakan intensitas hari kerja (*weekdays*) dan akhir pekan (*weekends*).
+* **Prinsip Redaman Kapasitas Fisik ($\phi = 0.85$):** Dalam operasional transportasi nyata, lonjakan permintaan (*demand*) dibatasi oleh kapasitas fisik sarana dan prasarana (ketersediaan armada bus, slot take-off/landing bandara, gerbong kereta api, dan daya tampung dermaga kapal). Parameter redaman $\phi = 0.85$ menahan ekstrapolasi linier agar proyeksi tetap berada dalam batas daya tampung riil di lapangan.
+
+---
+
+## 6. Spesifikasi Teknologi
+
+* **Frontend & Tampilan:** HTML5, Tailwind CSS (Standar Palet INA Digital & dukungan tema gelap/terang), JavaScript (Vanilla ES6).
+* **Engine Visualisasi Data:** Plotly.js (Grafik Deret Waktu Multi-Trace & Bar Chart Interaktif).
+* **Engine Geospasial:** Leaflet.js v1.9.4 & Leaflet Heat (Layer Tile CartoDB Positron / Dark Matter).
+* **Tipografi & Ikon:** Plus Jakarta Sans Typography, Lucide Icons.
+* **Data Processing & Pipeline:** Python 3 (Pandas, NumPy) untuk ekstraksi data mentah log posko (Sheet 1–7) menjadi struktur JSON teroptimasi.
+* **Infrastruktur Hosting:** GitHub Pages (Static Web Hosting).
+
+---
+
+## 7. Cara Menjalankan Secara Lokal
+
+Karena dashboard ini dibangun sebagai aplikasi web statis modern tanpa ketergantungan framework berat, proyek ini dapat dijalankan langsung di komputer lokal:
+
+1. Clone repositori ini:
+   ```bash
+   git clone https://github.com/deviandinisastro/proyeksi-nataru.git
+   cd proyeksi-nataru
+   ```
+2. Jalankan server HTTP lokal sederhana (menggunakan Python):
+   ```bash
+   python -m http.server 8888
+   ```
+3. Buka browser dan akses alamat:
+   ```text
+   http://localhost:8888
+   ```
+
+---
+
+## 8. Identitas Penyusun
+
+* **Nama:** Devi Andini Sastro  
+* **NPM:** 10123320  
+* **Program Studi:** S1 Sistem Informasi — Universitas Gunadarma  
+* **Penugasan:** Program Magang Mandiri, Tim Pengelolaan Data, Pusat Data dan Teknologi Informasi (Pusdatin), Kementerian Perhubungan RI  
+* **Mentor Pembimbing:** Hendry Setiadi (Ketua Tim Pengelolaan Data Pusdatin Kemenhub)
