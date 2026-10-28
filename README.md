@@ -85,30 +85,12 @@ $$\hat{y}_{t+h|t} = \left[ \ell_t + \sum_{i=1}^{h} \phi^i b_t \right] \times s_{
 
 ---
 
-## 7. Cara Menjalankan Secara Lokal
+## 7. Identitas Penyusun & Hak Cipta
 
-Karena dashboard ini dibangun sebagai aplikasi web statis modern tanpa ketergantungan framework berat, proyek ini dapat dijalankan langsung di komputer lokal:
-
-1. Clone repositori ini:
-   ```bash
-   git clone https://github.com/deviandinisastro/proyeksi-nataru.git
-   cd proyeksi-nataru
-   ```
-2. Jalankan server HTTP lokal sederhana (menggunakan Python):
-   ```bash
-   python -m http.server 8888
-   ```
-3. Buka browser dan akses alamat:
-   ```text
-   http://localhost:8888
-   ```
-
----
-
-## 8. Identitas Penyusun
-
-* **Nama:** Devi Andini Sastro  
-* **NPM:** 10123320  
+* **Penyusun:** Devi Andini Sastro (NPM: 10123320)  
 * **Program Studi:** S1 Sistem Informasi — Universitas Gunadarma  
 * **Penugasan:** Program Magang Mandiri, Tim Pengelolaan Data, Pusat Data dan Teknologi Informasi (Pusdatin), Kementerian Perhubungan RI  
 * **Mentor Pembimbing:** Hendry Setiadi (Ketua Tim Pengelolaan Data Pusdatin Kemenhub)
+
+> **Catatan Orisinalitas & Hak Cipta:**  
+> Proyek dan antarmuka dashboard ini dikembangkan secara mandiri oleh Devi Andini Sastro untuk keperluan pemantauan Posko Nataru di lingkungan Pusdatin Kementerian Perhubungan RI serta pemenuhan luaran magang akademis Universitas Gunadarma. Seluruh analisis, struktur penyajian data, dan kode sumber dilindungi hak cipta orisinalitas penyusun.
