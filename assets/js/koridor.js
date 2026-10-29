@@ -198,7 +198,7 @@ function renderTolChart(tolData) {
     bargap: 0.28,
     bargroupgap: 0.1,
     height: 340,
-    margin: { l: 65, r: 25, t: 30, b: 65 },
+    margin: { l: 95, r: 25, t: 30, b: 65 },
     plot_bgcolor: 'transparent',
     paper_bgcolor: 'transparent',
     font: {
@@ -223,7 +223,11 @@ function renderTolChart(tolData) {
       tickfont: { size: 11, color: isDark ? '#E2E8F0' : '#1E293B' }
     },
     yaxis: {
-      title: 'Volume Kendaraan',
+      title: {
+        text: 'Volume Kendaraan (Unit)',
+        standoff: 18
+      },
+      automargin: true,
       gridcolor: isDark ? '#334155' : '#E2E8F0',
       tickformat: ',.0f'
     }
@@ -335,7 +339,7 @@ function renderAsdpChart(asdpData) {
     barmode: 'stack',
     bargap: 0.35,
     height: 330,
-    margin: { l: 65, r: 25, t: 30, b: 65 },
+    margin: { l: 95, r: 25, t: 30, b: 65 },
     plot_bgcolor: 'transparent',
     paper_bgcolor: 'transparent',
     font: {
@@ -360,7 +364,11 @@ function renderAsdpChart(asdpData) {
       tickfont: { size: 11, color: isDark ? '#E2E8F0' : '#1E293B' }
     },
     yaxis: {
-      title: 'Total Unit Kendaraan',
+      title: {
+        text: 'Total Unit Kendaraan',
+        standoff: 18
+      },
+      automargin: true,
       gridcolor: isDark ? '#334155' : '#E2E8F0',
       tickformat: ',.0f'
     }
