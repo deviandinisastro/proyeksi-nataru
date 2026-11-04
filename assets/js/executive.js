@@ -204,7 +204,22 @@ function renderModaShareSection(makroList) {
       `;
     }).join('');
 
-    tableEl.innerHTML = rowsHtml;
+    // Baris Total Keseluruhan (Menghubungkan langsung dengan KPI Card di atas)
+    const total2025 = makroList.reduce((acc, m) => acc + (m.realisasi_2025 || 0), 0);
+    const total2026 = makroList.reduce((acc, m) => acc + (m.proyeksi_2026 || 0), 0);
+    const totalGrowth = total2025 > 0 ? ((total2026 - total2025) / total2025) * 100 : 0;
+
+    const totalRowHtml = `
+      <tr class="bg-slate-100/90 font-bold border-t-2 border-slate-300 text-slate-900">
+        <td class="py-2.5 px-3 uppercase tracking-wide text-[11px] font-extrabold text-slate-900">TOTAL KESELURUHAN</td>
+        <td class="py-2.5 px-3 text-right num-tabular text-slate-700 font-bold">${formatNumber(total2025)}</td>
+        <td class="py-2.5 px-3 text-right num-tabular text-gov-navy font-extrabold">${formatNumber(total2026)}</td>
+        <td class="py-2.5 px-3 text-right num-tabular font-bold ${totalGrowth >= 0 ? 'text-emerald-700' : 'text-rose-700'}">${formatPercent(totalGrowth)}</td>
+        <td class="py-2.5 px-3 text-right num-tabular font-extrabold text-gov-azure">100,00%</td>
+      </tr>
+    `;
+
+    tableEl.innerHTML = rowsHtml + totalRowHtml;
   }
 }
 
