@@ -2327,7 +2327,7 @@
             </div>
 
             <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/80">
-              <span class="text-[11px] font-semibold text-slate-500 dark:text-slate-400 block mb-0.5">Rata-Rata MAPE Harian (18 Hari)</span>
+              <span class="text-[11px] font-semibold text-slate-500 dark:text-slate-400 block mb-0.5">MAPE Harian Agregat Nasional</span>
               <div class="text-xl font-extrabold text-emerald-600 dark:text-emerald-400 num-tabular">
                 6,93%
                 <span class="text-[11px] font-bold px-1.5 py-0.5 rounded bg-emerald-100 dark:bg-emerald-900/60 text-emerald-800 dark:text-emerald-300 ml-1">Sangat Akurat</span>
@@ -2417,6 +2417,35 @@
                 </tr>
               </tbody>
             </table>
+          </div>
+
+          <!-- Rincian Evaluasi 2 Tingkat (Agregat Nasional vs Disagregat per Moda) -->
+          <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/80">
+            <div class="flex items-center gap-2 mb-2">
+              <i data-lucide="info" class="w-4 h-4 text-gov-azure dark:text-sky-400 shrink-0"></i>
+              <span class="text-xs font-bold text-slate-800 dark:text-slate-200">Klarifikasi Metodologi: Dua Tingkat Evaluasi MAPE pada Sains Data Transportasi</span>
+            </div>
+            <p class="text-[11px] text-slate-600 dark:text-slate-300 leading-relaxed mb-3">
+              Dalam standar sains data transportasi peramalan deret waktu, terdapat perbedaan mendasar antara <strong>MAPE Agregat Nasional</strong> (evaluasi total kurva pergerakan nasional) dengan <strong>MAPE Disagregat per Moda</strong> (evaluasi masing-masing moda secara independen):
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-[11px]">
+              <div class="p-3 bg-white dark:bg-slate-900 rounded-lg border border-slate-200 dark:border-slate-800">
+                <span class="font-bold text-gov-navy dark:text-sky-400 block mb-1">1. Tingkat Agregat Makro Nasional (6,93%):</span>
+                <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
+                  Seluruh 5 moda digabung menjadi satu deret harian nasional (18,46 juta orang). Pada tingkat makro, fluktuasi lokal saling menyeimbangkan, menghasilkan <strong>MAPE harian 6,93%</strong> dan <strong>deviasi kumulatif hanya -1,96%</strong> (akurasi 98,04%). <em>(Catatan: Pendekatan agregat deret tunggal ini identik dengan metode evaluasi holdout nasional yang digunakan dalam pemodelan Kemenhub).</em>
+                </p>
+              </div>
+              <div class="p-3 bg-white dark:bg-slate-900 rounded-lg border border-slate-200 dark:border-slate-800">
+                <span class="font-bold text-amber-700 dark:text-amber-400 block mb-1">2. Tingkat Disagregat per Moda (Rata-Rata 19,37%):</span>
+                <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
+                  Dihitung terpisah pada masing-masing moda untuk menguji ketahanan sektor riil:
+                  <br>&bull; <strong>Udara:</strong> 7,63% (Sangat Akurat)
+                  <br>&bull; <strong>Kereta Api:</strong> 11,01% (Terkendali Kuota Tiket)
+                  <br>&bull; <strong>Angkutan Jalan (Bus):</strong> 19,21% (Baik)
+                  <br>&bull; <strong>Penyeberangan (ASDP):</strong> 25,81% &amp; <strong>Laut:</strong> 33,19% (Terdampak cuaca ekstrem BMKG)
+                </p>
+              </div>
+            </div>
           </div>
         </div>
 
