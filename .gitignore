@@ -1,0 +1,22 @@
+# Scratch scripts & temporary audits
+scripts/check_*
+scripts/find_*
+scripts/inspect_*
+scripts/read_*
+scripts/parse_*
+scripts/fix_*
+scripts/update_*
+scripts/compute_*
+scripts/insert_*
+scripts/remove_*
+scripts/expand_*
+scripts/search_*
+
+# Python cache & IDE
+__pycache__/
+*.py[cod]
+*$py.class
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

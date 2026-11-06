@@ -56,8 +56,8 @@ Aplikasi dikemas dalam arsitektur *Single Page Application* (SPA) dengan 6 modul
 
 * **Modul 1: Ikhtisar Proyeksi Posko** — Ringkasan indikator makro nasional, kartu metrik 5 moda, kalender 18 hari pemantauan, serta indikator titik kritis tol dan ASDP.
 * **Modul 2: Tren Harian Proyeksi** — Visualisasi kurva deret waktu 18 hari komparasi 3 tahun (2024, 2025, dan 2026) dengan filter moda dan pemilahan metrik *Penumpang vs Sarana*.
-* **Modul 3: Direktori Simpul Multimoda** — Visualisasi peringkat 10 simpul terpadat per moda serta tabel direktori pencarian 909 simpul pantau terverifikasi lengkap dengan fitur *live search* dan *pagination*.
-* **Modul 4: Peta Spasial Proyeksi (Web GIS)** — Pemetaan geografis 909 simpul se-Indonesia berbasis Leaflet.js, dilengkapi visualisasi *Heatmap* Kepadatan Spasial dan filter antarmoda.
+* **Modul 3: Direktori Simpul Multimoda** — Visualisasi peringkat 10 simpul terpadat per moda serta tabel direktori pencarian 1.212 simpul pantau terverifikasi lengkap dengan fitur *live search* dan *pagination*.
+* **Modul 4: Peta Spasial Proyeksi (Web GIS)** — Pemetaan geografis 1.212 simpul se-Indonesia berbasis Leaflet.js, dilengkapi visualisasi *Heatmap* Kepadatan Spasial dan filter antarmoda.
 * **Modul 5: Titik Kritis Tol & ASDP** — Monitoring pergerakan kendaraan keluar/masuk 4 gerbang tol barrier utama serta detail volume, golongan kendaraan, dan alur penyeberangan feri Merak–Bakauheni dan Ketapang–Gilimanuk.
 * **Modul 6: Informasi Sistem & Kamus Rumus** — Dokumentasi transparansi perhitungan matematis ($P_{\text{total}}$, $\bar{P}_{\text{harian}}$, *Modal Share*, YoY, *Surge Ratio*), matriks 12 indikator komparasi multimoda, serta kamus istilah resmi transportasi Kemenhub.
 

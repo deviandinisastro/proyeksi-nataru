@@ -127,12 +127,12 @@ const MATRIKS_INDIKATOR_DATA = [
   {
     indikator: '12. Simpul Terpadat & Jalur Pantau Utama',
     satuan: 'lokasi',
-    jalan: 'Term. Purboyo (Madiun)',
+    jalan: 'Term. Purabaya (Surabaya)',
     ka: 'St. Pasar Senen (Jakarta)',
     udara: 'Bandara Soetta (CGK)',
     asdp: 'Pel. Merak (Banten)',
-    laut: 'Tanjung Perak (Surabaya)',
-    total: '909 Simpul'
+    laut: 'Pel. Batam (Kep. Riau)',
+    total: '1.212 Simpul'
   }
 ];
 

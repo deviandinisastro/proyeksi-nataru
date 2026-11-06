@@ -1,6 +1,6 @@
 /**
  * ==============================================================================
- * SIMPUL.JS: MODUL 3 - DIREKTORI & PERINGKAT 909 SIMPUL PANTAU NASIONAL
+ * SIMPUL.JS: MODUL 3 - DIREKTORI & PERINGKAT 1.212 SIMPUL PANTAU NASIONAL
  * Sistem Penunjang Keputusan (DSS) Nataru 2026/2027 - Pusdatin Kemenhub
  * ==============================================================================
  * Prinsip DSS:
@@ -18,11 +18,11 @@ let simpulState = {
 };
 
 const SIMPUL_MODA_LIST = [
-  { key: 'Angkutan Udara', label: '✈️ Angkutan Udara (213 Bandara)', color: '#0284C7', count: 213, unit: 'Bandara' },
-  { key: 'Angkutan Jalan', label: '🚌 Angkutan Jalan (157 Terminal)', color: '#16A34A', count: 157, unit: 'Terminal Bus' },
-  { key: 'Angkutan Laut', label: '🚢 Angkutan Laut (201 Pelabuhan)', color: '#1E40AF', count: 201, unit: 'Pelabuhan Laut' },
-  { key: 'Kereta Api', label: '🚆 Kereta Api (183 Stasiun Antarkota)', color: '#EA580C', count: 183, unit: 'Stasiun KA' },
-  { key: 'Angkutan SDP', label: '⛴️ Angkutan SDP (155 Lintas/Pelabuhan)', color: '#9333EA', count: 155, unit: 'Penyeberangan SDP' }
+  { key: 'Angkutan Udara', label: '✈️ Angkutan Udara (257 Bandara)', color: '#0284C7', count: 257, unit: 'Bandara' },
+  { key: 'Angkutan Jalan', label: '🚌 Angkutan Jalan (215 Terminal)', color: '#16A34A', count: 215, unit: 'Terminal Bus' },
+  { key: 'Angkutan Laut', label: '🚢 Angkutan Laut (267 Pelabuhan)', color: '#1E40AF', count: 267, unit: 'Pelabuhan Laut' },
+  { key: 'Kereta Api', label: '🚆 Kereta Api (197 Stasiun Antarkota)', color: '#EA580C', count: 197, unit: 'Stasiun KA' },
+  { key: 'Angkutan SDP', label: '⛴️ Angkutan SDP (276 Lintas/Pelabuhan)', color: '#9333EA', count: 276, unit: 'Penyeberangan SDP' }
 ];
 
 function renderSimpulModule() {
