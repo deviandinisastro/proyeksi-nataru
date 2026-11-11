@@ -305,10 +305,8 @@ function renderAsdpChart(asdpData) {
   const mobil = asdpData.map(d => d.proyeksi_mobil_r4 || 0);
   const truk = asdpData.map(d => d.proyeksi_truk_sumbu3 || 0);
 
-  // Hitung batas atas y-axis dengan headroom ~20% agar label angka di atas batang tertinggi tidak pernah terpotong
-  const allValues = [...motor, ...mobil, ...truk];
-  const maxVal = Math.max(...allValues, 10000);
-  const yUpper = Math.ceil((maxVal * 1.20) / 50000) * 50000;
+  // Sumbu-Y presisi: batas tick maksimal 400.000 (angka 500.000 dihilangkan)
+  // Range diberikan ruang hingga 425.000 agar label angka 397.953 tetap utuh & proporsional
 
   const traceR4 = {
     x: names,
@@ -364,8 +362,8 @@ function renderAsdpChart(asdpData) {
     barmode: 'group',
     bargap: 0.28,
     bargroupgap: 0.08,
-    height: 310,
-    margin: { l: 80, r: 25, t: 40, b: 35 },
+    height: 380,
+    margin: { l: 80, r: 25, t: 45, b: 35 },
     plot_bgcolor: 'transparent',
     paper_bgcolor: 'transparent',
     font: {
@@ -394,10 +392,12 @@ function renderAsdpChart(asdpData) {
         text: 'Volume Kendaraan (Unit)',
         standoff: 16
       },
-      range: [0, yUpper],
+      range: [0, 425000],
+      tickmode: 'array',
+      tickvals: [0, 100000, 200000, 300000, 400000],
+      ticktext: ['0', '100,000', '200,000', '300,000', '400,000'],
       automargin: true,
-      gridcolor: isDark ? '#334155' : '#E2E8F0',
-      tickformat: ',.0f'
+      gridcolor: isDark ? '#334155' : '#E2E8F0'
     }
   };
 

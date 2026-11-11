@@ -134,6 +134,21 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   setupSidebarNavigation();
 
+  // 1. Tentukan & aktifkan modul tab seawal mungkin dari URL Hash / LocalStorage
+  const urlHash = (window.location.hash || '').replace('#', '').trim();
+  const storedTab = localStorage.getItem('dss_active_tab');
+  let initialTab = 'executive';
+
+  if (urlHash && TAB_METADATA[urlHash]) {
+    initialTab = urlHash;
+  } else if (storedTab && TAB_METADATA[storedTab]) {
+    initialTab = storedTab;
+  }
+
+  // Tampilkan view modul ini segera agar tidak kembali ke Ikhtisar saat refresh
+  switchTab(initialTab);
+
+  // 2. Muat data JSON dan render modul aktif setelah data siap
   await loadApplicationData();
 
 });
@@ -476,18 +491,8 @@ async function loadApplicationData() {
 
     }
 
-    // Aktifkan Tab Awal: Cek URL Hash terlebih dahulu, jika kosong cek LocalStorage, fallback ke 'executive'
-    const urlHash = (window.location.hash || '').replace('#', '').trim();
-    const storedTab = localStorage.getItem('dss_active_tab');
-    let initialTab = 'executive';
-
-    if (urlHash && TAB_METADATA[urlHash]) {
-      initialTab = urlHash;
-    } else if (storedTab && TAB_METADATA[storedTab]) {
-      initialTab = storedTab;
-    }
-
-    switchTab(initialTab);
+    // Render modul aktif setelah data selesai dimuat
+    switchTab(window.DSS_STATE.currentTab);
 
   } catch (err) {
 
@@ -592,11 +597,7 @@ function switchTab(tabId) {
     localStorage.setItem('dss_active_tab', tabId);
     const targetHash = '#' + tabId;
     if (window.location.hash !== targetHash) {
-      if (window.history && window.history.replaceState) {
-        window.history.replaceState(null, '', targetHash);
-      } else {
-        window.location.hash = targetHash;
-      }
+      window.location.hash = targetHash;
     }
   } catch (e) {
     console.warn('Tab persistence warning:', e);
