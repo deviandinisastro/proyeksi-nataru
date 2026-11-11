@@ -82,7 +82,9 @@
 
   <!-- Plotly.js CDN -->
 
-  <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+  <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+  <!-- Apache ECharts CDN (Animasi Halus & Kurva Spline Modern) -->
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
 
   <!-- Leaflet.js GIS CDN & Leaflet Heatmap -->
 
@@ -420,7 +422,7 @@
 
         <!-- Baris 2: Pangsa Pasar Moda & Kalender Early Warning -->
 
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
 
           <!-- Kolom Kiri: Donut Chart & Tabel Pangsa Moda (5 Cols) -->
 
@@ -554,7 +556,7 @@
 
             <!-- Scrollable Early Warning Table: Panjang Sejajar dengan Baris ASDP Pangsa Moda -->
 
-            <div class="flex-1 min-h-0 overflow-y-auto border border-slate-100 dark:border-slate-800 rounded-lg max-h-[565px]">
+            <div class="flex-1 min-h-[525px] overflow-y-auto border border-slate-200/80 dark:border-slate-800 rounded-xl shadow-2xs">
 
               <table class="w-full text-left text-xs border-collapse">
 

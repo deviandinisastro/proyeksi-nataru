@@ -154,6 +154,143 @@ function renderHarianPlotlyChart(records) {
 
   const unitLabel = harianState.metric === 'penumpang' ? 'orang' : 'unit kendaraan';
 
+  // Opsi Utama: Apache ECharts (Kurva Spline Halus, Animasi Fisika, dan Tooltip Modern)
+  if (window.echarts) {
+    if (chartEl._plotly) {
+      Plotly.purge(chartEl);
+    }
+    let echartsInstance = echarts.getInstanceByDom(chartEl);
+    if (!echartsInstance) {
+      echartsInstance = echarts.init(chartEl);
+      window.addEventListener('resize', () => echartsInstance && echartsInstance.resize());
+    }
+
+    const textColor = isDark ? '#CBD5E1' : '#334155';
+    const gridColor = isDark ? 'rgba(148, 163, 184, 0.14)' : 'rgba(148, 163, 184, 0.22)';
+
+    const option = {
+      backgroundColor: 'transparent',
+      animationDuration: 1000,
+      animationEasing: 'cubicOut',
+      tooltip: {
+        trigger: 'axis',
+        backgroundColor: isDark ? '#0F172A' : '#FFFFFF',
+        borderColor: isDark ? '#334155' : '#CBD5E1',
+        textStyle: {
+          color: isDark ? '#F8FAFC' : '#0F172A',
+          fontSize: 12,
+          fontFamily: 'Plus Jakarta Sans, sans-serif'
+        },
+        formatter: (params) => {
+          if (!params || !params.length) return '';
+          const idx = params[0].dataIndex;
+          const r = records[idx];
+          let html = `<div style="font-weight:700;margin-bottom:6px;">${r.hari_posko} (${r.hari_pekan}) — ${harianState.mode}</div>`;
+          params.forEach((p) => {
+            html += `<div style="display:flex;justify-content:space-between;gap:16px;margin:2px 0;">
+              <span>${p.marker} ${p.seriesName}</span>
+              <span style="font-weight:700;">${Number(p.value).toLocaleString('id-ID')} ${unitLabel}</span>
+            </div>`;
+          });
+          return html;
+        }
+      },
+      legend: {
+        top: 0,
+        textStyle: {
+          color: textColor,
+          fontSize: 12,
+          fontWeight: 600,
+          fontFamily: 'Plus Jakarta Sans, sans-serif'
+        }
+      },
+      grid: { top: 55, right: 24, bottom: 42, left: 75 },
+      xAxis: {
+        type: 'category',
+        data: days,
+        axisLabel: {
+          color: textColor,
+          fontSize: 11,
+          interval: 0,
+          fontFamily: 'Plus Jakarta Sans, sans-serif'
+        },
+        axisLine: { lineStyle: { color: gridColor } }
+      },
+      yAxis: {
+        type: 'value',
+        axisLabel: {
+          color: textColor,
+          fontSize: 11,
+          fontFamily: 'Plus Jakarta Sans, sans-serif',
+          formatter: (val) => {
+            if (val >= 1000000) return (val / 1000000).toFixed(1) + ' Jt';
+            if (val >= 1000) return (val / 1000).toFixed(0) + ' Rb';
+            return val;
+          }
+        },
+        splitLine: { lineStyle: { color: gridColor, type: 'dashed' } }
+      },
+      series: [
+        {
+          name: 'Realisasi 2024',
+          type: 'line',
+          smooth: 0.35,
+          data: v2024,
+          itemStyle: { color: '#94A3B8' },
+          lineStyle: { width: 2, type: 'dotted' },
+          symbolSize: 5
+        },
+        {
+          name: 'Realisasi 2025 (Baseline)',
+          type: 'line',
+          smooth: 0.35,
+          data: v2025,
+          itemStyle: { color: isDark ? '#38BDF8' : '#0066CC' },
+          lineStyle: { width: 2.8 },
+          symbolSize: 6,
+          areaStyle: {
+            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+              { offset: 0, color: isDark ? 'rgba(56, 189, 248, 0.22)' : 'rgba(0, 102, 204, 0.16)' },
+              { offset: 1, color: isDark ? 'rgba(56, 189, 248, 0.01)' : 'rgba(0, 102, 204, 0.01)' }
+            ])
+          }
+        },
+        {
+          name: 'Proyeksi 2026 (Damped HW)',
+          type: 'line',
+          smooth: 0.35,
+          data: v2026,
+          itemStyle: { color: '#D97706' },
+          lineStyle: { width: 3.5 },
+          symbolSize: 8,
+          markPoint: {
+            symbol: 'roundRect',
+            symbolSize: [54, 22],
+            symbolOffset: [0, -18],
+            itemStyle: {
+              color: '#DC2626',
+              borderColor: '#FFFFFF',
+              borderWidth: 1.5,
+              shadowBlur: 6,
+              shadowColor: 'rgba(220, 38, 38, 0.35)'
+            },
+            data: [{ type: 'max', name: 'Puncak Tertinggi' }],
+            label: {
+              fontSize: 10,
+              fontWeight: 'bold',
+              color: '#FFFFFF',
+              fontFamily: 'Plus Jakarta Sans, sans-serif',
+              formatter: 'Puncak'
+            }
+          }
+        }
+      ]
+    };
+
+    echartsInstance.setOption(option, true);
+    return;
+  }
+
   // Trace 1: Realisasi 2024 (Slate Netral Solid - Historical Benchmark)
   const trace2024 = {
     x: days,
@@ -161,7 +298,7 @@ function renderHarianPlotlyChart(records) {
     name: 'Realisasi 2024',
     type: 'scatter',
     mode: 'lines+markers',
-    line: { color: '#94A3B8', width: 2 },
+    line: { color: '#94A3B8', width: 2, shape: 'spline', smoothing: 1.3 },
     marker: { size: 4.5, color: '#94A3B8' },
     hovertemplate: '%{y:,.0f} ' + unitLabel + '<extra>2024</extra>'
   };
@@ -173,7 +310,7 @@ function renderHarianPlotlyChart(records) {
     name: 'Realisasi 2025 (Baseline)',
     type: 'scatter',
     mode: 'lines+markers',
-    line: { color: isDark ? '#38BDF8' : '#003882', width: 2.5 },
+    line: { color: isDark ? '#38BDF8' : '#003882', width: 2.8, shape: 'spline', smoothing: 1.3 },
     marker: { size: 5, color: isDark ? '#38BDF8' : '#003882' },
     hovertemplate: '%{y:,.0f} ' + unitLabel + '<extra>2025</extra>'
   };
@@ -185,7 +322,7 @@ function renderHarianPlotlyChart(records) {
     name: 'Proyeksi 2026 (Damped HW)',
     type: 'scatter',
     mode: 'lines+markers',
-    line: { color: isDark ? '#F59E0B' : '#D97706', width: 3 },
+    line: { color: isDark ? '#F59E0B' : '#D97706', width: 3.5, shape: 'spline', smoothing: 1.3 },
     marker: { size: 6, color: isDark ? '#F59E0B' : '#D97706' },
     hovertemplate: '%{y:,.0f} ' + unitLabel + '<extra>Proyeksi 2026</extra>'
   };
