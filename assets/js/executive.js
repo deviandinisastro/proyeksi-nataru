@@ -145,122 +145,42 @@ function renderModaShareSection(makroList) {
   const values = makroList.map(m => m.proyeksi_2026);
   const colors = makroList.map(m => INA_MODA_COLORS[m.label] || INA_MODA_COLORS[m.moda] || m.color);
 
-  // Opsi Utama: Apache ECharts Donut (Animasi Halus & Radius Modern)
-  if (window.echarts) {
-    if (chartEl._plotly) {
-      Plotly.purge(chartEl);
+  // Plotly 2D Donut Chart (Standar HCI & Visualisasi Data Pemerintah)
+  const plotData = [{
+    values: values,
+    labels: labels,
+    type: 'pie',
+    hole: 0.58,
+    marker: {
+      colors: colors,
+      line: { color: isDark ? '#131D31' : '#FFFFFF', width: 2 }
+    },
+    textinfo: 'percent',
+    textposition: 'inside',
+    insidetextfont: { color: '#FFFFFF', size: 12, family: 'Plus Jakarta Sans', weight: 'bold' },
+    hoverinfo: 'label+value+percent',
+    hovertemplate: '<b>%{label}</b><br>Proyeksi: %{value:,.0f} orang<br>Pangsa: %{percent}<extra></extra>'
+  }];
+
+  const layout = {
+    showlegend: false,
+    margin: { t: 10, b: 10, l: 10, r: 10 },
+    height: 260,
+    paper_bgcolor: 'transparent',
+    plot_bgcolor: 'transparent',
+    hoverlabel: {
+      bgcolor: isDark ? '#1E293B' : '#FFFFFF',
+      bordercolor: isDark ? '#334155' : '#E2E8F0',
+      font: { family: 'Plus Jakarta Sans', size: 11, color: isDark ? '#F8FAFC' : '#0F172A' }
     }
-    let echartsDonut = echarts.getInstanceByDom(chartEl);
-    if (!echartsDonut) {
-      echartsDonut = echarts.init(chartEl);
-      window.addEventListener('resize', () => echartsDonut && echartsDonut.resize());
-    }
+  };
 
-    const donutData = makroList.map((m) => ({
-      name: m.label,
-      value: m.proyeksi_2026,
-      itemStyle: { color: INA_MODA_COLORS[m.label] || INA_MODA_COLORS[m.moda] || m.color }
-    }));
+  const config = {
+    responsive: true,
+    displayModeBar: false
+  };
 
-    const donutOption = {
-      backgroundColor: 'transparent',
-      animationDuration: 1000,
-      animationEasing: 'cubicOut',
-      tooltip: {
-        trigger: 'item',
-        backgroundColor: isDark ? '#0F172A' : '#FFFFFF',
-        borderColor: isDark ? '#334155' : '#CBD5E1',
-        textStyle: {
-          color: isDark ? '#F8FAFC' : '#0F172A',
-          fontSize: 12,
-          fontFamily: 'Plus Jakarta Sans, sans-serif'
-        },
-        formatter: (params) => {
-          return `<div style="font-weight:700;margin-bottom:3px;">${params.marker} ${params.name}</div>
-            <div style="display:flex;justify-content:space-between;gap:12px;">
-              <span>Proyeksi:</span>
-              <span style="font-weight:700;">${Number(params.value).toLocaleString('id-ID')} orang</span>
-            </div>
-            <div style="display:flex;justify-content:space-between;gap:12px;">
-              <span>Pangsa:</span>
-              <span style="font-weight:700;color:#0284C7;">${params.percent}%</span>
-            </div>`;
-        }
-      },
-      series: [
-        {
-          name: 'Pangsa Moda 2026',
-          type: 'pie',
-          radius: ['45%', '72%'],
-          center: ['50%', '50%'],
-          avoidLabelOverlap: false,
-          itemStyle: {
-            borderRadius: 7,
-            borderColor: isDark ? '#131D31' : '#FFFFFF',
-            borderWidth: 2.5
-          },
-          label: {
-            show: true,
-            position: 'inside',
-            formatter: '{d}%',
-            fontSize: 11,
-            fontWeight: 'bold',
-            color: '#FFFFFF',
-            fontFamily: 'Plus Jakarta Sans, sans-serif'
-          },
-          emphasis: {
-            scale: true,
-            scaleSize: 6,
-            label: {
-              show: true,
-              fontSize: 12,
-              fontWeight: 'bold'
-            }
-          },
-          data: donutData
-        }
-      ]
-    };
-
-    echartsDonut.setOption(donutOption, true);
-  } else {
-    // Fallback ke Plotly
-    const plotData = [{
-      values: values,
-      labels: labels,
-      type: 'pie',
-      hole: 0.58,
-      marker: {
-        colors: colors,
-        line: { color: isDark ? '#131D31' : '#FFFFFF', width: 2 }
-      },
-      textinfo: 'percent',
-      textposition: 'inside',
-      insidetextfont: { color: '#FFFFFF', size: 12, family: 'Plus Jakarta Sans', weight: 'bold' },
-      hoverinfo: 'label+value+percent',
-      hovertemplate: '<b>%{label}</b><br>Proyeksi: %{value:,.0f} orang<br>Pangsa: %{percent}<extra></extra>'
-    }];
-
-    const layout = {
-      showlegend: false,
-      margin: { t: 10, b: 10, l: 10, r: 10 },
-      height: 260,
-      paper_bgcolor: 'transparent',
-      plot_bgcolor: 'transparent',
-      hoverlabel: {
-        bgcolor: isDark ? '#1E293B' : '#FFFFFF',
-        bordercolor: isDark ? '#334155' : '#E2E8F0',
-        font: { family: 'Plus Jakarta Sans', size: 11, color: isDark ? '#F8FAFC' : '#0F172A' }
-      }
-    };
-
-    const config = {
-      responsive: true,
-      displayModeBar: false
-    };
-
-    Plotly.newPlot(chartEl, plotData, layout, config);
-  }
+  Plotly.newPlot(chartEl, plotData, layout, config);
 
   // Tabel Rincian Pangsa Moda
   if (tableEl) {
