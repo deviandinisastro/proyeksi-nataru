@@ -335,11 +335,26 @@ function renderAsdpChart(asdpData) {
     hovertemplate: '<b>%{customdata}</b><br><span style="color:#ffffff;">Truk Logistik: %{y:,.0f} Unit</span><extra></extra>'
   };
 
+  // Label angka di atas batang bar agar langsung terbaca tanpa perlu mengira-ngira
+  traceR4.text = mobil.map(v => v > 0 ? formatNumber(v) : '');
+  traceR4.textposition = 'outside';
+  traceR4.textfont = { family: 'Plus Jakarta Sans', size: 10, color: isDark ? '#CBD5E1' : '#475569' };
+
+  traceR2.text = motor.map(v => v > 0 ? formatNumber(v) : '');
+  traceR2.textposition = 'outside';
+  traceR2.textfont = { family: 'Plus Jakarta Sans', size: 10, color: isDark ? '#CBD5E1' : '#475569' };
+
+  traceTruk.text = truk.map(v => v > 0 ? formatNumber(v) : '');
+  traceTruk.textposition = 'outside';
+  traceTruk.textfont = { family: 'Plus Jakarta Sans', size: 10, color: isDark ? '#CBD5E1' : '#475569' };
+
+  // Grouped Bar Chart: 3 Batang Terpisah Berdampingan (Mobil R4, Motor R2, Truk)
   const layout = {
-    barmode: 'stack',
-    bargap: 0.35,
-    height: 330,
-    margin: { l: 95, r: 25, t: 30, b: 65 },
+    barmode: 'group',
+    bargap: 0.28,
+    bargroupgap: 0.08,
+    height: 350,
+    margin: { l: 80, r: 25, t: 30, b: 65 },
     plot_bgcolor: 'transparent',
     paper_bgcolor: 'transparent',
     font: {
@@ -361,12 +376,12 @@ function renderAsdpChart(asdpData) {
     },
     xaxis: {
       showgrid: false,
-      tickfont: { size: 11, color: isDark ? '#E2E8F0' : '#1E293B' }
+      tickfont: { size: 11, color: isDark ? '#E2E8F0' : '#1E293B', weight: 'bold' }
     },
     yaxis: {
       title: {
-        text: 'Total Unit Kendaraan',
-        standoff: 18
+        text: 'Volume Kendaraan (Unit)',
+        standoff: 16
       },
       automargin: true,
       gridcolor: isDark ? '#334155' : '#E2E8F0',
