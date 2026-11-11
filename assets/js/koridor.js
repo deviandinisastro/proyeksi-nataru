@@ -305,6 +305,11 @@ function renderAsdpChart(asdpData) {
   const mobil = asdpData.map(d => d.proyeksi_mobil_r4 || 0);
   const truk = asdpData.map(d => d.proyeksi_truk_sumbu3 || 0);
 
+  // Hitung batas atas y-axis dengan headroom ~20% agar label angka di atas batang tertinggi tidak pernah terpotong
+  const allValues = [...motor, ...mobil, ...truk];
+  const maxVal = Math.max(...allValues, 10000);
+  const yUpper = Math.ceil((maxVal * 1.20) / 50000) * 50000;
+
   const traceR4 = {
     x: names,
     y: mobil,
@@ -312,6 +317,7 @@ function renderAsdpChart(asdpData) {
     type: 'bar',
     marker: { color: '#0284C7' },
     customdata: cleanNames,
+    cliponaxis: false,
     hovertemplate: '<b>%{customdata}</b><br><span style="color:#ffffff;">Mobil Pribadi (R4): %{y:,.0f} Unit</span><extra></extra>'
   };
 
@@ -322,6 +328,7 @@ function renderAsdpChart(asdpData) {
     type: 'bar',
     marker: { color: '#F59E0B' },
     customdata: cleanNames,
+    cliponaxis: false,
     hovertemplate: '<b>%{customdata}</b><br><span style="color:#ffffff;">Sepeda Motor (R2): %{y:,.0f} Unit</span><extra></extra>'
   };
 
@@ -332,20 +339,24 @@ function renderAsdpChart(asdpData) {
     type: 'bar',
     marker: { color: '#7C3AED' },
     customdata: cleanNames,
+    cliponaxis: false,
     hovertemplate: '<b>%{customdata}</b><br><span style="color:#ffffff;">Truk Logistik: %{y:,.0f} Unit</span><extra></extra>'
   };
 
   // Label angka di atas batang bar agar langsung terbaca tanpa perlu mengira-ngira
   traceR4.text = mobil.map(v => v > 0 ? formatNumber(v) : '');
   traceR4.textposition = 'outside';
+  traceR4.cliponaxis = false;
   traceR4.textfont = { family: 'Plus Jakarta Sans', size: 10, color: isDark ? '#CBD5E1' : '#475569' };
 
   traceR2.text = motor.map(v => v > 0 ? formatNumber(v) : '');
   traceR2.textposition = 'outside';
+  traceR2.cliponaxis = false;
   traceR2.textfont = { family: 'Plus Jakarta Sans', size: 10, color: isDark ? '#CBD5E1' : '#475569' };
 
   traceTruk.text = truk.map(v => v > 0 ? formatNumber(v) : '');
   traceTruk.textposition = 'outside';
+  traceTruk.cliponaxis = false;
   traceTruk.textfont = { family: 'Plus Jakarta Sans', size: 10, color: isDark ? '#CBD5E1' : '#475569' };
 
   // Grouped Bar Chart: 3 Batang Terpisah Berdampingan (Mobil R4, Motor R2, Truk)
@@ -353,8 +364,8 @@ function renderAsdpChart(asdpData) {
     barmode: 'group',
     bargap: 0.28,
     bargroupgap: 0.08,
-    height: 350,
-    margin: { l: 80, r: 25, t: 30, b: 65 },
+    height: 310,
+    margin: { l: 80, r: 25, t: 40, b: 35 },
     plot_bgcolor: 'transparent',
     paper_bgcolor: 'transparent',
     font: {
@@ -383,6 +394,7 @@ function renderAsdpChart(asdpData) {
         text: 'Volume Kendaraan (Unit)',
         standoff: 16
       },
+      range: [0, yUpper],
       automargin: true,
       gridcolor: isDark ? '#334155' : '#E2E8F0',
       tickformat: ',.0f'

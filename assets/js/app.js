@@ -476,9 +476,18 @@ async function loadApplicationData() {
 
     }
 
-    // Aktifkan Tab Awal
+    // Aktifkan Tab Awal: Cek URL Hash terlebih dahulu, jika kosong cek LocalStorage, fallback ke 'executive'
+    const urlHash = (window.location.hash || '').replace('#', '').trim();
+    const storedTab = localStorage.getItem('dss_active_tab');
+    let initialTab = 'executive';
 
-    switchTab('executive');
+    if (urlHash && TAB_METADATA[urlHash]) {
+      initialTab = urlHash;
+    } else if (storedTab && TAB_METADATA[storedTab]) {
+      initialTab = storedTab;
+    }
+
+    switchTab(initialTab);
 
   } catch (err) {
 
@@ -556,6 +565,14 @@ function setupSidebarNavigation() {
 
   }
 
+  // Sinkronisasi navigasi tombol Back/Forward browser via hashchange
+  window.addEventListener('hashchange', () => {
+    const curHash = (window.location.hash || '').replace('#', '').trim();
+    if (curHash && TAB_METADATA[curHash] && curHash !== window.DSS_STATE.currentTab) {
+      switchTab(curHash);
+    }
+  });
+
 }
 
 /**
@@ -569,6 +586,21 @@ function switchTab(tabId) {
   if (!TAB_METADATA[tabId]) return;
 
   window.DSS_STATE.currentTab = tabId;
+
+  // Persistensi URL Hash & LocalStorage agar saat F5/refresh tetap di halaman yang sama
+  try {
+    localStorage.setItem('dss_active_tab', tabId);
+    const targetHash = '#' + tabId;
+    if (window.location.hash !== targetHash) {
+      if (window.history && window.history.replaceState) {
+        window.history.replaceState(null, '', targetHash);
+      } else {
+        window.location.hash = targetHash;
+      }
+    }
+  } catch (e) {
+    console.warn('Tab persistence warning:', e);
+  }
 
   // 1. Update State Tombol Sidebar
 
