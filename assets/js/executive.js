@@ -42,6 +42,12 @@ function renderExecutiveModule() {
   }
 
   executiveRendered = true;
+
+  // Sinkronisasi tinggi tabel kalender agar sejajar presisi dengan TOTAL KESELURUHAN
+  syncCalendarTableHeight();
+  requestAnimationFrame(syncCalendarTableHeight);
+  setTimeout(syncCalendarTableHeight, 150);
+  setTimeout(syncCalendarTableHeight, 500);
 }
 
 /**
@@ -180,7 +186,9 @@ function renderModaShareSection(makroList) {
     displayModeBar: false
   };
 
-  Plotly.newPlot(chartEl, plotData, layout, config);
+  Plotly.newPlot(chartEl, plotData, layout, config).then(() => {
+    syncCalendarTableHeight();
+  });
 
   // Tabel Rincian Pangsa Moda
   if (tableEl) {
@@ -429,3 +437,53 @@ function renderCriticalInfrastructureSection(tolList, asdpList) {
   }
 }
 
+
+
+/**
+ * 5. Sinkronisasi Tinggi Tabel Kalender agar Sejajar Presisi dengan Baris TOTAL KESELURUHAN
+ */
+function syncCalendarTableHeight() {
+  const tableContainer = document.getElementById('container-early-warning');
+  const tableModa = document.getElementById('table-moda-share');
+  if (!tableContainer || !tableModa) return;
+
+  // Di layar mobile/tablet (< 1024px), jangan force sync
+  if (window.innerWidth < 1024) {
+    tableContainer.style.height = '480px';
+    tableContainer.style.maxHeight = '480px';
+    return;
+  }
+
+  // Cari baris terakhir di tabel pangsa moda (TOTAL KESELURUHAN)
+  const totalRow = tableModa.querySelector('tr:last-child');
+  if (!totalRow) return;
+
+  const totalRect = totalRow.getBoundingClientRect();
+  const containerRect = tableContainer.getBoundingClientRect();
+
+  // Hitung target height: dari bagian atas container kalender sampai garis bawah baris TOTAL KESELURUHAN
+  const targetHeight = Math.round(totalRect.bottom - containerRect.top);
+
+  // Jika target height valid (antara 280px s/d 800px)
+  if (targetHeight >= 280 && targetHeight <= 800) {
+    tableContainer.style.height = targetHeight + 'px';
+    tableContainer.style.maxHeight = targetHeight + 'px';
+  }
+}
+
+// Pasang event listener resize agar selalu presisi di berbagai ukuran layar / zoom
+window.addEventListener('resize', () => {
+  syncCalendarTableHeight();
+});
+
+// ResizeObserver untuk mendeteksi perubahan ukuran kartu kiri atau font loading
+if (typeof ResizeObserver !== 'undefined') {
+  window.addEventListener('DOMContentLoaded', () => {
+    const leftCard = document.querySelector('.lg\\:col-span-5');
+    if (leftCard) {
+      new ResizeObserver(() => {
+        syncCalendarTableHeight();
+      }).observe(leftCard);
+    }
+  });
+}
