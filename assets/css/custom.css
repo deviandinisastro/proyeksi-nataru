@@ -884,3 +884,93 @@ html.dark .bg-slate-200 {
     border: 1px solid #CBD5E1 !important;
   }
 }
+
+
+/* ==============================================================================
+   MODERN SOFT UI ENHANCEMENTS (Inspirasi UI Modern Next.js / INA Digital)
+   ============================================================================== */
+
+/* 1. Typography & Rendering Lembut */
+body, table, input, select, button {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 2. Kartu Empuk & Soft (Rounded 16px & Subtle Border) */
+#main-content .bg-white,
+#main-content .rounded-xl {
+  border-radius: 1rem !important; /* 16px */
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+/* Light mode card border & soft shadow */
+#main-content .bg-white {
+  border-color: rgba(226, 232, 240, 0.85) !important;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.04), 0 1px 2px -1px rgba(0, 0, 0, 0.02) !important;
+}
+
+/* Dark mode card surface & border */
+html.dark #main-content .bg-white {
+  background-color: #0F172A !important;
+  border-color: rgba(30, 41, 59, 0.85) !important;
+  box-shadow: 0 4px 14px -2px rgba(0, 0, 0, 0.35) !important;
+}
+
+/* Card hover lift effect */
+#main-content .hover\:border-gov-azure\/40:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px -5px rgba(0, 56, 130, 0.12), 0 8px 10px -6px rgba(0, 56, 130, 0.08) !important;
+}
+
+html.dark #main-content .hover\:border-gov-azure\/40:hover {
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* 3. Tombol & Kontrol Halus */
+button {
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+button:active {
+  transform: scale(0.97);
+}
+
+/* 4. Tabel Bersih & Hover Lembut */
+table thead th {
+  letter-spacing: 0.03em;
+  font-weight: 700 !important;
+}
+
+table tbody tr {
+  transition: background-color 0.15s ease !important;
+}
+
+/* 5. Banner Eksekutif Gradien Mewah */
+.bg-gradient-to-r.from-gov-navy {
+  background: linear-gradient(135deg, #002554 0%, #003882 55%, #0066CC 100%) !important;
+  border-radius: 1rem !important;
+}
+
+/* 6. Scrollbar Halus & Empuk */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.4);
+  border-radius: 9999px;
+}
+
+html.dark ::-webkit-scrollbar-thumb {
+  background: rgba(100, 116, 139, 0.45);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(100, 116, 139, 0.7);
+}
