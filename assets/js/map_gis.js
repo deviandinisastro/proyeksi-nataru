@@ -28,12 +28,12 @@ const UNIFORM_RADIUS = 4.2; // Ukuran titik sama rata sesuai arahan statistisi r
 const INDONESIA_BOUNDS = [[-10.8, 95.0], [5.8, 141.0]]; // Batas koordinat seluruh kepulauan Indonesia
 
 const MAP_MODA_CONFIG = [
-  { key: 'ALL', label: 'Semua Moda (1.212)', moda_name: 'Multimoda', color: '#003882', makro_total: 18462913 },
-  { key: 'Angkutan Udara', label: '✈️ Bandara (257)', moda_name: 'Angkutan Udara', color: '#0284C7', makro_total: 4880174 },
-  { key: 'Kereta Api', label: '🚆 Stasiun KA (197)', moda_name: 'Kereta Api', color: '#EA580C', makro_total: 4062995 },
-  { key: 'Angkutan Laut', label: '🚢 Pelabuhan Laut (267)', moda_name: 'Angkutan Laut', color: '#0D9488', makro_total: 2268857 },
-  { key: 'Angkutan Jalan', label: '🚌 Terminal Bus (215)', moda_name: 'Angkutan Jalan', color: '#16A34A', makro_total: 3434854 },
-  { key: 'Angkutan SDP', label: '⛴️ Penyeberangan (276)', moda_name: 'Angkutan SDP', color: '#9333EA', makro_total: 3816033 }
+  { key: 'ALL', label: 'Semua Moda (1.212)', moda_name: 'Multimoda', unit_name: 'Nasional', color: '#003882', makro_total: 18462913 },
+  { key: 'Angkutan Udara', label: '✈️ Bandara (257)', moda_name: 'Angkutan Udara', unit_name: 'Bandara', color: '#0284C7', makro_total: 4880174 },
+  { key: 'Kereta Api', label: '🚆 Stasiun KA (197)', moda_name: 'Kereta Api', unit_name: 'Stasiun KA', color: '#EA580C', makro_total: 4062995 },
+  { key: 'Angkutan Laut', label: '🚢 Pelabuhan Laut (267)', moda_name: 'Angkutan Laut', unit_name: 'Pelabuhan Laut', color: '#0D9488', makro_total: 2268857 },
+  { key: 'Angkutan Jalan', label: '🚌 Terminal Bus (215)', moda_name: 'Angkutan Jalan', unit_name: 'Terminal Bus', color: '#16A34A', makro_total: 3434854 },
+  { key: 'Angkutan SDP', label: '⛴️ Penyeberangan (276)', moda_name: 'Angkutan SDP', unit_name: 'Pelabuhan SDP', color: '#9333EA', makro_total: 3816033 }
 ];
 
 function renderMapModule() {
@@ -302,26 +302,39 @@ function refreshMapLayers() {
 
   const allNodes = window.DSS_STATE.spatialNodes;
   const filteredNodes = currentMapModa === 'ALL'
-    ? allNodes
+    ? [...allNodes]
     : allNodes.filter(n => n.moda === currentMapModa);
+
+  // Pastikan simpul diurutkan berdasarkan proyeksi volume 2026 tertinggi
+  filteredNodes.sort((a, b) => (b.proyeksi_2026 || 0) - (a.proyeksi_2026 || 0));
+
+  // Tetapkan Peringkat Dinamis Sesuai Filter Aktif yang Dipilih User
+  const currentModaCfg = MAP_MODA_CONFIG.find(m => m.key === currentMapModa) || MAP_MODA_CONFIG[0];
+  const isAll = currentMapModa === 'ALL';
+  const unitLabel = isAll ? 'Nasional' : (currentModaCfg.unit_name || currentModaCfg.moda_name);
+
+  filteredNodes.forEach((node, idx) => {
+    node.dynamic_rank = idx + 1;
+    node.dynamic_unit = unitLabel;
+    node.dynamic_total = filteredNodes.length;
+  });
 
   // 1. Info Teks di Atas Peta: Menampilkan Angka Proyeksi Resmi Posko (100% Selaras dengan Modul Lain)
   const countEl = document.getElementById('gis-nodes-count');
   const volEl = document.getElementById('gis-nodes-volume');
 
-  const currentModaCfg = MAP_MODA_CONFIG.find(m => m.key === currentMapModa) || MAP_MODA_CONFIG[0];
   const officialProj = currentModaCfg.makro_total || 18462913;
 
   if (countEl) {
-    if (currentMapModa === 'ALL') {
+    if (isAll) {
       countEl.innerText = `${filteredNodes.length} Simpul Multimoda Terpetakan`;
     } else {
-      countEl.innerText = `${filteredNodes.length} Simpul ${currentModaCfg.moda_name} Terpetakan`;
+      countEl.innerText = `${filteredNodes.length} ${currentModaCfg.unit_name || currentModaCfg.moda_name} Terpetakan`;
     }
   }
 
   if (volEl) {
-    if (currentMapModa === 'ALL') {
+    if (isAll) {
       volEl.innerHTML = `
         <span class="text-xs font-semibold text-slate-500 dark:text-slate-400">Total Proyeksi Nasional:</span>
         <span class="text-gov-navy dark:text-sky-400 font-extrabold text-sm ml-1.5">${formatNumber(officialProj)} Orang</span>
@@ -389,8 +402,13 @@ function renderEqualMarkers(nodes) {
 
   if (!showMarkers) return;
 
+  const currentModaCfg = MAP_MODA_CONFIG.find(m => m.key === currentMapModa) || MAP_MODA_CONFIG[0];
+  const isAll = currentMapModa === 'ALL';
+  const unitLabel = isAll ? 'Nasional' : (currentModaCfg.unit_name || currentModaCfg.moda_name);
+
   nodes.forEach(node => {
-    const isTop10 = (node.peringkat_nasional || 999) <= 10;
+    const rank = node.dynamic_rank || 1;
+    const isTop10 = rank <= 10;
     const vol = node.proyeksi_2026 || 0;
 
     // Titik lingkaran dengan UKURAN SAMA RATA (UNIFORM RADIUS: 4.2px)
@@ -412,9 +430,19 @@ function renderEqualMarkers(nodes) {
       this.setStyle({ radius: UNIFORM_RADIUS, weight: isTop10 ? 1.8 : 1.1, fillOpacity: 0.95 });
     });
 
-    const rankBadge = isTop10
-      ? `<span class="px-1.5 py-0.5 rounded text-[10px] font-bold bg-amber-100 text-amber-900 border border-amber-300 dark:bg-amber-900/40 dark:text-amber-300">Top 10 Nasional</span>`
-      : `<span class="px-1.5 py-0.5 rounded text-[10px] font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Peringkat #${node.peringkat_nasional || '-'}</span>`;
+    // Badge Peringkat Dinamis Sesuai Filter Moda yang Sedang Dipilih
+    let rankBadge = '';
+    if (rank === 1) {
+      rankBadge = `<span class="px-2 py-0.5 rounded text-[10px] font-extrabold bg-amber-500 text-white shadow-xs">#1 ${unitLabel}</span>`;
+    } else if (rank === 2) {
+      rankBadge = `<span class="px-2 py-0.5 rounded text-[10px] font-extrabold bg-slate-400 text-white shadow-xs">#2 ${unitLabel}</span>`;
+    } else if (rank === 3) {
+      rankBadge = `<span class="px-2 py-0.5 rounded text-[10px] font-extrabold bg-amber-700 text-white shadow-xs">#3 ${unitLabel}</span>`;
+    } else if (rank <= 10) {
+      rankBadge = `<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-amber-50 dark:bg-amber-900/40 text-amber-800 dark:text-amber-300 border border-amber-300 dark:border-amber-700">Top 10 ${unitLabel} (#${rank})</span>`;
+    } else {
+      rankBadge = `<span class="px-2 py-0.5 rounded text-[10px] font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">Peringkat #${rank} ${unitLabel}</span>`;
+    }
 
     const yoy = node.pertumbuhan_pct != null ? node.pertumbuhan_pct : 0;
     let yoyBadge = '';
@@ -484,13 +512,17 @@ function renderSpatialTable(nodes) {
   const counterEl = document.getElementById('gis-table-counter');
   if (!tbody) return;
 
+  const currentModaCfg = MAP_MODA_CONFIG.find(m => m.key === currentMapModa) || MAP_MODA_CONFIG[0];
+  const isAll = currentMapModa === 'ALL';
+  const unitLabel = isAll ? 'Simpul' : (currentModaCfg.unit_name || 'Simpul');
+
   const q = spatialSearchQuery.trim().toLowerCase();
   const displayNodes = q
     ? nodes.filter(n => (n.nama || '').toLowerCase().includes(q) || (n.provinsi || '').toLowerCase().includes(q))
     : nodes;
 
   if (counterEl) {
-    counterEl.innerText = `${displayNodes.length} dari ${nodes.length} Simpul`;
+    counterEl.innerText = `${displayNodes.length} dari ${nodes.length} ${unitLabel}`;
   }
 
   if (displayNodes.length === 0) {
@@ -507,15 +539,16 @@ function renderSpatialTable(nodes) {
   }
 
   tbody.innerHTML = displayNodes.map(node => {
+    const rank = node.dynamic_rank || 1;
     let rankBadge = '';
-    if (node.peringkat_nasional === 1) {
+    if (rank === 1) {
       rankBadge = '<span class="inline-flex items-center justify-center w-5 h-5 rounded-full bg-amber-500 text-white font-extrabold text-[10px] shadow-xs">1</span>';
-    } else if (node.peringkat_nasional === 2) {
+    } else if (rank === 2) {
       rankBadge = '<span class="inline-flex items-center justify-center w-5 h-5 rounded-full bg-slate-400 text-white font-extrabold text-[10px] shadow-xs">2</span>';
-    } else if (node.peringkat_nasional === 3) {
+    } else if (rank === 3) {
       rankBadge = '<span class="inline-flex items-center justify-center w-5 h-5 rounded-full bg-amber-700 text-white font-extrabold text-[10px] shadow-xs">3</span>';
     } else {
-      rankBadge = `<span class="text-slate-500 dark:text-slate-400 font-semibold text-[11px]">#${node.peringkat_nasional || '-'}</span>`;
+      rankBadge = `<span class="text-slate-500 dark:text-slate-400 font-semibold text-[11px]">#${rank}</span>`;
     }
 
     const yoy = node.pertumbuhan_pct != null ? node.pertumbuhan_pct : 0;
