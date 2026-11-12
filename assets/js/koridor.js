@@ -812,12 +812,22 @@ function renderJaringanTable(filteredData, isTol, totalCount) {
       densityBadge = '<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-800">Padat Normal</span>';
     }
 
+    let growthBadge = '';
+    if (row.realisasi_2025 === 0) {
+      growthBadge = '<span class="px-2 py-0.5 rounded text-[10px] font-medium bg-slate-100 dark:bg-slate-800 text-slate-400">N/A</span>';
+    } else if (row.pertumbuhan_pct > 0) {
+      growthBadge = `<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-50 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800">+${row.pertumbuhan_pct}%</span>`;
+    } else if (row.pertumbuhan_pct < 0) {
+      growthBadge = `<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-amber-50 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300 border border-amber-200 dark:border-amber-800">${row.pertumbuhan_pct}%</span>`;
+    } else {
+      growthBadge = '<span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400">0.0%</span>';
+    }
+
     return `
       <tr class="hover:bg-slate-50/80 dark:hover:bg-slate-800/40 transition-colors border-b border-slate-100 dark:border-slate-800/60">
         <td class="py-2.5 px-3 text-center">${rankBadge}</td>
         <td class="py-2.5 px-3">
           <div class="font-bold text-slate-900 dark:text-slate-100 text-xs" title="${row.nama || '-'}">${cleanName}</div>
-          <div class="text-[10px] text-slate-400 dark:text-slate-500">ID Pantauan #${row.no_asli}</div>
         </td>
         <td class="py-2.5 px-3 whitespace-nowrap">
           <span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">
@@ -831,9 +841,7 @@ function renderJaringanTable(filteredData, isTol, totalCount) {
           ${formatNumber(row.proyeksi_2026)}
         </td>
         <td class="py-2.5 px-3 text-center">
-          <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-50 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800">
-            +${row.pertumbuhan_pct}%
-          </span>
+          ${growthBadge}
         </td>
         <td class="py-2.5 px-3 text-right font-semibold text-slate-700 dark:text-slate-300 num-tabular">
           ${row.share_pct}%
