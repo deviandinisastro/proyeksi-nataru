@@ -15,7 +15,8 @@
 let mapInstance = null;
 let markerLayerGroup = null;
 let heatmapLayerGroup = null;
-let baseTileLayer = null;
+let baseTileLayerGroup = null;
+let activeBasemapType = null;
 let currentMapModa = 'ALL';
 let showHeatmap = true;
 let showMarkers = true;
@@ -23,6 +24,57 @@ let mapInitialized = false;
 let markersMap = {};
 let currentSpatialNodes = [];
 let spatialSearchQuery = '';
+
+const BASEMAP_CONFIGS = {
+  osm: {
+    name: 'OpenStreetMap (Standar Detail)',
+    layers: [
+      {
+        url: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+        opts: {
+          attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> contributors &bull; Pusdatin Kemenhub',
+          maxZoom: 19
+        }
+      }
+    ]
+  },
+  satellite: {
+    name: 'Citra Satelit (Esri World Imagery)',
+    layers: [
+      {
+        url: 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+        opts: {
+          attribution: '&copy; <a href="https://www.esri.com" target="_blank">Esri</a>, Earthstar Geographics &bull; Pusdatin Kemenhub',
+          maxZoom: 18
+        }
+      },
+      {
+        url: 'https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}',
+        opts: {
+          attribution: '',
+          maxZoom: 18
+        }
+      }
+    ]
+  },
+  dark: {
+    name: 'Gelap Kontras (CartoDB Dark Matter)',
+    layers: [
+      {
+        url: 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',
+        opts: {
+          attribution: '&copy; <a href="https://carto.com/">CARTO</a> &copy; <a href="https://www.openstreetmap.org/copyright">OSM</a> &bull; Pusdatin Kemenhub',
+          maxZoom: 19,
+          subdomains: 'abcd'
+        }
+      }
+    ]
+  }
+};
+
+let currentBasemapType = (localStorage.getItem('dss_map_basemap') in BASEMAP_CONFIGS)
+  ? localStorage.getItem('dss_map_basemap')
+  : 'osm';
 
 const UNIFORM_RADIUS = 4.2; // Ukuran titik sama rata sesuai arahan statistisi rapat
 const INDONESIA_BOUNDS = [[-10.8, 95.0], [5.8, 141.0]]; // Batas koordinat seluruh kepulauan Indonesia
@@ -106,32 +158,48 @@ function initLeafletMap() {
   // Pasang Keterangan Peta di Pojok Kiri Bawah (Default Tertutup Rapi)
   setupMapLegend();
 
-  // Pasang Basemap Resmi OpenStreetMap
-  updateBasemap();
+  // Pasang Basemap Resmi (Default OpenStreetMap Standar Detail)
+  applyBasemap(currentBasemapType, true);
 }
 
 /**
- * Memperbarui Basemap Sesuai Tema (Terang: OpenStreetMap, Gelap: Esri Dark Canvas)
+ * Terapkan Basemap Pilihan (Default: OpenStreetMap Standar Detail)
+ * Memastikan peta di Mode Gelap tetap memiliki detail jalan, kota, rel KA, dan topografi selengkap Mode Terang.
+ */
+function applyBasemap(type, force = false) {
+  if (!mapInstance) return;
+  const targetType = BASEMAP_CONFIGS[type] ? type : 'osm';
+
+  if (!force && activeBasemapType === targetType && baseTileLayerGroup) {
+    return; // Sudah aktif, tidak perlu re-render tiles agar tidak flickering
+  }
+
+  if (baseTileLayerGroup) {
+    mapInstance.removeLayer(baseTileLayerGroup);
+    baseTileLayerGroup = null;
+  }
+
+  const cfg = BASEMAP_CONFIGS[targetType];
+  baseTileLayerGroup = L.layerGroup();
+  cfg.layers.forEach(l => {
+    L.tileLayer(l.url, l.opts).addTo(baseTileLayerGroup);
+  });
+  baseTileLayerGroup.addTo(mapInstance);
+  activeBasemapType = targetType;
+
+  // Sinkronisasi elemen select jika ada di UI
+  const basemapSelect = document.getElementById('gis-basemap-select');
+  if (basemapSelect && basemapSelect.value !== targetType) {
+    basemapSelect.value = targetType;
+  }
+}
+
+/**
+ * Memperbarui Basemap Sesuai Preferensi Pengguna (Default: OpenStreetMap Standar Detail)
  */
 function updateBasemap() {
   if (!mapInstance) return;
-  const isDark = document.documentElement.classList.contains('dark');
-
-  if (baseTileLayer) {
-    mapInstance.removeLayer(baseTileLayer);
-  }
-
-  if (isDark) {
-    baseTileLayer = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
-      attribution: '&copy; <a href="https://www.esri.com" target="_blank">Esri</a> &bull; Pusdatin Kemenhub',
-      maxZoom: 16
-    }).addTo(mapInstance);
-  } else {
-    baseTileLayer = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> contributors &bull; Pusdatin Kemenhub',
-      maxZoom: 19
-    }).addTo(mapInstance);
-  }
+  applyBasemap(currentBasemapType);
 }
 
 /**
@@ -264,6 +332,17 @@ function setupMapControls() {
           refreshMapLayers();
         }
       });
+    });
+  }
+
+  // Pemilih Gaya / Tipe Peta Dasar (Basemap)
+  const basemapSelect = document.getElementById('gis-basemap-select');
+  if (basemapSelect) {
+    basemapSelect.value = currentBasemapType;
+    basemapSelect.addEventListener('change', (e) => {
+      currentBasemapType = e.target.value;
+      localStorage.setItem('dss_map_basemap', currentBasemapType);
+      applyBasemap(currentBasemapType, true);
     });
   }
 
