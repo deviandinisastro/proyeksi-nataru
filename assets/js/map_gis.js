@@ -448,11 +448,13 @@ function refreshMapLayers() {
     summaryNodeSubEl.innerText = isAll ? 'Tersebar di 38 Provinsi Nusantara' : 'Titik Pantau Terverifikasi Pusdatin';
   }
 
-  // Simpul Terpadat #1 sesuai filter moda
+  // Simpul Terpadat #1 sesuai filter moda (Gunakan properti .nama & .moda_label resmi)
   const topNode = filteredNodes[0] || null;
   if (summaryTopNodeEl && topNode) {
-    summaryTopNodeEl.innerText = topNode.nama_simpul;
-    summaryTopNodeEl.title = topNode.nama_simpul;
+    const nodeName = topNode.nama || topNode.nama_simpul || 'Simpul Pantauan';
+    const fullName = topNode.moda_label ? `${topNode.moda_label} ${nodeName}` : nodeName;
+    summaryTopNodeEl.innerText = fullName;
+    summaryTopNodeEl.title = fullName;
   }
   if (summaryTopVolEl && topNode) {
     const shareOfModa = ((topNode.proyeksi_2026 / officialProj) * 100).toFixed(2).replace('.', ',');
