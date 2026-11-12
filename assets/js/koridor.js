@@ -671,6 +671,19 @@ function populateJaringanProvDropdown(dataList) {
   select.value = jaringanState.selectedProv;
 }
 
+/**
+ * Format nama titik jaringan agar tidak terpotong namun tetap mempertahankan nomor arah (1, 2, A, B)
+ */
+function formatNamaJaringan(raw) {
+  if (!raw) return '-';
+  // Untuk pos pantau AtMS (misal: AtMS Bandung (TC Rancaekek A)), pertahankan nama pos lengkapnya
+  if (raw.includes('AtMS')) {
+    return raw.trim();
+  }
+  // Untuk Ruas Jalan Arteri & Gerbang Tol, hapus kurung panjang batas wilayah, namun pertahankan nomor arah 1, 2
+  return raw.replace(/\s*\([^)]*\)\s*/g, ' ').replace(/\s+/g, ' ').trim();
+}
+
 function renderJaringanKPIs(fullData, isTol) {
   const container = document.getElementById('jaringan-kpi-cards');
   if (!container || fullData.length === 0) return;
@@ -680,7 +693,7 @@ function renderJaringanKPIs(fullData, isTol) {
   const growth = totReal > 0 ? (((totProy - totReal) / totReal) * 100).toFixed(2) : '0';
   const top1 = fullData[0] || {};
   const top1RawName = top1.nama || '-';
-  const top1CleanName = top1RawName.replace(/\s*\(.*?\)\s*/g, ' ').replace(/\s+\d+$/, '').trim() || top1RawName;
+  const top1CleanName = formatNamaJaringan(top1RawName);
 
   const titlePrefix = isTol ? '43 Gerbang Tol' : '44 Ruas Arteri';
   const badgeColor = isTol 
@@ -778,7 +791,7 @@ function renderJaringanTable(filteredData, isTol, totalCount) {
 
   tbody.innerHTML = filteredData.map((row) => {
     const rawName = row.nama || '-';
-    const cleanName = rawName.replace(/\s*\(.*?\)\s*/g, ' ').replace(/\s+\d+$/, '').trim() || rawName;
+    const cleanName = formatNamaJaringan(rawName);
     let rankBadge = '';
     if (row.rank === 1) {
       rankBadge = '<span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-amber-500 text-white font-extrabold text-xs shadow-xs">1</span>';
