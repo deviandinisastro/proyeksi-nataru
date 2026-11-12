@@ -331,7 +331,7 @@ function renderCriticalInfrastructureSection(tolList, asdpList) {
     tolList.forEach(item => {
       const name = item.gerbang_tol;
       if (!gates[name]) {
-        gates[name] = { name: name, keluar: 0, keluar_25: 0, masuk: 0, masuk_25: 0, growth: item.pertumbuhan_pct };
+        gates[name] = { name: name, keluar: 0, keluar_25: 0, masuk: 0, masuk_25: 0 };
       }
       if (item.arah.toLowerCase().includes('keluar')) {
         gates[name].keluar = item.proyeksi_2026;
@@ -344,16 +344,18 @@ function renderCriticalInfrastructureSection(tolList, asdpList) {
 
     tolContainer.innerHTML = Object.values(gates).map(g => {
       const totalVol = g.keluar + g.masuk;
+      const total25 = g.keluar_25 + g.masuk_25;
+      const gateGrowth = total25 > 0 ? ((totalVol - total25) / total25 * 100) : 16.0;
       return `
-        <div class="p-4 bg-white rounded-xl border border-gov-border shadow-xs hover:border-gov-azure/50 transition-all flex flex-col justify-between">
+        <div class="p-4 bg-white dark:bg-slate-900 rounded-xl border border-gov-border dark:border-slate-800 shadow-xs hover:border-gov-azure/50 transition-all flex flex-col justify-between">
           <div class="mb-3">
             <div class="flex items-center justify-between gap-2 mb-1.5">
-              <span class="text-[10px] font-bold text-gov-azure uppercase tracking-wider">Proyeksi Barrier Tol</span>
-              <span class="px-2 py-0.5 rounded text-[10px] font-extrabold bg-blue-50 text-blue-700 border border-blue-200 leading-none">
-                Proyeksi ${formatPercent(g.growth)}
+              <span class="text-[10px] font-bold text-gov-azure dark:text-sky-400 uppercase tracking-wider">Proyeksi Barrier Tol</span>
+              <span class="px-2 py-0.5 rounded text-[10px] font-extrabold bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-800 leading-none">
+                Proyeksi ${formatPercent(gateGrowth)}
               </span>
             </div>
-            <h4 class="text-xs font-bold text-gov-text leading-snug min-h-[32px] flex items-center">${g.name}</h4>
+            <h4 class="text-xs font-bold text-gov-text dark:text-slate-100 leading-snug min-h-[32px] flex items-center">${g.name}</h4>
           </div>
 
           <div class="space-y-2 mb-3">

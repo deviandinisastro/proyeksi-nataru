@@ -13419,57 +13419,57 @@
       "gerbang_tol": "GT Cikatama (Cikampek Utama - Trans Jawa)",
       "arah": "Keluar Jakarta (Arus Mudik/Wisata)",
       "realisasi_2025": 696654,
-      "proyeksi_2026": 813413,
-      "pertumbuhan_pct": 16.76
+      "proyeksi_2026": 805440,
+      "pertumbuhan_pct": 15.62
     },
     {
       "gerbang_tol": "GT Cikatama (Cikampek Utama - Trans Jawa)",
       "arah": "Masuk Jakarta (Arus Balik)",
       "realisasi_2025": 612396,
-      "proyeksi_2026": 715034,
-      "pertumbuhan_pct": 16.76
+      "proyeksi_2026": 694032,
+      "pertumbuhan_pct": 13.33
     },
     {
       "gerbang_tol": "GT Kalitama (Kalihurip Utama - Bandung)",
       "arah": "Keluar Jakarta (Arus Mudik/Wisata)",
       "realisasi_2025": 685533,
-      "proyeksi_2026": 800428,
-      "pertumbuhan_pct": 16.76
+      "proyeksi_2026": 800617,
+      "pertumbuhan_pct": 16.79
     },
     {
       "gerbang_tol": "GT Kalitama (Kalihurip Utama - Bandung)",
       "arah": "Masuk Jakarta (Arus Balik)",
       "realisasi_2025": 686777,
-      "proyeksi_2026": 801881,
-      "pertumbuhan_pct": 16.76
+      "proyeksi_2026": 813870,
+      "pertumbuhan_pct": 18.51
     },
     {
       "gerbang_tol": "GT Cikupa (Merak - Banten)",
       "arah": "Keluar Jakarta (Arus Mudik/Wisata)",
       "realisasi_2025": 906046,
-      "proyeksi_2026": 1057899,
-      "pertumbuhan_pct": 16.76
+      "proyeksi_2026": 1049910,
+      "pertumbuhan_pct": 15.88
     },
     {
       "gerbang_tol": "GT Cikupa (Merak - Banten)",
       "arah": "Masuk Jakarta (Arus Balik)",
       "realisasi_2025": 1073019,
-      "proyeksi_2026": 1252857,
-      "pertumbuhan_pct": 16.76
+      "proyeksi_2026": 1234563,
+      "pertumbuhan_pct": 15.06
     },
     {
       "gerbang_tol": "GT Ciawi (Bogor - Puncak)",
       "arah": "Keluar Jakarta (Arus Mudik/Wisata)",
       "realisasi_2025": 702087,
-      "proyeksi_2026": 819757,
-      "pertumbuhan_pct": 16.76
+      "proyeksi_2026": 818829,
+      "pertumbuhan_pct": 16.63
     },
     {
       "gerbang_tol": "GT Ciawi (Bogor - Puncak)",
       "arah": "Masuk Jakarta (Arus Balik)",
       "realisasi_2025": 714422,
-      "proyeksi_2026": 834159,
-      "pertumbuhan_pct": 16.76
+      "proyeksi_2026": 837556,
+      "pertumbuhan_pct": 17.24
     }
   ],
   "titik_kritis_asdp": [

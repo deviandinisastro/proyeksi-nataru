@@ -40,16 +40,23 @@ function renderTitikKritisKPIs(tolData, asdpData) {
   const container = document.getElementById('koridor-kpi-cards');
   if (!container) return;
 
-  // Hitung total arus tol
+  // Hitung total arus tol dan realisasi baseline 2025
   let totKeluarTol = 0;
   let totMasukTol = 0;
+  let totKeluar25 = 0;
+  let totMasuk25 = 0;
   tolData.forEach(item => {
     if (item.arah.toLowerCase().includes('keluar')) {
       totKeluarTol += (item.proyeksi_2026 || 0);
+      totKeluar25 += (item.realisasi_2025 || 0);
     } else {
       totMasukTol += (item.proyeksi_2026 || 0);
+      totMasuk25 += (item.realisasi_2025 || 0);
     }
   });
+
+  const keluarGrowth = totKeluar25 > 0 ? ((totKeluarTol - totKeluar25) / totKeluar25 * 100).toFixed(2) : '16.20';
+  const masukGrowth = totMasuk25 > 0 ? ((totMasukTol - totMasuk25) / totMasuk25 * 100).toFixed(2) : '15.98';
 
   // Ambil data penyeberangan
   const merak = asdpData.find(d => d.lintas.toLowerCase().includes('merak')) || {};
@@ -68,7 +75,7 @@ function renderTitikKritisKPIs(tolData, asdpData) {
         ${formatNumber(totKeluarTol)}
       </div>
       <div class="flex items-center gap-1.5 text-xs text-emerald-700 font-semibold">
-        <span>+16,76%</span>
+        <span>+${keluarGrowth}%</span>
         <span class="text-slate-400 font-normal">vs Realisasi 2025</span>
       </div>
       <p class="text-[11px] text-gov-muted mt-2 border-t border-slate-100 pt-2">
@@ -88,7 +95,7 @@ function renderTitikKritisKPIs(tolData, asdpData) {
         ${formatNumber(totMasukTol)}
       </div>
       <div class="flex items-center gap-1.5 text-xs text-emerald-700 font-semibold">
-        <span>+16,76%</span>
+        <span>+${masukGrowth}%</span>
         <span class="text-slate-400 font-normal">vs Realisasi 2025</span>
       </div>
       <p class="text-[11px] text-gov-muted mt-2 border-t border-slate-100 pt-2">
@@ -290,28 +297,31 @@ function renderTolTable(tolData) {
   tbody.innerHTML = tolData.map((row, idx) => {
     const isKeluar = row.arah.toLowerCase().includes('keluar');
     const badgeArah = isKeluar
-      ? '<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-blue-50 text-blue-700 border border-blue-200">Keluar (Mudik/Wisata)</span>'
-      : '<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">Masuk (Arus Balik)</span>';
+      ? '<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-800">Keluar (Mudik/Wisata)</span>'
+      : '<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">Masuk (Arus Balik)</span>';
+
+    const yoy = row.pertumbuhan_pct != null ? row.pertumbuhan_pct : 0;
+    const sign = yoy > 0 ? '+' : '';
 
     return `
-      <tr class="border-b border-slate-100 dark:border-slate-800 hover:bg-slate-50/70 transition-colors">
+      <tr class="border-b border-slate-100 dark:border-slate-800 hover:bg-slate-50/70 dark:hover:bg-slate-800/50 transition-colors">
         <td class="py-2.5 px-3 text-center text-slate-400 font-semibold">${idx + 1}</td>
         <td class="py-2.5 px-3 font-bold text-slate-800 dark:text-slate-100">
           ${row.gerbang_tol}
         </td>
         <td class="py-2.5 px-3 whitespace-nowrap">${badgeArah}</td>
-        <td class="py-2.5 px-3 text-right font-medium text-slate-600 num-tabular">
+        <td class="py-2.5 px-3 text-right font-medium text-slate-600 dark:text-slate-300 num-tabular">
           ${formatNumber(row.realisasi_2025)}
         </td>
-        <td class="py-2.5 px-3 text-right font-extrabold text-gov-navy num-tabular">
+        <td class="py-2.5 px-3 text-right font-extrabold text-gov-navy dark:text-sky-400 num-tabular">
           ${formatNumber(row.proyeksi_2026)}
         </td>
         <td class="py-2.5 px-3 text-center">
-          <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">
-            +${row.pertumbuhan_pct}%
+          <span class="px-2 py-0.5 rounded text-[10px] font-bold ${yoy >= 0 ? 'bg-emerald-50 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800' : 'bg-rose-50 dark:bg-rose-900/30 text-rose-700 dark:text-rose-300 border border-rose-200 dark:border-rose-800'}">
+            ${sign}${yoy.toFixed(2)}%
           </span>
         </td>
-        <td class="py-2.5 px-3 text-slate-500 text-[11px]">
+        <td class="py-2.5 px-3 text-slate-500 dark:text-slate-400 text-[11px]">
           Damped Holt-Winters Gate Flow
         </td>
       </tr>

@@ -459,7 +459,7 @@ async function loadApplicationData() {
 
     const [resNataru, resSpatial] = await Promise.all([
 
-      fetch('./data/nataru_data.json?v=20261112_1115'),
+      fetch('./data/nataru_data.json?v=20261112_1445'),
 
       fetch('./data/spatial_nodes.json?v=20261112_1410')
 
