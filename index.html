@@ -2050,169 +2050,52 @@
 
 
 
-        <div class="p-3.5 bg-white dark:bg-slate-900 border border-gov-border dark:border-slate-800 rounded-xl shadow-xs flex flex-wrap items-center justify-between gap-3">
-
-
-
+        <!-- Toolbar & Filter Kategori Moda (Murni Filter Data) -->
+        <div class="p-3.5 bg-white dark:bg-slate-900 border border-gov-border dark:border-slate-800 rounded-xl shadow-xs flex items-center gap-2 flex-wrap">
           <!-- Filter Kancing / Pills Moda -->
-
-
-
-          <div class="flex items-center gap-2 flex-wrap">
-
-
-
-            <span class="text-xs font-bold text-gov-muted dark:text-slate-400 uppercase tracking-wider shrink-0 mr-1 flex items-center gap-1.5">
-
-
-
-              <i data-lucide="filter" class="w-3.5 h-3.5 text-gov-navy dark:text-sky-400"></i>
-
-
-
-              Filter Moda:
-
-
-
-            </span>
-
-
-
-            <div class="flex items-center gap-1.5 flex-wrap" id="gis-moda-pills">
-
-
-
-              <!-- Diisi dinamis oleh map_gis.js -->
-
-
-
-            </div>
-
-
-
-          </div>
-
-
-
-          <!-- Total Volume Proyeksi Sesuai Moda Aktif (Menyeimbangkan Sisi Kanan Baris Filter) -->
-
-
-
-          <div id="gis-nodes-volume" class="num-tabular font-bold text-gov-navy dark:text-sky-400 text-xs sm:text-sm shrink-0 ml-auto">
-
-
-
+          <span class="text-xs font-bold text-gov-muted dark:text-slate-400 uppercase tracking-wider shrink-0 mr-1 flex items-center gap-1.5">
+            <i data-lucide="filter" class="w-3.5 h-3.5 text-gov-navy dark:text-sky-400"></i>
+            Filter Moda:
+          </span>
+          <div class="flex items-center gap-1.5 flex-wrap" id="gis-moda-pills">
             <!-- Diisi dinamis oleh map_gis.js -->
-
-
-
           </div>
-
-
-
         </div>
 
-
-
         <!-- Kartu Kanvas Peta Leaflet GIS Lengkap dengan Kontrol Utilitas Peta -->
-
-
-
         <div class="bg-white dark:bg-slate-900 p-3.5 rounded-xl border border-gov-border dark:border-slate-800 shadow-xs relative z-0 isolate overflow-hidden space-y-3">
 
-
-
-          <!-- Header Bar Kanvas Peta: Status Data (Kiri) & Kontrol Utilitas GIS (Kanan) -->
-
-
-
-          <div class="flex flex-wrap items-center justify-between gap-3 pb-3 border-b border-slate-100 dark:border-slate-800">
-
-
+          <!-- Header Bar Kanvas Peta: Status Data (Kiri), Angka Proyeksi Resmi (Tengah Rapi), Kontrol Utilitas GIS (Kanan) -->
+          <div class="flex flex-col md:flex-row md:items-center justify-between gap-3 pb-3 border-b border-slate-100 dark:border-slate-800">
 
             <!-- Status Simpul Terpetakan -->
-
-
-
-            <div class="flex items-center gap-2 text-xs font-semibold">
-
-
-
+            <div class="flex items-center gap-2 text-xs font-semibold shrink-0">
               <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
-
-
-
               <span id="gis-nodes-count" class="text-slate-800 dark:text-slate-200 font-bold">-</span>
-
-
-
-              <span class="text-slate-400 dark:text-slate-500 font-normal hidden sm:inline">&bull; Skala Koordinat Resmi Pusdatin</span>
-
-
-
+              <span class="text-slate-400 dark:text-slate-500 font-normal hidden lg:inline">&bull; Skala Koordinat Resmi Pusdatin</span>
             </div>
 
-
+            <!-- Total Volume Proyeksi Sesuai Moda Aktif (Diposisikan di Tengah, Rapi & Responsif) -->
+            <div id="gis-nodes-volume" class="w-full sm:w-auto md:self-center px-3 py-1.5 rounded-lg bg-blue-50/80 dark:bg-blue-950/40 border border-blue-200/80 dark:border-blue-800/60 text-xs shadow-2xs flex items-center justify-between sm:justify-start gap-2">
+              <!-- Diisi dinamis oleh map_gis.js -->
+            </div>
 
             <!-- Kontrol Utilitas & Navigasi Peta -->
-
-
-
-            <div class="flex items-center gap-2">
-
-
-
+            <div class="flex items-center gap-2 shrink-0 self-start sm:self-auto">
               <span class="text-[11px] font-semibold text-slate-500 dark:text-slate-400 mr-1 hidden sm:inline">Kontrol Peta:</span>
-
-
-
               
-
-
-
               <!-- Toggle Heatmap Kepadatan -->
-
-
-
               <button id="btn-toggle-heatmap" class="px-3 py-1.5 rounded-lg text-xs font-bold border transition-all flex items-center gap-1.5 bg-gov-navy text-white border-gov-navy shadow-xs hover:bg-gov-navy/90" title="Tampilkan / Sembunyikan Lapisan Heatmap Kepadatan">
-
-
-
                 <i data-lucide="flame" class="w-3.5 h-3.5 text-amber-300"></i>
-
-
-
                 <span>Heatmap Kepadatan</span>
-
-
-
               </button>
-
-
 
               <!-- Pusatkan Indonesia -->
-
-
-
               <button id="btn-reset-map" class="px-3 py-1.5 bg-white dark:bg-slate-800 border border-gov-border dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700/60 text-xs font-semibold text-slate-700 dark:text-slate-200 rounded-lg shadow-xs flex items-center gap-1.5 transition-all" title="Kembalikan Peta ke Seluruh Wilayah Indonesia">
-
-
-
                 <i data-lucide="rotate-ccw" class="w-3.5 h-3.5 text-gov-navy dark:text-sky-400"></i>
-
-
-
                 <span>Pusatkan Peta</span>
-
-
-
               </button>
-
-
-
             </div>
-
-
 
           </div>
 
@@ -5193,7 +5076,7 @@
 
 
 
-  <script src="./assets/js/map_gis.js?v=20261112_1410"></script>
+  <script src="./assets/js/map_gis.js?v=20261112_1420"></script>
 
 
 

@@ -346,16 +346,16 @@ function refreshMapLayers() {
   }
 
   if (volEl) {
-    if (isAll) {
-      volEl.innerHTML = `
-        <span class="text-xs font-semibold text-slate-500 dark:text-slate-400">Total Proyeksi Nasional:</span>
-        <span class="text-gov-navy dark:text-sky-400 font-extrabold text-sm ml-1.5">${formatNumber(officialProj)} Orang</span>
-      `;
-    } else {
-      volEl.innerHTML = `
-        <span class="text-xs font-semibold text-slate-500 dark:text-slate-400">Proyeksi ${currentModaCfg.moda_name}:</span>
-        <span class="text-gov-navy dark:text-sky-400 font-extrabold text-sm ml-1.5">${formatNumber(officialProj)} Orang</span>
-      `;
+    const label = isAll ? 'Total Proyeksi Nasional' : `Proyeksi ${currentModaCfg.unit_name || currentModaCfg.moda_name}`;
+    volEl.innerHTML = `
+      <span class="flex items-center gap-1.5 text-slate-600 dark:text-slate-300">
+        <i data-lucide="trending-up" class="w-3.5 h-3.5 text-gov-navy dark:text-sky-400 shrink-0"></i>
+        <span class="font-semibold">${label}:</span>
+      </span>
+      <span class="text-gov-navy dark:text-sky-400 font-extrabold text-xs sm:text-sm num-tabular ml-0.5 sm:ml-1">${formatNumber(officialProj)} Orang</span>
+    `;
+    if (typeof lucide !== 'undefined') {
+      lucide.createIcons({ root: volEl });
     }
   }
 
