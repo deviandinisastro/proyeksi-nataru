@@ -403,48 +403,60 @@ function renderEqualMarkers(nodes) {
       fillOpacity: 0.95
     });
 
-    // Efek Hover: Membesar Halus tanpa Merusak Peta
+    // Efek Hover: Membesar Halus & Membuka Popup Card Lengkap (Tanpa Double Tooltip)
     marker.on('mouseover', function() {
       this.setStyle({ radius: 6.5, weight: 2.2, fillOpacity: 1.0 });
+      this.openPopup();
     });
     marker.on('mouseout', function() {
       this.setStyle({ radius: UNIFORM_RADIUS, weight: isTop10 ? 1.8 : 1.1, fillOpacity: 0.95 });
     });
 
-    // Tooltip Ramping dengan Angka Putih Jelas (Mudah Dibaca di Latar Gelap)
-    marker.bindTooltip(`<b>${node.nama}</b><br><span class="text-white font-medium">${formatNumber(vol)} orang</span>`, {
-      direction: 'top',
-      offset: [0, -4],
-      className: 'bg-slate-900 text-white text-[11px] px-2 py-1 rounded shadow-md border-0'
-    });
-
-    // Popup Detail saat Diklik
     const rankBadge = isTop10
-      ? `<span class="px-1.5 py-0.2 rounded text-[10px] font-bold bg-amber-100 text-amber-900 border border-amber-300">Top 10 Nasional</span>`
-      : `<span class="px-1.5 py-0.2 rounded text-[10px] font-medium bg-slate-100 text-slate-700">Peringkat #${node.peringkat_nasional || '-'}</span>`;
+      ? `<span class="px-1.5 py-0.5 rounded text-[10px] font-bold bg-amber-100 text-amber-900 border border-amber-300 dark:bg-amber-900/40 dark:text-amber-300">Top 10 Nasional</span>`
+      : `<span class="px-1.5 py-0.5 rounded text-[10px] font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Peringkat #${node.peringkat_nasional || '-'}</span>`;
 
+    const yoy = node.pertumbuhan_pct != null ? node.pertumbuhan_pct : 0;
+    let yoyBadge = '';
+    if (node.realisasi_2025 === 0) {
+      yoyBadge = '<span class="px-1.5 py-0.5 rounded text-[10px] font-medium bg-slate-100 dark:bg-slate-800 text-slate-400">N/A</span>';
+    } else if (yoy > 0) {
+      yoyBadge = `<span class="px-1.5 py-0.5 rounded text-[10px] font-bold bg-emerald-50 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800">+${yoy.toFixed(2)}%</span>`;
+    } else if (yoy < 0) {
+      yoyBadge = `<span class="px-1.5 py-0.5 rounded text-[10px] font-bold bg-amber-50 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300 border border-amber-200 dark:border-amber-800">${yoy.toFixed(2)}%</span>`;
+    } else {
+      yoyBadge = '<span class="px-1.5 py-0.5 rounded text-[10px] font-semibold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400">0.0%</span>';
+    }
+
+    // Popup Detail Lengkap (Nama Simpul Ditampilkan Penuh Tanpa Truncate)
     const popupHtml = `
-      <div class="p-2 space-y-2 max-w-[260px] text-xs font-sans">
-        <div class="flex items-center justify-between gap-2 border-b border-slate-200 pb-1.5">
-          <span class="font-bold text-slate-900 truncate">${node.nama}</span>
-          <span class="px-1.5 py-0.5 rounded text-[10px] font-bold text-white shrink-0" style="background-color: ${node.color || '#003882'}">
+      <div class="p-2.5 space-y-2 min-w-[260px] max-w-[320px] text-xs font-sans">
+        <div class="flex items-start justify-between gap-2 border-b border-slate-200 dark:border-slate-700 pb-2">
+          <div class="font-extrabold text-slate-900 dark:text-slate-100 text-xs leading-snug break-words pr-1.5">
+            ${node.nama}
+          </div>
+          <span class="px-2 py-0.5 rounded text-[10px] font-bold text-white shrink-0 shadow-2xs" style="background-color: ${node.color || '#003882'}">
             ${node.moda_label || node.moda}
           </span>
         </div>
-        <div class="flex items-center justify-between text-[11px] text-slate-500">
-          <span>Provinsi: ${node.provinsi || '-'}</span>
+        <div class="flex items-center justify-between text-[11px] text-slate-500 dark:text-slate-400">
+          <span>Provinsi: <strong class="text-slate-700 dark:text-slate-300">${node.provinsi || '-'}</strong></span>
           ${rankBadge}
         </div>
-        <div class="p-2 bg-slate-50 rounded border border-slate-100 space-y-1 text-[11px]">
-          <div class="flex items-center justify-between font-bold text-gov-navy">
+        <div class="p-2 bg-slate-50 dark:bg-slate-800/70 rounded-lg border border-slate-100 dark:border-slate-700/60 space-y-1 text-[11px]">
+          <div class="flex items-center justify-between font-extrabold text-gov-navy dark:text-sky-400">
             <span>Proyeksi Nataru 2026:</span>
-            <span class="num-tabular">${formatNumber(vol)} org</span>
+            <span class="num-tabular font-bold">${formatNumber(vol)} org</span>
           </div>
-          <div class="flex items-center justify-between text-slate-600">
+          <div class="flex items-center justify-between text-slate-600 dark:text-slate-300">
             <span>Realisasi Baseline 2025:</span>
-            <span class="num-tabular font-semibold text-slate-800">${formatNumber(node.realisasi_2025)} org</span>
+            <span class="num-tabular font-semibold text-slate-800 dark:text-slate-200">${formatNumber(node.realisasi_2025)} org</span>
           </div>
-          <div class="flex items-center justify-between pt-1 border-t border-slate-200 text-emerald-700 font-semibold">
+          <div class="flex items-center justify-between pt-1 border-t border-slate-200/80 dark:border-slate-700/80">
+            <span class="text-slate-600 dark:text-slate-400">Pertumbuhan (YoY):</span>
+            ${yoyBadge}
+          </div>
+          <div class="flex items-center justify-between text-emerald-700 dark:text-emerald-400 font-semibold">
             <span>Pangsa terhadap Moda:</span>
             <span class="num-tabular">${(node.porsi_share_pct || 0).toLocaleString('id-ID')}%</span>
           </div>
@@ -452,7 +464,7 @@ function renderEqualMarkers(nodes) {
       </div>
     `;
 
-    marker.bindPopup(popupHtml, { maxWidth: 280 });
+    marker.bindPopup(popupHtml, { maxWidth: 340, minWidth: 260 });
     markerLayerGroup.addLayer(marker);
     if (node.id) {
       markersMap[node.id] = marker;
