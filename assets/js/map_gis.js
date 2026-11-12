@@ -58,14 +58,20 @@ const BASEMAP_CONFIGS = {
     ]
   },
   dark: {
-    name: 'Gelap Kontras (CartoDB Dark Matter)',
+    name: 'Mode Gelap (Esri Dark Canvas)',
     layers: [
       {
-        url: 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',
+        url: 'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}',
         opts: {
-          attribution: '&copy; <a href="https://carto.com/">CARTO</a> &copy; <a href="https://www.openstreetmap.org/copyright">OSM</a> &bull; Pusdatin Kemenhub',
-          maxZoom: 19,
-          subdomains: 'abcd'
+          attribution: '&copy; <a href="https://www.esri.com" target="_blank">Esri</a> &bull; Pusdatin Kemenhub',
+          maxZoom: 16
+        }
+      },
+      {
+        url: 'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Reference/MapServer/tile/{z}/{y}/{x}',
+        opts: {
+          attribution: '',
+          maxZoom: 16
         }
       }
     ]
@@ -410,11 +416,11 @@ function refreshMapLayers() {
     node.dynamic_total = filteredNodes.length;
   });
 
-  // 1. Info Teks di Atas Peta: Menampilkan Angka Proyeksi Resmi Posko (100% Selaras dengan Modul Lain)
+  // 1. Info Teks di Atas Peta & Ringkasan KPI Spasial (Terpisah, Rapi, Proporsional & Presisi)
   const countEl = document.getElementById('gis-nodes-count');
   const volEl = document.getElementById('gis-nodes-volume');
-
   const officialProj = currentModaCfg.makro_total || 18462913;
+  const modaLabel = isAll ? 'Total Proyeksi Nasional' : `Proyeksi ${currentModaCfg.unit_name || currentModaCfg.moda_name}`;
 
   if (countEl) {
     if (isAll) {
@@ -424,18 +430,47 @@ function refreshMapLayers() {
     }
   }
 
+  // Update 3 Kartu Ringkasan Proyeksi Spasial (Terpisah dari Header Peta agar Tidak Kehimpit)
+  const summaryTitleEl = document.getElementById('gis-summary-moda-title');
+  const summaryVolEl = document.getElementById('gis-summary-total-vol');
+  const summaryNodeCountEl = document.getElementById('gis-summary-node-count');
+  const summaryNodeSubEl = document.getElementById('gis-summary-node-sub');
+  const summaryTopNodeEl = document.getElementById('gis-summary-top-node');
+  const summaryTopVolEl = document.getElementById('gis-summary-top-vol');
+
+  if (summaryTitleEl) summaryTitleEl.innerText = modaLabel;
+  if (summaryVolEl) summaryVolEl.innerText = formatNumber(officialProj);
+
+  if (summaryNodeCountEl) {
+    summaryNodeCountEl.innerText = isAll ? `${filteredNodes.length} Simpul Multimoda` : `${filteredNodes.length} ${currentModaCfg.unit_name || currentModaCfg.moda_name}`;
+  }
+  if (summaryNodeSubEl) {
+    summaryNodeSubEl.innerText = isAll ? 'Tersebar di 38 Provinsi Nusantara' : 'Titik Pantau Terverifikasi Pusdatin';
+  }
+
+  // Simpul Terpadat #1 sesuai filter moda
+  const topNode = filteredNodes[0] || null;
+  if (summaryTopNodeEl && topNode) {
+    summaryTopNodeEl.innerText = topNode.nama_simpul;
+    summaryTopNodeEl.title = topNode.nama_simpul;
+  }
+  if (summaryTopVolEl && topNode) {
+    const shareOfModa = ((topNode.proyeksi_2026 / officialProj) * 100).toFixed(2).replace('.', ',');
+    summaryTopVolEl.innerText = `${formatNumber(topNode.proyeksi_2026)} Orang (${shareOfModa}% Beban)`;
+  }
+
   if (volEl) {
-    const label = isAll ? 'Total Proyeksi Nasional' : `Proyeksi ${currentModaCfg.unit_name || currentModaCfg.moda_name}`;
     volEl.innerHTML = `
       <span class="flex items-center gap-1.5 text-slate-600 dark:text-slate-300">
         <i data-lucide="trending-up" class="w-3.5 h-3.5 text-gov-navy dark:text-sky-400 shrink-0"></i>
-        <span class="font-semibold">${label}:</span>
+        <span class="font-semibold">${modaLabel}:</span>
       </span>
       <span class="text-gov-navy dark:text-sky-400 font-extrabold text-xs sm:text-sm num-tabular ml-0.5 sm:ml-1">${formatNumber(officialProj)} Orang</span>
     `;
-    if (typeof lucide !== 'undefined') {
-      lucide.createIcons({ root: volEl });
-    }
+  }
+
+  if (typeof lucide !== 'undefined') {
+    lucide.createIcons();
   }
 
   // 2. Render Lapisan Heatmap (Kepadatan Spasial Halus)

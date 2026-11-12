@@ -2062,22 +2062,67 @@
           </div>
         </div>
 
+        <!-- Ringkasan Proyeksi Spasial Moda (KPI Cards Terpisah, Rapi, Proporsional & Presisi) -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+          
+          <!-- Card 1: Total Proyeksi Volume Sesuai Filter Moda -->
+          <div class="p-3.5 bg-white dark:bg-slate-900 border border-gov-border dark:border-slate-800 rounded-xl shadow-xs flex items-center justify-between gap-3">
+            <div class="min-w-0">
+              <div class="flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-gov-azure"></span>
+                <span class="text-[11px] font-bold text-gov-muted dark:text-slate-400 uppercase tracking-wider truncate" id="gis-summary-moda-title">Total Proyeksi Nasional</span>
+              </div>
+              <div class="text-xl font-extrabold text-gov-navy dark:text-sky-300 num-tabular tracking-tight mt-1" id="gis-summary-total-vol">18.462.913</div>
+              <span class="text-[11px] text-slate-500 dark:text-slate-400 block truncate">Orang &bull; Akumulasi 18 Hari Masa Posko</span>
+            </div>
+            <div class="w-11 h-11 rounded-xl bg-blue-50 dark:bg-blue-950/50 border border-blue-200/80 dark:border-blue-800/60 flex items-center justify-center shrink-0 text-gov-navy dark:text-sky-400 shadow-2xs">
+              <i data-lucide="trending-up" class="w-5 h-5"></i>
+            </div>
+          </div>
+
+          <!-- Card 2: Cakupan Simpul Terpantau -->
+          <div class="p-3.5 bg-white dark:bg-slate-900 border border-gov-border dark:border-slate-800 rounded-xl shadow-xs flex items-center justify-between gap-3">
+            <div class="min-w-0">
+              <div class="flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                <span class="text-[11px] font-bold text-gov-muted dark:text-slate-400 uppercase tracking-wider truncate">Cakupan Simpul Aktif</span>
+              </div>
+              <div class="text-xl font-extrabold text-slate-900 dark:text-slate-100 num-tabular tracking-tight mt-1" id="gis-summary-node-count">1.212 Simpul</div>
+              <span class="text-[11px] text-slate-500 dark:text-slate-400 block truncate" id="gis-summary-node-sub">Tersebar di 38 Provinsi Nusantara</span>
+            </div>
+            <div class="w-11 h-11 rounded-xl bg-emerald-50 dark:bg-emerald-950/50 border border-emerald-200/80 dark:border-emerald-800/60 flex items-center justify-center shrink-0 text-emerald-600 dark:text-emerald-400 shadow-2xs">
+              <i data-lucide="map-pin" class="w-5 h-5"></i>
+            </div>
+          </div>
+
+          <!-- Card 3: Simpul Terpadat Sesuai Moda -->
+          <div class="p-3.5 bg-white dark:bg-slate-900 border border-gov-border dark:border-slate-800 rounded-xl shadow-xs flex items-center justify-between gap-3">
+            <div class="min-w-0">
+              <div class="flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-amber-500"></span>
+                <span class="text-[11px] font-bold text-gov-muted dark:text-slate-400 uppercase tracking-wider truncate">Simpul Paling Padat (#1)</span>
+              </div>
+              <div class="text-base font-extrabold text-slate-900 dark:text-slate-100 tracking-tight mt-1 truncate" id="gis-summary-top-node">Bandara Soekarno-Hatta</div>
+              <span class="text-[11px] font-semibold text-emerald-600 dark:text-emerald-400 num-tabular block truncate" id="gis-summary-top-vol">1.571.492 Orang (8,51% Pangsa)</span>
+            </div>
+            <div class="w-11 h-11 rounded-xl bg-amber-50 dark:bg-amber-950/50 border border-amber-200/80 dark:border-amber-800/60 flex items-center justify-center shrink-0 text-amber-600 dark:text-amber-400 shadow-2xs">
+              <i data-lucide="crown" class="w-5 h-5"></i>
+            </div>
+          </div>
+
+        </div>
+
         <!-- Kartu Kanvas Peta Leaflet GIS Lengkap dengan Kontrol Utilitas Peta -->
         <div class="bg-white dark:bg-slate-900 p-3.5 rounded-xl border border-gov-border dark:border-slate-800 shadow-xs relative z-0 isolate overflow-hidden space-y-3">
 
-          <!-- Header Bar Kanvas Peta: Status Data (Kiri), Angka Proyeksi Resmi (Tengah Rapi), Kontrol Utilitas GIS (Kanan) -->
-          <div class="flex flex-col md:flex-row md:items-center justify-between gap-3 pb-3 border-b border-slate-100 dark:border-slate-800">
+          <!-- Header Bar Kanvas Peta: Status Data (Kiri) & Kontrol Utilitas GIS (Kanan) -->
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-slate-100 dark:border-slate-800">
 
             <!-- Status Simpul Terpetakan -->
             <div class="flex items-center gap-2 text-xs font-semibold shrink-0">
               <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
               <span id="gis-nodes-count" class="text-slate-800 dark:text-slate-200 font-bold">-</span>
               <span class="text-slate-400 dark:text-slate-500 font-normal hidden lg:inline">&bull; Skala Koordinat Resmi Pusdatin</span>
-            </div>
-
-            <!-- Total Volume Proyeksi Sesuai Moda Aktif (Diposisikan di Tengah, Rapi & Responsif) -->
-            <div id="gis-nodes-volume" class="w-full sm:w-auto md:self-center px-3 py-1.5 rounded-lg bg-blue-50/80 dark:bg-blue-950/40 border border-blue-200/80 dark:border-blue-800/60 text-xs shadow-2xs flex items-center justify-between sm:justify-start gap-2">
-              <!-- Diisi dinamis oleh map_gis.js -->
             </div>
 
             <!-- Kontrol Utilitas & Navigasi Peta -->
@@ -2089,7 +2134,7 @@
                 <select id="gis-basemap-select" class="px-2.5 py-1.5 rounded-lg text-xs font-semibold bg-white dark:bg-slate-800 border border-gov-border dark:border-slate-700 text-slate-700 dark:text-slate-200 shadow-xs hover:border-gov-azure focus:outline-none focus:ring-1 focus:ring-gov-azure transition-all cursor-pointer" title="Pilih Gaya / Tipe Peta Dasar">
                   <option value="osm" selected>🗺️ OpenStreetMap (Detail)</option>
                   <option value="satellite">🛰️ Citra Satelit (Esri World)</option>
-                  <option value="dark">🌑 Gelap Kontras (CartoDB)</option>
+                  <option value="dark">🌑 Mode Gelap (Esri Dark)</option>
                 </select>
               </div>
 
