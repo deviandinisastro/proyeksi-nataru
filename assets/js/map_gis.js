@@ -20,6 +20,9 @@ let currentMapModa = 'ALL';
 let showHeatmap = true;
 let showMarkers = true;
 let mapInitialized = false;
+let markersMap = {};
+let currentSpatialNodes = [];
+let spatialSearchQuery = '';
 
 const UNIFORM_RADIUS = 4.2; // Ukuran titik sama rata sesuai arahan statistisi rapat
 const INDONESIA_BOUNDS = [[-10.8, 95.0], [5.8, 141.0]]; // Batas koordinat seluruh kepulauan Indonesia
@@ -269,6 +272,14 @@ function setupMapControls() {
     });
   }
 
+  const searchInput = document.getElementById('gis-search-input');
+  if (searchInput) {
+    searchInput.addEventListener('input', (e) => {
+      spatialSearchQuery = e.target.value;
+      renderSpatialTable(currentSpatialNodes);
+    });
+  }
+
   // Render ulang ikon Lucide jika diperlukan
   if (typeof lucide !== 'undefined') {
     lucide.createIcons();
@@ -328,6 +339,9 @@ function refreshMapLayers() {
 
   // 3. Render Titik Simpul Marker (SAMA RATA / UNIFORM RADIUS)
   renderEqualMarkers(filteredNodes);
+
+  // 4. Render Tabel Direktori Geospasial Simpul Terpetakan
+  renderSpatialTable(filteredNodes);
 }
 
 /**
@@ -371,6 +385,7 @@ function renderHeatmapLayer(nodes) {
 function renderEqualMarkers(nodes) {
   if (!markerLayerGroup) return;
   markerLayerGroup.clearLayers();
+  markersMap = {};
 
   if (!showMarkers) return;
 
@@ -439,5 +454,137 @@ function renderEqualMarkers(nodes) {
 
     marker.bindPopup(popupHtml, { maxWidth: 280 });
     markerLayerGroup.addLayer(marker);
+    if (node.id) {
+      markersMap[node.id] = marker;
+    }
   });
 }
+
+
+/**
+ * ==============================================================================
+ * RENDER TABEL DIREKTORI GEOSPASIAL SIMPUL (1.212 SIMPUL TERPETAKAN)
+ * ==============================================================================
+ */
+function renderSpatialTable(nodes) {
+  currentSpatialNodes = nodes;
+  const tbody = document.getElementById('gis-table-body');
+  const counterEl = document.getElementById('gis-table-counter');
+  if (!tbody) return;
+
+  const q = spatialSearchQuery.trim().toLowerCase();
+  const displayNodes = q
+    ? nodes.filter(n => (n.nama || '').toLowerCase().includes(q) || (n.provinsi || '').toLowerCase().includes(q))
+    : nodes;
+
+  if (counterEl) {
+    counterEl.innerText = `${displayNodes.length} dari ${nodes.length} Simpul`;
+  }
+
+  if (displayNodes.length === 0) {
+    tbody.innerHTML = `
+      <tr>
+        <td colspan="10" class="py-8 text-center text-slate-400 dark:text-slate-500 text-xs">
+          <i data-lucide="search-x" class="w-6 h-6 mx-auto mb-2 opacity-50"></i>
+          Tidak ditemukan simpul yang cocok dengan pencarian "${spatialSearchQuery}".
+        </td>
+      </tr>
+    `;
+    if (typeof lucide !== 'undefined') lucide.createIcons();
+    return;
+  }
+
+  tbody.innerHTML = displayNodes.map(node => {
+    let rankBadge = '';
+    if (node.peringkat_nasional === 1) {
+      rankBadge = '<span class="inline-flex items-center justify-center w-5 h-5 rounded-full bg-amber-500 text-white font-extrabold text-[10px] shadow-xs">1</span>';
+    } else if (node.peringkat_nasional === 2) {
+      rankBadge = '<span class="inline-flex items-center justify-center w-5 h-5 rounded-full bg-slate-400 text-white font-extrabold text-[10px] shadow-xs">2</span>';
+    } else if (node.peringkat_nasional === 3) {
+      rankBadge = '<span class="inline-flex items-center justify-center w-5 h-5 rounded-full bg-amber-700 text-white font-extrabold text-[10px] shadow-xs">3</span>';
+    } else {
+      rankBadge = `<span class="text-slate-500 dark:text-slate-400 font-semibold text-[11px]">#${node.peringkat_nasional || '-'}</span>`;
+    }
+
+    const yoy = node.pertumbuhan_pct != null ? node.pertumbuhan_pct : 0;
+    let yoyBadge = '';
+    if (node.realisasi_2025 === 0) {
+      yoyBadge = '<span class="px-1.5 py-0.5 rounded text-[10px] font-medium bg-slate-100 dark:bg-slate-800 text-slate-400">N/A</span>';
+    } else if (yoy > 0) {
+      yoyBadge = `<span class="px-1.5 py-0.5 rounded text-[10px] font-bold bg-emerald-50 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800">+${yoy.toFixed(2)}%</span>`;
+    } else if (yoy < 0) {
+      yoyBadge = `<span class="px-1.5 py-0.5 rounded text-[10px] font-bold bg-amber-50 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300 border border-amber-200 dark:border-amber-800">${yoy.toFixed(2)}%</span>`;
+    } else {
+      yoyBadge = '<span class="px-1.5 py-0.5 rounded text-[10px] font-semibold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400">0.0%</span>';
+    }
+
+    return `
+      <tr class="hover:bg-slate-50/80 dark:hover:bg-slate-800/40 transition-colors border-b border-slate-100 dark:border-slate-800/60">
+        <td class="py-2.5 px-3 text-center">${rankBadge}</td>
+        <td class="py-2.5 px-3">
+          <div class="font-bold text-slate-900 dark:text-slate-100 text-xs">${node.nama}</div>
+        </td>
+        <td class="py-2.5 px-3 whitespace-nowrap">
+          <span class="px-2 py-0.5 rounded text-[10px] font-bold text-white shadow-2xs" style="background-color: ${node.color || '#003882'}">
+            ${node.moda_label || node.moda}
+          </span>
+        </td>
+        <td class="py-2.5 px-3 whitespace-nowrap text-xs text-slate-600 dark:text-slate-300">
+          ${node.provinsi || '-'}
+        </td>
+        <td class="py-2.5 px-3 text-center whitespace-nowrap num-mono text-[10px] text-slate-400 dark:text-slate-500">
+          ${node.lat ? node.lat.toFixed(4) : '-'}, ${node.lon ? node.lon.toFixed(4) : '-'}
+        </td>
+        <td class="py-2.5 px-3 text-right num-tabular text-slate-600 dark:text-slate-300 text-xs">
+          ${formatNumber(node.realisasi_2025)}
+        </td>
+        <td class="py-2.5 px-3 text-right num-tabular font-extrabold text-gov-navy dark:text-sky-400 text-xs">
+          ${formatNumber(node.proyeksi_2026)}
+        </td>
+        <td class="py-2.5 px-3 text-center whitespace-nowrap">
+          ${yoyBadge}
+        </td>
+        <td class="py-2.5 px-3 text-right num-tabular font-semibold text-slate-700 dark:text-slate-300 text-xs">
+          ${(node.porsi_share_pct || 0).toLocaleString('id-ID')}%
+        </td>
+        <td class="py-2.5 px-3 text-center whitespace-nowrap">
+          <button 
+            type="button" 
+            onclick="window.focusMapNode('${node.id}')"
+            class="px-2.5 py-1 rounded-md bg-gov-navy dark:bg-sky-600 text-white hover:bg-gov-navy/90 text-[10px] font-bold inline-flex items-center gap-1 shadow-xs transition-all active:scale-95"
+            title="Arahkan dan perbesar peta ke simpul ini"
+          >
+            <i data-lucide="map-pin" class="w-3 h-3"></i>
+            <span>Peta</span>
+          </button>
+        </td>
+      </tr>
+    `;
+  }).join('');
+
+  if (typeof lucide !== 'undefined') {
+    lucide.createIcons();
+  }
+}
+
+/**
+ * Interaksi Zoom & Sorot Langsung ke Titik Simpul di Peta Leaflet
+ */
+window.focusMapNode = function(id) {
+  const node = (window.DSS_STATE.spatialNodes || []).find(n => n.id === id);
+  if (!node || !mapInstance) return;
+
+  const canvas = document.getElementById('gis-map-canvas');
+  if (canvas) {
+    canvas.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+  mapInstance.flyTo([node.lat, node.lon], 11, { animate: true, duration: 1.0 });
+
+  setTimeout(() => {
+    const marker = markersMap[id];
+    if (marker) {
+      marker.openPopup();
+    }
+  }, 1100);
+};
