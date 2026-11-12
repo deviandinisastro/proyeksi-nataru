@@ -172,6 +172,26 @@ function renderTolChart(tolData) {
     masukReal25.push(mItem ? mItem.realisasi_2025 : 0);
   });
 
+    // Tooltip gabungan 2 arah arus (Mudik & Balik)
+  const combinedTolHoverTexts = gates.map((g, idx) => {
+    const k = keluarValues[idx] || 0;
+    const m = masukValues[idx] || 0;
+    const tot = k + m;
+    let cleanGate = g.key;
+    if (cleanGate === 'Cikatama') cleanGate = 'GT Cikampek Utama (Trans Jawa)';
+    else if (cleanGate === 'Kalitama') cleanGate = 'GT Kalihurip Utama (Cipularang/Bandung)';
+    else if (cleanGate === 'Cikupa') cleanGate = 'GT Cikupa (Merak/Banten)';
+    else cleanGate = 'GT Ciawi (Jagorawi/Puncak)';
+
+    return [
+      `<b>${cleanGate}</b><br>`,
+      `<span style="color:#38BDF8;">■</span> Keluar (Arus Mudik): <b>${formatNumber(k)}</b> Kendaraan<br>`,
+      `<span style="color:#60A5FA;">■</span> Masuk (Arus Balik): <b>${formatNumber(m)}</b> Kendaraan<br>`,
+      `<span style="color:#64748B;">───────────────────────────</span><br>`,
+      `Total Arus Gerbang: <b>${formatNumber(tot)}</b> Kendaraan`
+    ].join('');
+  });
+
   const traceKeluar = {
     x: gates.map(g => g.label),
     y: keluarValues,
@@ -181,7 +201,8 @@ function renderTolChart(tolData) {
       color: '#0284C7',
       line: { color: '#0369A1', width: 1 }
     },
-    hovertemplate: '<b>%{x}</b><br><span style="color:#ffffff;">Keluar (Mudik): %{y:,.0f} Kendaraan</span><extra></extra>'
+    hovertext: combinedTolHoverTexts,
+    hovertemplate: '%{hovertext}<extra></extra>'
   };
 
   const traceMasuk = {
@@ -193,7 +214,8 @@ function renderTolChart(tolData) {
       color: '#003882',
       line: { color: '#002554', width: 1 }
     },
-    hovertemplate: '<b>%{x}</b><br><span style="color:#ffffff;">Masuk (Balik): %{y:,.0f} Kendaraan</span><extra></extra>'
+    hovertext: combinedTolHoverTexts,
+    hovertemplate: '%{hovertext}<extra></extra>'
   };
 
   const layout = {
@@ -311,15 +333,37 @@ function renderAsdpChart(asdpData) {
   // Sumbu-Y presisi: batas tick maksimal 400.000 (angka 500.000 dihilangkan)
   // Range diberikan ruang hingga 425.000 agar label angka 397.953 tetap utuh & proporsional
 
+    // Tooltip gabungan 3 moda kendaraan sekaligus (Mobil R4, Motor R2, Truk)
+  const combinedAsdpHoverTexts = asdpData.map(d => {
+    const total = d.proyeksi_total_2026 || (d.proyeksi_mobil_r4 + d.proyeksi_motor_r2 + d.proyeksi_truk_sumbu3);
+    const pMobil = Math.round(((d.proyeksi_mobil_r4 || 0) / total) * 100);
+    const pMotor = Math.round(((d.proyeksi_motor_r2 || 0) / total) * 100);
+    const pTruk = Math.round(((d.proyeksi_truk_sumbu3 || 0) / total) * 100);
+
+    let cleanTitle = d.lintas;
+    if (cleanTitle.includes('Merak')) cleanTitle = 'Merak – Bakauheni (Selat Sunda)';
+    else if (cleanTitle.includes('Ketapang')) cleanTitle = 'Ketapang – Gilimanuk (Selat Bali)';
+    else cleanTitle = 'Ciwandan & BBJ Bojonegara (Pengalihan Truk)';
+
+    return [
+      `<b>${cleanTitle}</b><br>`,
+      `<span style="color:#38BDF8;">■</span> Mobil Pribadi (R4): <b>${formatNumber(d.proyeksi_mobil_r4)}</b> Unit (${pMobil}%)<br>`,
+      `<span style="color:#FBBF24;">■</span> Sepeda Motor (R2): <b>${formatNumber(d.proyeksi_motor_r2)}</b> Unit (${pMotor}%)<br>`,
+      `<span style="color:#C084FC;">■</span> Truk Logistik (S3+): <b>${formatNumber(d.proyeksi_truk_sumbu3)}</b> Unit (${pTruk}%)<br>`,
+      `<span style="color:#64748B;">───────────────────────────</span><br>`,
+      `Total Proyeksi: <b>${formatNumber(total)}</b> Unit`
+    ].join('');
+  });
+
   const traceR4 = {
     x: names,
     y: mobil,
     name: 'Mobil Pribadi (Roda 4)',
     type: 'bar',
     marker: { color: '#0284C7' },
-    customdata: cleanNames,
-    cliponaxis: false,
-    hovertemplate: '<b>%{customdata}</b><br><span style="color:#ffffff;">Mobil Pribadi (R4): %{y:,.0f} Unit</span><extra></extra>'
+    hovertext: combinedAsdpHoverTexts,
+    hovertemplate: '%{hovertext}<extra></extra>',
+    cliponaxis: false
   };
 
   const traceR2 = {
@@ -328,9 +372,9 @@ function renderAsdpChart(asdpData) {
     name: 'Sepeda Motor (Roda 2)',
     type: 'bar',
     marker: { color: '#F59E0B' },
-    customdata: cleanNames,
-    cliponaxis: false,
-    hovertemplate: '<b>%{customdata}</b><br><span style="color:#ffffff;">Sepeda Motor (R2): %{y:,.0f} Unit</span><extra></extra>'
+    hovertext: combinedAsdpHoverTexts,
+    hovertemplate: '%{hovertext}<extra></extra>',
+    cliponaxis: false
   };
 
   const traceTruk = {
@@ -339,9 +383,9 @@ function renderAsdpChart(asdpData) {
     name: 'Truk Logistik (Sumbu 3+)',
     type: 'bar',
     marker: { color: '#7C3AED' },
-    customdata: cleanNames,
-    cliponaxis: false,
-    hovertemplate: '<b>%{customdata}</b><br><span style="color:#ffffff;">Truk Logistik: %{y:,.0f} Unit</span><extra></extra>'
+    hovertext: combinedAsdpHoverTexts,
+    hovertemplate: '%{hovertext}<extra></extra>',
+    cliponaxis: false
   };
 
   // Label angka di atas batang bar agar langsung terbaca tanpa perlu mengira-ngira
