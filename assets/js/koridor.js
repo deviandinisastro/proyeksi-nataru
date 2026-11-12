@@ -474,7 +474,7 @@ function renderAsdpTable(asdpData) {
 /**
  * ==============================================================================
  * 6. DIREKTORI JARINGAN LALU LINTAS NASIONAL (43 GERBANG TOL & 44 RUAS ARTERI)
- * Menjawab Rekonsiliasi Slide 1 & Slide 4 PPT Laporan Posko Nataru Kemenhub RI
+ * Direktori Pemantauan 43 Gerbang Tol & 44 Ruas Arteri Pantauan Nasional
  * ==============================================================================
  */
 
@@ -628,7 +628,7 @@ function renderJaringanKPIs(fullData, isTol) {
         ${formatNumber(totReal)}
       </div>
       <p class="text-[10px] text-gov-muted dark:text-slate-400">
-        Total volume kendaraan selama 18 hari masa posko Nataru 2024/2025 (Slide 4).
+        Total volume kendaraan selama 18 hari masa posko Nataru 2024/2025.
       </p>
     </div>
 
@@ -707,13 +707,13 @@ function renderJaringanTable(filteredData, isTol, totalCount) {
   tbody.innerHTML = filteredData.map((row) => {
     let rankBadge = '';
     if (row.rank === 1) {
-      rankBadge = '<span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-amber-400 text-slate-900 font-extrabold text-[11px] shadow-2xs">🥇 1</span>';
+      rankBadge = '<span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-amber-500 text-white font-extrabold text-xs shadow-xs">1</span>';
     } else if (row.rank === 2) {
-      rankBadge = '<span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-slate-300 text-slate-900 font-extrabold text-[11px] shadow-2xs">🥈 2</span>';
+      rankBadge = '<span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-slate-400 text-white font-extrabold text-xs shadow-xs">2</span>';
     } else if (row.rank === 3) {
-      rankBadge = '<span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-amber-700 text-white font-extrabold text-[11px] shadow-2xs">🥉 3</span>';
+      rankBadge = '<span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-amber-700 text-white font-extrabold text-xs shadow-xs">3</span>';
     } else {
-      rankBadge = `<span class="inline-block px-1.5 py-0.5 rounded text-[10px] font-bold text-slate-600 dark:text-slate-300 bg-slate-100 dark:bg-slate-800">${row.rank}</span>`;
+      rankBadge = `<span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 font-semibold text-xs">${row.rank}</span>`;
     }
 
     let densityBadge = '';
