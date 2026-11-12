@@ -173,22 +173,35 @@ function renderTolChart(tolData) {
   });
 
     // Tooltip gabungan 2 arah arus (Mudik & Balik)
+  // Tooltip gabungan 2 arah arus (Mudik & Balik) - Lega, nyaman, dan berjarak proporsional
   const combinedTolHoverTexts = gates.map((g, idx) => {
     const k = keluarValues[idx] || 0;
     const m = masukValues[idx] || 0;
     const tot = k + m;
     let cleanGate = g.key;
-    if (cleanGate === 'Cikatama') cleanGate = 'GT Cikampek Utama (Trans Jawa)';
-    else if (cleanGate === 'Kalitama') cleanGate = 'GT Kalihurip Utama (Cipularang/Bandung)';
-    else if (cleanGate === 'Cikupa') cleanGate = 'GT Cikupa (Merak/Banten)';
-    else cleanGate = 'GT Ciawi (Jagorawi/Puncak)';
+    let subtitle = '';
+    if (cleanGate === 'Cikatama') {
+      cleanGate = 'GT Cikampek Utama';
+      subtitle = 'Koridor Trans Jawa';
+    } else if (cleanGate === 'Kalitama') {
+      cleanGate = 'GT Kalihurip Utama';
+      subtitle = 'Koridor Cipularang / Bandung';
+    } else if (cleanGate === 'Cikupa') {
+      cleanGate = 'GT Cikupa';
+      subtitle = 'Koridor Merak / Banten';
+    } else {
+      cleanGate = 'GT Ciawi';
+      subtitle = 'Koridor Jagorawi / Puncak';
+    }
 
     return [
-      `<b>${cleanGate}</b><br>`,
-      `<span style="color:#38BDF8;">■</span> Keluar (Arus Mudik): <b>${formatNumber(k)}</b> Kendaraan<br>`,
-      `<span style="color:#60A5FA;">■</span> Masuk (Arus Balik): <b>${formatNumber(m)}</b> Kendaraan<br>`,
-      `<span style="color:#64748B;">───────────────────────────</span><br>`,
-      `Total Arus Gerbang: <b>${formatNumber(tot)}</b> Kendaraan`
+      `<span style="font-size:12px;font-weight:800;color:#FFFFFF;">${cleanGate}</span><br>`,
+      `<span style="font-size:10px;color:#94A3B8;">${subtitle}</span><br>`,
+      `<br>`,
+      `<span style="color:#38BDF8;font-size:12px;">●</span>  Keluar (Arus Mudik) :  <b>${formatNumber(k)}</b> unit<br>`,
+      `<span style="color:#60A5FA;font-size:12px;">●</span>  Masuk (Arus Balik) :  <b>${formatNumber(m)}</b> unit<br>`,
+      `<br>`,
+      `<span style="font-size:11px;font-weight:700;color:#F8FAFC;">Total Arus Gerbang :  ${formatNumber(tot)} unit</span>`
     ].join('');
   });
 
@@ -220,10 +233,10 @@ function renderTolChart(tolData) {
 
   const layout = {
     barmode: 'group',
-    bargap: 0.28,
-    bargroupgap: 0.1,
-    height: 340,
-    margin: { l: 95, r: 25, t: 30, b: 65 },
+    bargap: 0.35,
+    bargroupgap: 0.14,
+    height: 380,
+    margin: { l: 95, r: 25, t: 35, b: 65 },
     plot_bgcolor: 'transparent',
     paper_bgcolor: 'transparent',
     font: {
@@ -234,7 +247,8 @@ function renderTolChart(tolData) {
     hoverlabel: {
       bgcolor: '#0F172A',
       bordercolor: '#334155',
-      font: { family: 'Plus Jakarta Sans', size: 11, color: '#FFFFFF' }
+      align: 'left',
+      font: { family: 'Plus Jakarta Sans, sans-serif', size: 11, color: '#FFFFFF' }
     },
     legend: {
       orientation: 'h',
@@ -334,6 +348,7 @@ function renderAsdpChart(asdpData) {
   // Range diberikan ruang hingga 425.000 agar label angka 397.953 tetap utuh & proporsional
 
     // Tooltip gabungan 3 moda kendaraan sekaligus (Mobil R4, Motor R2, Truk)
+  // Tooltip gabungan 3 moda kendaraan - Lega, nyaman, dan berjarak proporsional
   const combinedAsdpHoverTexts = asdpData.map(d => {
     const total = d.proyeksi_total_2026 || (d.proyeksi_mobil_r4 + d.proyeksi_motor_r2 + d.proyeksi_truk_sumbu3);
     const pMobil = Math.round(((d.proyeksi_mobil_r4 || 0) / total) * 100);
@@ -341,17 +356,27 @@ function renderAsdpChart(asdpData) {
     const pTruk = Math.round(((d.proyeksi_truk_sumbu3 || 0) / total) * 100);
 
     let cleanTitle = d.lintas;
-    if (cleanTitle.includes('Merak')) cleanTitle = 'Merak – Bakauheni (Selat Sunda)';
-    else if (cleanTitle.includes('Ketapang')) cleanTitle = 'Ketapang – Gilimanuk (Selat Bali)';
-    else cleanTitle = 'Ciwandan & BBJ Bojonegara (Pengalihan Truk)';
+    let subtitle = '';
+    if (cleanTitle.includes('Merak')) {
+      cleanTitle = 'Merak – Bakauheni';
+      subtitle = 'Lintas Selat Sunda';
+    } else if (cleanTitle.includes('Ketapang')) {
+      cleanTitle = 'Ketapang – Gilimanuk';
+      subtitle = 'Lintas Selat Bali';
+    } else {
+      cleanTitle = 'Ciwandan & BBJ Bojonegara';
+      subtitle = 'Pelabuhan Kontinjensi Truk';
+    }
 
     return [
-      `<b>${cleanTitle}</b><br>`,
-      `<span style="color:#38BDF8;">■</span> Mobil Pribadi (R4): <b>${formatNumber(d.proyeksi_mobil_r4)}</b> Unit (${pMobil}%)<br>`,
-      `<span style="color:#FBBF24;">■</span> Sepeda Motor (R2): <b>${formatNumber(d.proyeksi_motor_r2)}</b> Unit (${pMotor}%)<br>`,
-      `<span style="color:#C084FC;">■</span> Truk Logistik (S3+): <b>${formatNumber(d.proyeksi_truk_sumbu3)}</b> Unit (${pTruk}%)<br>`,
-      `<span style="color:#64748B;">───────────────────────────</span><br>`,
-      `Total Proyeksi: <b>${formatNumber(total)}</b> Unit`
+      `<span style="font-size:12px;font-weight:800;color:#FFFFFF;">${cleanTitle}</span><br>`,
+      `<span style="font-size:10px;color:#94A3B8;">${subtitle}</span><br>`,
+      `<br>`,
+      `<span style="color:#38BDF8;font-size:12px;">●</span>  Mobil Pribadi (R4) :  <b>${formatNumber(d.proyeksi_mobil_r4)}</b> unit  <span style="color:#94A3B8;">(${pMobil}%)</span><br>`,
+      `<span style="color:#FBBF24;font-size:12px;">●</span>  Sepeda Motor (R2) :  <b>${formatNumber(d.proyeksi_motor_r2)}</b> unit  <span style="color:#94A3B8;">(${pMotor}%)</span><br>`,
+      `<span style="color:#C084FC;font-size:12px;">●</span>  Truk Logistik (S3+) :  <b>${formatNumber(d.proyeksi_truk_sumbu3)}</b> unit  <span style="color:#94A3B8;">(${pTruk}%)</span><br>`,
+      `<br>`,
+      `<span style="font-size:11px;font-weight:700;color:#F8FAFC;">Total Proyeksi :  ${formatNumber(total)} unit</span>`
     ].join('');
   });
 
@@ -407,10 +432,10 @@ function renderAsdpChart(asdpData) {
   // Grouped Bar Chart: 3 Batang Terpisah Berdampingan (Mobil R4, Motor R2, Truk)
   const layout = {
     barmode: 'group',
-    bargap: 0.28,
-    bargroupgap: 0.08,
-    height: 380,
-    margin: { l: 80, r: 25, t: 45, b: 35 },
+    bargap: 0.36,
+    bargroupgap: 0.14,
+    height: 410,
+    margin: { l: 85, r: 25, t: 45, b: 45 },
     plot_bgcolor: 'transparent',
     paper_bgcolor: 'transparent',
     font: {
@@ -421,7 +446,8 @@ function renderAsdpChart(asdpData) {
     hoverlabel: {
       bgcolor: '#0F172A',
       bordercolor: '#334155',
-      font: { family: 'Plus Jakarta Sans', size: 11, color: '#FFFFFF' }
+      align: 'left',
+      font: { family: 'Plus Jakarta Sans, sans-serif', size: 11, color: '#FFFFFF' }
     },
     legend: {
       orientation: 'h',
