@@ -18,12 +18,15 @@ function renderKoridorModule() {
 
   const tolData = data.titik_kritis_tol || [];
   const asdpData = data.titik_kritis_asdp || [];
+  const tol43 = data.jaringan_tol_43 || [];
+  const arteri44 = data.jaringan_arteri_44 || [];
 
   renderTitikKritisKPIs(tolData, asdpData);
   renderTolChart(tolData);
   renderTolTable(tolData);
   renderAsdpChart(asdpData);
   renderAsdpTable(asdpData);
+  initJaringanNasional(tol43, arteri44);
 
   if (typeof lucide !== 'undefined') {
     lucide.createIcons();
@@ -462,6 +465,294 @@ function renderAsdpTable(asdpData) {
           <span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-semibold border ${info.badge}">
             ${info.label}
           </span>
+        </td>
+      </tr>
+    `;
+  }).join('');
+}
+
+/**
+ * ==============================================================================
+ * 6. DIREKTORI JARINGAN LALU LINTAS NASIONAL (43 GERBANG TOL & 44 RUAS ARTERI)
+ * Menjawab Rekonsiliasi Slide 1 & Slide 4 PPT Laporan Posko Nataru Kemenhub RI
+ * ==============================================================================
+ */
+
+let jaringanState = {
+  activeTab: 'tol', // 'tol' | 'arteri'
+  searchQuery: '',
+  selectedProv: 'ALL',
+  tolData: [],
+  arteriData: [],
+  initialized: false
+};
+
+function initJaringanNasional(tol43, arteri44) {
+  jaringanState.tolData = tol43 || [];
+  jaringanState.arteriData = arteri44 || [];
+
+  if (!jaringanState.initialized) {
+    setupJaringanControls();
+    jaringanState.initialized = true;
+  }
+
+  updateJaringanView(true);
+}
+
+function setupJaringanControls() {
+  const searchInput = document.getElementById('input-jaringan-search');
+  const provSelect = document.getElementById('select-jaringan-prov');
+  const resetBtn = document.getElementById('btn-reset-jaringan');
+
+  if (searchInput) {
+    searchInput.addEventListener('input', (e) => {
+      jaringanState.searchQuery = (e.target.value || '').toLowerCase().trim();
+      updateJaringanView(false);
+    });
+  }
+
+  if (provSelect) {
+    provSelect.addEventListener('change', (e) => {
+      jaringanState.selectedProv = e.target.value;
+      updateJaringanView(false);
+    });
+  }
+
+  if (resetBtn) {
+    resetBtn.addEventListener('click', () => {
+      jaringanState.searchQuery = '';
+      jaringanState.selectedProv = 'ALL';
+      if (searchInput) searchInput.value = '';
+      if (provSelect) provSelect.value = 'ALL';
+      updateJaringanView(false);
+    });
+  }
+}
+
+window.switchJaringanTab = function(tabKey) {
+  if (jaringanState.activeTab === tabKey) return;
+  jaringanState.activeTab = tabKey;
+  jaringanState.searchQuery = '';
+  jaringanState.selectedProv = 'ALL';
+
+  const searchInput = document.getElementById('input-jaringan-search');
+  if (searchInput) searchInput.value = '';
+
+  const btnTol = document.getElementById('btn-tab-tol43');
+  const btnArteri = document.getElementById('btn-tab-arteri44');
+
+  if (tabKey === 'tol') {
+    if (btnTol) {
+      btnTol.className = 'px-4 py-2 text-xs font-bold rounded-lg transition-all flex items-center gap-2 bg-gov-navy text-white shadow-xs';
+    }
+    if (btnArteri) {
+      btnArteri.className = 'px-4 py-2 text-xs font-semibold rounded-lg transition-all flex items-center gap-2 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700';
+    }
+  } else {
+    if (btnArteri) {
+      btnArteri.className = 'px-4 py-2 text-xs font-bold rounded-lg transition-all flex items-center gap-2 bg-gov-navy text-white shadow-xs';
+    }
+    if (btnTol) {
+      btnTol.className = 'px-4 py-2 text-xs font-semibold rounded-lg transition-all flex items-center gap-2 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700';
+    }
+  }
+
+  updateJaringanView(true);
+};
+
+function updateJaringanView(resetProvDropdown) {
+  const isTol = jaringanState.activeTab === 'tol';
+  const rawData = isTol ? jaringanState.tolData : jaringanState.arteriData;
+
+  if (resetProvDropdown) {
+    populateJaringanProvDropdown(rawData);
+  }
+
+  const filtered = rawData.filter(item => {
+    const q = jaringanState.searchQuery;
+    const matchQuery = !q || 
+      (item.nama && item.nama.toLowerCase().includes(q)) ||
+      (item.provinsi && item.provinsi.toLowerCase().includes(q));
+
+    const matchProv = jaringanState.selectedProv === 'ALL' || item.provinsi === jaringanState.selectedProv;
+
+    return matchQuery && matchProv;
+  });
+
+  renderJaringanKPIs(rawData, isTol);
+  renderJaringanTable(filtered, isTol, rawData.length);
+
+  if (typeof lucide !== 'undefined') {
+    lucide.createIcons();
+  }
+}
+
+function populateJaringanProvDropdown(dataList) {
+  const select = document.getElementById('select-jaringan-prov');
+  if (!select) return;
+
+  const provs = Array.from(new Set(dataList.map(d => d.provinsi).filter(Boolean))).sort();
+  select.innerHTML = `<option value="ALL">Semua Provinsi (${dataList.length})</option>` +
+    provs.map(p => {
+      const count = dataList.filter(d => d.provinsi === p).length;
+      return `<option value="${p}">${p} (${count})</option>`;
+    }).join('');
+
+  select.value = jaringanState.selectedProv;
+}
+
+function renderJaringanKPIs(fullData, isTol) {
+  const container = document.getElementById('jaringan-kpi-cards');
+  if (!container || fullData.length === 0) return;
+
+  const totReal = fullData.reduce((acc, c) => acc + (c.realisasi_2025 || 0), 0);
+  const totProy = fullData.reduce((acc, c) => acc + (c.proyeksi_2026 || 0), 0);
+  const growth = totReal > 0 ? (((totProy - totReal) / totReal) * 100).toFixed(2) : '0';
+  const top1 = fullData[0] || {};
+
+  const titlePrefix = isTol ? '43 Gerbang Tol' : '44 Ruas Arteri';
+  const badgeColor = isTol 
+    ? 'bg-blue-50 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 border-blue-200 dark:border-blue-800' 
+    : 'bg-emerald-50 dark:bg-emerald-900/30 text-emerald-800 dark:text-emerald-300 border-emerald-200 dark:border-emerald-800';
+
+  container.innerHTML = `
+    <!-- Card 1: Total Realisasi 2025 -->
+    <div class="p-3.5 rounded-xl bg-white dark:bg-slate-900 border border-gov-border dark:border-slate-800 shadow-xs">
+      <div class="flex items-center justify-between mb-1.5">
+        <span class="text-[10px] font-bold text-gov-muted dark:text-slate-400 uppercase tracking-wider">Realisasi 2025 (${titlePrefix})</span>
+        <span class="px-1.5 py-0.5 rounded text-[10px] font-bold ${badgeColor} border">
+          Baseline Posko
+        </span>
+      </div>
+      <div class="text-xl font-extrabold text-slate-800 dark:text-slate-100 num-tabular mb-0.5">
+        ${formatNumber(totReal)}
+      </div>
+      <p class="text-[10px] text-gov-muted dark:text-slate-400">
+        Total volume kendaraan selama 18 hari masa posko Nataru 2024/2025 (Slide 4).
+      </p>
+    </div>
+
+    <!-- Card 2: Total Proyeksi 2026 -->
+    <div class="p-3.5 rounded-xl bg-white dark:bg-slate-900 border border-gov-border dark:border-slate-800 shadow-xs">
+      <div class="flex items-center justify-between mb-1.5">
+        <span class="text-[10px] font-bold text-gov-muted dark:text-slate-400 uppercase tracking-wider">Proyeksi 2026 (${titlePrefix})</span>
+        <span class="px-1.5 py-0.5 rounded text-[10px] font-bold bg-gov-navy text-white">
+          Damped HW
+        </span>
+      </div>
+      <div class="text-xl font-extrabold text-gov-navy dark:text-sky-400 num-tabular mb-0.5">
+        ${formatNumber(totProy)}
+      </div>
+      <p class="text-[10px] text-gov-muted dark:text-slate-400">
+        Estimasi arus kendaraan Nataru 2026/2027 dengan peredam kapasitas jalan riil.
+      </p>
+    </div>
+
+    <!-- Card 3: Pertumbuhan YoY -->
+    <div class="p-3.5 rounded-xl bg-white dark:bg-slate-900 border border-gov-border dark:border-slate-800 shadow-xs">
+      <div class="flex items-center justify-between mb-1.5">
+        <span class="text-[10px] font-bold text-gov-muted dark:text-slate-400 uppercase tracking-wider">Pertumbuhan YoY</span>
+        <span class="px-1.5 py-0.5 rounded text-[10px] font-bold bg-emerald-50 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800">
+          Tren Makro
+        </span>
+      </div>
+      <div class="text-xl font-extrabold text-emerald-600 dark:text-emerald-400 num-tabular mb-0.5">
+        +${growth}%
+      </div>
+      <p class="text-[10px] text-gov-muted dark:text-slate-400">
+        Kenaikan beban volume lalu lintas agregat dibanding realisasi tahun lalu.
+      </p>
+    </div>
+
+    <!-- Card 4: Titik #1 Terpadat -->
+    <div class="p-3.5 rounded-xl bg-white dark:bg-slate-900 border border-gov-border dark:border-slate-800 shadow-xs">
+      <div class="flex items-center justify-between mb-1.5">
+        <span class="text-[10px] font-bold text-gov-muted dark:text-slate-400 uppercase tracking-wider">#1 Titik Paling Padat</span>
+        <span class="px-1.5 py-0.5 rounded text-[10px] font-bold bg-rose-50 dark:bg-rose-900/30 text-rose-700 dark:text-rose-300 border border-rose-200 dark:border-rose-800">
+          Rank 1 (${top1.share_pct}%)
+        </span>
+      </div>
+      <div class="text-sm font-extrabold text-rose-700 dark:text-rose-400 truncate mb-0.5" title="${top1.nama || '-'}">
+        ${top1.nama || '-'}
+      </div>
+      <p class="text-[10px] text-gov-muted dark:text-slate-400">
+        ${formatNumber(top1.proyeksi_2026 || 0)} Kendaraan &bull; ${top1.provinsi || '-'}
+      </p>
+    </div>
+  `;
+}
+
+function renderJaringanTable(filteredData, isTol, totalCount) {
+  const tbody = document.getElementById('table-jaringan-body');
+  const counterEl = document.getElementById('label-jaringan-counter');
+  if (!tbody) return;
+
+  const typeLabel = isTol ? 'Gerbang Tol' : 'Ruas Jalan Arteri';
+  if (counterEl) {
+    counterEl.textContent = `Menampilkan ${filteredData.length} dari ${totalCount} ${typeLabel}`;
+  }
+
+  if (filteredData.length === 0) {
+    tbody.innerHTML = `
+      <tr>
+        <td colspan="8" class="py-8 text-center text-slate-400 dark:text-slate-500 text-xs">
+          <i data-lucide="search-x" class="w-6 h-6 mx-auto mb-2 opacity-50"></i>
+          Tidak ditemukan ${typeLabel} yang cocok dengan pencarian atau filter provinsi.
+        </td>
+      </tr>
+    `;
+    return;
+  }
+
+  tbody.innerHTML = filteredData.map((row) => {
+    let rankBadge = '';
+    if (row.rank === 1) {
+      rankBadge = '<span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-amber-400 text-slate-900 font-extrabold text-[11px] shadow-2xs">🥇 1</span>';
+    } else if (row.rank === 2) {
+      rankBadge = '<span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-slate-300 text-slate-900 font-extrabold text-[11px] shadow-2xs">🥈 2</span>';
+    } else if (row.rank === 3) {
+      rankBadge = '<span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-amber-700 text-white font-extrabold text-[11px] shadow-2xs">🥉 3</span>';
+    } else {
+      rankBadge = `<span class="inline-block px-1.5 py-0.5 rounded text-[10px] font-bold text-slate-600 dark:text-slate-300 bg-slate-100 dark:bg-slate-800">${row.rank}</span>`;
+    }
+
+    let densityBadge = '';
+    if (row.proyeksi_2026 >= 1000000) {
+      densityBadge = '<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-rose-50 dark:bg-rose-900/30 text-rose-700 dark:text-rose-300 border border-rose-200 dark:border-rose-800">Ekstrem Padat (&gt;1 Jt)</span>';
+    } else if (row.proyeksi_2026 >= 500000) {
+      densityBadge = '<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-amber-50 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300 border border-amber-200 dark:border-amber-800">Sangat Padat</span>';
+    } else {
+      densityBadge = '<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-800">Padat Normal</span>';
+    }
+
+    return `
+      <tr class="hover:bg-slate-50/80 dark:hover:bg-slate-800/40 transition-colors border-b border-slate-100 dark:border-slate-800/60">
+        <td class="py-2.5 px-3 text-center">${rankBadge}</td>
+        <td class="py-2.5 px-3">
+          <div class="font-bold text-slate-900 dark:text-slate-100 text-xs">${row.nama}</div>
+          <div class="text-[10px] text-slate-400 dark:text-slate-500">ID Pantauan #${row.no_asli}</div>
+        </td>
+        <td class="py-2.5 px-3 whitespace-nowrap">
+          <span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">
+            ${row.provinsi}
+          </span>
+        </td>
+        <td class="py-2.5 px-3 text-right font-medium text-slate-600 dark:text-slate-300 num-tabular">
+          ${formatNumber(row.realisasi_2025)}
+        </td>
+        <td class="py-2.5 px-3 text-right font-extrabold text-gov-navy dark:text-sky-400 num-tabular">
+          ${formatNumber(row.proyeksi_2026)}
+        </td>
+        <td class="py-2.5 px-3 text-center">
+          <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-50 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800">
+            +${row.pertumbuhan_pct}%
+          </span>
+        </td>
+        <td class="py-2.5 px-3 text-right font-semibold text-slate-700 dark:text-slate-300 num-tabular">
+          ${row.share_pct}%
+        </td>
+        <td class="py-2.5 px-3 text-center whitespace-nowrap">
+          ${densityBadge}
         </td>
       </tr>
     `;
