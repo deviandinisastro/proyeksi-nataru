@@ -461,7 +461,7 @@ async function loadApplicationData() {
 
       fetch('./data/nataru_data.json?v=20261112_1115'),
 
-      fetch('./data/spatial_nodes.json')
+      fetch('./data/spatial_nodes.json?v=20261112_1410')
 
     ]);
 

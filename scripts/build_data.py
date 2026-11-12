@@ -386,7 +386,13 @@ def build_data_pipeline():
                 'id': coord_info.get('id', f"N{rank_nasional+1}"),
                 'nama': clean_simpul_name(s_nama, s_moda),
                 'moda': s_moda,
-                'moda_label': MODA_DISPLAY.get(s_moda, {}).get('label', s_moda),
+                'moda_label': {
+                    'Angkutan Udara': 'Bandara',
+                    'Kereta Api': 'Stasiun KA',
+                    'Angkutan Laut': 'Pelabuhan Laut',
+                    'Angkutan Jalan': 'Terminal Bus',
+                    'Angkutan SDP': 'Pelabuhan Penyeberangan'
+                }.get(s_moda, s_moda),
                 'color': MODA_DISPLAY.get(s_moda, {}).get('color', '#003882'),
                 'provinsi': coord_info.get('provinsi', 'Indonesia'),
                 'lat': coord_info['lat'],

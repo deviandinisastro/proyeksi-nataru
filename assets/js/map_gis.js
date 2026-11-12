@@ -27,13 +27,25 @@ let spatialSearchQuery = '';
 const UNIFORM_RADIUS = 4.2; // Ukuran titik sama rata sesuai arahan statistisi rapat
 const INDONESIA_BOUNDS = [[-10.8, 95.0], [5.8, 141.0]]; // Batas koordinat seluruh kepulauan Indonesia
 
+const SIMPUL_NAMES = {
+  'Angkutan Udara': 'Bandara',
+  'Kereta Api': 'Stasiun KA',
+  'Angkutan Laut': 'Pelabuhan Laut',
+  'Angkutan Jalan': 'Terminal Bus',
+  'Angkutan SDP': 'Pelabuhan Penyeberangan'
+};
+
+function getNodeSimpulLabel(node) {
+  return SIMPUL_NAMES[node.moda] || node.moda_label || node.moda;
+}
+
 const MAP_MODA_CONFIG = [
-  { key: 'ALL', label: 'Semua Moda (1.212)', moda_name: 'Multimoda', unit_name: 'Nasional', color: '#003882', makro_total: 18462913 },
-  { key: 'Angkutan Udara', label: '✈️ Bandara (257)', moda_name: 'Angkutan Udara', unit_name: 'Bandara', color: '#0284C7', makro_total: 4880174 },
-  { key: 'Kereta Api', label: '🚆 Stasiun KA (197)', moda_name: 'Kereta Api', unit_name: 'Stasiun KA', color: '#EA580C', makro_total: 4062995 },
-  { key: 'Angkutan Laut', label: '🚢 Pelabuhan Laut (267)', moda_name: 'Angkutan Laut', unit_name: 'Pelabuhan Laut', color: '#0D9488', makro_total: 2268857 },
-  { key: 'Angkutan Jalan', label: '🚌 Terminal Bus (215)', moda_name: 'Angkutan Jalan', unit_name: 'Terminal Bus', color: '#16A34A', makro_total: 3434854 },
-  { key: 'Angkutan SDP', label: '⛴️ Penyeberangan (276)', moda_name: 'Angkutan SDP', unit_name: 'Pelabuhan SDP', color: '#9333EA', makro_total: 3816033 }
+  { key: 'ALL', label: 'Semua Simpul (1.212)', moda_name: 'Multimoda', unit_name: 'Nasional', color: '#003882', makro_total: 18462913 },
+  { key: 'Angkutan Udara', label: '✈️ Bandara (257)', moda_name: 'Bandara', unit_name: 'Bandara', color: '#0284C7', makro_total: 4880174 },
+  { key: 'Kereta Api', label: '🚆 Stasiun KA (197)', moda_name: 'Stasiun KA', unit_name: 'Stasiun KA', color: '#EA580C', makro_total: 4062995 },
+  { key: 'Angkutan Laut', label: '🚢 Pelabuhan Laut (267)', moda_name: 'Pelabuhan Laut', unit_name: 'Pelabuhan Laut', color: '#0D9488', makro_total: 2268857 },
+  { key: 'Angkutan Jalan', label: '🚌 Terminal Bus (215)', moda_name: 'Terminal Bus', unit_name: 'Terminal Bus', color: '#16A34A', makro_total: 3434854 },
+  { key: 'Angkutan SDP', label: '⛴️ Pelabuhan Penyeberangan (276)', moda_name: 'Pelabuhan Penyeberangan', unit_name: 'Pelabuhan Penyeberangan', color: '#9333EA', makro_total: 3816033 }
 ];
 
 function renderMapModule() {
@@ -172,11 +184,11 @@ function setupMapLegend() {
               <span class="text-[9px] text-slate-400 font-normal">1.212 Titik</span>
             </div>
             <div class="grid grid-cols-2 gap-x-2 gap-y-1 text-[10px] text-slate-700 dark:text-slate-300">
-              <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-[#0284C7] shrink-0 border border-white"></span> Udara (257)</span>
-              <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-[#EA580C] shrink-0 border border-white"></span> Kereta Api (197)</span>
+              <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-[#0284C7] shrink-0 border border-white"></span> Bandara (257)</span>
+              <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-[#EA580C] shrink-0 border border-white"></span> Stasiun KA (197)</span>
               <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-[#0D9488] shrink-0 border border-white"></span> Pelabuhan Laut (267)</span>
               <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-[#16A34A] shrink-0 border border-white"></span> Terminal Bus (215)</span>
-              <span class="flex items-center gap-1.5 col-span-2"><span class="w-2 h-2 rounded-full bg-[#9333EA] shrink-0 border border-white"></span> Pelabuhan SDP (276)</span>
+              <span class="flex items-center gap-1.5 col-span-2"><span class="w-2 h-2 rounded-full bg-[#9333EA] shrink-0 border border-white"></span> Pelabuhan Penyeberangan (276)</span>
             </div>
           </div>
         </div>
@@ -464,7 +476,7 @@ function renderEqualMarkers(nodes) {
             ${node.nama}
           </div>
           <span class="px-2 py-0.5 rounded text-[10px] font-bold text-white shrink-0 shadow-2xs" style="background-color: ${node.color || '#003882'}">
-            ${node.moda_label || node.moda}
+            ${getNodeSimpulLabel(node)}
           </span>
         </div>
         <div class="flex items-center justify-between text-[11px] text-slate-500 dark:text-slate-400">
@@ -571,7 +583,7 @@ function renderSpatialTable(nodes) {
         </td>
         <td class="py-2.5 px-3 whitespace-nowrap">
           <span class="px-2 py-0.5 rounded text-[10px] font-bold text-white shadow-2xs" style="background-color: ${node.color || '#003882'}">
-            ${node.moda_label || node.moda}
+            ${getNodeSimpulLabel(node)}
           </span>
         </td>
         <td class="py-2.5 px-3 whitespace-nowrap text-xs text-slate-600 dark:text-slate-300">
