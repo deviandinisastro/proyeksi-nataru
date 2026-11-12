@@ -679,6 +679,8 @@ function renderJaringanKPIs(fullData, isTol) {
   const totProy = fullData.reduce((acc, c) => acc + (c.proyeksi_2026 || 0), 0);
   const growth = totReal > 0 ? (((totProy - totReal) / totReal) * 100).toFixed(2) : '0';
   const top1 = fullData[0] || {};
+  const top1RawName = top1.nama || '-';
+  const top1CleanName = top1RawName.replace(/\s*\(.*?\)\s*/g, ' ').replace(/\s+\d+$/, '').trim() || top1RawName;
 
   const titlePrefix = isTol ? '43 Gerbang Tol' : '44 Ruas Arteri';
   const badgeColor = isTol 
@@ -742,8 +744,8 @@ function renderJaringanKPIs(fullData, isTol) {
           Rank 1 (${top1.share_pct}%)
         </span>
       </div>
-      <div class="text-sm font-extrabold text-rose-700 dark:text-rose-400 truncate mb-0.5" title="${top1.nama || '-'}">
-        ${top1.nama || '-'}
+      <div class="text-sm font-extrabold text-rose-700 dark:text-rose-400 mb-0.5" title="${top1RawName}">
+        ${top1CleanName}
       </div>
       <p class="text-[10px] text-gov-muted dark:text-slate-400">
         ${formatNumber(top1.proyeksi_2026 || 0)} Kendaraan &bull; ${top1.provinsi || '-'}
@@ -775,6 +777,8 @@ function renderJaringanTable(filteredData, isTol, totalCount) {
   }
 
   tbody.innerHTML = filteredData.map((row) => {
+    const rawName = row.nama || '-';
+    const cleanName = rawName.replace(/\s*\(.*?\)\s*/g, ' ').replace(/\s+\d+$/, '').trim() || rawName;
     let rankBadge = '';
     if (row.rank === 1) {
       rankBadge = '<span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-amber-500 text-white font-extrabold text-xs shadow-xs">1</span>';
@@ -799,7 +803,7 @@ function renderJaringanTable(filteredData, isTol, totalCount) {
       <tr class="hover:bg-slate-50/80 dark:hover:bg-slate-800/40 transition-colors border-b border-slate-100 dark:border-slate-800/60">
         <td class="py-2.5 px-3 text-center">${rankBadge}</td>
         <td class="py-2.5 px-3">
-          <div class="font-bold text-slate-900 dark:text-slate-100 text-xs">${row.nama}</div>
+          <div class="font-bold text-slate-900 dark:text-slate-100 text-xs" title="${row.nama || '-'}">${cleanName}</div>
           <div class="text-[10px] text-slate-400 dark:text-slate-500">ID Pantauan #${row.no_asli}</div>
         </td>
         <td class="py-2.5 px-3 whitespace-nowrap">
